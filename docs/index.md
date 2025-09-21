@@ -5,7 +5,7 @@
 
 Aquí puedes encontrar los apuntes del módulo de ***Desarrollo web en entorno servidor***, que se imparte en el segundo curso del ciclo formativo de grado superior de *Desarrollo de Aplicaciones Web*.
 
-La duración del módulo es de 168 horas lectivas, a razón de **8 horas semanales**, y se desarrolla a lo largo de los **dos primeros trimestres** del curso. Se ha [planificado](planning.md) basándose en 4 sesiones de 2 horas lectivas por semana.
+La duración del módulo es de 168 horas lectivas, a razón de **7 horas semanales**, y se desarrolla a lo largo de los **dos primeros trimestres** del curso. Se ha [planificado](planning.md) basándose en 4 sesiones por semana.
 
 ## ¿Qué voy a aprender?
 
