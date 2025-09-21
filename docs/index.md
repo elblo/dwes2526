@@ -1,7 +1,7 @@
 # Desarrollo Web en Entorno Servidor
 
 ??? info "Apuntes en construcción"
-    Estos apuntes se están actualizando por [*Eladio Blanco*](https://x.com/eladioblanco) durante el curso 24/25 tomando como base los elaborados en el curso 21/22 por [*Aitor Medrano*](https://x.com/aitormedrano) y *Luis Alemañ*.
+    Estos apuntes se están actualizando por [*Eladio Blanco*](https://x.com/eladioblanco) durante el curso 25/26 tomando como base los elaborados en el curso 21/22 por [*Aitor Medrano*](https://x.com/aitormedrano) y *Luis Alemañ*.
 
 Aquí puedes encontrar los apuntes del módulo de ***Desarrollo web en entorno servidor***, que se imparte en el segundo curso del ciclo formativo de grado superior de *Desarrollo de Aplicaciones Web*.
 
