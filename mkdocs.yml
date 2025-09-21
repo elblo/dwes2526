@@ -1,0 +1,92 @@
+site_name: Desarrollo Web en Entorno Servidor
+site_url: https://elblo.github.io/dwes2425
+use_directory_urls: false
+
+nav:
+  - "Inicio": "index.md"
+  - "1.- Arquitecturas Web": "01arquitecturas.md"
+  - "2.- El lenguaje PHP": "02php.md"
+  - "3.- PHP Orientado a Objetos": "03phpoo.md"
+  - "4.- Programación Web": "04web.md"
+  - "5.- Herramientas Web": "05herramientas.md"
+  - "6.- Acceso a Datos": "06accesoDatos.md"
+  - "7.- Frameworks PHP - Laravel": "07frameworks.md"
+  - "8.- Gestión de datos en Laravel": "08laravelDatos.md"
+  - "9.- Laravel Avanzado": "09laravelAvanzado.md"
+  - "10.- Autenticación y autorización": "10laravelAutenticacion.md"
+  # - "10.- Servicios REST": "10laravelRest.md"
+  - "Actividades resueltas": # Importante al ser categoría, NO enlazar a ningún md
+    - "Tema 8": "08actividadesResueltas.md"
+  #  - "Tema 9": "09actividadesResueltas.md"
+
+
+
+theme:
+  language: es
+  favicon: imagenes/favicon.png
+  name: "material"
+  palette:
+    - scheme: default
+      primary: light blue
+      accent: "Teal"
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Cambiar a modo noche
+    - scheme: slate 
+      primary: pink 
+      accent: "Teal"
+      toggle:
+        icon: material/toggle-switch
+        name: Cambiar a modo día
+  font:
+    text: Roboto
+    code: Roboto Mono
+  logo: "imagenes/logoies.png"
+  features:
+    - header.autohide
+    - toc.integrate
+    - content.tabs.link
+    # - navigation.tabs
+    # - navigation.top
+
+extra:
+  search:
+    language: "es"
+  social:
+    - icon: material/twitter
+      link: https://twitter.com/eladioblanco
+    - icon: material/email-edit
+      link: mailto:<eladio.blanco@fernando3martos.com>
+  # analytics:
+    # provider: google
+    # property: G-X6D0LR7TC8
+
+plugins:
+  - search
+
+markdown_extensions:
+  - attr_list
+  - admonition
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.details
+  - pymdownx.highlight:
+      linenums: true
+      linenums_style: pymdownx-inline
+  - pymdownx.superfences:
+      custom_fences:
+          - name: mermaid
+            class: mermaid
+            format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tilde
+  - pymdownx.smartsymbols
+  - footnotes
+  - meta
+  - sane_lists
+  - toc:
+      permalink: true
+      toc_depth: 3
+
+copyright: 2024-2025 Eladio Blanco, basado en apuntes 2021-2022 de Aitor Medrano, Luis Alemañ - Licencia CC BY-NC-SA
