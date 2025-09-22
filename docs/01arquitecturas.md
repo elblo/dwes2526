@@ -105,10 +105,12 @@ Existen diferentes técnicas o enfoques de renderizado, cada uno con sus ventaja
     El servidor genera el HTML completo de la página y lo envía al navegador. El navegador solo tiene que renderizar el HTML, lo que es mucho más rápido.
 
     **Ventajas:**
+
     - Rendimiento inicial: La página se carga mucho más rápido, mejorando la experiencia del usuario.
     - SEO: Los motores de búsqueda pueden indexar el contenido fácilmente, ya que la página está completamente renderizada en el servidor.
 
     **Desventajas:**
+
     - Escalabilidad: Puede ser más costoso en términos de recursos del servidor, especialmente para sitios con mucho tráfico.
     - Complejidad: Requiere una configuración más compleja en el servidor.
 
@@ -119,10 +121,12 @@ Existen diferentes técnicas o enfoques de renderizado, cada uno con sus ventaja
     Las páginas se generan como archivos HTML estáticos en tiempo de construcción y se sirven directamente desde el servidor.
 
     **Ventajas:**
+
     - Rendimiento extremo: Las páginas se cargan instantáneamente, ya que no hay necesidad de renderizar nada en el servidor o en el cliente.
     - SEO: Excelente para SEO, ya que las páginas son completamente estáticas.
 
     **Desventajas:**
+
     - Menos dinámico: No es ideal para sitios que requieren contenido generado dinámicamente.
 
 ??? abstract "Incremental Static Regeneration (ISR)"
@@ -132,10 +136,12 @@ Existen diferentes técnicas o enfoques de renderizado, cada uno con sus ventaja
     Combina lo mejor de SSG y SSR. Genera páginas estáticas en tiempo de construcción, pero puede actualizar partes de ellas dinámicamente en el servidor.
 
     **Ventajas:**
+
     - Excelente equilibrio: Ofrece un buen rendimiento y flexibilidad.
     - SEO: Bueno para SEO, ya que la mayoría del contenido es estático.
 
     **Desventajas:**
+    
     - Complejidad: Requiere una configuración más compleja.
 
 ##### ¿Cuándo usar cada uno?
