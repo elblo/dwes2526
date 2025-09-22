@@ -40,25 +40,30 @@ Duración estimada: 76 horas
     * Cliente/Servidor.
     * MVC.
     * Puesta en marcha con XAMPP y Docker.
-2. [El lenguaje PHP](02php.md) (26h)
+#2. [El lenguaje PHP](02php.md) (26h)
+2. El lenguaje PHP (26h)
     * Condiciones y bucles.
     * Arrays.
-3. [Orientación a objetos con PHP](03phpoo.md) (18h)
+#3. [Orientación a objetos con PHP](03phpoo.md) (18h)
+3. Orientación a objetos con PHP (18h)
     * Clases y objetos
     * Namespaces
     * Excepciones
-4. [Programación Web](04web.md) (12h)
+#4. [Programación Web](04web.md) (12h)
+4. Programación Web (12h)
     * Formularios.
     * Cookies.
     * Sesiones.
-5. [Herramientas Web](05herramientas.md) (16h)
+#5. [Herramientas Web](05herramientas.md) (16h)
+5. Herramientas Web (16h)
     * Gestión de librerías con *Composer*.
     * Envío de correos con *Resend*.
     * Gestión de logs con *Monolog*.
     * Documentación con *phpDocumentor*.
     * Web scraping con *Goutte*.
     * Pruebas con *PhpUnit*.
-6. [Acceso a datos](06accesoDatos.md) (28h)
+# 6. [Acceso a datos](06accesoDatos.md) (28h)
+6. Acceso a datos (28h)
     * *SQL*
     * *PDO*
     * Ficheros CSV y PDF.
@@ -67,28 +72,33 @@ Duración estimada: 76 horas
 
 Duración estimada: 86 horas
 
-7. [Frameworks PHP - Laravel](07frameworks.md) (28h)
+#7. [Frameworks PHP - Laravel](07frameworks.md) (28h)
+7. Frameworks PHP - Laravel (28h)
     * Instalación y entornos de desarrollo
     * Rutas
     * Vistas y plantillas Blade
     * Controladores
-8. [Gestion de datos en Laravel](08laravelDatos.md) (24h)
+#8. [Gestion de datos en Laravel](08laravelDatos.md) (24h)
+8. Gestion de datos en Laravel (24h)
     * Migraciones e integración con el ORM *Eloquent*.
     * Query Builder
     * Modelos
     * Formulario sy validación
-9. [Uso avanzado de Laravel](09laravelAvanzado.md) (22h)
+#9. [Uso avanzado de Laravel](09laravelAvanzado.md) (22h)
+9. Uso avanzado de Laravel (22h)
     * Almacenamiento de ficheros (local y AWS S3)
     * Request y responses
     * Relaciones entre modelos
     * Seeders y factorías
     * Mutadores y accesores
-10. [Autenticación y autorización](10laravelAutenticacion.md) (12h)
+#10. [Autenticación y autorización](10laravelAutenticacion.md) (12h)
+10. Autenticación y autorización (12h)
     * Autenticación
     * Autorización
     * Kits de inicio
     * Laravel Cloud
-11. [Servicios REST](10laravelRest.md) (12h)
+#11. [Servicios REST](10laravelRest.md) (12h)
+11. Servicios REST (12h)
     * Producción y consumo.
     * *AJAX* con *JSON*.
 
