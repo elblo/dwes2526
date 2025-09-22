@@ -2,7 +2,7 @@
 
 ??? abstract "Duración y criterios de evaluación"
 
-    Duración estimada: 4 sesiones
+    Duración estimada: 3 sesiones
 
     <hr />
 
@@ -91,7 +91,7 @@ Existen diferentes técnicas o enfoques de renderizado, cada uno con sus ventaja
     El navegador descarga el HTML básico y el JavaScript necesario. Luego, el código JavaScript se ejecuta en el navegador del usuario para crear la interfaz de usuario completa.
 
     **Ventajas:**
-    
+
     - Experiencia de usuario dinámica: Permite crear interfaces altamente interactivas y aplicaciones de una sola página (SPA) con transiciones suaves.
     - Flexibilidad: Fácil de desarrollar y actualizar.
       
