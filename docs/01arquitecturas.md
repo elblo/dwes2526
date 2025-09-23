@@ -96,7 +96,7 @@ Existen diferentes técnicas o enfoques de renderizado, cada uno con sus ventaja
     - Flexibilidad: Fácil de desarrollar y actualizar.
       
     **Desventajas:**
-    
+
     - Rendimiento inicial: La primera carga puede ser lenta, ya que el navegador tiene que descargar todo el JavaScript y renderizar la página.
     - SEO: Los motores de búsqueda pueden tener dificultades para indexar el contenido, ya que la página no está completamente renderizada en el servidor.
 
@@ -451,17 +451,29 @@ Otra forma más sencilla para lanzar de nuevo los contenedores y gestionarlos un
 
 ### Entorno de desarrollo
 
-En este curso vamos a emplear *Visual Studio Code* (<https://code.visualstudio.com>) como entorno de desarrollo (IDE). Existen otras alternativas, siendo [PhpStorm](https://www.jetbrains.com/es-es/phpstorm/) la más conocida pero siendo de pago. Otra posibilidad es utilizar [Eclipse](https://www.eclipse.org/pdt/), aunque es un entorno bastante pesado.
+En este curso vamos a programar con [PhpStorm](https://www.jetbrains.com/es-es/phpstorm/), la solución más conocida y utilizada.
 
-**VS Code** es un editor de código fuente que se complementa mediante extensiones para adaptarse a casi cualquier lenguaje y necesidad. Muy importante seguir [estos pasos](https://code.visualstudio.com/docs/languages/php) para configurarlo correctamente con PHP. Sobre todo, indicar en la variable `php.validate.executablePath` la *ruta del ejecutable de PHP* en el sistema. 
+<figure>
+  <img src="imagenes/01/phpstorm_intro.png" />
+  <figcaption>PhpStorm</figcaption>
+</figure>
 
-Vamos a utilizar las siguientes extensiones con VS Code:
+PhpStorm es un software de pago, aunque puedes activar la licencia gratuita durante 1 año con tu cuenta del instituto.  Desde su menú *Help > Register*.
+
+<figure>
+  <img src="imagenes/01/phpstorm_licencia.png" />
+  <figcaption>PhpStorm</figcaption>
+</figure>
+
+Otra alternativa es utilizar [Eclipse](https://www.eclipse.org/pdt/), aunque es un entorno bastante pesado y menos usado cada vez.
+
+Y otra alternativa cada vez más usada y de código libre, es *Visual Studio Code* (<https://code.visualstudio.com>) un editor de código fuente que se complementa mediante extensiones para adaptarse a casi cualquier lenguaje y en este caso, comportarse como un IDE completo para PHP. Muy importante seguir [estos pasos](https://code.visualstudio.com/docs/languages/php) para configurarlo correctamente con PHP. Sobre todo, indicar en la variable `php.validate.executablePath` la *ruta del ejecutable de PHP* en el sistema. 
+
+Extensiones a utilizar con VS Code:
 
 * [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
 * [PHP Intelephense](https://marketplace.visualstudio.com/items?itemName=bmewburn.vscode-intelephense-client)
 * [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)
-
-En la siguiente sesión comenzaremos a utilizar *Intelephense* pero en esta sesión nos vamos a centrar en *Docker* (más adelante instalaremos nuevas extensiones).
 
 Por ejemplo, si abrimos la extensión de *Docker*, podréis visualizar tanto los contenedores como las imágenes de vuestro sistema. Desde cada contenedor, mediante clic derecho, podemos iniciar/detener/reiniciar cada contenedor, así como ver su contenido o abrir un terminal dentro del mismo.
 
@@ -471,7 +483,6 @@ Por ejemplo, si abrimos la extensión de *Docker*, podréis visualizar tanto los
 </figure>
 
 Puedes seguir este [tutorial](https://www.digitalocean.com/community/tutorials/how-to-set-up-visual-studio-code-for-php-projects) (inglés) para configurar VSCode para trabajar con PHP.
-
 
 ### Hola Mundo
 
@@ -495,7 +506,7 @@ Si nombramos el archivo como `index.php`, al acceder a `http://localhost` autom�
 </html>
 ```
 
-### Servidor Live Reload
+### Servidor Live Reload (para usar con VS Code)
 
 Para poder visualizar cada nuevo cambio que hagamos en una página PHP como la anterior, tendremos que refrescar el navegador manualmente.
 
@@ -516,6 +527,7 @@ Ahora, cada vez que guardes en VS Code, los cambios se reflejarán automáticame
 ### Intérpretes online
 
 Existen multitud de intérpretes de PHP online para poder probar nuestros scripts sin necesidad de tener nada instalado en local, como:
+
 * [Programiz](https://www.programiz.com/php/online-compiler/)
 * [OnlinePHP](https://onlinephp.io/)
 * [myCompiler](https://www.mycompiler.io/es/new/php)
