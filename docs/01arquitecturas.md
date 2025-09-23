@@ -96,6 +96,7 @@ Existen diferentes técnicas o enfoques de renderizado, cada uno con sus ventaja
     - Flexibilidad: Fácil de desarrollar y actualizar.
       
     **Desventajas:**
+    
     - Rendimiento inicial: La primera carga puede ser lenta, ya que el navegador tiene que descargar todo el JavaScript y renderizar la página.
     - SEO: Los motores de búsqueda pueden tener dificultades para indexar el contenido, ya que la página no está completamente renderizada en el servidor.
 
