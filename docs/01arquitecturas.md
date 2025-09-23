@@ -455,14 +455,14 @@ En este curso vamos a programar con [PhpStorm](https://www.jetbrains.com/es-es/p
 
 <figure>
   <img src="imagenes/01/phpstorm_intro.png" />
-  <figcaption>PhpStorm</figcaption>
+  <figcaption>IDE PhpStorm</figcaption>
 </figure>
 
 PhpStorm es un software de pago, aunque puedes activar la licencia gratuita durante 1 año con tu cuenta del instituto.  Desde su menú *Help > Register*.
 
 <figure>
-  <img src="imagenes/01/phpstorm_licencia.png" />
-  <figcaption>PhpStorm</figcaption>
+  <img src="imagenes/01/phpstorm_licencia.png" width="400"/>
+  <figcaption>Licencia educativa de PhpStorm</figcaption>
 </figure>
 
 Otra alternativa es utilizar [Eclipse](https://www.eclipse.org/pdt/), aunque es un entorno bastante pesado y menos usado cada vez.
