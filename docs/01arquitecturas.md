@@ -563,14 +563,14 @@ Existen multitud de intérpretes de PHP online para poder probar nuestros script
     * `post_max_size`
     * `upload_max_filesize`
 
-104. Abre el archivo `php.ini-production` que está dentro del contenedor (puedes averiguar la ruta a partir de la propiedad *Configuration File (php.ini) Path*) e indica para qué sirven las siguientes propiedades y qué valores contienen:
+104. Abre el archivo `php.ini` (puedes averiguar su ruta a partir de la propiedad *Loaded Configuration File (php.ini) Path* que anotaste en la actividad) e indica para qué sirven las siguientes propiedades y qué valores contienen:
 
     * `file_uploads`
     * `max_execution_time`
     * `short_open_tag`
 
     !!! note "php.ini"
-        Es el archivo de configuración de PHP, y en toda instalación vienen dos plantillas (`php.ini-development` y `php.ini-production`) para que elijamos los valores más acordes a nuestro proyecto y creemos nuestro archivo propio de `php.ini`.
+        Es el archivo de configuración de PHP, y en algunas instalaciones vienen dos plantillas (`php.ini-development` y `php.ini-production`) para que elijamos los valores más acordes a nuestro proyecto y creemos nuestro archivo propio de `php.ini`.
 
 105. Crea una tabla comparativa explicando con tus palabras los tipos de renderizados de sitios web.
 106. Buscar en Internet un proveedor de hosting gratuito que soporte PHP y MySQL. Regístrate y sube el *Hola Mundo* que hicíste. Anota aquí la URL para acceder.
