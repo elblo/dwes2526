@@ -2,8 +2,8 @@
 
 ## 1.- Arquitecturas Web (4h)
 
-- [ ] 1.- (1) Introducción asignatura. Arquitecturas, decisiones de diseño - Ejercicios 101,102
-- [ ] 2.- (2) Herramientas. Puesta en marcha / Docker - Ejercicios 103,104
+- [X] 1.- (1) Introducción asignatura. Arquitecturas, decisiones de diseño - Ejercicios 101-103
+- [X] 2.- (2) Herramientas. Puesta en marcha - Ejercicios 104-106
 
 ## 2.- El lenguaje PHP (26h)
 
