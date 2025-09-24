@@ -39,14 +39,14 @@
 
 ![PHP](imagenes/02/phplogo.png){align=right & width=300}
 
-* Acrónimo de *Personal Home Page*
+* Acrónimo de *PHP: Hypertext Preprocessor*.
 * Lenguaje de propósito general, aunque su fuerte es el desarollo web.
-* Sintaxis similar a C / Java
-* El código se ejecuta en el servidor (en *Apache* mediante *mod_php*)
+* Sintaxis similar a C / Java.
+* El código se ejecuta en el servidor (en *Apache* mediante *mod_php*).
 * El cliente recibe el resultado generado tras interpretar el código en el servidor.
 * El código se almacena en archivo con extensión `.php`.
 
-La última versión estable es la 8.3.11, de agosto de 2024 (y ya está disponible la beta de php 8.4). Se recomienda utilizar como mínimo la versión 8.0 de php porque tiene mejor rendimiento y compatibilidad que versiones anteriores.
+La última versión estable es la 8.4.12, de agosto de 2025 (y ya está disponible la beta de php 8.5). Se recomienda utilizar como mínimo la versión 8.0 de php porque tiene mejor rendimiento y compatibilidad que versiones anteriores.
 
 Su documentación es extensa y está traducida: <https://www.php.net/manual/es/>.
 
@@ -134,7 +134,7 @@ Desde PHP 5 se lanzan como una excepción. Más adelante veremos el uso de `try`
 * Comienzan por `$`, por ejemplo `$nombre`. Tras el `$`, el siguiente caracter debe ser una letra en minúscula (recomendación) o guión bajo `_`. Luego ya se pueden poner números.
 * Son *case sensitive*: `$var != $vAR`
 * No se declara su tipo, el tipado es dinámico. Se asigna en tiempo de ejecución dependiendo del valor asignado.
-* Conveniente inicializarlas, sino dan error.
+* Conveniente inicializarlas para que no dé error de *variable sin definir*.
 
 ``` php
 <?php
@@ -151,7 +151,7 @@ echo $sinValor;
 ```
 
 !!! info "Tipos"
-    Aunque a priori no hay tipos de datos, internamente PHP trabaja con cuatro tipos escalares: *boolean*, *integer*, *float* y *string* y cuatro tipos compuestos: *array*, *object*, *callable* e *iterable*. Existe un tipo especial para *null* (más información en <http://php.net/manual/es/language.types.null.php>).
+    Aunque a priori no hay tipos de datos, internamente PHP trabaja con cuatro tipos escalares (los que almacenan 1 valor): *boolean*, *integer*, *float* y *string* y cuatro tipos compuestos: *array*, *object*, *callable* e *iterable*. Existe un tipo especial para *null* (más información en <http://php.net/manual/es/language.types.null.php>).
 
 ### Constantes
 
@@ -425,9 +425,9 @@ $output = match (true) {
 $string = "Vamos al bar";
 
 $message = match (true) {
-    preg_match('/^foo/', $string) => 'String starts with foo',
-    preg_match('/bar$/', $string) => 'String ends with bar',
-    default => 'String does not start with foo or end with bar',
+    preg_match('/^foo/', $string) => 'string empieza por foo',
+    preg_match('/bar$/', $string) => 'string termina por bar',
+    default => 'string no empieza por foo ni termina por bar',
 };
 
 ?>
@@ -507,7 +507,7 @@ PHP, del mismo modo que Java y C, permite romper los bucles mediante la instrucc
 A su vez, `continue` permite saltar a la siguiente iteración.
 
 !!! danger "Si puedes, evita `break` y `continue`"
-    Personalmente, no me gusta su uso. Prefiero el uso de variables *flag* para controlar la salida de los bucles. Por ejemplo:
+    Una forma de evitar usarlos es mediante variables *flag* para controlar la salida de los bucles. Por ejemplo:
 
     ``` php
     <?php
@@ -1569,7 +1569,8 @@ Ten en cuenta que puede tener 2, 1 o no tener solución dependiendo del valor de
 Ejercicios de investigación:
 
 214. Investiga para qué sirven los operadores `<=>` (nave espacial) y `??` (fusión de null o null coalescing operator), disponibles desde PHP7 (<https://www.php.net/manual/es/migration70.new-features.php>). Explica con un par de líneas el propósito de cada uno y mediante código demuestra sus usos con un ejemplo práctico.
-215. Investiga para qué sirve la instrucción `match()`, disponible desde PHP8 (<https://www.php.net/manual/es/control-structures.match.php>). Explica con un par de líneas su propósito y mediante código demuestra su uso.
+215. Explica en qué se diferencian los operadores `??` y `?:` y mediante código demuestra sus usos con un ejemplo práctico.
+216. Investiga para qué sirve la instrucción `match()`, disponible desde PHP8 (<https://www.php.net/manual/es/control-structures.match.php>). Explica con un par de líneas su propósito y mediante código demuestra su uso.
 
 ### Bucles
 

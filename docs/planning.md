@@ -8,7 +8,7 @@
 ## 2.- El lenguaje PHP (26h)
 
 - [ ] 1.- (3) Sintaxis. Ejercicios 201-207
-- [ ] 2.- (4) Condiciones. Ejercicios 208-213
+- [ ] 2.- (4) Condiciones. Ejercicios 208-216
 - [ ] 3.- (5) Bucles. Ejercicios 220-223
 - [ ] 4.- (6) Ejercicios 224-228
 - [ ] 5.- (7) Arrays, asociativos. Ejercicios 230-235
