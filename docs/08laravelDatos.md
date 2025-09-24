@@ -932,7 +932,7 @@ $request -> validate([
 
 ### Mostrar mensajes error
 
-Mediante la directiva *@error* en la vista del formulario, mostramos los mensajes de error (por defecto o personalizados) asociados a cada campo. Se le pasa el nombre del campo que queremos validar, y si hay un error, se mostrará el mensaje de error utilizando la variable *$message*.
+Mediante la directiva *@error* en la vista del formulario, mostramos los mensajes de error (por defecto o personalizados) asociados a cada campo. Se le pasa el nombre del campo que queremos validar, y si hay un error, se mostrará el mensaje de error utilizando la variable *$message*. Útil para mostrar el mensaje de error junto a su campo correspondiente.
 
 ```html
 <!-- estamos en ▓▓▓ notas/create.blade.php (donde está el formulario) -->
