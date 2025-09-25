@@ -784,7 +784,7 @@ foreach ($menus as $menudeldia) {
 }
 
 // Para acceder a un elemento concreto se anidan los corchetes
-$postre0 = $menus[0]["Postre"];
+$postre = $menus[0]["Postre"];
 ```
 
 Aunque pueda parecer una buena idea crear este tipo de estructuras, es mejor utilizar objetos conjuntamente con arrays (posiblemente arrays de otros objetos) para crear estructuras complejas que permitan modelar mejor los problemas.
@@ -975,7 +975,9 @@ funcionArgumentosNombre(1, c: 3); // "1 2 3"
 
 ### Funciones tipadas
 
-Desde PHP7 en las funciones, tanto los parámetro como su devolución, permiten la definición de tipos. Esto se conoce como *strict_types* (tipificación estricta) y hay que definirlo en la primera línea de cada archivo `.php` para que el propio interprete PHP compruebe los tipos y lance errores si los tipos son incorrectos, mediante la sentencia:
+Las últimas versiones de PHP permiten definir el tipo de dato de **parámetros** y **valor de retorno** de funciones, así también como de **propiedades de las clases** (pero no de las variables locales). El propio interprete de PHP comprobará los tipos y lanzará errores si los tipos son incorrectos. 
+
+Podemos ir más allá y ser más restrictivos evitando las conversiones implícitas del propio lenguaje (ej: "10" !== 10) definiendo *strict_types* (tipificación estricta) en la primera línea de cada archivo `.php`:
 
 ``` php
 <?php
@@ -998,7 +1000,7 @@ function suma(int $a, int $b) : int {
 $num = 33;
 echo suma(10, 30);
 echo suma(10, $num);
-echo suma("10", 30); // error por tipificación estricta, sino daría 40
+echo suma("10", 30); // error por tipificación estricta activada, si no daría 40
 ?>
 ```
 
