@@ -2,28 +2,26 @@
 
 ??? abstract "Duración y criterios de evaluación"
 
-```
-Duración estimada: 6 sesiones
+    Duración estimada: 6 sesiones
 
-<hr />
+    <hr />
 
-Resultado de aprendizaje:
+    Resultado de aprendizaje:
 
-1. Comprende los conceptos fundamentales de la programación, sus paradigmas y fases de desarrollo.
-2. Conoce los distintos tipos de lenguajes de programación y su evolución histórica.
-3. Comprende el proceso de compilación y ejecución de programas en Java.
-4. Utiliza un entorno de desarrollo integrado para elaborar programas básicos.
+    1. Comprende los conceptos fundamentales de la programación, sus paradigmas y fases de desarrollo.
+    2. Conoce los distintos tipos de lenguajes de programación y su evolución histórica.
+    3. Comprende el proceso de compilación y ejecución de programas en Java.
+    4. Utiliza un entorno de desarrollo integrado para elaborar programas básicos.
 
-Criterios de evaluación:
+    Criterios de evaluación:
 
-1. Se han identificado las acciones cotidianas que dependen de la programación.
-2. Se han descrito los conceptos de programa, programación y algoritmo.
-3. Se han caracterizado los principales paradigmas de programación y sus diferencias.
-4. Se han descrito las fases del ciclo de vida de un programa con ejemplos prácticos.
-5. Se han diferenciado los tipos de lenguajes de programación y sus ventajas e inconvenientes.
-6. Se ha explicado el funcionamiento de Java y su máquina virtual.
-7. Se han creado programas en Java utilizando un IDE de desarrollo.
-```
+    1. Se han identificado las acciones cotidianas que dependen de la programación.
+    2. Se han descrito los conceptos de programa, programación y algoritmo.
+    3. Se han caracterizado los principales paradigmas de programación y sus diferencias.
+    4. Se han descrito las fases del ciclo de vida de un programa con ejemplos prácticos.
+    5. Se han diferenciado los tipos de lenguajes de programación y sus ventajas e inconvenientes.
+    6. Se ha explicado el funcionamiento de Java y su máquina virtual.
+    7. Se han creado programas en Java utilizando un IDE de desarrollo.
 
 ---
 
@@ -40,7 +38,7 @@ Vivimos rodeados de tecnología. Muchas de las acciones que realizamos a diario 
 Detrás de todo ello hay personas que diseñan, programan y mantienen el software. La programación es, por tanto, una habilidad fundamental en la sociedad actual.
 
 !!! tip "Reflexiona"
-Intenta pensar cuántas veces al día interactúas con un programa. Te sorprenderá ver hasta qué punto dependemos de ellos.
+    Intenta pensar cuántas veces al día interactúas con un programa. Te sorprenderá ver hasta qué punto dependemos de ellos.
 
 ---
 
@@ -74,15 +72,13 @@ Existen distintas técnicas para plasmar un algoritmo antes de programarlo:
 * [Tablas de decisión](https://eve-ingsistemas-u.blogspot.com/2012/05/tablas-de-decision-parte-1.html): representación tabular de condiciones y acciones.
 
 !!! example "Ejemplo de algoritmo cotidiano"
-Piensa en la receta de cocinar pasta:
-- Poner agua a hervir.
-- Añadir sal y pasta.
-- Esperar 10 minutos.
-- Escurrir y servir.
+    Piensa en la receta de cocinar pasta:
+    - Poner agua a hervir.
+    - Añadir sal y pasta.
+    - Esperar 10 minutos.
+    - Escurrir y servir.
 
-```
-Este conjunto de pasos claros y ordenados es un **algoritmo**.
-```
+    Este conjunto de pasos claros y ordenados es un **algoritmo**.
 
 ---
 
@@ -293,7 +289,7 @@ Los más conocidos para Java son:
 * [NetBeans](https://netbeans.apache.org/): gratuito y versátil.
 
 !!! tip "Consejo"
-Empieza con un IDE sencillo, pero no olvides aprender también a compilar desde la terminal. Eso te ayudará a entender mejor cómo funciona Java.
+    Empieza con un IDE sencillo, pero no olvides aprender también a compilar desde la terminal. Eso te ayudará a entender mejor cómo funciona Java.
 
 ---
 
