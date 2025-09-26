@@ -1,5 +1,5 @@
 site_name: Desarrollo Web en Entorno Servidor
-site_url: https://elblo.github.io/dwes2425
+site_url: https://elblo.github.io/dwes2526
 use_directory_urls: false
 
 nav:
@@ -87,4 +87,4 @@ markdown_extensions:
       permalink: true
       toc_depth: 3
 
-copyright: 2024-2025 Eladio Blanco, basado en apuntes 2021-2022 de Aitor Medrano, Luis Alemañ - Licencia CC BY-NC-SA
+copyright: 2024-2025 Eladio Blanco. Licencia CC BY-NC-SA
