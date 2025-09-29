@@ -7,10 +7,10 @@
 
 ## 2.- El lenguaje PHP (26h)
 
-- [ ] 1.- (3) Sintaxis. Ejercicios 201-207
-- [ ] 2.- (4) Condiciones. Ejercicios 208-216
-- [ ] 3.- (5) Bucles. Ejercicios 220-223
-- [ ] 4.- (6) Ejercicios 224-228
+- [X] 1.- (3) Sintaxis. Ejercicios 201-207
+- [X] 2.- (4) Condiciones. Ejercicios 208-216
+- [X] 3.- (5) Bucles. Ejercicios 220-223
+- [X] 4.- (6) Ejercicios 224-228
 - [ ] 5.- (7) Arrays, asociativos. Ejercicios 230-235
 - [ ] 6.- (8) Array bidimensionales. Ejercicios 236-238
 - [ ] 7.- (9) Funciones, parámetros por defecto y con nombre. Ejercicios 240-242
