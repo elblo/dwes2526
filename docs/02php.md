@@ -662,7 +662,7 @@ Las siguientes instrucciones no son específicas de los arrays pero se usan frec
 #### Claves y valores
 
 * `$claves = array_keys($array)`: devuelve las claves del `$array` asociativo
-* `$valores = values($array)`: devuelve los valores del `$array` asociativo
+* `$valores = array_values($array)`: devuelve los valores del `$array` asociativo
 * `$tam = count($array)`: devuelve el tamaño de `$array`
 
 #### Ordenación
