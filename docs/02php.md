@@ -914,11 +914,13 @@ echo sumaParametros(1, 5, 9); // 15
 ?>
 ```
 
-Desde PHP 5.6, se puede utilizar el operador `...` (*variadics*) el cual "disfraza" los parámetros como un array:
+Una *función variádica* es una función que puede aceptar un número variable de argumentos, lo que permite flexibilidad en su uso al no requerir un número fijo de ellos.
+
+Desde PHP 5.6, se puede utilizar el *operador de propagación o descomposición `...`* el cual "disfraza" los parámetros de una función como un array:
 
 ``` php
 <?php
-function sumaParametrosMejor(...$numeros) {
+function sumaParametrosMejor(...$numeros) { // OJO! Aquí se usa en la declaración de la función
     if (count($numeros) == 0) {
         return false;
     } else {
@@ -945,10 +947,10 @@ echo sumaParametrosMejor(1, 5, 9); // 15
         return $a + $b;
     }
 
-    echo suma(...[1, 5])."<br />";
+    echo suma(...[1, 5]); // OJO! Aquí se usa en la llamada de la función
 
     $a = [1, 5];
-    echo suma(...$a);
+    echo suma(...$a); // OJO! Aquí se usa en la llamada de la función
     ?>
     ```
 
