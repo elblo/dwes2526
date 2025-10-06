@@ -914,9 +914,10 @@ echo sumaParametros(1, 5, 9); // 15
 ?>
 ```
 
-Una *función variádica* es una función que puede aceptar un número variable de argumentos, lo que permite flexibilidad en su uso al no requerir un número fijo de ellos.
+!!! info "info"
+    Una *función variádica* es una función que puede aceptar un número variable de argumentos, lo que permite flexibilidad en su uso al no requerir un número fijo de ellos.
 
-Desde PHP 5.6, se puede utilizar el *operador de propagación o descomposición `...`* el cual "disfraza" los parámetros de una función como un array:
+Desde PHP 5.6, se puede utilizar el *operador de propagación o descomposición `...`* el cual "disfraza" los **parámetros** de una función como un array, usado en la **declaración de la función**:
 
 ``` php
 <?php
@@ -939,7 +940,7 @@ echo sumaParametrosMejor(1, 5, 9); // 15
 ```
 
 !!! tip "Más usos de `...`"
-    También se puede utilizar para dividir un array en variables separadas para proporcionar argumentos
+    También se puede utilizar para dividir un array en variables separadas para proporcionar **argumentos** en la **llamada de la función**.
 
     ``` php
     <?php
