@@ -879,8 +879,8 @@ function saluda($nombre, $prefijo = "Sr") {
     echo "Hola ".$prefijo." ".$nombre;
 }
 
-saluda("Aitor", "Mr");
-saluda("Aitor");
+saluda("Rasmus", "Mr");
+saluda("Rasmus");
 saluda("Marina", "Srta");
 ```
 
@@ -1092,7 +1092,7 @@ $anonima();
 $anonimaConParametro = function($nombre) {
     echo "Hola ".$nombre;
 };
-$anonimaConParametro("Aitor");
+$anonimaConParametro("Rasmus");
 
 // Uso de variables del ámbito padre en la función anónima --> `use`
 $mensaje = "Hola";
@@ -1192,7 +1192,7 @@ Mediante el uso de la instrucción `include` también podemos separar fragmentos
 
 La parte de abajo, por ejemplo, solo va a contener HTML y la colocamos en `pie.html`:
 ``` html
-<footer>Aitor Medrano</footer>
+<footer>Rasmus Lerdorf</footer>
 </body>
 </html>
 ```
@@ -1661,7 +1661,7 @@ Muestra el resultado en una lista desordenada únicamente con las cantidades que
 Posteriormente, recorre el array y muéstralo en una tabla HTML.
 Finalmente añade una última fila a la tabla con la altura media.
 
-236. `236personas.php`: Mediante un array bidimensional, almacena el nombre, altura y email de 5 personas. Para ello, crea un array de personas, siendo cada persona un array asociativo: `[ ['nombre'=>'Aitor', 'altura'=>182, 'email'=>'aitor@correo.com'],[…],… ]`
+236. `236personas.php`: Mediante un array bidimensional, almacena el nombre, altura y email de 5 personas. Para ello, crea un array de personas, siendo cada persona un array asociativo: `[ ['nombre'=>'Rasmus', 'altura'=>182, 'email'=>'rasmus@lerdorf.com'],[…],… ]`
 Posteriormente, recorre el array y muéstralo en una tabla HTML.
 
 237. Investiga sobre el uso de funciones avanzadas como *array_slice*, *array_splice*, *array_map*, *array_reduce* y otras 2 más a tu elección no vistas en el los apuntes. Recuerda que puedes consultar la [documentación oficial](https://www.php.net/manual/es/ref.array.php).
