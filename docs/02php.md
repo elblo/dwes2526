@@ -914,7 +914,7 @@ echo sumaParametros(1, 5, 9); // 15
 ?>
 ```
 
-!!! info "info"
+!!! info "Funciones variádicas"
     Una *función variádica* es una función que puede aceptar un número variable de argumentos, lo que permite flexibilidad en su uso al no requerir un número fijo de ellos.
 
 Desde PHP 5.6, se puede utilizar el *operador de propagación o descomposición `...`* el cual "disfraza" los **parámetros** de una función como un array, usado en la **declaración de la función**:
@@ -979,6 +979,20 @@ funcionArgumentosNombre(1, c: 3); // "1 2 3"
 ### Funciones tipadas
 
 Las últimas versiones de PHP permiten definir el tipo de dato de **parámetros** y **valor de retorno** de funciones, así también como de **propiedades de las clases** (pero no de las variables locales). El propio interprete de PHP comprobará los tipos y lanzará errores si los tipos son incorrectos. 
+
+!!! example "Tipos de datos en funciones"
+
+    ``` php
+    <?php
+    function suma(int $a, int $b) : int {
+        return $a + $b;
+    }
+
+    echo suma(10, 30); // 40
+    echo suma("10", 30); // 40 (PHP hace conversión implícita de "10" a 10)
+    echo suma("diez", 30); // ERROR
+    ?>
+    ```
 
 Podemos ir más allá y ser más restrictivos evitando las conversiones implícitas del propio lenguaje (ej: "10" !== 10) definiendo *strict_types* (tipificación estricta) en la primera línea de cada archivo `.php`:
 
