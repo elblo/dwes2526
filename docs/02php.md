@@ -1015,8 +1015,8 @@ function suma(int $a, int $b) : int {
 }
 
 $num = 33;
-echo suma(10, 30);
-echo suma(10, $num);
+echo suma(10, 30); // 40
+echo suma(10, $num); // 43
 echo suma("10", 30); // error por tipificación estricta activada, si no daría 40
 ?>
 ```
