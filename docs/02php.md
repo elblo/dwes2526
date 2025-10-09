@@ -1084,33 +1084,187 @@ Son funciones que no tienen nombre y se utilizan principalmente para gestionar l
 
 ``` php
 <?php
+// EJEMPLO 1: Función anónima sin parámetros
 $anonima = function() {
     echo "Hola";
 };
+
 $anonima();
 
+// EJEMPLO 2: Función anónima con parámetros
 $anonimaConParametro = function($nombre) {
     echo "Hola ".$nombre;
 };
+
 $anonimaConParametro("Rasmus");
 
-// Uso de variables del ámbito padre en la función anónima --> `use`
+// EJEMPLO 3: Uso de variables del ámbito padre en la función anónima --> `use`
 $mensaje = "Hola";
-$miClosure = function() use ($mensaje) {
+$saludo = function() use ($mensaje) {
     echo $mensaje;
 };
-$miClosure();
 
-// Uso de parámetros y variables del ámbito padre
-$holaPHP = function($arg) use ($mensaje) {
+$saludo();
+
+// EJEMPLO 4: Uso de parámetros y variables del ámbito padre
+$saludoPHP = function($arg) use ($mensaje) {
     echo $mensaje." ".$arg;
 };
-$holaPHP("PHP");
+
+$saludoPHP("PHP");
 ?>
 ```
 
+!!! info "Callback"
+    Un *callback* es una función que se pasa como argumento a otra función para que sea ejecutada (llamada) después de que se complete cierta tarea o evento.
+
 [Más info sobre funciones anónimas](https://www.php.net/manual/es/functions.anonymous.php)
 
+### Clausuras
+
+El uso de `use` tiene más sentido para crear *clausuras*.  
+
+=== "Ejemplo 1"
+
+    ``` php
+    <?php
+        // Clausura para crear contador
+        function contador($valorInicial = 0){
+            $cuenta = $valorInicial;
+
+            $incrementa = function() use (&$cuenta){
+                return ++$cuenta;
+            };
+
+            return $incrementa;
+        }
+
+        // PROGRAMA PRINCIPAL
+
+        // Contador 1
+        $incrementaContador1 = contador();
+
+        echo $incrementaContador1(); // 1
+        echo $incrementaContador1(); // 2
+        echo $incrementaContador1(); // 3
+
+        // Contador 2
+        $incrementaContador2 = contador(7);
+
+        echo $incrementaContador2(); // 8
+        echo $incrementaContador2(); // 9
+    ?>
+    ```
+
+=== "Ejemplo 2"
+
+    ``` php
+    <?php
+        // Clausura para crear contador
+        function contador($valorInicial = 0){
+            $cuenta = $valorInicial;
+
+            $incrementa = function() use (&$cuenta){
+                return ++$cuenta;
+            };
+
+            $decrementa = function() use (&$cuenta){
+                return --$cuenta;
+            };
+
+            $inicializa = function() use (&$cuenta){
+                $cuenta = 0;
+                return $cuenta;
+            };
+
+            return [
+                "incrementa" => $incrementa, 
+                "decrementa" => $decrementa, 
+                "inicializa" => $inicializa
+            ];
+        }
+
+        // PROGRAMA PRINCIPAL
+
+        // Contador 1
+        $contador1 = contador();
+
+        echo $contador1["incrementa"](); // 1
+        echo $contador1["incrementa"](); // 2
+        echo $contador1["decrementa"](); // 1
+
+        echo $contador1["inicializa"](); // 0
+
+        // Contador 2
+        $contador2 = contador(6);
+
+        echo $contador2["incrementa"](); // 7
+        echo $contador2["decrementa"](); // 6
+    ?>
+    ```
+
+=== "Ejemplo 3"
+
+    ``` php
+    <?php
+        // Clausura para crear "iterador"
+        function iterador($arrayInicial = []) {
+            $posicion = 0;
+            $array = $arrayInicial;
+
+            return function() use (&$posicion, $array) {
+                return $array[$posicion++];
+            };
+        }
+
+        // PROGRAMA PRINCIPAL
+        $nombres = ["Eladio", "David", "Ana", "Juan", "Maria"];
+        $next = iterador($nombres);
+
+        echo "<p>" . $next() . "</p>";
+        echo "<p>" . $next() . "</p>";
+        echo "<p>" . $next() . "</p>";
+        echo "<p>" . $next() . "</p>";
+    ?>
+    ```
+
+=== "Ejemplo 4"
+
+    ``` php
+    <?php
+        // Clausura para simular el uso de useState de React
+        function useState($valorInicial) {
+            $estado = $valorInicial;
+
+            $get = function() use (&$estado) {
+                return $estado;
+            };
+
+            $set = function($nuevoValor) use (&$estado) {
+                $estado = $nuevoValor;
+            };
+
+            return [$get, $set];
+        }
+
+        // PROGRAMA PRINCIPAL
+        [$count, $setCount] = useState(0);
+
+        echo $count(); // 0
+        $setCount($count() + 1); // 1
+        $setCount(42); // 42
+
+        // Nota: Podríamos haber devuelto la referencia a la variable en lugar de get
+        // tal y como hace React --> return [&$estado, $set];
+        // y así haríamos referencia a $count en lugar de $count()
+        // pero ojo, que de esta forma la variable sería directamente modificable sin el set
+    ?>
+    ```
+
+!!! info "Clausuras"
+    Una **clausura** es una técnica que permite definir un "registro" que contiene una función junto al ámbito donde fue declarada, de tal forma que la función puede acceder a los valores de las variables declaradas en el mismo ámbito, aun cuando la invocación ocurra fuera de este. El uso de clausuras se asocia con el paradigma de *programación funcional*.    
+
+    Una clausura asocia a una función con un conjunto de variables "privadas", que persisten en las invocaciones a la función. El ámbito de la variable abarca únicamente al ámbito donde la función fue declarada, por lo que no puede ser accedida desde otra parte del programa. No obstante, la variable mantiene su valor de forma indefinida para las siguientes invocaciones. Como consecuencia, las clausuras pueden ser *usadas para simular el encapsulamiento y la ocultación de la programación orientada a objetos*.
 
 ### Funciones flecha
 
