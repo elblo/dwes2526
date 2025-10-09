@@ -1082,6 +1082,9 @@ echo $miFuncionSuma(3,4); // invoca a la función suma
     
 Son funciones que no tienen nombre y se utilizan principalmente para gestionar los *callbacks*. Este tipo de funciones se utiliza mucho en **Javascript** para gestionar los eventos y promesas.
 
+!!! info "Callback"
+    Un *callback* es una función que se pasa como argumento a otra función para que sea ejecutada (llamada) después de que se complete cierta tarea o evento.
+
 ``` php
 <?php
 // EJEMPLO 1: Función anónima sin parámetros
@@ -1115,14 +1118,16 @@ $saludoPHP("PHP");
 ?>
 ```
 
-!!! info "Callback"
-    Un *callback* es una función que se pasa como argumento a otra función para que sea ejecutada (llamada) después de que se complete cierta tarea o evento.
-
 [Más info sobre funciones anónimas](https://www.php.net/manual/es/functions.anonymous.php)
 
 ### Clausuras
 
-El uso de `use` tiene más sentido para crear *clausuras*.  
+El uso de `use` tiene más sentido para crear *clausuras*. 
+
+!!! info "Clausuras"
+    Una **clausura** es una técnica que permite definir un "registro" que contiene una función junto al ámbito donde fue declarada, de tal forma que la función puede acceder a los valores de las variables declaradas en el mismo ámbito, aun cuando la invocación ocurra fuera de este. El uso de clausuras se asocia con el paradigma de *programación funcional*.    
+
+    Una clausura asocia a una función con un conjunto de variables "privadas", que persisten en las invocaciones a la función. El ámbito de la variable abarca únicamente al ámbito donde la función fue declarada, por lo que no puede ser accedida desde otra parte del programa. No obstante, la variable mantiene su valor de forma indefinida para las siguientes invocaciones. Como consecuencia, las clausuras pueden ser *usadas para simular el encapsulamiento y la ocultación de la programación orientada a objetos*.
 
 === "Ejemplo 1"
 
@@ -1260,11 +1265,6 @@ El uso de `use` tiene más sentido para crear *clausuras*.
         // pero ojo, que de esta forma la variable sería directamente modificable sin el set
     ?>
     ```
-
-!!! info "Clausuras"
-    Una **clausura** es una técnica que permite definir un "registro" que contiene una función junto al ámbito donde fue declarada, de tal forma que la función puede acceder a los valores de las variables declaradas en el mismo ámbito, aun cuando la invocación ocurra fuera de este. El uso de clausuras se asocia con el paradigma de *programación funcional*.    
-
-    Una clausura asocia a una función con un conjunto de variables "privadas", que persisten en las invocaciones a la función. El ámbito de la variable abarca únicamente al ámbito donde la función fue declarada, por lo que no puede ser accedida desde otra parte del programa. No obstante, la variable mantiene su valor de forma indefinida para las siguientes invocaciones. Como consecuencia, las clausuras pueden ser *usadas para simular el encapsulamiento y la ocultación de la programación orientada a objetos*.
 
 ### Funciones flecha
 
