@@ -310,7 +310,20 @@ Durante las siguientes unidades vamos a estudiar PHP en profundidad.
 
 ## 1.6 Puesta en marcha
 
-Para poder trabajar con un entorno de desarrollo local, hemos de preparar nuestro entorno de desarrollo con las herramientas comentadas. A lo largo del curso vamos a utilizar la versión 8 de PHP.
+Para poder trabajar con un entorno de desarrollo local, hemos de preparar nuestro entorno de desarrollo con las herramientas comentadas. A continuación se exploran diferentes soluciones que incorporan un servidor web, PHP, el SGBD... como *XAMPP*, *Laragon* o *contenedores Docker*. Pruébalas y elige aquella con la que te sientas más cómodo, pero que tenga como mínimo la versión 8.2 de PHP.
+
+??? info "Rutas y archivos"
+    Independientemente de la solución utilizada, hay que entender un par de conceptos importantes. Al final estamos utilizando un servidor web (Apache o Nginx) que sirve al navegador los archivos alojados en un determinado directorio de nuestro sistema, como por ejemplo:
+    
+    - `C:/xampp/xamppfiles/htdocs` --> Allí será donde alojemos nuestras páginas web que visualizaremos desde la dirección `http://localhost/` en el navegador.
+
+    Y como cualquier configuración en sistemas, se realizará modificando directivas (variables) de determinados archivos, como por ejemplo:
+
+    - `C:/xampp/xamppfiles/etc/httpd.conf` --> Configuración del servidor web.
+    - `C:/xampp/xamppfiles/etc/php.ini` --> Configuración del lenguaje PHP.
+
+??? notice "Configuración del php.ini"
+    Si nuestra versión de PHP es la 8.5 o posterior, podemos consultar la configuración que hemos cambiado en el `php.ini` con respecto a la original, lanzando en consola: `php -i diff`
 
 ### XAMPP
 
