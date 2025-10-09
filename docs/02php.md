@@ -1065,16 +1065,29 @@ En caso de conflicto, tienen prioridad las variables locales. Para evitar el con
     Por favor, hay que evitar el uso de variables globales dentro de las funciones.
     En el caso de necesitarlas, es mejor pasarlas como parámetro a las funciones.
 
+### Funciones de primera clase
+
+Un lenguaje de programación se dice que tiene **funciones de primera clase** cuando las funciones en ese lenguaje son tratadas como cualquier otra variable. Por ejemplo, la función puede ser pasada como argumento a otras funciones, puede ser devuelta por otra función y puede ser asignada a una variable.
+
+``` php
+<?php
+    $saludar = function() {
+        echo "¡Hola!";
+    };
+
+    $saludar(); // Salida: ¡Hola!
+?>
+```
+
 ### Funciones variable
 
-* Permite asignar una función a una variable.
-* Nombre de la función entre comillas.
+* Permite asignar una función a una variable mediante su nombre (entre comillas).
 * Si una variable va seguida de paréntesis, PHP buscará una función con su valor.
 
 ``` php
 <?php
-$miFuncionSuma = "suma";
-echo $miFuncionSuma(3,4); // invoca a la función suma
+    $miFuncionSuma = "suma";
+    echo $miFuncionSuma(3,4); // invoca a la función suma
 ?>
 ```
 
@@ -1083,7 +1096,7 @@ echo $miFuncionSuma(3,4); // invoca a la función suma
 Son funciones que no tienen nombre y se utilizan principalmente para gestionar los *callbacks*. Este tipo de funciones se utiliza mucho en **Javascript** para gestionar los eventos y promesas.
 
 !!! info "Callback"
-    Un *callback* es una función que se pasa como argumento a otra función para que sea ejecutada (llamada) después de que se complete cierta tarea o evento.
+    Un *callback* es una función que se pasa a otra función como un argumento y que se invoca dentro de la función externa para completar algún tipo de rutina o acción.
 
 ``` php
 <?php
