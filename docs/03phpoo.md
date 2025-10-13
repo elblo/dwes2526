@@ -216,7 +216,7 @@ class Punto {
 ```
 
 !!! warning "Opciones no válidas en el constructor"
-    Para inicializar las propiedades directamente en los parámetros del constructor, estas han de ser constantes como números, cadenas, booleanos, null, o arrays simples. Cualquier otra cosa que implique lógica o llamadas a funciones debe ir en el cuerpo del constructor, como por ejemplo instanciar un objeto de otra clase.
+    Para inicializar las propiedades directamente en los parámetros del constructor, estas han de ser literales como números, cadenas, booleanos, null, o arrays simples. Cualquier otra cosa que implique lógica o llamadas a funciones debe ir en el cuerpo del constructor, como por ejemplo instanciar un objeto de otra clase.
 
 !!! info "El orden importa"
     A la hora de codificar el orden de los elementos debe ser:
