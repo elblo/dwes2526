@@ -22,7 +22,7 @@
 
 ## 3.1 Clases y Objetos
 
-PHP sigue un paradigma de programación orientada a objetos (POO) basada en clases.
+PHP sigue un paradigma de programación orientada a objetos (POO) basada en clases. 
 
 Un clase es un plantilla que define las propiedades y métodos para poder crear objetos. De este manera, un objeto es una instancia de una clase.
 
@@ -31,6 +31,8 @@ Tanto las propiedades como los métodos se definen con una visibilidad (quien pu
 * Privado - `private`:  Sólo puede acceder la propia clase.
 * Protegido - `protected`: Sólo puede acceder la propia clase o sus descendientes.
 * Público - `public`: Puede acceder cualquier otra clase.
+
+Pero a diferencia de otros lenguajes como Java, no podemos indicar el nivel de visibilidad de la clase. En PHP, todas las clases son públicas por definición.
 
 Para declarar una clase, se utiliza la palabra clave `class` seguido del nombre de la clase. Para instanciar un objeto a partir de la clase, se utiliza `new`:
 
