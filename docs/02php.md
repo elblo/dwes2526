@@ -1061,9 +1061,66 @@ En caso de conflicto, tienen prioridad las variables locales. Para evitar el con
     ?>
     ```
 
-!!! important "No globales"
-    Por favor, hay que evitar el uso de variables globales dentro de las funciones.
-    En el caso de necesitarlas, es mejor pasarlas como parámetro a las funciones.
+!!! important "No usar globales"
+    Hay que evitar el uso de variables globales dentro de las funciones. Si una función necesita una dato de fuera, siempre es mejor pasarlo como parámetro.
+
+    De forma general hay que evitar el uso de variables globales en nuestras aplicaciones para evitar efectos no deseados.
+
+### Variables estáticas en funciones
+
+Las variables estáticas en PHP son variables locales a una función que mantienen su valor entre diferentes llamadas a esa función.
+
+A diferencia de las variables normales (que se destruyen al finalizar la ejecución de la función), una variable estática solo se inicializa una vez y conserva su valor mientras dure el script.
+
+=== "Ejemplo 1 - Contador"
+
+    ``` php
+    <?php
+        function ejemplo() {
+            static $contador = 0; // Se inicializa solo la primera vez
+            $contador++;
+            echo "Contador: $contador<br>";
+        }
+
+        ejemplo(); // Contador: 1
+        ejemplo(); // Contador: 2
+        ejemplo(); // Contador: 3
+    ?>
+    ```
+
+=== "Ejemplo 2 - Caché"
+
+    ``` php
+    <?php
+        function obtenerCuadrado($num) {
+            static $cache = [];
+
+            if (isset($cache[$num])) {
+                return $cache[$num]; // Devuelve el resultado almacenado
+            }
+
+            echo "Calculando...<br>";
+            $cache[$num] = $num * $num;
+            return $cache[$num];
+        }
+
+        echo obtenerCuadrado(4); // Calculando... → 16
+        echo obtenerCuadrado(4); // (usa caché) → 16
+    ?>
+    ```
+
+??? notice "Cuándo hay que utilizarlas"
+    Se re comienda su uso para:
+
+    - Conservar un valor entre llamadas a una función sin usar variables globales.
+    - Implementar contadores, cachés internos, o inicialización única dentro de una función.
+    - Mantener estado interno simple y local a una función.
+
+    No se recomienda:
+
+    - Si son necesarios varios estados independientes → mejor clausuras u objetos.
+    - Si se pretende reiniciar el estado fácilmente.
+    - Para compartir el estado entre funciones → mejor una clase con propiedades estáticas.
 
 ### Funciones de primera clase
 
