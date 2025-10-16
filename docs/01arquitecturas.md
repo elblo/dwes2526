@@ -575,24 +575,20 @@ Una vez instalada la extensión de Chrome, hay que configurarla indicando:
 
 Ahora, cada vez que guardes en VS Code, los cambios se reflejarán automáticamente en el navegador. Si tienes dudas puedes consultar este [vídeo](https://www.youtube.com/watch?v=54wcX1G2GH8).
 
+## 1.9 Intérpretes online
 
-
-
-
-### Intérpretes online
-
-Existen multitud de intérpretes de PHP online para poder probar nuestros scripts sin necesidad de tener nada instalado en local, como:
+Existen multitud de intérpretes de PHP online para poder probar nuestros scripts sin necesidad de tener nada instalado en local, útiles para pruebas rápidas. Algunos de ellos:
 
 * [Programiz](https://www.programiz.com/php/online-compiler/)
 * [OnlinePHP](https://onlinephp.io/)
 * [myCompiler](https://www.mycompiler.io/es/new/php)
 
-## 1.7 Referencias
+## 1.10 Referencias
 
 * Curso de introducción a Docker, por *Sergi García Barea* : <https://sergarb1.github.io/CursoIntroduccionADocker/>
 * Artículo [Arquitecturas Web y su evolución](https://www.arquitecturajava.com/arquitecturas-web-y-su-evolucion/)
 
-## 1.8 Actividades
+## 1.11 Actividades
 
 101. Busca en internet cuales son los tres frameworks PHP más utilizados e indica:
 
