@@ -513,13 +513,13 @@ PhpStorm es un software de pago, aunque puedes activar la licencia gratuita dura
 
 Para poder ejecutar directamente nuestro proyecto y que se abra en el navegador, tenemos varias opciones en PhpStorm:
 
-??? info "Configurar un servidor local integrado"
+??? notice "Configurar un servidor local integrado"
     1. Abre la ventana de terminal: Dentro de PHPStorm, busca el icono de la terminal o usa la combinación de teclas `Alt` + `F12` para abrirla.
     2. Navega al directorio de tu proyecto: Usa el comando cd para ir a la carpeta raíz de tu proyecto. Por ejemplo, si tu proyecto está en `C:\Proyectos\mi_web`, escribe cd `C:\Proyectos\mi_web`.
     3. Ejecuta el servidor de desarrollo PHP: Escribe y ejecuta el comando `php -S localhost:8000` (o el puerto que prefieras).
     4. Accede desde el navegador: Abre tu navegador web y visita la dirección `http://localhost:8000` para ver tu proyecto funcionando.
 
-??? info "Configurar un servidor web externo (como XAMPP o Apache/Nginx)"
+??? notice "Configurar un servidor web externo (como XAMPP o Apache/Nginx)"
     1. Abre la ventana de `Settings` desde el menú superior.
     2. En el panel izquierdo ve a la sección `Build, Execution, Deployment` y haz clic en el apartado `Deployment`. 
     3. Añade una nueva configuración de servidor haciendo clic en el botón `+` (Add) y selecciona la opción `Local o mounted folder`. Aquí podrías seleccionar la opción `FTP` para utilizar un servidor remoto, pero es lo dejaremos para más adelante. 
@@ -557,7 +557,7 @@ Por ejemplo, si abrimos la extensión de *Docker*, podréis visualizar tanto los
 
 Puedes seguir este [tutorial](https://www.digitalocean.com/community/tutorials/how-to-set-up-visual-studio-code-for-php-projects) (inglés) para configurar VSCode para trabajar con PHP.
 
-### Servidor Live Reload (para usar con VS Code)
+#### Servidor Live Reload (para usar con VS Code)
 
 Para poder visualizar cada nuevo cambio que hagamos en una página PHP como la anterior, tendremos que refrescar el navegador manualmente.
 
