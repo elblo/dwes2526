@@ -462,42 +462,7 @@ Otra forma más sencilla para lanzar de nuevo los contenedores y gestionarlos un
 !!! question "Pero quiero saber cómo funciona..."
     En el módulo de *Despliegue de aplicaciones* estudiaréis en profundidad, además de Docker, Apache y otros servicios que nos servirán de ayuda para el desarrollo en entorno servidor.
 
-### Entorno de desarrollo
-
-En este curso vamos a programar con [PhpStorm](https://www.jetbrains.com/es-es/phpstorm/), la solución más conocida y utilizada.
-
-<figure>
-  <img src="imagenes/01/phpstorm_intro.png" />
-  <figcaption>IDE PhpStorm</figcaption>
-</figure>
-
-PhpStorm es un software de pago, aunque puedes activar la licencia gratuita durante 1 año con tu cuenta del instituto.  Desde su menú *Help > Register*.
-
-<figure>
-  <img src="imagenes/01/phpstorm_licencia.png" width="400"/>
-  <figcaption>Licencia educativa de PhpStorm</figcaption>
-</figure>
-
-Otra alternativa es utilizar [Eclipse](https://www.eclipse.org/pdt/), aunque es un entorno bastante pesado y menos usado cada vez.
-
-Y otra alternativa cada vez más usada y de código libre, es *Visual Studio Code* (<https://code.visualstudio.com>) un editor de código fuente que se complementa mediante extensiones para adaptarse a casi cualquier lenguaje y en este caso, comportarse como un IDE completo para PHP. Muy importante seguir [estos pasos](https://code.visualstudio.com/docs/languages/php) para configurarlo correctamente con PHP. Sobre todo, indicar en la variable `php.validate.executablePath` la *ruta del ejecutable de PHP* en el sistema. 
-
-Extensiones a utilizar con VS Code:
-
-* [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
-* [PHP Intelephense](https://marketplace.visualstudio.com/items?itemName=bmewburn.vscode-intelephense-client)
-* [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)
-
-Por ejemplo, si abrimos la extensión de *Docker*, podréis visualizar tanto los contenedores como las imágenes de vuestro sistema. Desde cada contenedor, mediante clic derecho, podemos iniciar/detener/reiniciar cada contenedor, así como ver su contenido o abrir un terminal dentro del mismo.
-
-<figure>
-  <img src="imagenes/01/vscodedocker.png" width="300"/>
-  <figcaption>Opciones mediante extensión Docker en VSCode</figcaption>
-</figure>
-
-Puedes seguir este [tutorial](https://www.digitalocean.com/community/tutorials/how-to-set-up-visual-studio-code-for-php-projects) (inglés) para configurar VSCode para trabajar con PHP.
-
-### Hola Mundo
+## 1.7 Hola Mundo
 
 Y como no, nuestro primer ejemplo será un *Hola Mundo* en PHP.
 
@@ -519,6 +484,79 @@ Si nombramos el archivo como `index.php`, al acceder a `http://localhost` autom�
 </html>
 ```
 
+!!! notice "Ubicación del archivo"
+    Puedes crear el archivo anterior con cualquier editor de texto plano. Lo importante es que lo guardes en el directorio en el que el servidor web (Apache o Nginx) sirva los archivos.
+
+    Si utilizas XAMPP recuerda que es `C:/xampp/xamppfiles/htdocs`. 
+
+    Y recuerda también tener arrancado el servidor web...
+
+## 1.8 Entorno de desarrollo
+
+Una vez tenemos listo nuestro sistema, toca elegir el entorno de desarrollo para nuestros proyectos en PHP. En este curso, trabajaremos con *PphpStorm*, aunque se mencionan otras alternativas como *Eclipse* o *VS Code*.
+
+### PhpStorm
+
+El IDE de JetBrains [PhpStorm](https://www.jetbrains.com/es-es/phpstorm/) es el que utilizaremos por ser el más conocido y utilizado por la comunidad para proyectos de PHP y Laravel.
+
+<figure>
+  <img src="imagenes/01/phpstorm_intro.png" />
+  <figcaption>IDE PhpStorm</figcaption>
+</figure>
+
+PhpStorm es un software de pago, aunque puedes activar la licencia gratuita durante 1 año con tu cuenta del instituto.  Desde su menú *Help > Register*.
+
+<figure>
+  <img src="imagenes/01/phpstorm_licencia.png" width="500"/>
+  <figcaption>Licencia educativa de PhpStorm</figcaption>
+</figure>
+
+Para poder ejecutar directamente nuestro proyecto y que se abra en el navegador, tenemos varias opciones en PhpStorm:
+
+??? info "Configurar un servidor local integrado"
+    1. Abre la ventana de terminal: Dentro de PHPStorm, busca el icono de la terminal o usa la combinación de teclas `Alt` + `F12` para abrirla.
+    2. Navega al directorio de tu proyecto: Usa el comando cd para ir a la carpeta raíz de tu proyecto. Por ejemplo, si tu proyecto está en `C:\Proyectos\mi_web`, escribe cd `C:\Proyectos\mi_web`.
+    3. Ejecuta el servidor de desarrollo PHP: Escribe y ejecuta el comando `php -S localhost:8000` (o el puerto que prefieras).
+    4. Accede desde el navegador: Abre tu navegador web y visita la dirección `http://localhost:8000` para ver tu proyecto funcionando.
+
+??? info "Configurar un servidor web externo (como XAMPP o Apache/Nginx)"
+    1. Abre la ventana de `Settings` desde el menú superior.
+    2. En el panel izquierdo ve a la sección `Build, Execution, Deployment` y haz clic en el apartado `Deployment`. 
+    3. Añade una nueva configuración de servidor haciendo clic en el botón `+` (Add) y selecciona la opción `Local o mounted folder`. Aquí podrías seleccionar la opción `FTP` para utilizar un servidor remoto, pero es lo dejaremos para más adelante. 
+    4. Configura los detalles del servidor dándole un **nombre** (ejemplo: "MiServidorLocal"), la **ruta de la carpeta del proyecto** (ejemplo: C:/xampp/htdocs/proyectoX) y la **URL del servidor** (ejemplo: http://localhost/proyectoX). Asegúrate de que el mapeo entre estas rutas sea correcto. 
+    5. Haz clic en `Apply` y `OK`.
+    6. Para ejecutar el proyecto, desde su archivo `index.php` haz clic en el botón del navegador que aparece en la esquina superior derecha para verlo en tu servidor local (que deberá estar arrancado).
+
+    Resumen del proceso:
+
+    <video controls>
+      <source src="videos/01/configurar-servidor-local-en-PhpStorm.m4v" type="video/mp4">
+      Tu navegador no soporta vídeo.
+    </video>
+ 
+### Eclipse
+
+Otra alternativa es utilizar [Eclipse](https://www.eclipse.org/pdt/), aunque es un entorno bastante pesado y menos usado cada vez.
+
+### VS Code
+
+Y otra alternativa cada vez más usada y de código libre, es *Visual Studio Code* (<https://code.visualstudio.com>) un editor de código fuente que se complementa mediante extensiones para adaptarse a casi cualquier lenguaje y en este caso, comportarse como un IDE completo para PHP. Muy importante seguir [estos pasos](https://code.visualstudio.com/docs/languages/php) para configurarlo correctamente con PHP. Sobre todo, indicar en la variable `php.validate.executablePath` la *ruta del ejecutable de PHP* en el sistema. 
+
+Extensiones a utilizar con VS Code:
+
+* [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
+* [PHP Intelephense](https://marketplace.visualstudio.com/items?itemName=bmewburn.vscode-intelephense-client)
+* [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)
+
+Por ejemplo, si abrimos la extensión de *Docker*, podréis visualizar tanto los contenedores como las imágenes de vuestro sistema. Desde cada contenedor, mediante clic derecho, podemos iniciar/detener/reiniciar cada contenedor, así como ver su contenido o abrir un terminal dentro del mismo.
+
+<figure>
+  <img src="imagenes/01/vscodedocker.png" width="300"/>
+  <figcaption>Opciones mediante extensión Docker en VSCode</figcaption>
+</figure>
+
+Puedes seguir este [tutorial](https://www.digitalocean.com/community/tutorials/how-to-set-up-visual-studio-code-for-php-projects) (inglés) para configurar VSCode para trabajar con PHP.
+
 ### Servidor Live Reload (para usar con VS Code)
 
 Para poder visualizar cada nuevo cambio que hagamos en una página PHP como la anterior, tendremos que refrescar el navegador manualmente.
@@ -536,6 +574,10 @@ Una vez instalada la extensión de Chrome, hay que configurarla indicando:
 </figure>
 
 Ahora, cada vez que guardes en VS Code, los cambios se reflejarán automáticamente en el navegador. Si tienes dudas puedes consultar este [vídeo](https://www.youtube.com/watch?v=54wcX1G2GH8).
+
+
+
+
 
 ### Intérpretes online
 
