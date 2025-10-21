@@ -1161,7 +1161,7 @@ Cada clase debe ir en un archivo php separado. Para facilitar su implementación
 320.   Crea una clase para almacenar soportes (`Soporte.php`). Esta clase será la clase padre de los diferentes soportes con los que trabaje nuestro videoclub (cintas de vídeo, videojuegos, etc...):
 
     * Crea el constructor que inicialice sus propiedades. Fíjate que la clase no tiene métodos *setters*.
-    * Definir una constante mediante un propiedad privada denominada `IVA` con un valor del 21%.
+    * Definir una constante mediante un propiedad privada denominada `IVA` con un valor del 21%. Nota: Ojo, **las constantes admiten tipos de datos a partir de PHP 8.3**.
     * Crear un archivo (`inicio.php`) para usar las clases y copia el siguiente fragmento:
 
 === "Código de prueba"
@@ -1182,7 +1182,7 @@ Cada clase debe ir en un archivo php separado. Para facilitar su implementación
     <pre>
     **Tenet**
     Precio: 3 euros
-    Precio IVA incluido: 3.48 euros
+    Precio IVA incluido: 3.63 euros
     *Tenet*
     3 € (IVA no incluido)
     </pre>
@@ -1192,7 +1192,7 @@ Cada clase debe ir en un archivo php separado. Para facilitar su implementación
     <figcaption>Añadimos Cinta de Video</figcaption>
 </figure>
 
-321.   Crea la clase `CintaVideo` la cual hereda de `Soporte`. Añade el atributo `duracion` y sobreescribe tanto el contructor como el método `muestraResumen` (desde `CintaVideo` deberás llamar al método `muestraResumen` del padre).
+1.     Crea la clase `CintaVideo` la cual hereda de `Soporte`. Añade el atributo `duracion` y sobreescribe tanto el contructor como el método `muestraResumen` (desde `CintaVideo` deberás llamar al método `muestraResumen` del padre).
 
     Añade a `inicio.php` el código para probar la clase:
 
