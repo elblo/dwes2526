@@ -39,8 +39,8 @@ Para declarar una clase, se utiliza la palabra clave `class` seguido del nombre 
 ``` php
 <?php
 class NombreClase {
-// propiedades
-// y métodos
+    // propiedades 
+    // y métodos 
 }
 
 $ob = new NombreClase();
@@ -90,6 +90,28 @@ $bruno->imprimir();
 ```
 
 Aunque se pueden declarar varias clases en el mismo archivo, es una mala práctica. Así pues, cada fichero contedrá una sola clase, y se nombrará con el nombre de la clase.
+
+!!! info "Constantes como atributos"
+    Es posible definir una constante como atributo de una clase, pero ojo, que sólo es posible definir su tipo de dato a partir de PHP 8.3.
+
+    ``` php hl_lines="2"
+    <?php
+    class Producto {
+        public const float IVA = 0.21; // Sin "float" para versiones < PHP 8.3
+        
+        private string $nombre;
+        private string $precio;
+
+        // ...
+
+        public function getPrecioConIva(): float {
+            return $this->precio=$nom * ($this->precio * self::IVA);
+        }
+    }
+
+    // MAIN...
+    echo Producto::IVA;
+    ```
 
 ## 3.2 Encapsulación
 
