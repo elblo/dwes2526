@@ -669,12 +669,13 @@ Hoy en día con la cantidad de librerías de terceros que se importan en los pro
 
 ``` php
 <?php
-    include_once "app/modelo/compras/Producto.php";
-    include_once "app/modelo/ventas/Producto.php";
+// index.php
+include_once "app/modelo/compras/Producto.php";
+include_once "app/modelo/ventas/Producto.php";
 
-    // No funciona, hay solapamiento de recursos
+// No funciona, hay solapamiento de recursos
 $producto = new modelo\compras\Producto("Teclado Logitech MX Keys", 56.99);
-    $producto->compra();
+$producto->compra();
 ```
 
 Como habrás comprobado, el intérprete de PHP no sabe qué clase `Producto` utilizar y no funciona. 
@@ -683,17 +684,13 @@ Como habrás comprobado, el intérprete de PHP no sabe qué clase `Producto` uti
 
 ### Declaración
 
-!!! tip "Recomendación"
-    Un sólo namespace por archivo y crear una estructura de carpetas respectando los niveles/subniveles (igual que se hace en *Java*).
-
 Se declaran en la primera línea mediante la palabra clave `namespace` seguida del nombre del espacio de nombres asignado (cada subnivel se separa con la barra invertida `\`):
 
 === "app/modelo/compras/Producto.php"
-    
-    Declaración de su namespace al principio del archivo, antes de cualquier salida.
 
-    ``` php hl_lines="2"
+    ``` php hl_lines="3"
     <?php
+    // Declaración de su namespace al principio del archivo, antes de cualquier salida.
     namespace Modelo\Compras;
 
     // Definición de constante y función fuera de la clase para
@@ -728,10 +725,9 @@ Se declaran en la primera línea mediante la palabra clave `namespace` seguida d
 
 === "app/modelo/ventas/Producto.php"
 
-    Declaración de su namespace al principio del archivo, antes de cualquier salida.
-
-    ``` php hl_lines="2"
+    ``` php hl_lines="3"
     <?php
+    // Declaración de su namespace al principio del archivo, antes de cualquier salida.
     namespace Modelo\Ventas;
 
     // Definición de constante y función fuera de la clase para
@@ -759,6 +755,9 @@ Se declaran en la primera línea mediante la palabra clave `namespace` seguida d
         }
     }
     ```
+
+!!! tip "Recomendación"
+    Un sólo namespace por archivo y crear una estructura de carpetas respectando los niveles/subniveles (igual que se hace en *Java*).
 
 ### Acceso
 
@@ -874,7 +873,7 @@ spl_autoload_register( function( $nombreClase ) {
 Y ¿cómo organizamos ahora nuestro código aprovechando el *autoload*?
 
 <figure style="float: right;">
-    <img src="imagenes/03/03autoload2025.png" width="600">
+    <img src="imagenes/03/03autoload2025.png" width="300">
     <figcaption>Organización con autoload</figcaption>
 </figure>
 
