@@ -764,7 +764,7 @@ Se declaran en la primera línea mediante la palabra clave `namespace` seguida d
 
 Para referenciar a un recurso que contiene un namespace, primero hemos de tenerlo disponible haciendo uso de `include` o `require`, igual que hasta ahora. 
 
-``` php hl_lines="6,9"
+``` php hl_lines="6 9"
 <?php
 // index.php en la raíz del proyecto, al nivel de app
 include_once "app/modelo/compras/Producto.php";
@@ -923,7 +923,7 @@ Para la configuración de los errores podemos hacerlo de dos formas:
 * A nivel de `php.ini`:
     * `error_reporting`: indica los niveles de errores a notificar
         * `error_reporting = E_ALL & ~E_NOTICE` -> Todos los errores menos los avisos en tiempo de ejecución.
-    * `display_errors`: indica si mostrar o no los errores por pantalla. En entornos de producción es común ponerlo a `off`
+    * `display_errors`: indica si mostrar o no los errores por pantalla. **En entornos de producción hay que ponerlo a `off`.**
 * Mediante código con las siguientes funciones:
     * `error_reporting(codigo)` -> Controla qué errores notificar
     * `set_error_handler(nombreManejador)` -> Indica qué función se invocará cada vez que se encuentre un error. El manejador recibe como parámetros el nivel del error y el mensaje
