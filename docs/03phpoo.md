@@ -94,7 +94,7 @@ Aunque se pueden declarar varias clases en el mismo archivo, es una mala prácti
 !!! info "Constantes como atributos"
     Es posible definir una constante como atributo de una clase, pero ojo, que sólo es posible definir su tipo de dato a partir de PHP 8.3.
 
-    ``` php hl_lines="2"
+    ``` php hl_lines="3"
     <?php
     class Producto {
         public const float IVA = 0.21; // Sin "float" para versiones < PHP 8.3
@@ -661,53 +661,153 @@ Los más destacables son:
 
 ## 3.12 Espacio de nombres
 
-Desde PHP 5.3 y también conocidos como *Namespaces*, permiten organizar las clases/interfaces, funciones y/o constantes de forma similar a los paquetes en *Java*. Están basados en el concepto similar a la organización de archivos en directorios que hacen los sistemas operativos: Sólo puede haber un archivo con el mismo nombre en un directorio y el acceso es ordenado estableciendo la ruta, evitando así conflictos de nombres.
+Desde PHP 5.3 y también conocidos como *namespaces*, permiten organizar las *clases/interfaces, funciones y/o constantes* de forma similar a los paquetes en *Java*. Están basados en el concepto similar a la organización de archivos en directorios que hacen los sistemas operativos: Sólo puede haber un archivo con el mismo nombre en un directorio y el acceso es ordenado estableciendo la ruta, evitando así conflictos de nombres.
+
+### Justificación
+
+Hoy en día con la cantidad de librerías de terceros que se importan en los proyectos, no es nada raro que en nuestro código necesitemos utilizar 2 clases que se llaman igual. Para ilustrar este concepto, supón que tenemos el siguiente código:  
+
+``` php
+<?php
+    include_once "app/modelo/compras/Producto.php";
+    include_once "app/modelo/ventas/Producto.php";
+
+    // No funciona, hay solapamiento de recursos
+$producto = new modelo\compras\Producto("Teclado Logitech MX Keys", 56.99);
+    $producto->compra();
+```
+
+Como habrás comprobado, el intérprete de PHP no sabe qué clase `Producto` utilizar y no funciona. 
+
+¿Cómo se resuelve esta ambigüedad? Lo has adivinado, usando *espacios de nombres*. 
+
+### Declaración
 
 !!! tip "Recomendación"
-    Un sólo namespace por archivo y crear una estructura de carpetas respectando los niveles/subniveles (igual que se hace en *Java*)
+    Un sólo namespace por archivo y crear una estructura de carpetas respectando los niveles/subniveles (igual que se hace en *Java*).
 
 Se declaran en la primera línea mediante la palabra clave `namespace` seguida del nombre del espacio de nombres asignado (cada subnivel se separa con la barra invertida `\`):
 
-Por ejemplo, para colocar la clase `Producto` dentro del *namespace* `Dwes\Ejemplos` lo haríamos así:
+=== "app/modelo/compras/Producto.php"
+    
+    Declaración de su namespace al principio del archivo, antes de cualquier salida.
 
-``` php
-<?php
-namespace Dwes\Ejemplos;
+    ``` php hl_lines="2"
+    <?php
+    namespace Modelo\Compras;
 
-const IVA = 0.21;
+    // Definición de constante y función fuera de la clase para
+    // usos didácticos de los namespaces
+    const IVA = 0.1;
 
-class Producto {
-    public $nombre;
-      
-    public function muestra() : void {
-        echo"<p>Prod:" . $this->nombre . "</p>";
+    function precioConIva(Producto $producto) : float {
+        return $producto->getPrecio() * (1 + IVA);
     }
-}
-```
+
+    class Producto
+    {
+        private string $nombre;
+        private float $precio;
+
+        public function __construct(string $nombre, float $precio)
+        {
+            $this->nombre = $nombre;
+            $this->precio = $precio;
+        }
+
+        public function getPrecio(): float
+        {
+            return $this->precio;
+        }
+
+        public function compra() : void {
+            echo "<p>Compra del producto $this->nombre</p>";
+        }
+    }
+    ```
+
+=== "app/modelo/ventas/Producto.php"
+
+    Declaración de su namespace al principio del archivo, antes de cualquier salida.
+
+    ``` php hl_lines="2"
+    <?php
+    namespace Modelo\Ventas;
+
+    // Definición de constante y función fuera de la clase para
+    // usos didácticos de los namespaces
+    const IVA = 0.21;
+
+    function precioConIva(Producto $producto) : float {
+        return $producto->getPrecio() * (1 + IVA);
+    }
+
+    class Producto
+    {
+        private string $nombre;
+        private float $precio;
+
+        public function __construct(string $nombre, float $precio)
+        {
+            $this->nombre = $nombre;
+            $this->precio = $precio;
+        }
+
+        public function getPrecio(): float
+        {
+            return $this->precio;
+        }
+    }
+    ```
 
 ### Acceso
 
-Para referenciar a un recurso que contiene un namespace, primero hemos de tenerlo disponible haciendo uso de `include` o `require`. Si el recurso está en el mismo *namespace*, se realiza un acceso directo (se conoce como acceso sin cualificar).
+Para referenciar a un recurso que contiene un namespace, primero hemos de tenerlo disponible haciendo uso de `include` o `require`, igual que hasta ahora. 
 
-Realmente hay tres tipos de acceso:
+``` php hl_lines="6,9"
+<?php
+// index.php en la raíz del proyecto, al nivel de app
+include_once "app/modelo/compras/Producto.php";
+include_once "app/modelo/ventas/Producto.php";
 
-* sin cualificar: `recurso`
-* cualificado: `rutaRelativa\recurso` → no hace falta poner el *namespace* completo
+$producto1 = new \Modelo\Compras\Producto("Teclado Logitech MX Keys", 84.99);
+$producto1->compra();
+
+$producto2 = new \Modelo\Ventas\Producto("Ratón Logitech MX Master 3S", 56.99);
+$producto2->venta();
+```
+
+Existen tres tipos de acceso:
+
 * totalmente cualificado: `\rutaAbsoluta\recurso`
+* cualificado: `rutaRelativa\recurso` → no hace falta poner el *namespace* completo
+* sin cualificar: `recurso`
 
 ``` php
 <?php
-namespace Dwes\Ejemplos;
+// listado.php en app/modelo/
+namespace Modelo;
 
-include_once("Producto.php");
+include_once "ventas/Producto.php";
 
-echo IVA; // sin cualificar
-echo Utilidades\IVA; // acceso cualificado. Daría error, no existe \Dwes\Ejemplos\Utilidades\IVA
-echo \Dwes\Ejemplos\IVA; // totalmente cualificado
+$producto2 = new Ventas\Producto("Ratón Logitech MX Master 3S", 56.99);
+$producto2->venta();
 
-$p1 = new Producto(); // lo busca en el mismo namespace y encuentra \Dwes\Ejemplos\Producto
-$p2 = new Model\Producto(); // daría error, no existe el namespace Model. Está buscando \Dwes\Ejemplos\Model\Producto
-$p3 = new \Dwes\Ejemplos\Producto(); // \Dwes\Ejemplos\Producto
+// Totalmente cualificado --> absoluta desde raíz
+// Cualificado --> relativo al namespace actual
+// No cualificado --> relativo al namespace actual
+
+echo \Modelo\Ventas\IVA;
+echo Ventas\IVA;
+echo IVA; // No funciona: no existe IVA en el namespace actual
+
+echo \Modelo\Ventas\precioConIva($producto2);
+echo Ventas\precioConIva($producto2);
+echo precioConIva($producto2); // No funciona: no existe precioConIva en el namespace actual
+
+$p1 = new \Modelo\Ventas\Producto("Producto...", 11.99);
+$p2 = new Ventas\Producto("Producto...", 11.99);
+$p3 = new Producto("Producto...", 11.99); // No funciona: no existe Producto en el namespace actual
 ```
 
 Para evitar la referencia cualificada podemos declarar el uso mediante `use` (similar a hacer `import` en *Java*). Se hace en la cabecera, tras el `namespace`:
@@ -719,17 +819,26 @@ Los tipos posibles son:
 * `use nombreCualificadoClase`
 * `use nombreCualificadoClase as NuevoNombre` // para renombrar elementos
 
-Por ejemplo, si queremos utilizar la clase `\Dwes\Ejemplos\Producto` desde un recurso que se encuentra en la raíz, por ejemplo en `inicio.php`, haríamos:
+Por ejemplo, si queremos utilizar la clase `\Modelo\Ventas\Producto` desde un recurso que se encuentra en la raíz, por ejemplo en `index.php`, haríamos:
 
 ``` php
 <?php
-include_once("Dwes\Ejemplos\Producto.php");
+include_once "app/modelo/compras/Producto.php";
+include_once "app/modelo/ventas/Producto.php";
 
-use const Dwes\Ejemplos\IVA;
-use \Dwes\Ejemplos\Producto;
+use const \Modelo\Ventas\IVA;
+use function \Modelo\Ventas\precioConIva;
+use \Modelo\Ventas\Producto as ProductoVenta; // Hay que renombrar la clase Producto
+use \Modelo\Compras\Producto as ProductoCompra; // Hay que renombrar la clase Producto
 
-echo IVA;
-$p1 = new Producto();
+$producto1 = new ProductoCompra("Teclado Logitech MX Keys", 84.99);
+$producto1->compra();
+
+$producto2 = new ProductoVenta("Ratón Logitech MX Master 3S", 56.99);
+$producto2->venta();
+
+echo IVA;
+echo precioConIva($producto2);
 ```
 
 !!! tip "To `use` or not to `use`"
@@ -739,11 +848,6 @@ $p1 = new Producto();
 
 Todo proyecto, conforme crece, necesita organizar su código fuente. Se plantea una organización en la que los archivos que interactuan con el navegador se colocan en la raíz, y las clases que definamos van dentro de un namespace (y dentro de su propia carpeta `src` o `app`).
 
-<figure>
-<img src="imagenes/03/03organizacion.png">
-<figcaption>Organización del código fuente</figcaption>
-</figure>
-
 !!! tip "Organización, includes y usos"
     * Colocaremos cada recurso en un fichero aparte.
     * En la primera línea indicaremos su *namespace* (si no está en el raíz).
@@ -752,7 +856,7 @@ Todo proyecto, conforme crece, necesita organizar su código fuente. Se plantea 
 
 ### Autoload
 
-¿No es tedioso tener que hacer el `include` de las clases? El *autoload* viene al rescate.
+¿No es tedioso tener que hacer el `include` de los archivos con los recursos? El *autoload* viene al rescate.
 
 Así pues, permite cargar las clases (no las constantes ni las funciones) que se van a utilizar y evitar tener que hacer el `include_once` de cada una de ellas. Para ello, se utiliza la función `spl_autoload_register`
 
@@ -770,11 +874,16 @@ spl_autoload_register( function( $nombreClase ) {
 Y ¿cómo organizamos ahora nuestro código aprovechando el *autoload*?
 
 <figure style="float: right;">
-    <img src="imagenes/03/03autoload.png" width="600">
+    <img src="imagenes/03/03autoload2025.png" width="600">
     <figcaption>Organización con autoload</figcaption>
 </figure>
 
-Para facilitar la búsqueda de los recursos a incluir, es recomendable colocar todas las clases dentro de una misma carpeta. Nosotros la vamos a colocar dentro de `app` (más adelante, cuando estudiemos *Laravel* veremos el motivo de esta decisión). Otras carpetas que podemos crear son `test` para colocar las pruebas *PhpUnit* que luego realizaremos, o la carpeta `vendor` donde se almacenarán las librerías del proyecto (esta carpeta es un estándard dentro de PHP, ya que *Composer* la crea automáticamente).
+Para facilitar la búsqueda de los recursos a incluir, es recomendable colocar todas las clases dentro de una misma carpeta y seguir el estándar *PSR-4*. Nosotros la vamos a colocar dentro de `app` (más adelante, cuando estudiemos *Laravel* veremos el motivo de esta decisión). Otras carpetas que podemos crear son `test` para colocar las pruebas *PhpUnit* que luego realizaremos, o la carpeta `vendor` donde se almacenarán las librerías del proyecto (esta carpeta es un estándard dentro de PHP, ya que *Composer* la crea automáticamente).
+
+??? "PHP-FIG y el Estándar PSR-4"
+    [PHP-FIG](https://www.php-fig.org/) es un grupo de programadores que tiene como objetivos promover el ecosistema de PHP y definir estándares basados en la investigación, experimentación y sobre todo en la experiencia del mundo real, para *facilitar la colaboración entre programadores y proyectos*.
+
+    La Recomendación 4 de Estándares PHP [PSR-4](https://www.php-fig.org/psr/psr-4/) es un estándar establecido por *PHP-FIG*  que proporciona una convención común para la carga automática de clases PHP según espacios de nombres. La *PSR-4* simplifica la organización de clases y archivos, facilitando la gestión de grandes bases de código y la colaboración en proyectos.
 
 Como hemos colocado todos nuestros recursos dentro de `app`, ahora nuestro `autoload.php` (el cual colocamos en la carpeta raíz) sólo va a buscar dentro de esa carpeta:
 
