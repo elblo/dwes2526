@@ -870,12 +870,12 @@ spl_autoload_register( function( $nombreClase ) {
 !!! question "¿Por qué se llaman *autoload*?"
     Porque antes se realizaba mediante el método mágico `__autoload()`, el cual está *obsoleto* desde PHP 7.2
 
-Y ¿cómo organizamos ahora nuestro código aprovechando el *autoload*?
-
 <figure style="float: right;">
-    <img src="imagenes/03/03autoload2025.png" width="300">
+    <img src="imagenes/03/03autoload2025.png" width="260">
     <figcaption>Organización con autoload</figcaption>
 </figure>
+
+Y ¿cómo organizamos ahora nuestro código aprovechando el *autoload*?
 
 Para facilitar la búsqueda de los recursos a incluir, es recomendable colocar todas las clases dentro de una misma carpeta y seguir el estándar *PSR-4*. Nosotros la vamos a colocar dentro de `app` (más adelante, cuando estudiemos *Laravel* veremos el motivo de esta decisión). Otras carpetas que podemos crear son `test` para colocar las pruebas *PhpUnit* que luego realizaremos, o la carpeta `vendor` donde se almacenarán las librerías del proyecto (esta carpeta es un estándard dentro de PHP, ya que *Composer* la crea automáticamente).
 
