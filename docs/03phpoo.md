@@ -879,11 +879,6 @@ Y ¿cómo organizamos ahora nuestro código aprovechando el *autoload*?
 
 Para facilitar la búsqueda de los recursos a incluir, es recomendable colocar todas las clases dentro de una misma carpeta y seguir el estándar *PSR-4*. Nosotros la vamos a colocar dentro de `app` (más adelante, cuando estudiemos *Laravel* veremos el motivo de esta decisión). Otras carpetas que podemos crear son `test` para colocar las pruebas *PhpUnit* que luego realizaremos, o la carpeta `vendor` donde se almacenarán las librerías del proyecto (esta carpeta es un estándard dentro de PHP, ya que *Composer* la crea automáticamente).
 
-??? "PHP-FIG y el Estándar PSR-4"
-    [PHP-FIG](https://www.php-fig.org/) es un grupo de programadores que tiene como objetivos promover el ecosistema de PHP y definir estándares basados en la investigación, experimentación y sobre todo en la experiencia del mundo real, para *facilitar la colaboración entre programadores y proyectos*.
-
-    La Recomendación 4 de Estándares PHP [PSR-4](https://www.php-fig.org/psr/psr-4/) es un estándar establecido por *PHP-FIG*  que proporciona una convención común para la carga automática de clases PHP según espacios de nombres. La *PSR-4* simplifica la organización de clases y archivos, facilitando la gestión de grandes bases de código y la colaboración en proyectos.
-
 Como hemos colocado todos nuestros recursos dentro de `app`, ahora nuestro `autoload.php` (el cual colocamos en la carpeta raíz) sólo va a buscar dentro de esa carpeta:
 
 ``` php
@@ -906,6 +901,11 @@ spl_autoload_register( function( $nombreClase ) {
     } );
     ?>
     ```
+
+??? "PHP-FIG y el Estándar PSR-4"
+    [PHP-FIG](https://www.php-fig.org/) es un grupo de programadores que tiene como objetivos promover el ecosistema de PHP y definir estándares basados en la investigación, experimentación y sobre todo en la experiencia del mundo real, para *facilitar la colaboración entre programadores y proyectos*.
+
+    La Recomendación 4 de Estándares PHP [PSR-4](https://www.php-fig.org/psr/psr-4/) es un estándar establecido por *PHP-FIG*  que proporciona una convención común para la carga automática de clases PHP según espacios de nombres. La *PSR-4* simplifica la organización de clases y archivos, facilitando la gestión de grandes bases de código y la colaboración en proyectos.
 
 ## 3.13 Gestión de Errores
 
