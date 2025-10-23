@@ -674,7 +674,7 @@ include_once "app/modelo/compras/Producto.php";
 include_once "app/modelo/ventas/Producto.php";
 
 // No funciona, hay solapamiento de recursos
-$producto = new modelo\compras\Producto("Teclado Logitech MX Keys", 56.99);
+$producto = new Producto("Teclado Logitech MX Keys", 56.99);
 $producto->compra();
 ```
 
