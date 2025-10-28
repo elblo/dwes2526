@@ -7,7 +7,7 @@ nav:
   - "1.- Arquitecturas Web": "01arquitecturas.md"
   - "2.- El lenguaje PHP": "02php.md"
   - "3.- PHP Orientado a Objetos": "03phpoo.md"
-  #- "4.- Programación Web": "04web.md"
+  - "4.- Programación Web": "04web.md"
   #- "5.- Herramientas Web": "05herramientas.md"
   #- "6.- Acceso a Datos": "06accesoDatos.md"
   #- "7.- Frameworks PHP - Laravel": "07frameworks.md"

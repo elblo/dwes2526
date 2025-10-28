@@ -691,7 +691,7 @@ Se declaran en la primera línea mediante la palabra clave `namespace` seguida d
     ``` php hl_lines="3"
     <?php
     // Declaración de su namespace al principio del archivo, antes de cualquier salida.
-    namespace Modelo\Compras;
+    namespace App\Modelo\Compras;
 
     // Definición de constante y función fuera de la clase para
     // usos didácticos de los namespaces
@@ -728,7 +728,7 @@ Se declaran en la primera línea mediante la palabra clave `namespace` seguida d
     ``` php hl_lines="3"
     <?php
     // Declaración de su namespace al principio del archivo, antes de cualquier salida.
-    namespace Modelo\Ventas;
+    namespace App\Modelo\Ventas;
 
     // Definición de constante y función fuera de la clase para
     // usos didácticos de los namespaces
@@ -769,10 +769,10 @@ Para referenciar a un recurso que contiene un namespace, primero hemos de tenerl
 include_once "app/modelo/compras/Producto.php";
 include_once "app/modelo/ventas/Producto.php";
 
-$producto1 = new \Modelo\Compras\Producto("Teclado Logitech MX Keys", 84.99);
+$producto1 = new \App\Modelo\Compras\Producto("Teclado Logitech MX Keys", 84.99);
 $producto1->compra();
 
-$producto2 = new \Modelo\Ventas\Producto("Ratón Logitech MX Master 3S", 56.99);
+$producto2 = new \App\Modelo\Ventas\Producto("Ratón Logitech MX Master 3S", 56.99);
 $producto2->venta();
 ```
 
@@ -785,7 +785,7 @@ Existen tres tipos de acceso:
 ``` php
 <?php
 // listado.php en app/modelo/
-namespace Modelo;
+namespace App\Modelo;
 
 include_once "ventas/Producto.php";
 
@@ -796,15 +796,15 @@ $producto2->venta();
 // Cualificado --> relativo al namespace actual
 // No cualificado --> relativo al namespace actual
 
-echo \Modelo\Ventas\IVA;
+echo \App\Modelo\Ventas\IVA;
 echo Ventas\IVA;
 echo IVA; // No funciona: no existe IVA en el namespace actual
 
-echo \Modelo\Ventas\precioConIva($producto2);
+echo \App\Modelo\Ventas\precioConIva($producto2);
 echo Ventas\precioConIva($producto2);
 echo precioConIva($producto2); // No funciona: no existe precioConIva en el namespace actual
 
-$p1 = new \Modelo\Ventas\Producto("Producto...", 11.99);
+$p1 = new \App\Modelo\Ventas\Producto("Producto...", 11.99);
 $p2 = new Ventas\Producto("Producto...", 11.99);
 $p3 = new Producto("Producto...", 11.99); // No funciona: no existe Producto en el namespace actual
 ```
@@ -818,17 +818,17 @@ Los tipos posibles son:
 * `use nombreCualificadoClase`
 * `use nombreCualificadoClase as NuevoNombre` // para renombrar elementos
 
-Por ejemplo, si queremos utilizar la clase `\Modelo\Ventas\Producto` desde un recurso que se encuentra en la raíz, por ejemplo en `index.php`, haríamos:
+Por ejemplo, si queremos utilizar la clase `\App\Modelo\Ventas\Producto` desde un recurso que se encuentra en la raíz, por ejemplo en `index.php`, haríamos:
 
 ``` php
 <?php
 include_once "app/modelo/compras/Producto.php";
 include_once "app/modelo/ventas/Producto.php";
 
-use const \Modelo\Ventas\IVA;
-use function \Modelo\Ventas\precioConIva;
-use \Modelo\Ventas\Producto as ProductoVenta; // Hay que renombrar la clase Producto
-use \Modelo\Compras\Producto as ProductoCompra; // Hay que renombrar la clase Producto
+use const \App\Modelo\Ventas\IVA;
+use function \App\Modelo\Ventas\precioConIva;
+use \App\Modelo\Ventas\Producto as ProductoVenta; // Hay que renombrar la clase Producto
+use \App\Modelo\Compras\Producto as ProductoCompra; // Hay que renombrar la clase Producto
 
 $producto1 = new ProductoCompra("Teclado Logitech MX Keys", 84.99);
 $producto1->compra();
@@ -1024,7 +1024,7 @@ Si definimos una excepción de aplicación dentro de un *namespace*, cuando refe
     <?php
     namespace \Dwes\Ejemplos;
 
-    use Exception;
+    use Exception; // Sin "use" buscaría Exception en el namespace actual
 
     class AppExcepcion extends Exception {}
     ```
