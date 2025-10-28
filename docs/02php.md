@@ -1492,6 +1492,48 @@ include("pie.html");
 ?>
 ```
 
+### Separar lógica y presentación
+
+Separar la lógica PHP del HTML mejora la organización y la legibilidad del código. Mover la lógica PHP al principio del documento y crear archivos separados para la lógica y las vistas mejora la mantenibilidad a medida que la aplicación crece. Y eso se puede hacer mediante las funciones *include* o *require*.
+
+=== "index.php"
+    
+    Archivo que representa la lógica de negocio, en el se definen los datos (o recuperan de un formulario, base de datos...), las funciones...
+
+    ``` php
+    <?php
+    // Aquí se recuperarían los libros de la BDD
+    $books = [...];
+    // Se definen las funciones y toda la lógica
+    function filter($items, $callable) { ... }
+
+    // Se incluye la vista, que tendrá acceso a los datos definidos en este fichero
+    require 'index.view.php';
+    ```
+
+=== "index.view.php"
+
+    Archivo que representa la vista y en el que está todo el código HTML y sólo el PHP necesario para generarla.
+
+    ```html+php
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Ejemplo</title>
+    </head>
+    <body>
+        <h1>Libros</h1>
+        <ul>
+        <?php 
+            foreach ($books as $book){ 
+                echo "<li>$book['title']</li>";
+            } 
+        ?>
+        </ul>
+    </body>
+    </html>
+    ```
+
 ## 2.8 Funciones predefinidas
 
 El lenguaje ofrece un abanico de funciones ya definidas, agrupadas por su funcionalidad: <https://www.php.net/manual/es/funcref.php>
