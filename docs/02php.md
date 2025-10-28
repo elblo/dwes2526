@@ -1152,9 +1152,6 @@ Un lenguaje de programación se dice que tiene **funciones de primera clase** cu
     
 Son funciones que no tienen nombre y se utilizan principalmente para gestionar los *callbacks*. Este tipo de funciones se utiliza mucho en **Javascript** para gestionar los eventos y promesas.
 
-!!! info "Callback"
-    Un *callback* es una función que se pasa a otra función como un argumento y que se invoca dentro de la función externa para completar algún tipo de rutina o acción.
-
 ``` php
 <?php
 // EJEMPLO 1: Función anónima sin parámetros
@@ -1362,6 +1359,67 @@ echo $fn2(3); // 4
 ```
 
 [Más info sobre funciones flecha](https://www.php.net/manual/es/functions.arrow.php)
+
+### Funciones lambda
+
+Una función **lambda** es una pequeña función anónima que puede aceptar varios parámetros, pero devuelve una única expresión. Se utiliza principalmente para pasar código como argumento a otras funciones, como array_map(), array_filter()... o para simplificar la sintaxis con las funciones de flecha.
+
+``` php
+<?php
+// Función lambda definida mediante función ánonima
+$fn1 = function($numero){
+    return $numero * $numero;
+}
+
+// Función lambda definida mediante función flecha
+$fn2 = fn($numero) => $numero * $numero;
+
+// llamadas
+echo $fn1(3); // 9
+echo $fn2(3); // 9
+?>
+```
+
+### Callbacks
+
+Un *callback* es una función que se pasa a otra función como un argumento y que se invoca dentro de la función externa para completar algún tipo de rutina o acción.
+
+``` php
+<?php
+// Ejemplo de función genérica de filtrado de elementos de un array
+function filter(array $items, callable $callback) {
+    $filteredItems = [];
+    foreach ($items as $item) {
+        if ($callback($item)) {
+            $filteredItems[] = $item;
+        }
+    }
+    return $filteredItems;
+}
+
+// llamada con función anónima
+$filteredBooksByReleaseYear = filter($books, function($book) {
+    return $book['releaseYear'] >= 2000;
+});
+
+// llamada con función flecha
+$filteredBooksByAuthor = filter($books, fn($book) => $book['author'] == "Stephen King");
+?>
+```
+
+!!! tip "array_filter"
+    PHP proporciona una función *array_filter* que precisamente nos ahorra la declaración de la función genérica *filter* anterior y que podemos usar de la misma forma.
+
+    ``` php hl_lines="2 7"
+    // llamada con función anónima
+    $filteredBooksByReleaseYear = array_filter($books, function($book) {
+        return $book['releaseYear'] >= 2000;
+    });
+
+    // llamada con función flecha
+    $filteredBooksByAuthor = array_filter($books, fn($book) => $book['author'] == "Stephen King");
+    ?>
+    ```
 
 ### Biblioteca de funciones
 
