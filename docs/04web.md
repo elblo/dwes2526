@@ -200,7 +200,7 @@ if (!empty($_POST['modulos']) && !empty($_POST['nombre'])) {
 Se almacenan en el servidor en el array `$_FILES` con el nombre del campo del tipo `file` del formulario.
 
 ``` html
-<form enctype="multipart/form-data" action="<?php echo $_SERVER['PHP_SELF']; ?>"  method="POST">
+<form enctype="multipart/form-data" method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
     Archivo: <input name="archivoEnviado" type="file" />
     <br />
     <input type="submit" name="btnSubir" value="Subir" />
