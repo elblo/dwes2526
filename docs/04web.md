@@ -69,13 +69,32 @@ Apache crea una clave para cada cabecera HTTP, en mayúsculas y sustituyendo los
 echo $_SERVER["HTTP_USER_AGENT"]."<br>"; // Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36
 ```
 
+??? tip "Crear función propia dd"
+
+    En Laravel es bastante común utilizar la función **dd** --dump and die-- que muestra información de la variable pasada y corta la ejecución del script actual. Muy útil para realizar depuración y pruebas. 
+
+    Una implementación propia de la función sería la siguiente:
+
+    ```php
+    <?php
+    function dd($value) {
+        echo "<pre>";
+        var_dump($value);
+        echo "</pre>";
+        die();
+    }
+
+    // llamada con la supervariable $_SERVER
+    dd($_SERVER);
+    ```
+
 ## 4.2 Formularios
 
 A la hora de enviar un formulario, debemos tener claro cuando usar GET o POST:
 
 * GET: los parámetros se pasan en la URL
     * <2048 caracteres, sólo ASCII
-    * Permite almacenar la dirección completa (marcador  / historial)
+    * Permite almacenar en marcadores/historial la dirección completa
     * Idempotente: dos llamadas con los mismos datos siempre debe dar el mismo resultado
     * El navegador puede cachear las llamadas
 
@@ -95,7 +114,7 @@ $par = $_POST["parametro"]
 Para los siguientes apartados nos vamos a basar en el siguiente ejemplo:
 
 ``` html
-<form action="formulario.php" method="GET">
+<form action="formulario.php" method="POST">
     <p><label for="nombre">Nombre del alumno:</label>
         <input type="text" name="nombre" id="nombre" value="" />
     </p>
