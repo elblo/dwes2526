@@ -135,8 +135,8 @@ Para los siguientes apartados nos vamos a basar en el siguiente ejemplo:
 
 Respecto a la validación, es conveniente siempre hacer **validación doble**:
 
-* En el cliente mediante JS
-* En servidor, antes de llamar a negocio, es conveniente volver a validar los datos.
+* En el cliente mediante JS.
+* En el servidor es conveniente volver a validar los datos antes de utilizarlos.
 
 ``` php
 <?php
@@ -148,7 +148,10 @@ if (isset($_GET["parametro"])) {
 
 !!! info "Librerías de validación"
     Existen diversas librerías que facilitan la validación de los formularios, como son [respect/validation](https://respect-validation.readthedocs.io/en/latest/) o [particle/validator](http://validator.particle-php.com/en/latest/).
+
     Cuando estudiemos Laravel profundizaremos en la validación de forma declarativa.
+
+    Mientras, recuerda que tienes funciones como *gettype* que devuelve el tipo de dato y otras como *is_int*, *is_float*, *is_string*, *is_array*, *is_object*, que devuelven un booleano a partir del tipo recibido.
 
 ### Parámetro multivalor
 
