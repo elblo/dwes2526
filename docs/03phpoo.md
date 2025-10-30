@@ -609,8 +609,10 @@ Ejemplo:
 ``` php
 <?php
    trait Logger {
+        public string $logLevel = "INFO";
+
         public function log($message) {
-            echo "Logging: " . $message . "\n";
+            echo $this->logLevel ." Logging: " . $message . "\n";
         }
     }
 
@@ -626,9 +628,18 @@ Ejemplo:
     $user->log("User created"); // El método del trait ahora está disponible en la clase
 
     $product = new Product();
+    $product->logLevel = "ALERT";
     $product->log("Product updated"); // Y también en esta clase
 
 ```
+
+En la clase puedes usar las propiedades del trait como si fueran propias: leer, modificar y acceder de forma similar a como lo hace con la herencia:
+
+* public: accesible desde cualquier sitio.
+* protected: accesible desde dentro de la clase que usa el trait.
+* private: sólo accesible desde dentro del trait.
+
+**El uso de trait está aconsejado para compartir métodos más que propiedades**. 
 
 !!! info "Comparación con las interfaces"
 
