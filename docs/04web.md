@@ -140,8 +140,8 @@ Respecto a la validación, es conveniente siempre hacer **validación doble**:
 
 ``` php
 <?php
-if (isset($_GET["parametro"])) {
-    $par = $_GET["parametro"];
+if (isset($_POST["parametro"])) {
+    $par = $_POST["parametro"];
     // comprobar si $par tiene el formato adecuado, su valor, etc...
 }
 ```
@@ -180,7 +180,7 @@ De manera que luego al recoger los datos:
 
 ``` php
 <?php
-$lenguajes = $_GET["lenguajes"];
+$lenguajes = $_POST["lenguajes"];
 
 foreach ($lenguajes as $lenguaje) {
     echo "$lenguaje <br />";
@@ -219,7 +219,7 @@ if (!empty($_POST['modulos']) && !empty($_POST['nombre'])) {
 
 ### Subiendo archivos
 
-Se almacenan en el servidor en el array `$_FILES` con el nombre del campo del tipo `file` del formulario.
+Cuando subamos archivos a través de un formulario es imprescindible utilizar utilizar los atributos `method="POST"` y `enctype="multipart/form-data"`.
 
 ``` html
 <form enctype="multipart/form-data" method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
@@ -246,28 +246,45 @@ Configuración en `php.ini`
 
     Y mediante [ini_set](https://www.php.net/manual/en/function.ini-set.php) podemos modificarlas para que tenga efecto su nuevo valor durante la ejecución del script actual. Después volverán al valor del fichero `php.ini`. Por ejemplo: `ini_set("upload_tmp_dir", "/uploads")`.
 
-Para cargar los archivos, accedemos al array `$_FILES`:
+Una vez enviado el formulario, el proceso es siempre el mismo:
 
-``` php
-<?php
-if (isset($_POST['btnSubir']) && $_POST['btnSubir'] == 'Subir') {
-    if (is_uploaded_file($_FILES['archivoEnviado']['tmp_name'])) {
-        // subido con éxito
-        $nombre = $_FILES['archivoEnviado']['name'];
-        move_uploaded_file($_FILES['archivoEnviado']['tmp_name'], "./uploads/{$nombre}");
+1. Comprobar que el archivo se ha subido correctamente.
+2. Validar el archivo (tipo, tamaño...).
+3. Crear ruta destino y nombre de archivo según nuestros intereses (utilizar id del usuario, código único...).
+4. Mover el archivo del directorio temporal a la ruta de destino.
 
-        echo "<p>Archivo $nombre subido con éxito</p>";
-    }
-}
-```
-
-Cada archivo cargado en `$_FILES` tiene:
+Para todo ello, podemos acceder a la información de los archivos subidos desde el array asociativo `$_FILES`. A cada archivo se accede por clave --> el nombre que se le dió en su atributo `name` del input. Y a su vez, para cada archivo se tiene:
 
 * `name`: nombre
 * `tmp_name`: ruta temporal
 * `size`: tamaño en bytes
 * `type`: tipo MIME
 * `error`: si hay error, contiene un mensaje. Si ok → 0.
+
+Ejemplo de cómo procesar un archivo subido al sevidor:
+
+``` php
+<?php
+if (isset($_POST['btnSubir'])) {
+    // 1. Comprobar que el archivo se sube correctamente
+    if (is_uploaded_file($_FILES['archivoEnviado']['tmp_name'])) {
+        // 2. Realizar validación
+        if($_FILES['archivoEnviado']['type'] == "image/jpeg"){
+            $tmp = $_FILES['foto']['tmp_name'];
+            // 3. Crear ruta destino con nombre, en este caso el original
+            $destino = __DIR__ . "/uploads/" . $_FILES['foto']['name']; 
+            // __DIR__ es una constante mágica de PHP que devuelve la ruta absoluta del directorio donde se encuentra el archivo PHP que se está ejecutando
+            // $destino = "./uploads/" . $_FILES['foto']['name']; // Alternativa mediante ruta relativa
+            
+            // 4. Mover el archivo del directorio temporal al definitivo
+            move_uploaded_file($tmp, $destino);
+        }
+    }
+}
+```
+
+!!! danger "Permisos en ruta destino"
+    Muy importante, la carpeta destino de los archivos subidos ('uploads' en el ejemplo anterior), tiene que tener **permisos de escritura** para que el servidor web pueda mover los archivos a él.
 
 !!! info "Obtener extensión del fichero"
     Mediante la función [pathinfo](https://www.php.net/manual/en/function.pathinfo.php) se obtiene un array con información del fichero. Entre ellos, la extensión del mismo.
