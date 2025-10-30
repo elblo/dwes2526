@@ -258,7 +258,7 @@ Para todo ello, podemos acceder a la información de los archivos subidos desde 
 * `name`: nombre
 * `tmp_name`: ruta temporal
 * `size`: tamaño en bytes
-* `type`: tipo MIME
+* `type`: [tipo MIME](https://developer.mozilla.org/es/docs/Web/HTTP/Guides/MIME_types/Common_types) 
 * `error`: si hay error, contiene un mensaje. Si ok → 0.
 
 Ejemplo de cómo procesar un archivo subido al sevidor:
