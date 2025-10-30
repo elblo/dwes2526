@@ -596,7 +596,45 @@ class Producto implements MostrableTodo, Facturable {
 }
 ```
 
-## 3.10 Métodos encadenados
+## 3.10 Traits
+
+Los traits son un mecanismo de reutilización de código en un lenguaje de herencia simple como PHP. 
+
+Un **trait** es similar a una clase, pero solo **sirve para agrupar funcionalidades** que puede utilizar la clase que la use. No es posible instanciar un Trait en sí mismo.
+
+Una clase puede usar más de un trait. Se indica en su cuerpo mediante `use Trait1, Trait2, Trait3;`.
+
+Ejemplo:
+
+``` php
+<?php
+   trait Logger {
+        public function log($message) {
+            echo "Logging: " . $message . "\n";
+        }
+    }
+
+    class User {
+        use Logger; // Se incorpora el trait
+    }
+
+    class Product {
+        use Logger; // Se incorpora el mismo trait
+    }
+
+    $user = new User();
+    $user->log("User created"); // El método del trait ahora está disponible en la clase
+
+    $product = new Product();
+    $product->log("Product updated"); // Y también en esta clase
+
+```
+
+!!! info "Comparación con las interfaces"
+
+    El trait inyecta métodos ya implementados y propiedades en la clase que lo use. A diferencia de la interfaz, que obliga a definir los métodos en la clase que la implemente.
+
+## 3.11 Métodos encadenados
 
 Sigue el planteamiento de la programación funcional, y también se conoce como *method chaining*. Plantea que sobre un objeto se realizan varias llamadas.
 
@@ -643,7 +681,7 @@ class Libro {
 }
 ```
 
-## 3.11 Métodos mágicos
+## 3.12 Métodos mágicos
 
 Todas las clases PHP ofrecen un conjunto de métodos, también conocidos como *magic methods* que se pueden sobreescribir para sustituir su comportamiento. Algunos de ellos ya los hemos utilizado.
 
@@ -659,7 +697,7 @@ Los más destacables son:
 * `__call()`, `__callStatic()` → Se ejecutan al llamar a un método inaccesible en el contexto de objeto o estático respectivamente.
 * `__sleep()`, `__wakeup()` → Se ejecutan antes de serializar un objeto (*serialize*) o se reconstruye (*unserialize*), y se utilizan para definir qué propiedades se serializan.
 
-## 3.12 Espacio de nombres
+## 3.13 Espacio de nombres
 
 Desde PHP 5.3 y también conocidos como *namespaces*, permiten organizar las *clases/interfaces, funciones y/o constantes* de forma similar a los paquetes en *Java*. Están basados en el concepto similar a la organización de archivos en directorios que hacen los sistemas operativos: Sólo puede haber un archivo con el mismo nombre en un directorio y el acceso es ordenado estableciendo la ruta, evitando así conflictos de nombres.
 
@@ -907,7 +945,7 @@ spl_autoload_register( function( $nombreClase ) {
 
     La Recomendación 4 de Estándares PHP [PSR-4](https://www.php-fig.org/psr/psr-4/) es un estándar establecido por *PHP-FIG*  que proporciona una convención común para la carga automática de clases PHP según espacios de nombres. La *PSR-4* simplifica la organización de clases y archivos, facilitando la gestión de grandes bases de código y la colaboración en proyectos.
 
-## 3.13 Gestión de Errores
+## 3.14 Gestión de Errores
 
 PHP clasifica los errores que ocurren en diferentes niveles. Cada nivel se identifica con una constante. Por ejemplo:
 
@@ -960,7 +998,7 @@ A continuación tenemos un ejemplo mediante código:
     Error de tipo Warning: Division by zero.
     ```
 
-## 3.14 Excepciones
+## 3.15 Excepciones
 
 La gestión de excepciones forma parte desde PHP 5. Su funcionamiento es similar a *Java*, haciendo uso de un bloque `try / catch / finally`.
 Si detectamos una situación anómala y queremos lanzar una excepción, deberemos realizar `throw new Exception` (adjuntando el mensaje que lo ha provocado).
@@ -1125,7 +1163,7 @@ try {
 }
 ```
 
-## 3.15 SPL
+## 3.16 SPL
 
 *Standard PHP Library* es el conjunto de funciones y utilidades que ofrece PHP, como:
 
@@ -1154,12 +1192,12 @@ También define un conjunto de excepciones que podemos utilizar para que las lan
 
 También podéis consultar la documentación de estas excepciones en <https://www.php.net/manual/es/spl.exceptions.php>.
 
-## 3.16 Referencias
+## 3.17 Referencias
 
 * [Manual de PHP](https://www.php.net/manual/es/index.php)
 * [Manual de OO en PHP - www.desarrolloweb.com](https://desarrolloweb.com/manuales/manual-php.html#manual68)
 
-## 3.17 Actividades
+## 3.18 Actividades
 
 300. Investiga la diferencia entre un paradigma orientado a objetos basado en clases (*PHP*) respecto a uno basado en prototipos (*JavaScript*).
 
