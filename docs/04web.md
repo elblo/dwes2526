@@ -187,7 +187,7 @@ foreach ($lenguajes as $lenguaje) {
 }
 ```
 
-### Volviendo a rellenar un formulario
+### Volver a rellenar un formulario
 
 Si no pasa la validación y el usuario tiene que volver a rellenar el formulario, lo ideal es mantener los campos correctos con la información que rellenó. Esta técnica recibe el nombre de *sticky form*: un formulario que recuerda sus valores. Para ello, hemos de rellenar los atributos `value` de los elementos HTML con la información que contenían:
 
@@ -217,7 +217,7 @@ if (!empty($_POST['modulos']) && !empty($_POST['nombre'])) {
 <?php } ?>
 ```
 
-### Subiendo archivos
+### Subir archivos
 
 Cuando subamos archivos a través de un formulario es imprescindible utilizar utilizar los atributos `method="POST"` y `enctype="multipart/form-data"`.
 

@@ -150,7 +150,7 @@ class MayorMenor {
 }
 ```
 
-### Recibiendo y enviando objetos
+### Recibir/enviar objetos
 
 Es recomendable indicarlo en el tipo de parámetros. Si el objeto puede devolver nulos se pone `?` delante del nombre de la clase.
 
@@ -983,7 +983,7 @@ A partir de un objeto `Exception`, podemos acceder a los métodos `getMessage()`
 
 El propio lenguaje ofrece un conjunto de excepciones ya definidas, las cuales podemos capturar (y lanzar desde PHP 7). Se recomienda su consulta en la [documentación oficial](https://www.php.net/manual/es/class.exception.php).
 
-### Creando excepciones
+### Crear excepciones
 
 Para crear una excepción, la forma más corta es crear una clase que únicamente herede de `Exception`.
 
