@@ -274,12 +274,12 @@ if (isset($_POST['btnSubir'])) {
         if($_FILES['archivoEnviado']['type'] == "image/jpeg"){
 
             // 3. Crear ruta destino con nombre, en este caso el original
-            $destino = __DIR__ . "/uploads/" . $_FILES['foto']['name']; 
+            $destino = __DIR__ . "/uploads/" . $_FILES['archivoEnviado']['name']; 
             // __DIR__ es una constante mágica de PHP que devuelve la ruta absoluta del directorio donde se encuentra el archivo PHP que se está ejecutando
-            // $destino = "./uploads/" . $_FILES['foto']['name']; // Alternativa mediante ruta relativa
+            // $destino = "./uploads/" . $_FILES['archivoEnviado']['name']; // Alternativa mediante ruta relativa
             
             // 4. Mover el archivo del directorio temporal al definitivo
-            $tmp = $_FILES['foto']['tmp_name'];
+            $tmp = $_FILES['archivoEnviado']['tmp_name'];
             move_uploaded_file($tmp, $destino);
         }
     }
