@@ -367,6 +367,8 @@ setcookie(nombre [, valor = "" [, opciones = [] ]] )
 
 Destacar que el nombre no puede contener espacios ni el caracter `;`. Respecto al contenido de la cookie, no puede superar los 4 KB.
 
+!!! danger "Uso de setcookie()"
+    setcookie() define una cookie que será enviada junto con el resto de los encabezados HTTP. Al igual que con otros encabezados, las cookies deben ser enviadas antes de cualquier otra salida (esto es una restricción del protocolo HTTP, no de PHP): cualquier etiqueta <html> o <head> e incluso caracteres de espacio en blanco.
 
 Por ejemplo, mediante *cookies* podemos comprobar la cantidad de visitas diferentes que realiza un usuario:
 
