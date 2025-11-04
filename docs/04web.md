@@ -352,6 +352,8 @@ El mecanismo de PHP para gestionar la sesión emplea cookies de forma interna.
 
 ### Cookies
 
+Las cookies son pequeños archivos de datos que un sitio web almacena en el navegador del usuario para recordar información, como inicios de sesión o preferencias. Estas cookies se crean generalmente mediante encabezados HTTP como `Set-Cookie` (desde el servidor) o a través de JavaScript con `document.cookie`. 
+
 Las cookies se almacenan en el array global `$_COOKIE`. Lo que coloquemos dentro del array, **se guardará en el cliente**. Hay que tener presente que el cliente puede no querer almacenarlas. 
 
 Existe una limitación de 20 cookies por dominio y 300 en total en el navegador.
@@ -365,7 +367,7 @@ setcookie(nombre [, valor = "" [, opciones = [] ]] )
 ?>
 ```
 
-Destacar que el nombre no puede contener espacios ni el caracter `;`. Respecto al contenido de la cookie, no puede superar los 4 KB.
+Destacar que el nombre no puede contener espacios ni el caracter `;`. Respecto al contenido de la cookie, no puede superar los 4 KB y lo que **se guarda es una cadena de texto**.
 
 !!! danger "Uso de setcookie()"
     setcookie() define una cookie que será enviada junto con el resto de los encabezados HTTP. Al igual que con otros encabezados, las cookies deben ser enviadas antes de cualquier otra salida (esto es una restricción del protocolo HTTP, no de PHP): cualquier etiqueta <html> o <head> e incluso caracteres de espacio en blanco.
