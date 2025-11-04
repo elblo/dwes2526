@@ -304,7 +304,7 @@ En otras palabras, *permiten que el navegador sepa cómo interpretar y manejar l
 | Estado de la respuesta | Informar si la solicitud fue correcta o no                    | `HTTP/1.1 404 Not Found`         |
 | Control de caché       | Indicar si el navegador o proxies pueden guardar la respuesta | `Cache-Control: no-cache`        |
 | Cookies y sesiones     | Enviar cookies al cliente                                     | `Set-Cookie: PHPSESSID=...`      |
-| Seguridad              | Protección frente a ataques web                               | `X-Frame-Options: DENY`          |
+| Seguridad              | Protección frente a ataques web evitando que se carguen webs en un iframe                              | `X-Frame-Options: DENY`          |
 | Redirección            | Enviar al cliente a otro recurso                              | `Location: https://example.com`  |
 | CORS                   | Permitir o restringir acceso entre dominios                   | `Access-Control-Allow-Origin: *` |
 
