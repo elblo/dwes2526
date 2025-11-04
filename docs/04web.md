@@ -381,22 +381,27 @@ if (isset($_COOKIE['accesos'])) { 
 ```
 
 !!! tip "Inspeccionando las cookies"
-    Si queremos ver que contienen las cookies que tenemos almacenadas en el navegador, se puede comprobar su valor en *Dev Tools --> Aplicación --> Almacenamiento*
+    Si queremos ver qué contienen las cookies que tenemos almacenadas en el navegador, se puede comprobar su valor en *Dev Tools --> Aplicación --> Almacenamiento*
 
 El tiempo de vida de las cookies puede ser tan largo como el sitio web en el que residen. Ellas seguirán ahí, incluso si el navegador está cerrado o abierto.
+
+!!! info "Tiempo en cookies"
+    El tiempo después del cual la cookie expira se mide en segundos desde la época Unix (1 de enero de 1970). Mediante la función `time()` obtenemos los sengundos que han pasado desde entonces y sumándole la cantidad que nos interese, estableceremos el tiempo futuro que tardará la cookie en expirar.
+
+    Ejemplo: time() + 60 * 60 * 24 --> La cookie expira en 1 día
+
+Ejemplo de cookie que expira en 1 hora:
+
+``` php
+<?php
+setcookie(nombre, valor, time() + 3600) // Caducan dentro de una hora
+```
 
 Para borrar una cookie se puede poner que expiren en el pasado:
 
 ``` php
 <?php
 setcookie(nombre, "", 1) // pasado
-```
-
-O que caduquen dentro de un periodo de tiempo deteminado:
-
-``` php
-<?php
-setcookie(nombre, valor, time() + 3600) // Caducan dentro de una hora
 ```
 
 <figure style="align: center;">
