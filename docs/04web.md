@@ -266,17 +266,20 @@ Ejemplo de cómo procesar un archivo subido al sevidor:
 ``` php
 <?php
 if (isset($_POST['btnSubir'])) {
+
     // 1. Comprobar que el archivo se sube correctamente
     if (is_uploaded_file($_FILES['archivoEnviado']['tmp_name'])) {
+
         // 2. Realizar validación
         if($_FILES['archivoEnviado']['type'] == "image/jpeg"){
-            $tmp = $_FILES['foto']['tmp_name'];
+
             // 3. Crear ruta destino con nombre, en este caso el original
             $destino = __DIR__ . "/uploads/" . $_FILES['foto']['name']; 
             // __DIR__ es una constante mágica de PHP que devuelve la ruta absoluta del directorio donde se encuentra el archivo PHP que se está ejecutando
             // $destino = "./uploads/" . $_FILES['foto']['name']; // Alternativa mediante ruta relativa
             
             // 4. Mover el archivo del directorio temporal al definitivo
+            $tmp = $_FILES['foto']['tmp_name'];
             move_uploaded_file($tmp, $destino);
         }
     }
