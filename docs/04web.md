@@ -298,6 +298,16 @@ Las cabeceras de respuesta (HTTP Response Headers) son información que el servi
 
 En otras palabras, *permiten que el navegador sepa cómo interpretar y manejar la respuesta antes de mostrarla*.
 
+| Función                | Descripción                                                   | Ejemplo                          |
+| ---------------------- | ------------------------------------------------------------- | -------------------------------- |
+| Tipo de contenido      | Indicar qué tipo de datos se envían                           | `Content-Type: text/html`        |
+| Estado de la respuesta | Informar si la solicitud fue correcta o no                    | `HTTP/1.1 404 Not Found`         |
+| Control de caché       | Indicar si el navegador o proxies pueden guardar la respuesta | `Cache-Control: no-cache`        |
+| Cookies y sesiones     | Enviar cookies al cliente                                     | `Set-Cookie: PHPSESSID=...`      |
+| Seguridad              | Protección frente a ataques web                               | `X-Frame-Options: DENY`          |
+| Redirección            | Enviar al cliente a otro recurso                              | `Location: https://example.com`  |
+| CORS                   | Permitir o restringir acceso entre dominios                   | `Access-Control-Allow-Origin: *` |
+
 Debe ser lo primero a devolver y lo haremos mediante la función `header(cadena)`. Mediante las cabeceras podemos configurar el tipo de contenido, tiempo de expiración, redireccionar el navegador, especificar errores HTTP, etc.
 
 ``` php
@@ -312,6 +322,8 @@ Es muy común configurar las cabeceras para evitar consultas a la caché o provo
 
 ``` php
 <?php
+// EJEMPLOS de cabeceras para controlar la caché
+
 header("Expires: Sun, 31 Jan 2021 23:59:59 GMT");
 // tres horas
 $now = time();
