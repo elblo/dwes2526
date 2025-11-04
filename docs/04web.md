@@ -294,7 +294,11 @@ if (isset($_POST['btnSubir'])) {
 
 ## 4.3 Cabeceras de respuesta
 
-Debe ser lo primero a devolver. Se devuelven mediante la función `header(cadena)`. Mediante las cabeceras podemos configurar el tipo de contenido, tiempo de expiración, redireccionar el navegador, especificar errores HTTP, etc.
+Las cabeceras de respuesta (HTTP Response Headers) son información que el servidor envía al navegador (o cliente HTTP) antes del contenido de la página. Sirven para indicar metadatos sobre la respuesta: tipo de contenido, estado, cookies, control de caché, redirecciones, seguridad, etc.
+
+En otras palabras, *permiten que el navegador sepa cómo interpretar y manejar la respuesta antes de mostrarla*.
+
+Debe ser lo primero a devolver y lo haremos mediante la función `header(cadena)`. Mediante las cabeceras podemos configurar el tipo de contenido, tiempo de expiración, redireccionar el navegador, especificar errores HTTP, etc.
 
 ``` php
 <?php header("Content-Type: text/plain"); ?>
