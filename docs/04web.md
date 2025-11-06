@@ -322,27 +322,17 @@ Es muy común configurar las cabeceras para evitar consultas a la caché o provo
 
 ``` php
 <?php
-// EJEMPLOS de cabeceras para controlar la caché
+// No permitir que el recurso se almacene en caché (indicando fecha pasada)
+header("Cache-Control: no-cache, must-revalidate");
+header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
 
-header("Expires: Sun, 31 Jan 2021 23:59:59 GMT");
-// tres horas
-$now = time();
-$horas3 = gmstrftime("%a, %d %b %Y %H:%M:%S GMT", $now + 60 * 60 * 3);
-header("Expires: {$horas3}");
-// un año
-$now = time();
-$anyo1 = gmstrftime("%a, %d %b %Y %H:%M:%S GMT", $now + 365 * 86440);
-header("Expires: {$anyo1}");
-// se marca como expirado (fecha en el pasado)
-$pasado = gmstrftime("%a, %d %b %Y %H:%M:%S GMT");
-header("Expires: {$pasado}");
-// evitamos cache de navegador y/o proxy
-header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
-header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
-header("Cache-Control: no-store, no-cache, must-revalidate");
-header("Cache-Control: post-check=0, pre-check=0", false);
-header("Pragma: no-cache");
+// Permitir caché durante 1 hora (3600 segundos)
+header("Cache-Control: max-age=3600, public");
+header("Expires: " . gmdate("D, d M Y H:i:s", time() + 3600) . " GMT");
 ```
+
+!!! tip "Recargar para probar caché"
+    A la hora de realizar pruebas para ver si una página es cacheada o no, realiza la recarga directamente desde la barra de direcciones del navegador o pulsando un botón que te lleve a dicho recurso, en lugar de pulsar el botón de recarga del navegador, el cual va a solicitar siempre el recurso fuera de caché.
 
 ## 4.4 Gestión del estado
 
@@ -367,22 +357,69 @@ setcookie(nombre [, valor = "" [, opciones = [] ]] )
 ?>
 ```
 
-Destacar que el nombre no puede contener espacios ni el caracter `;`. Respecto al contenido de la cookie, no puede superar los 4 KB y lo que **se guarda es una cadena de texto**.
+Destacar que el nombre no puede contener espacios ni el caracter `;`. Respecto al contenido de la cookie, no puede superar los 4 KB y lo que **se guarda es una cadena de texto**, aunque mediante las funciones `json_encode` y `json_decode` podríamos guardar y recurar un array convirtiéndolo a JSON.
 
 !!! danger "Uso de setcookie()"
     setcookie() define una cookie que será enviada junto con el resto de los encabezados HTTP. Al igual que con otros encabezados, las cookies deben ser enviadas antes de cualquier otra salida (esto es una restricción del protocolo HTTP, no de PHP): cualquier etiqueta <html> o <head> e incluso caracteres de espacio en blanco.
 
-Por ejemplo, mediante *cookies* podemos comprobar la cantidad de visitas diferentes que realiza un usuario:
+En los siguientes ejemplos se ilustra cómo mediante *cookies* se puede comprobar la cantidad de visitas diferentes que realiza un usuario a una página o cómo se almacena una carrito de productos:
 
-``` php
-<?php
-$accesosPagina = 0;
-if (isset($_COOKIE['accesos'])) { 
-    $accesosPagina = $_COOKIE['accesos']; // recuperamos una cookie
-    setcookie('accesos', ++$accesosPagina); // le asignamos un valor
-}
-?>
-```
+=== "Accesos"
+
+    Si existe la cookie con los accesos, la recuperamos, actualizamos y volvemos a almacenar.
+
+    ``` php
+    <?php
+        $accesosPagina = 0;
+        if(isset($_COOKIE['accesos'])) {
+            $accesosPagina = $_COOKIE['accesos']; // recuperamos una cookie
+        }
+        setcookie('accesos', ++$accesosPagina); // le asignamos valor a la cookie (y si no existe, se crea)
+    ```
+
+=== "Accesos mejorado"
+
+    Gracias al operador `??` se simplifica la comprobación de la cookie.
+
+    ``` php
+    <?php
+        $accesosPagina = $_COOKIE['accesos'] ?? 0;
+        setcookie('accesos', ++$accesosPagina); // le asignamos valor a la cookie (y si no existe, se crea)
+    ```
+
+=== "Almacenar array"
+
+    Si queremos guardar un array asociativo (o no) en una cookie, tendremos que convertirlo previamente a JSON medainte `json_encode` y al recuperarlo, realizar el proceso inverso mediante `json_decode`.
+
+    ``` php
+    <?php
+        if (isset($_COOKIE['carrito'])) {
+            $carrito = json_decode($_COOKIE['carrito'], true); // true para que convierta a array asociativo en lugar de objeto Array
+        }else {
+            $carrito = [
+                [
+                    'id' => 34,
+                    'cantidad' => 6,
+                    'precio' => 19.95
+                ],
+                [
+                    'id' => 35,
+                    'cantidad' => 2,
+                    'precio' => 9.95
+                ],
+                [
+                    'id' => 36,
+                    'cantidad' => 4,
+                    'precio' => 39.45
+                ],
+            ];
+
+            setcookie('carrito', json_encode($carrito), time() + 3600);
+        }
+
+        // Acceso
+        echo "Primer producto del carrito: $carrito[0]['id']";
+    ```
 
 !!! tip "Inspeccionando las cookies"
     Si queremos ver qué contienen las cookies que tenemos almacenadas en el navegador, se puede comprobar su valor en *Dev Tools --> Aplicación --> Almacenamiento*
@@ -744,50 +781,63 @@ Además del fichero, debe pedir en el mismo formulario dos campos numéricos que
 405. `405subidaImagen.php`: Modifica el ejercicio anterior para que únicamente permita subir imágenes (comprueba la propiedad `type` del archivo subido). Si el usuario selecciona otro tipo de archivos, se le debe informar del error y permitir que suba un nuevo archivo.  
 En el caso de subir el tipo correcto, visualizar la imagen con el tamaño de anchura y altura recibido como parámetro.
 
+### Cabeceras
+
+410. Crea los siguientes archivos:
+    * `410redireccionExterna.php` que redirija automáticamente al usuario a la página oficial de PHP. 
+    * `410redireccionInterna.php` que redirija a la página `402formulario.html`. 
+    * `410redirecionTiempo.php` que redirija a una página externa pasados 3 segundos. Pista: `header("Refresh: 3; url=bienvenida.php");`
+
+411. `411json.php`: Crea un array asociativo con los datos `["nombre" => "Jose", "edad" => 34]` y muéstralo convirtiéndolo antes a JSON mediante `json_encode(array)`. Ejecútalo cambiando en la cabecera el *tipo de contenido* probando `text/html`, `text/plain` y `application/json`.
+
+412. `412nocache.php`: Muestra la hora actual mediante `date("H:i:s")` y evita que el navegador la guarde en caché. Recuerda recargar la página directamente desde la barra de direcciones del navegador y no pulsar el botón de recarga.
+
+413. `413cabeceraError.php`: Muetra una página de error con el contenido `<h1>Error 404</h1><p>La página no existe.</p>` enviando el código 404 en el estado de la respuesta de la cabecera.
+
 ### Cookies y Sesión
 
-406. `406aceptarCookies.php`: Nada más aterrizar en la página informa al usuario que debe aceptar las cookies para acceder al contenido. Crea un enlace para ello que envíe a la misma página por GET la variable `aceptar` y cuando se reciba, crees la cookie. En el contenido muestra una imagen cualquiera en el caso de que exista la cookie.
+420. `420aceptarCookies.php`: Nada más aterrizar en la página informa al usuario que debe aceptar las cookies para acceder al contenido. Crea un enlace para ello que envíe a la misma página por GET la variable `aceptar` y cuando se reciba, crees la cookie. En el contenido muestra una imagen cualquiera en el caso de que exista la cookie.
 
-407. `407contadorVisitas.php`: Mediante el uso de cookies, informa al usuario de si es su primera visita, o si no lo es, muestre su valor (valor de un contador).
+421. `421contadorVisitas.php`: Mediante el uso de cookies, informa al usuario de si es su primera visita, o si no lo es, muestre su valor (valor de un contador).
 Además, debes permitir que el usuario reinicie su contador de visitas.
 
-408. `408fondo.php`: Mediante el uso de cookies, crea una página con un desplegable con varios colores, de manera que el usuario pueda cambiar el color de fondo de la página (utiliza estilos CSS en la misma página).
+422. `422fondo.php`: Mediante el uso de cookies, crea una página con un desplegable con varios colores, de manera que el usuario pueda cambiar el color de fondo de la página (utiliza estilos CSS en la misma página).
 Al cerrar la página, ésta debe recordar, al menos durante 24h, el color elegido y la próxima vez que se cargue la pagina, lo haga con el último color seleccionado.
 
-409. `409fondoSesion1.php`: Modifica el ejercicio anterior para almacenar el color de fondo en la sesión y no emplear cookies. Además, debe contener un enlace al siguiente archivo.
-    `409fondoSesion2.php`: Debe mostrar el color y dar la posibilidad de:
+423. `423fondoSesion1.php`: Modifica el ejercicio anterior para almacenar el color de fondo en la sesión y no emplear cookies. Además, debe contener un enlace al siguiente archivo.
+    `423fondoSesion2.php`: Debe mostrar el color y dar la posibilidad de:
     * volver a la página anterior mediante un enlace
     * y mediante otro enlace, vaciar la sesión y volver a la página anterior.
 
-410. Haciendo uso de la sesión, vamos a dividir el formulario del ejercicio `402formulario.php` en 2 subformularios:
+424. Haciendo uso de la sesión, vamos a dividir el formulario del ejercicio `402formulario.php` en 2 subformularios:
 
-    * `410formulario1.php` envía los datos (nombre y apellidos, email, url y sexo) a `410formulario2.php`.
-    * `410formulario2.php` lee los datos y los mete en la sesión. A continuación, muestra el resto de campos del formulario a rellenar (convivientes, aficiones y menú). Envía estos datos a `410formulario3.php`.
-    * `410formulario3.php` recoge los datos enviados en el paso anterior y junto a los que ya estaban en la sesión, se muestran todos los datos en una tabla/lista desordenada.
+    * `424formulario1.php` envía los datos (nombre y apellidos, email, url y sexo) a `424formulario2.php`.
+    * `424formulario2.php` lee los datos y los mete en la sesión. A continuación, muestra el resto de campos del formulario a rellenar (convivientes, aficiones y menú). Envía estos datos a `424formulario3.php`.
+    * `424formulario3.php` recoge los datos enviados en el paso anterior y junto a los que ya estaban en la sesión, se muestran todos los datos en una tabla/lista desordenada.
 
 ### Autenticación
 
 En los siguientes ejercicios vamos a montar una estructura de inicio de sesión similar a la vista en los apuntes.
 
-411. `411index.php`: formulario de inicio de sesión
-412. `412login.php`: hace de controlador, por lo que debe comprobar los datos recibidos (solo permite la entrada de `usuario/usuario` y si todo es correcto, ceder el control a la vista del siguiente ejercicio. No contiene código HTML.
-413. `413peliculas.php`: vista que muestra como título "Listado de Películas", y una lista desordenada con tres películas.
-414. `414logout.php`: vacía la sesión y nos lleva de nuevo al formulario de inicio de sesión. No contiene código HTML.
-415. `415series.php`: Añade un nueva vista similar a `413peliculas.php` que muestra un "Listado de Series" con una lista desordenada con tres series. Tanto `413peliculas.php` como la vista recien creadas, deben tener un pequeño menú (sencillo, mediante enlaces) que permita pasar de un listado a otro.
+430. `430index.php`: formulario de inicio de sesión
+431. `431login.php`: hace de controlador, por lo que debe comprobar los datos recibidos (solo permite la entrada de `usuario/usuario` y si todo es correcto, ceder el control a la vista del siguiente ejercicio. No contiene código HTML.
+432. `432peliculas.php`: vista que muestra como título "Listado de Películas", y una lista desordenada con tres películas.
+433. `433logout.php`: vacía la sesión y nos lleva de nuevo al formulario de inicio de sesión. No contiene código HTML.
+434. `434series.php`: Añade un nueva vista similar a `432peliculas.php` que muestra un "Listado de Series" con una lista desordenada con tres series. Tanto `432peliculas.php` como la vista recien creadas, deben tener un pequeño menú (sencillo, mediante enlaces) que permita pasar de un listado a otro.
 Comprueba que si se accede directamente a cualquiera de las vistas sin tener un usuario *logueado* via URL del navegador, no se muestra el listado.
-416. Modifica tanto el controlador como las vistas para que:
+435. Modifica tanto el controlador como las vistas para que:
      * los datos los obtenga el controlador (almacena en la sesión un array de películas y otro de series)
      * coloque los datos en la sesión
      * En las vistas, los datos se recuperan de la sesión y se *pintan* en la lista desordenada recorriendo el array correspondiente.
-417. Selecciona uno de los mecanismos de autenticación vistos en el punto 4.5 y realiza un sistema de login utilizándolo. 
+436. Selecciona uno de los mecanismos de autenticación vistos en el punto 4.5 y realiza un sistema de login utilizándolo. 
 
 ### Proyecto Videoclub 3.0
 
-420. Para el Videoclub, vamos a crear una página `index.php` con un formulario que contenga un formulario de login/password. Se comprobarán los datos en `login.php`. Los posibles usuarios son admin/admin o usuario/usuario.
+440. Para el Videoclub, vamos a crear una página `index.php` con un formulario que contenga un formulario de login/password. Se comprobarán los datos en `login.php`. Los posibles usuarios son admin/admin o usuario/usuario.
     * Si el usuario es correcto, en `main.php` mostrar un mensaje de bienvenida con el nombre del usuario, junto a un enlace para cerrar la sesión, que lo llevaría de nuevo al login.
     * Si el usuario es incorrecto, debe volver a cargar el formulario dando información al usuario de acceso incorrecto.
 
-421. Si el usuario es administrador, se cargarán en la sesión los datos de soportes y clientes del videoclub que teníamos en nuestras pruebas (no mediante `include` sino copiando los datos e insertándolos en un array asociativo, el cual colocaremos posteriormente en la sesión). En unidades posteriores los obtendremos de la base de datos. En `mainAdmin.php`, además de la bienvenida, debe mostrar:
+441. Si el usuario es administrador, se cargarán en la sesión los datos de soportes y clientes del videoclub que teníamos en nuestras pruebas (no mediante `include` sino copiando los datos e insertándolos en un array asociativo, el cual colocaremos posteriormente en la sesión). En unidades posteriores los obtendremos de la base de datos. En `mainAdmin.php`, además de la bienvenida, debe mostrar:
    * Listado de clientes
    * Listado de soportes
 
@@ -796,21 +846,21 @@ Comprueba que si se accede directamente a cualquiera de las vistas sin tener un 
     <figcaption>Esquema navegación ejercicio 423</figcaption>
 </figure>
 
-422. Vamos a modificar la clase `Cliente` para almacenar el `user` y la `password` de cada cliente.
+442. Vamos a modificar la clase `Cliente` para almacenar el `user` y la `password` de cada cliente.
 Tras codificar los cambios, modificar el listado de clientes de `mainAdmin.php` para añadir al listado el usuario.
 
-423. Si el usuario que accede no es administrador y coincide con alguno de los clientes que tenemos cargados tras el login, debe cargar `mainCliente.php` donde se mostrará un listado de los alquileres del cliente. Para ello, modificaremos la clase `Cliente` para ofrecer el método `getAlquileres() : array`, el cual llamaremos y luego recorreremos para mostrar el listado solicitado.
+443. Si el usuario que accede no es administrador y coincide con alguno de los clientes que tenemos cargados tras el login, debe cargar `mainCliente.php` donde se mostrará un listado de los alquileres del cliente. Para ello, modificaremos la clase `Cliente` para ofrecer el método `getAlquileres() : array`, el cual llamaremos y luego recorreremos para mostrar el listado solicitado.
 
 Ahora volvemos a la parte de administración
 
-424. Además de mostrar el listado de clientes, vamos a ofrecer la opción de dar de alta a un nuevo cliente en `formCreateCliente.php`.
+444. Además de mostrar el listado de clientes, vamos a ofrecer la opción de dar de alta a un nuevo cliente en `formCreateCliente.php`.
 Los datos se enviarán mediante POST a `createCliente.php` que los introducirá en la sesión.
 Una vez creado el cliente, debe volver a cargar `mainAdmin.php` donde se podrá ver el cliente insertado. Si hay algún dato incorrecto, debe volver a cargar el formulario de alta.
 
-425. Crea en `formUpdateCliente.php` un formulario que permita editar los datos de un cliente.
+445. Crea en `formUpdateCliente.php` un formulario que permita editar los datos de un cliente.
 Debes recoger los datos en `updateCliente.php`. Los datos de cliente se deben poder modificar desde la propia página de un cliente, así como desde el listado del administrador.
 
-426. Desde el listado de clientes del administrador debes ofrecer la posibilidad de borrar un cliente.
+446. Desde el listado de clientes del administrador debes ofrecer la posibilidad de borrar un cliente.
 En el navegador, antes de redirigir al servidor, el usuario debe confirmar mediante JS que realmente desea eliminar al cliente.
 Finalmente, en `removeCliente.php` elimina al cliente de la sesión.
 Una vez eliminado, debe volver al listado de clientes.
