@@ -362,6 +362,8 @@ Destacar que el nombre no puede contener espacios ni el caracter `;`. Respecto a
 !!! danger "Uso de setcookie()"
     setcookie() define una cookie que será enviada junto con el resto de los encabezados HTTP. Al igual que con otros encabezados, las cookies deben ser enviadas antes de cualquier otra salida (esto es una restricción del protocolo HTTP, no de PHP): cualquier etiqueta <html> o <head> e incluso caracteres de espacio en blanco.
 
+#### Ejemplos de uso de cookies
+
 En los siguientes ejemplos se ilustra cómo mediante *cookies* se puede comprobar la cantidad de visitas diferentes que realiza un usuario a una página o cómo se almacena una carrito de productos:
 
 === "Accesos"
@@ -418,7 +420,7 @@ En los siguientes ejemplos se ilustra cómo mediante *cookies* se puede comproba
         }
 
         // Acceso
-        echo "Primer producto del carrito: $carrito[0]['id']";
+        echo "Primer producto del carrito: ". $carrito[0]['id'];
     ```
 
 !!! tip "Inspeccionando las cookies"
@@ -477,48 +479,101 @@ Las operaciones que podemos realizar con la sesión son:
 
 ``` php
 <?php
-session_start(); // carga la sesión
-echo session_id(); // devuelve el id
-$_SESSION[clave] = valor; // inserción
+session_start(); // inicia o carga la sesión si ya existe
+echo session_id(); // devuelve el id de sesión (el que se envía como cookie al usuario)
+$_SESSION[clave] = valor; // asignación
 session_destroy(); // destruye la sesión
-unset($_SESSION[clave]); // borrado
+unset($_SESSION[clave]); // borrado de un dato de la sesión
 session_unset(); // borra todas las variables de la sesión
 ```
 
 !!! info "Destruir la sesión y sus variables"
     Al hacer `session_destroy()` se destruye toda la información asociada con la sesión actual, pero no destruye ninguna de las variables globales asociadas con la sesión, ni destruye la cookie de sesión. Para liberar todas las variables de la sesión, utilizar antes `session_unset()`.
 
-Vamos a ver mediante un ejemplo como podemos insertar en un página datos en la sesión para posteriormente en otra página acceder a esos datos. Por ejemplo, en `sesion1.php` tendríamos
+#### Ejemplo guardar/recuperar en sesión
 
-``` php
-<?php
-session_start(); // inicializamos
-$_SESSION["ies"] = "IES Fernando III"; // asignación
-$instituto = $_SESSION["ies"]; // recuperación
-echo "Estamos en el $instituto ";
-?>
-<br />
-<a href="sesion2.php">Y luego</a>
-```
+Vamos a ver mediante un ejemplo como podemos insertar en un página datos en la sesión para posteriormente en otra página acceder a esos datos. 
 
-Y posteriormente podemos acceder a la sesión en `sesion2.php`:
+=== "sesion1.php"
 
-``` php
-<?php
-session_start();
-$instituto = $_SESSION["ies"]; // recuperación
-echo "Otra vez, en el $instituto ";
-?>
-```
+    En el archivo `sesion1.php` iniciamos la sesión almacenando en ella algún valor.
+
+    ``` php
+        <?php
+            session_start(); // inicializamos
+            $_SESSION["ies"] = "IES Fernando III"; // asignación
+            $instituto = $_SESSION["ies"]; // recuperación
+
+            echo "Estamos en el $instituto";
+        ?>
+            <br />
+            <a href="sesion2.php">Y luego</a>
+    ```
+
+=== "sesion2.php"
+
+    En el archivo `sesion2.php` iniciamos la sesión recuperando algún valor guardado.
+
+    ``` php
+    <?php
+        session_start();
+        $instituto = $_SESSION["ies"]; // recuperación
+        echo "Otra vez, en el $instituto";
+    ```
+
+#### Guardar arrays y objetos en la sesión
+
+=== "Guardar en sesión"
+
+    Tanto arrays como objetos, se guardan en la sesión igual que cualquier otra variable o dato.
+
+    ``` php
+    <?php
+        session_start();
+        require_once "User.php"; // Cargar clase
+
+        // Crear objeto
+        $usuario = new User("Juan", "juan@example.com");
+
+        // Guardar en sesión el objeto usuario
+        $_SESSION['usuario'] = $usuario;
+        
+        // Guardar en sesión un array asociativo
+        $_SESSION['preferencias'] = [
+            'tema' => 'oscuro',
+            'fuente' => 12
+        ];
+    ```
+
+=== "Recuperar de sesión"
+
+    Recuperar un array es automático, igual que cualquier otra variable. En el caso de **recuperar un objeto, es necesario incluir antes la definición de su clase**.
+
+    ```php hl_lines="3"
+    <?php
+        session_start();
+        require_once "User.php"; // IMPORTANTE: Cargar clase antes de usarla
+
+        if (isset($_SESSION['usuario']) && isset($_SESSION['preferencias'])) {
+            $usuario = $_SESSION['usuario']; // Recuperar objeto
+            $preferencias = $_SESSION['preferencias']; // // Recuperar array
+
+            echo "<p class='". $preferencias['tema'] ."'>";
+            echo $usuario->saludar() ." - email: " . $usuario->email;
+            echo "</p>";
+        } else {
+            echo "No hay usuario o preferencias en la sesión.";
+        }
+    ```
 
 !!! note "Configurando la sesión en `php.ini`"
     Las siguiente propiedades de `php.ini` permiten configurar algunos aspectos de la sesión:
 
-    * `session.save_handler`: controlador que gestiona cómo se almacena (`files`)
-    * `session.save_path`: ruta donde se almacenan los archivos con los datos (si tenemos un cluster, podríamos usar `/mnt/sessions` en todos los servidor de manera que apuntan a una carpeta compartida)
-    * `session.name`: nombre de la sesión (`PHPSESSID`)
-    * `session.auto_start`: Se puede hacer que se autocargue con cada script. Por defecto está deshabilitado
-    * `session.cookie_lifetime`: tiempo de vida por defecto
+    * `session.save_handler`: controlador que gestiona cómo se almacena (`files`).
+    * `session.save_path`: ruta donde se almacenan los archivos con los datos (si tenemos un cluster, podríamos usar `/mnt/sessions` en todos los servidor de manera que apuntan a una carpeta compartida).
+    * `session.name`: nombre de la sesión (`PHPSESSID`).
+    * `session.auto_start`: Se puede hacer que se autocargue con cada script. Por defecto está deshabilitado.
+    * `session.cookie_lifetime`: tiempo de vida por defecto.
 
     Más información en la [documentación oficial](https://www.php.net/manual/es/session.configuration.php).
 
