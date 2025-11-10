@@ -344,18 +344,54 @@ El mecanismo de PHP para gestionar la sesión emplea cookies de forma interna.
 
 Las cookies son pequeños archivos de datos que un sitio web almacena en el navegador del usuario para recordar información, como inicios de sesión o preferencias. Estas cookies se crean generalmente mediante encabezados HTTP como `Set-Cookie` (desde el servidor) o a través de JavaScript con `document.cookie`. 
 
+Entre otros, podemos usarlas para:
+
+* Recordar los inicios de sesión.
+* Almacenar valores temporales de usuario.
+* Si un usuario está navegando por una lista paginada de artículos, ordenados de cierta manera, podemos almacenar el ajuste de la clasificación.
+
+<figure style="align: center;">
+    <img src="imagenes/04/04cookies.png" width="700">
+    <figcaption>Comunicación con cookies</figcaption>
+</figure>
+
 Las cookies se almacenan en el array global `$_COOKIE`. Lo que coloquemos dentro del array, **se guardará en el cliente**. Hay que tener presente que el cliente puede no querer almacenarlas. 
 
 Existe una limitación de 20 cookies por dominio y 300 en total en el navegador.
 
-En PHP, para crear una cookie se utiliza la función `setcookie`:
+En PHP creamos una cookie, que se enviará con el resto de encabezados HTTP, mediante la función `setcookie`:
 
 ``` php
 <?php
-setcookie(nombre [, valor [, expira [, ruta [, dominio [, seguro [, httponly ]]]]]]);
-setcookie(nombre [, valor = "" [, opciones = [] ]] )
+    setcookie(
+        string $name,
+        string $value = "",
+        int $expires_or_options = 0,
+        string $path = "",
+        string $domain = "",
+        bool $secure = false,
+        bool $httponly = false
+    ): bool
+
+    // Firma alternativa a partir de PHP 7.3
+    setcookie(string $name, string $value = "", array $options = []): bool
 ?>
 ```
+
+#### Parámetros de setcookie
+
+| Parámetro      | Tipo     | Descripción breve                                                                                          |
+| -------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| **`name`**     | `string` | Nombre de la cookie. Es la clave que se usará para identificarla.                                          |
+| **`value`**    | `string` | Valor que almacenará la cookie. Si se omite, la cookie se elimina.                                         |
+| **`expires`**  | `int`    | Marca de tiempo UNIX con la fecha de expiración. Si no se indica, la cookie expira al cerrar el navegador. |
+| **`path`**     | `string` | Ruta del servidor donde la cookie estará disponible. Por defecto, en todo el dominio (`/`).  Si el valor es '/admin/', la cookie estará únicamente disponible en el directorio /admin/ y en sus subdirectorios.                                                    |
+| **`domain`**   | `string` | Dominio para el cual es válida la cookie (por ejemplo, `midominio.com`).                                  |
+| **`secure`**   | `bool`   | Si es `true`, la cookie solo se enviará por conexiones HTTPS.                                              |
+| **`httponly`** | `bool`   | Si es `true`, la cookie no será accesible desde JavaScript (`document.cookie`).                            |
+| **`samesite`** | `string` | Controla cuándo se envía la cookie en peticiones entre sitios. Valores: `"Strict"`, `"Lax"` o `"None"`.    |
+| **`options`**  | `array`  | Desde PHP 7.3+, se pueden pasar los parámetros anteriores en un solo array asociativo.                     |
+
 
 Destacar que el nombre no puede contener espacios ni el caracter `;`. Respecto al contenido de la cookie, no puede superar los 4 KB y lo que **se guarda es una cadena de texto**, aunque mediante las funciones `json_encode` y `json_decode` podríamos guardar y recurar un array convirtiéndolo a JSON.
 
@@ -423,6 +459,36 @@ En los siguientes ejemplos se ilustra cómo mediante *cookies* se puede comproba
         echo "Primer producto del carrito: ". $carrito[0]['id'];
     ```
 
+=== "Explorando todas las opciones"
+
+    ``` php
+    <?php
+    // Crear una cookie válida durante 1 hora
+    setcookie(
+        "usuario",            // nombre
+        "eladioblanco",       // valor
+        time() + 3600,        // expiración (1 hora desde ahora)
+        "/",                  // ruta en la que está disponible
+        "midominio.com",      // dominio
+        true,                 // secure (solo HTTPS)
+        true                  // httponly (no accesible por JS)
+    );
+
+    // FIRMA a partir de PHP 7.3 (más legible y clara)
+    setcookie(
+        "usuario",
+        "eladioblanco",
+        [
+            "expires"  => time() + 3600,
+            "path"     => "/",
+            "domain"   => "midominio.com",
+            "secure"   => true,
+            "httponly" => true,
+            "samesite" => "Strict"
+        ]
+    );
+    ```
+
 !!! tip "Inspeccionando las cookies"
     Si queremos ver qué contienen las cookies que tenemos almacenadas en el navegador, se puede comprobar su valor en *Dev Tools --> Aplicación --> Almacenamiento*
 
@@ -447,17 +513,6 @@ Para borrar una cookie se puede poner que expiren en el pasado:
 setcookie(nombre, "", 1) // pasado
 ```
 
-<figure style="align: center;">
-    <img src="imagenes/04/04cookies.png" width="700">
-    <figcaption>Comunicación con cookies</figcaption>
-</figure>
-
-Se utilizan para:
-
-* Recordar los inicios de sesión
-* Almacenar valores temporales de usuario
-* Si un usuario está navegando por una lista paginada de artículos, ordenados de cierta manera, podemos almacenar el ajuste de la clasificación.
-
 La alternativa en el cliente para almacenar información en el navegador es el objeto [LocalStorage](https://developer.mozilla.org/es/docs/Web/API/Window/localStorage).
 
 ### Sesión
@@ -479,12 +534,12 @@ Las operaciones que podemos realizar con la sesión son:
 
 ``` php
 <?php
-session_start(); // inicia o carga la sesión si ya existe
-echo session_id(); // devuelve el id de sesión (el que se envía como cookie al usuario)
-$_SESSION[clave] = valor; // asignación
-session_destroy(); // destruye la sesión
-unset($_SESSION[clave]); // borrado de un dato de la sesión
-session_unset(); // borra todas las variables de la sesión
+    session_start(); // inicia o carga la sesión si ya existe
+    echo session_id(); // devuelve el id de sesión (el que se envía como cookie al usuario)
+    $_SESSION[clave] = valor; // asignación
+    session_destroy(); // destruye la sesión
+    unset($_SESSION[clave]); // borrado de un dato de la sesión
+    session_unset(); // borra todas las variables de la sesión
 ```
 
 !!! info "Destruir la sesión y sus variables"
