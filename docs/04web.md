@@ -830,7 +830,7 @@ CSRF explota la confianza del navegador para realizar solicitudes no autorizadas
 Ejemplo: Un enlace malicioso ejecuta una solicitud usando la sesión activa del usuario.
 
 ``` html
-<img src="https://tusitio.com/transferir?monto=100&cuenta=atacante">
+<img src="https://tusitio.com/transferir?cantidad=100&cuenta=atacante">
 ```
 
 Contramedidas:
