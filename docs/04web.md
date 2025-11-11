@@ -820,9 +820,9 @@ Contramedidas:
 - Autenticación de dos factores (2FA): Añade una capa extra de seguridad.
 
 #### 4. **Cross-Site Request Forgery (CSRF)**
-CSRF explota la confianza del navegador para realizar solicitudes no autorizadas en nombre del usuario autenticado.
+CSRF, o falsificación de petición en sitios cruzados, es un ataque web malicioso donde un atacante engaña a un usuario para que transmita comandos no autorizados a un sitio en el que confía. 
 
-Ejemplo: Un enlace malicioso ejecuta una solicitud usando la sesión activa del usuario.
+Ejemplo: Un enlace malicioso ejecuta una solicitud usando la sesión activa del usuario en otro sitio web.
 
 ``` html
 <img src="https://tusitio.com/transferir?cantidad=100&cuenta=atacante">
