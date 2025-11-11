@@ -819,11 +819,6 @@ Contramedidas:
 - Educación sobre phishing: Enseña a los usuarios a identificar sitios y correos fraudulentos.
 - Autenticación de dos factores (2FA): Añade una capa extra de seguridad.
 
-``` php
-// Ejemplo usando una biblioteca de 2FA como Google Authenticator
-require 'vendor/autoload.php';
-```
-
 #### 4. **Cross-Site Request Forgery (CSRF)**
 CSRF explota la confianza del navegador para realizar solicitudes no autorizadas en nombre del usuario autenticado.
 
