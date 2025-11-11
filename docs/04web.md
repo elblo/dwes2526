@@ -652,7 +652,7 @@ Vamos a ver en código cada paso del proceso. Comenzamos con el archivo `index.p
 <form action='login.php' method='post'>
   <fieldset>
     <legend>Login</legend>
-    <div><span class='error'><?php echo $error; ?></span></div>
+    <div><span class='error'><?= $error ?? "" ?></span></div>
     <div class='fila'>
         <label for='usuario'>Usuario:</label><br />
         <input type='text' name='inputUsuario' id='usuario' maxlength="50" /><br />
