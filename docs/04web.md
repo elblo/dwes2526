@@ -943,6 +943,7 @@ Comprueba que si se accede directamente a cualquiera de las vistas sin tener un 
     * Si el usuario es incorrecto, debe volver a cargar el formulario dando información al usuario de acceso incorrecto.
 
 441. Si el usuario es administrador, se cargarán en la sesión los datos de soportes y clientes del videoclub que teníamos en nuestras pruebas (no mediante `include` sino copiando los datos e insertándolos en un array asociativo, el cual colocaremos posteriormente en la sesión). En unidades posteriores los obtendremos de la base de datos. En `mainAdmin.php`, además de la bienvenida, debe mostrar:
+   
    * Listado de clientes
    * Listado de soportes
 
