@@ -718,7 +718,7 @@ echo $precioTotal;
 
 ## 5.6 Pruebas con PHPUnit
 
-El curso pasado, dentro del módulo de *Entornos de Desarrollo*, estudiamos la importancia de la realización de pruebas, así como las pruebas unitarias mediante [JUnit](https://junit.org/junit5/).
+El curso pasado, en el módulo de *Entornos de Desarrollo*, se vio la importancia de la realización de pruebas, así como las pruebas unitarias mediante [JUnit](https://junit.org/junit5/).
 
 <figure style="float: right;">
     <img src="imagenes/05/tdd.png" width="300">
@@ -731,9 +731,9 @@ A día de hoy es de gran importancia seguir una buena metodología de pruebas, s
 2. Escribir el código de aplicación para que la prueba funcione (verde).
 3. Refactorizar el código de la aplicación con la ayuda de la prueba para comprobar que no rompemos nada (refactor).
 
-En el caso de PHP, la herramienta que se utiliza es *PHPUnit* (<https://phpunit.de/>), que como su nombre indica, está basada en JUnit. La versión actual es la 9.0
+En el caso de PHP, la herramienta que se utiliza es *PHPUnit* (<https://phpunit.de/>), que como su nombre indica, está basada en JUnit. La versión actual estable es la 12.
 
-Se recomienda consultar su documentación en <https://phpunit.readthedocs.io/es/latest/index.html>.
+Se recomienda consultar su documentación en <https://docs.phpunit.de/en/12.4/>.
 
 ### Puesta en marcha
 
@@ -765,7 +765,7 @@ Como hemos creado un *script*, podemos lanzar las pruebas mediante:
 composer test
 ```
 
-Vasmos a realizar nuestra primera prueba:
+Vamos a realizar nuestra primera prueba:
 
 ``` php
 <?php
