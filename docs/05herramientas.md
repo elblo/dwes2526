@@ -29,15 +29,15 @@ Funcionalmente, es similar a Maven (Java) / npm (JS).
 
 ### Instalación
 
-Si estamos usando XAMPP, hemos de instalar *Composer* en el propio sistema operativo. Se recomienda seguir las [instrucciones oficiales](https://getcomposer.org/doc/00-intro.md) según el sistema operativo a emplear.
+Si estamos usando XAMPP, hemos de instalar *Composer* en el propio sistema operativo. Se recomienda seguir las [instrucciones oficiales](https://getcomposer.org/doc/00-intro.md) según el sistema operativo a emplear. Léelas detenidamente y verás que podrás optar por una instalación automática mediante un *.exe* (Windows) o la descarga de una archivo PHP *installer* en nuestro proyecto que ejecutamos para generar el archivo *composher.phar*, que es el que lanzaremos para ejecutar Composer (Unix).
 
-En cambio, si usamos *Docker*, necesitamos modificar la configuración de nuestro contenedor. En nuestro caso, hemos decidido modificar el archivo `Dockerfile` y añadir el siguiente comando:
+En cambio, si usamos *Docker*, necesitamos modificar la configuración de nuestro contenedor. Basta con modificar el archivo `Dockerfile` y añadir el siguiente comando:
 
 ``` docker
 COPY --from=composer:2.0 /usr/bin/composer /usr/local/bin/composer
 ```
 
-Para facilitar el trabajo, hemos creado una [plantilla ya preparada](recursos/plantilla-APC.zip).
+Para facilitar el trabajo, aquí tienes una [plantilla ya preparada](recursos/plantilla-APC.zip).
 
 Es importante que dentro del contenedor comprobemos que tenemos la v2:
 
@@ -394,7 +394,7 @@ También es posible añadir un procesador como una función. En el siguiente eje
 
 ### Formateadores
 
-Se asocian a los manejadores con `setFormatter`. Los formateadores más utilizados son `LineFormatter`, `HtmlFormatter` o `JsonFormatter`. En el ejemplo siguiente se usa un manejador de archivos rotativo que empezará escribiendo los mensajes en 'milog-AAAA-MM-DD.log' y continuará con los 6 siguientes días antes de volver a empezar por el primer archivo. Antes de añadir el manejador, se le confiugra un formateador para que devuelva los mensajes en formato JSON.
+Se asocian a los manejadores con `setFormatter`. Los formateadores más utilizados son `LineFormatter`, `HtmlFormatter` o `JsonFormatter`. En el ejemplo siguiente se usa un manejador de archivos rotativo que empezará escribiendo los mensajes en 'milog-AAAA-MM-DD.log' y continuará con los 6 siguientes días antes de volver a empezar por el primer archivo. Antes de añadir el manejador, se le configura un formateador para que devuelva los mensajes en formato JSON.
 
 === "PHP"
 
