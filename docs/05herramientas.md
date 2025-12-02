@@ -104,7 +104,7 @@ Si creamos el archivo `composer.json` nosotros directamente sin inicializar el r
 composer install
 ```
 
-Al hacer este paso (tanto instalar como actualizar), como ya hemos comentado, se descargan las librerías en dentro de la carpeta `vendor`. Es muy importante añadir esta carpeta al archivo `.gitignore` para no subirlas a GitHub.
+Al hacer este paso (tanto instalar como actualizar), como ya hemos comentado, se descargan las librerías dentro de la carpeta `vendor`. Es muy importante añadir esta carpeta al archivo `.gitignore` para no subirlas a GitHub.
 
 Además se crea el archivo `composer.lock`, que almacena la versión exacta que se ha instalado de cada librería (este archivo no se toca).
 
