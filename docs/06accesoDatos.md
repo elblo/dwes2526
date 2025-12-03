@@ -196,6 +196,7 @@ El constructor de la clase PDO acepta tres parámetros obligatorios y un array d
         - *PDO::FETCH_ASSOC*: Devuelve los datos como un array asociativo.
         - *PDO::FETCH_OBJ*: Devuelve los datos como un objeto.
         - *PDO::FETCH_BOTH*: Devuelve los datos como un array asociativo y numérico.
+    - *PDO::ATTR_EMULATE_PREPARES*: Desactiva las consultas preparadas emuladas (previene inyecciones SQL).
     - *PDO::ATTR_PERSISTENT*: Habilita conexiones persistentes. Una conexión persistente puede mejorar el rendimiento manteniendo la conexión activa por múltiples peticiones en lugar de crear una nueva cada vez.
     - *PDO::ATTR_TIMEOUT*: Define un tiempo límite para la conexión en segundos.
 
@@ -267,38 +268,75 @@ Una vez tenemos la plantilla de nuestra consulta, debemos seguir con la preparac
 
 ### Ejemplo parámetros
 
-```php
-<?php
-    //  ▒▒▒▒▒▒▒▒ Borrando con parámetros ▒▒▒▒▒▒▒▒
+=== "En orden con ?"  
 
-    include "config/database.inc.php"; // Aquí están las constantes DSN, USUARIO y PASSWORD
-  
-    $opciones = [
-        PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION, 
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,       
-        PDO::ATTR_EMULATE_PREPARES   => false,                  
-    ];
+    ```php hl_lines="19 22"
+    <?php
+        //  ▒▒▒▒▒▒▒▒ Borrando con parámetros ▒▒▒▒▒▒▒▒
 
-    $conexion = null;
+        include "config/database.inc.php"; // Aquí están las constantes DSN, USUARIO y PASSWORD
+    
+        $opciones = [
+            PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION, 
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,       
+            PDO::ATTR_EMULATE_PREPARES   => false,                  
+        ];
 
-    try { 
-        $id = $_GET["id_alumno"];
+        $conexion = null;
 
-        $conexion = new PDO(DSN, USUARIO, PASSWORD, $opciones);
+        try { 
+            $id = $_GET["id_alumno"];
 
-        $sql = "DELETE FROM alumnos WHERE id = ?";    
-        $sentencia = $conexion->prepare($sql);
+            $conexion = new PDO(DSN, USUARIO, PASSWORD, $opciones);
 
-        $isOk = $sentencia->execute([$id]);
+            $sql = "DELETE FROM alumnos WHERE id = ?";    
+            $sentencia = $conexion->prepare($sql);
+
+            $isOk = $sentencia->execute([$id]);
+            
+            $cantidadAfectada = $sentencia->rowCount();
+            echo $cantidadAfectada;
+        } catch (PDOException $e) {
+            echo $e -> getMessage();
+        }
+
+        $conexion = null;
+    ```
+
+=== "Con nombre mediante :parametro"
+
+    ```php hl_lines="19 22"
+        <?php
+            //  ▒▒▒▒▒▒▒▒ Borrando con parámetros ▒▒▒▒▒▒▒▒
+
+            include "config/database.inc.php"; // Aquí están las constantes DSN, USUARIO y PASSWORD
         
-        $cantidadAfectada = $sentencia->rowCount();
-        echo $cantidadAfectada;
-    } catch (PDOException $e) {
-        echo $e -> getMessage();
-    }
+            $opciones = [
+                PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION, 
+                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,       
+                PDO::ATTR_EMULATE_PREPARES   => false,                  
+            ];
 
-    $conexion = null;
-```
+            $conexion = null;
+
+            try { 
+                $id = $_GET["id_alumno"];
+
+                $conexion = new PDO(DSN, USUARIO, PASSWORD, $opciones);
+
+                $sql = "DELETE FROM alumnos WHERE id = :id";    
+                $sentencia = $conexion->prepare($sql);
+
+                $isOk = $sentencia->execute([':id' => $id]);
+                
+                $cantidadAfectada = $sentencia->rowCount();
+                echo $cantidadAfectada;
+            } catch (PDOException $e) {
+                echo $e -> getMessage();
+            }
+
+            $conexion = null;
+    ```
 
 ### Ejemplo bindParam
 
