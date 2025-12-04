@@ -173,6 +173,8 @@ Se puede añadir la conexión a nuestras bases de datos en PhpStorm para gestion
 
 ### Añadir BD
 
+Seguir los pasos para añadir el origen de datos que queramos indicando su ip (localhost), usuario, contraseña... Es posible que se necesiten descargar los driver apropiados (nos lo notificará el IDE).
+
 === "Añadir Data Source"
     
     <div class="center img-medium">
@@ -192,6 +194,8 @@ Se puede añadir la conexión a nuestras bases de datos en PhpStorm para gestion
     </div>
 
 ### Ejecutar consultas
+
+El objetivo de integrar la BDD en PhpStorm es precisamente poder consultar y modificar los datos desde el propio IDE.
 
 === "Abrir Query Console"
 
