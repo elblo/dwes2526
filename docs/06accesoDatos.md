@@ -167,6 +167,44 @@ Cuando seleccionamos una base de datos de la lista, el sistema nos muestra varia
 
 No vamos a profundizar en el resto de opciones pero, en la pestaña **Más** existe la opción ***Diseñador*** para poder editar las relaciones entre tablas de una manera gráfica (pinchando y arrastrando) que veremos más adelante.
 
+### BBDD en PhpStorm
+
+Se puede añadir la conexión a nuestras bases de datos en PhpStorm para gestionarlas directamente desde el propio IDE.
+
+#### Añadir BD
+
+=== "Añadir Data Source"
+    
+    <div class="center img-large">
+        <img src="imagenes/06/06-config-bbdd-phpstorm-01.png">
+    </div>
+
+=== "Configurar Data Source"
+
+    <div class="center img-large">
+        <img src="imagenes/06/06-config-bbdd-phpstorm-02.png">
+    </div>
+
+=== "Seleccionar esquemas de la BD"
+
+    <div class="center img-large">
+        <img src="imagenes/06/06-config-bbdd-phpstorm-03.png">
+    </div>
+
+#### Ejecutar consultas
+
+=== "Abrir Query Console"
+
+    <div class="center img-large">
+        <img src="imagenes/06/06-config-bbdd-phpstorm-04.png">
+    </div>
+
+=== "Lanzar consultas"
+
+    <div class="center img-large">
+        <img src="imagenes/06/06-config-bbdd-phpstorm-05.png">
+    </div>
+
 ## 6.5 PHP Data Objects (PDO)
 
 La clase **PDO** de PHP se utiliza para conectarse a una base de datos y ejecutar consultas SQL de forma segura. Cuando construyes una instancia de PDO, puedes pasarle distintos atributos en el constructor y opciones para configurar el comportamiento de la conexión. 
