@@ -175,7 +175,7 @@ Se puede añadir la conexión a nuestras bases de datos en PhpStorm para gestion
 
 === "Añadir Data Source"
     
-    <div class="center img-large">
+    <div class="center img-medium">
         <img src="imagenes/06/06-config-bbdd-phpstorm-01.png">
     </div>
 
@@ -187,7 +187,7 @@ Se puede añadir la conexión a nuestras bases de datos en PhpStorm para gestion
 
 === "Seleccionar esquemas de la BD"
 
-    <div class="center img-large">
+    <div class="center img-medium">
         <img src="imagenes/06/06-config-bbdd-phpstorm-03.png">
     </div>
 
@@ -195,7 +195,7 @@ Se puede añadir la conexión a nuestras bases de datos en PhpStorm para gestion
 
 === "Abrir Query Console"
 
-    <div class="center img-large">
+    <div class="center img-medium">
         <img src="imagenes/06/06-config-bbdd-phpstorm-04.png">
     </div>
 
