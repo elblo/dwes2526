@@ -167,11 +167,11 @@ Cuando seleccionamos una base de datos de la lista, el sistema nos muestra varia
 
 No vamos a profundizar en el resto de opciones pero, en la pestaña **Más** existe la opción ***Diseñador*** para poder editar las relaciones entre tablas de una manera gráfica (pinchando y arrastrando) que veremos más adelante.
 
-### BBDD en PhpStorm
+## 6.5 BBDD en PhpStorm
 
 Se puede añadir la conexión a nuestras bases de datos en PhpStorm para gestionarlas directamente desde el propio IDE.
 
-#### Añadir BD
+### Añadir BD
 
 === "Añadir Data Source"
     
@@ -191,7 +191,7 @@ Se puede añadir la conexión a nuestras bases de datos en PhpStorm para gestion
         <img src="imagenes/06/06-config-bbdd-phpstorm-03.png">
     </div>
 
-#### Ejecutar consultas
+### Ejecutar consultas
 
 === "Abrir Query Console"
 
@@ -205,7 +205,7 @@ Se puede añadir la conexión a nuestras bases de datos en PhpStorm para gestion
         <img src="imagenes/06/06-config-bbdd-phpstorm-05.png">
     </div>
 
-## 6.5 PHP Data Objects (PDO)
+## 6.6 PHP Data Objects (PDO)
 
 La clase **PDO** de PHP se utiliza para conectarse a una base de datos y ejecutar consultas SQL de forma segura. Cuando construyes una instancia de PDO, puedes pasarle distintos atributos en el constructor y opciones para configurar el comportamiento de la conexión. 
 
@@ -705,7 +705,7 @@ Para utilizar el comodín LIKE u otros comodines, debemos asociarlo al dato y NU
 
 Tenéis una lista de ejemplos muy completa en la [documentación oficial](https://phpdelusions.net/pdo/objects).
 
-## 6.6 Login & Password
+## 6.7 Login & Password
 
 <div class="center img-medium">
     <img src="imagenes/06/06-login-password.gif">
@@ -765,7 +765,7 @@ Ahora que tenemos el hash del password guardado en la base de datos, vamos a rec
     Nunca almacenes el password del usuario en claro en la base de datos. Utiliza siempre resúmenes hash. Guardar las contraseñas completas podría violar regulaciones específicas sobre la protección de datos personales y exponerte a sanciones legales si ocurre una brecha de seguridad.
 
 
-## 6.7 Acceso a ficheros
+## 6.8 Acceso a ficheros
 
 Gracias a la funcion fopen() desde PHP podemos abrir archivos que se encuentren en nuestros servidor o una URL.
 
@@ -987,7 +987,7 @@ $pdf->Output();
 </div>
 
 
-## 6.8 Actividades
+## 6.9 Actividades
 
 ### CRUD campeones
 
