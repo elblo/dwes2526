@@ -171,9 +171,9 @@ No vamos a profundizar en el resto de opciones pero, en la pestaña **Más** exi
 
 Se puede añadir la conexión a nuestras bases de datos en PhpStorm para gestionarlas directamente desde el propio IDE.
 
-### Añadir BD
+### Añadir Data Source
 
-Seguir los pasos para añadir el origen de datos que queramos indicando su ip (localhost), usuario, contraseña... Es posible que se necesiten descargar los driver apropiados (nos lo notificará el IDE).
+Seguir los pasos para añadir el *origen de datos* que queramos indicando su ip (localhost), usuario, contraseña... Es posible que se necesiten descargar los drivers apropiados (nos lo notificará el IDE).
 
 === "Añadir Data Source"
     
