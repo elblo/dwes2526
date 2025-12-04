@@ -202,27 +202,77 @@ El constructor de la clase PDO acepta tres parámetros obligatorios y un array d
 
 Con PDO podemos capturar las excepciones <span class="alert">**PDOException**</span> con try catch para gestionar los errores que se produzcan por la conexión.
 
-#### Ejemplo de conexión a una BDD
+#### Ejemplos para pruebas
 
-``` php
-<?php
+Para las siguientes pruebas rápidas crea la base de datos *instituto* con la tabla *alumnos* y campos:
 
-    $dsn = 'mysql:host=127.0.0.1;dbname=prueba';
-    $usuario = 'usuario';
-    $contraseña = 'contraseña';
-    $opciones = [
-        PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION, // Le indicamos que en caso de errores lance excepciones
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,       // Configurar el modo de obtención de resultados (mediante arrays asociativos)
-        PDO::ATTR_EMULATE_PREPARES   => false,                  // Desactiva las consultas preparadas emuladas, haciendo las consultas más seguras contra inyecciones SQL.
-    ];
+- *id*: INT primary key y autoincrement.
+- *nombre*: VARCHAR de 40 caracteres.
 
-    try {
-        $mbd = new PDO($dsn, $usuario, $contraseña, $opciones);
-        echo "Conexión exitosa a la base de datos.";
-    } catch (PDOException $e) {
-        echo 'Falló la conexión: ' . $e->getMessage();
-    }
-```
+=== "Conexión a BDD"
+
+    ``` php
+    <?php
+
+        $dsn = 'mysql:host=127.0.0.1;port=3306;dbname=instituto';
+        $usuario = 'root';
+        $contraseña = '';
+        $opciones = [
+            PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION, // Le indicamos que en caso de errores lance excepciones
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,       // Configurar el modo de obtención de resultados (mediante arrays asociativos)
+            PDO::ATTR_EMULATE_PREPARES   => false,                  // Desactiva las consultas preparadas emuladas, haciendo las consultas más seguras contra inyecciones SQL.
+        ];
+
+        try {
+            $mbd = new PDO($dsn, $usuario, $contraseña, $opciones);
+            echo "Conexión exitosa a la base de datos.";
+        } catch (PDOException $e) {
+            echo 'Falló la conexión: ' . $e->getMessage();
+        }
+    ```
+
+=== "Insertar registros"
+
+    De igual forma para UPDATE y DELETE.
+
+    ``` php
+    <?php
+        try {
+            $mbd = new PDO($dsn, $usuario, $password, $opciones);
+            echo "Conexión exitosa a la base de datos.";
+
+            $sql = "INSERT INTO alumnos (id, nombre) VALUES (NULL, 'Eladio');";
+            $sentencia = $mbd->prepare($sql);
+
+            $isOk = $sentencia->execute();
+            $cantidadAfectada = $sentencia->rowCount();
+
+            echo "<p>Registros insertados: " . $cantidadAfectada ."</p>\n";
+        } catch (PDOException $e) {
+            echo 'Falló la conexión: ' . $e->getMessage();
+        }
+    ```
+
+=== "Consultar registros"
+
+    ``` php
+    <?php
+        try {
+            $mbd = new PDO($dsn, $usuario, $password, $opciones);
+            echo "Conexión exitosa a la base de datos.";
+
+            $query = "SELECT * FROM alumnos";
+
+            $registros = $mbd->query($query);
+
+            foreach($registros as $registro){
+                echo "<p>Id: " . $registro["id"] . ", Nombre: " . $registro["nombre"] . "</p>\n";
+            }
+
+        } catch (PDOException $e) {
+            echo 'Falló la conexión: ' . $e->getMessage();
+        }
+    ```
 
 ### Fichero de configuración de la BD
 
