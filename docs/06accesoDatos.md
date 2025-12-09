@@ -316,6 +316,10 @@ Para las siguientes pruebas rápidas crea la base de datos *instituto* con la ta
         }
     ```
 
+!!! notice "query vs prepare/execute"
+
+    El método **query()** de PDO ejecuta la consulta directamente en una llamada (prepara y ejecuta a la vez, pero sin usar marcadores de posición seguros), mientras que **prepare()** y **execute()** son los pasos separados para usar consultas preparadas (parametrizadas), que son más seguras y eficientes para múltiples ejecuciones, ya que separan la estructura SQL de los datos y previenen la inyección SQL. 
+
 ### Fichero de configuración de la BD
 
 De la misma forma que podemos tener un archivo de funciones `funciones.php` con todas las funciones que se usan de manera global en la aplicación, podemos crear un archivo de constantes donde definamos los parámetros de conexión con la base de datos.
