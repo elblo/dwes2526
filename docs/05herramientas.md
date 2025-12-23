@@ -954,14 +954,51 @@ Por ejemplo, si accedemos a la clase `CintaVideo` con la prueba que habíamos re
     * Preparando las pruebas con `setUpBeforeClass()` y `tearDownAfterClass()`
     * Objetos y pruebas *Mock* (dobles) con `createMock()`
 
-## 5.7 Referencias
+## 5.7 Resumen
+
+En este tema sobre **Herramientas Web**, nos enfocamos en las utilidades que facilitan la programación, prueba y depuración en PHP.
+
+### I. Composer: Gestión de Dependencias (5.1)
+
+*   **Concepto:** Es la herramienta estándar para la **gestión de librerías y dependencias** en PHP, similar a npm en JS o Maven en Java.
+*   **Archivos clave:** 
+    *   `composer.json`: Configura el proyecto y define las dependencias.
+    *   `composer.lock`: Almacena las versiones exactas instaladas (no se debe modificar manualmente).
+    *   Carpeta `vendor`: Donde se descargan las librerías; debe incluirse en `.gitignore`.
+*   **Comandos principales:** `composer init` (inicializar), `composer require` (añadir librería), `composer install` (instalar dependencias de un proyecto existente) y `composer update` (actualizar versiones).
+*   **Autoloading:** Composer genera un archivo `vendor/autoload.php` que incluye automáticamente todas las librerías. Mediante el estándar **PSR-4**, también puede cargar nuestras propias clases si configuramos el espacio de nombres y su directorio en el archivo JSON.
+
+### II. Envío de Correos y Logs (5.2 - 5.3)
+
+*   **Resend:** Una API moderna para el **envío de correos electrónicos** mediante una API Key. Existen alternativas como la función `mail()` nativa, PHPMailer para servidores SMTP propios o Mailtrap para realizar pruebas de interceptación.
+*   **Monolog:** Librería estándar (PSR-3) para la **gestión de logs**. 
+    *   **Niveles:** Van desde *debug* (100) hasta *emergency* (600). 
+    *   **Arquitectura:** Utiliza **Handlers** (donde se guarda el log, como archivos o email), **Formatters** (formato del mensaje como JSON o HTML) y **Processors** (añaden información extra como la IP o la línea del código). 
+    *   Se recomienda usar el patrón **Factory** para encapsular la creación del *Logger* y facilitar futuros cambios de librería.
+
+### III. Documentación y Web Scraping (5.4 - 5.5)
+
+*   **phpDocumentor:** Herramienta para documentar el código creando un sitio web con el API de la aplicación. Se basa en **DocBlocks** (comentarios `/** ... */`) y anotaciones como `@param`, `@return`, `@var`, `@throws` y `@author`.
+*   **Web Scraping:** Técnica para extraer información pública de páginas web automáticamente. La librería **Goutte** facilita esta tarea simulando un navegador y permitiendo el uso de **selectores CSS** para filtrar y recorrer el DOM de la página. Es importante respetar la legalidad consultando el archivo `robots.txt` del sitio.
+
+### IV. Pruebas Unitarias con PHPUnit (5.6)
+
+*   **TDD (Test Driven Development):** Metodología basada en ciclos: 1. Escribir test (rojo), 2. Escribir código (verde), 3. Refactorizar.
+*   **Estructura:** Las clases de prueba heredan de `TestCase` y los métodos deben empezar por el prefijo `test`.
+*   **Aserciones y Expectativas:** Se usan métodos como `assertSame()` o `assertTrue()` para verificar resultados. Si el código genera salida por pantalla, se usan expectativas como `expectOutputString()`.
+*   **Funciones Avanzadas:** 
+    *   **Proveedores de datos:** El uso de `@dataProvider` permite ejecutar una misma prueba con múltiples conjuntos de datos.
+    *   **Excepciones:** Se puede verificar que el código lanza errores esperados con `expectException()`.
+    *   **Cobertura:** Indica qué porcentaje del código está cubierto por tests (ideal >95%). La métrica **CRAP** mide el riesgo y esfuerzo de mantenimiento; debe ser inferior a 5.
+
+## 5.8 Referencias
 
 * [Tutorial de Composer](https://desarrolloweb.com/manuales/tutorial-composer.html)
 * [Web Scraping with PHP – How to Crawl Web Pages Using Open Source Tools](https://www.freecodecamp.org/news/web-scraping-with-php-crawl-web-pages/)
 * [PHP Monolog](https://zetcode.com/php/monolog/)
 * [Unit Testing con PHPUnit — Parte 1](https://medium.com/@emilianozublena/unit-testing-con-phpunit-parte-1-148c6d73e822), de Emiliano Zublena.
 
-## 5.8 Actividades
+## 5.9 Actividades
 
 ### Resend
 

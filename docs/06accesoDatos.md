@@ -994,8 +994,44 @@ $pdf->Output();
     <img src="imagenes/06/06-pdf-output.gif">
 </div>
 
+## 6.9 Resumen
 
-## 6.9 Actividades
+En este tema sobre **Acceso a Datos**, se busca consolidar los conocimientos sobre la persistencia de información mediante bases de datos y el manejo de archivos en PHP.
+
+### I. Entorno y Estructura de Datos (6.1 - 6.5)
+
+*   **Infraestructura:** El acceso a datos se realiza habitualmente mediante el stack **MySQL/MariaDB**. Se puede gestionar fácilmente a través de **XAMPP** o mediante **Docker** utilizando `docker-compose up -d`.
+*   **Estructura:** Las bases de datos se organizan en **Tablas**, que contienen **campos** (columnas) y **datos** (filas). Es fundamental definir **Claves Primarias** para identificar registros y **Claves Foráneas** para establecer relaciones entre tablas.
+*   **phpMyAdmin:** Interfaz web para gestionar la BBDD. Al crear una base de datos, es vital usar el cotejamiento **`utf8mb4_unicode_ci`** para soportar todos los caracteres y emojis.
+*   **SQL (Structured Query Language):** Lenguaje estándar para consultas (ej. `SELECT * FROM tabla`). Estas sentencias se pueden ejecutar desde la interfaz de phpMyAdmin, la consola o embebidas en el código PHP.
+
+### II. PHP Data Objects - PDO (6.6)
+
+PDO es la clase de PHP utilizada para conectar y ejecutar consultas de forma segura.
+
+*   **Conexión:** Se realiza mediante el constructor `new PDO($dsn, $usuario, $password, $opciones)`. El **DSN** especifica el tipo de BBDD, el host y el nombre de la base de datos.
+*   **Seguridad y Consultas Preparadas:** 
+    *   Para evitar la **Inyección SQL**, nunca se deben concatenar variables directamente en la consulta. 
+    *   Se utiliza **`prepare()`** con marcadores (`?` o `:parametro`) y luego **`execute()`**.
+    *   **`bindParam()`** vincula una variable por referencia (útil para múltiples ejecuciones), mientras que **`bindValue()`** lo hace por valor.
+*   **Recuperación de Datos:** 
+    *   **`fetch()`**: Obtiene la siguiente fila de un conjunto de resultados.
+    *   **`fetchAll()`**: Obtiene todas las filas de una vez en una matriz.
+    *   **Modos de obtención:** `PDO::FETCH_ASSOC` (array asociativo), `PDO::FETCH_OBJ` (objeto) o `PDO::FETCH_CLASS` (mapea los datos directamente a una clase propia).
+*   **Gestión de Errores:** Se recomienda configurar `PDO::ATTR_ERRMODE` como `PDO::ERRMODE_EXCEPTION` para capturar fallos mediante bloques **`try-catch`** con `PDOException`.
+
+### III. Login y Seguridad (6.7)
+
+*   **Contraseñas:** Está **prohibido** almacenar contraseñas en texto plano. 
+*   **Hashing:** Se debe usar **`password_hash()`** al registrar al usuario (generalmente con `PASSWORD_DEFAULT`) y **`password_verify()`** para comprobar la coincidencia durante el login.
+
+### IV. Acceso a Ficheros y PDFs (6.8)
+
+*   **Manipulación de archivos:** Se utilizan funciones como **`fopen()`** (con modos como `r` para lectura, `w` para escritura o `a` para añadir), `fread()`, `fwrite()` y `fclose()`. 
+*   **Información del archivo:** La función **`stat()`** proporciona metadatos como el tamaño en bytes o la fecha de última modificación.
+*   **Generación de PDF:** Mediante la librería **FPDF** (instalable por Composer), se pueden generar documentos PDF dinámicos desde PHP, permitiendo configurar cabeceras, pies de página, fuentes e imágenes.
+
+## 6.10 Actividades
 
 ### CRUD campeones
 
