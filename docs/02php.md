@@ -1951,7 +1951,46 @@ Antes no se podían usar clousures o funciones como valores constantes; ahora s�
     
     Si quieres conocer todas las novedades, vísita [la web oficial](https://www.php.net/releases/8.5/es.php)
 
-## 2.10 Referencias
+## 2.10 Resumen
+
+En este tema sobre **El lenguaje PHP**, se estudian los fundamentos de este lenguaje de programación en el servidor.
+
+### I. Fundamentos y Sintaxis (2.1 - 2.2)
+
+*   **Introducción:** PHP (*PHP Hypertext Preprocessor*) es un lenguaje de propósito general ejecutado en el servidor, cuya sintaxis es similar a C o Java.
+*   **Código Embebido:** Los bloques de código se delimitan entre `<?php` y `?>`. Para mostrar contenido, se utiliza **`echo`** o la etiqueta corta **`<?=`**.
+*   **Variables y Constantes:** Las variables comienzan con `$` (ej. `$nombre`), tienen **tipado dinámico** y son sensibles a mayúsculas. Las constantes se definen con `define()` o `const` y suelen ir en mayúsculas.
+*   **Operadores Destacados:** Además de los aritméticos y lógicos, PHP incluye el operador de **concatenación** (el punto `.`), el de **nave espacial** (`<=>`) para comparaciones de orden y el de **fusión de null** (`??`).
+
+### II. Estructuras de Control y Formularios (2.3 - 2.5)
+
+*   **Formularios:** Los datos se envían comúnmente vía URL mediante **`$_GET`**. Es una buena práctica separar la lógica PHP del HTML.
+*   **Condicionales:** Contamos con `if-else`, `switch` y la expresión **`match`**, que realiza comparaciones estrictas.
+*   **Bucles:** Se utilizan `while`, `do-while` y `for`. Se recomienda evitar `break` y `continue` a favor de variables de control (*flags*) para mejorar la legibilidad.
+
+### III. Arrays y Funciones (2.6 - 2.7)
+
+*   **Arrays:** Pueden ser **secuenciales** (índice numérico) o **asociativos** (clave-valor). Se recorren de forma elegante con **`foreach`**. PHP ofrece una vasta biblioteca de funciones para manipularlos, como `count`, `array_push`, `sort` e `in_array`.
+*   **Funciones:**
+    *   Se pueden pasar parámetros por **valor** o por **referencia** (usando `&`).
+    *   Admiten **parámetros opcionales** (con valores por defecto) y **variádicos** (usando `...`).
+    *   **Tipificación:** PHP permite definir tipos para parámetros y valores de retorno (ej. `int`, `string`, `void`).
+    *   **Funciones Anónimas y Flecha:** Las funciones anónimas pueden usar variables externas con `use` (**clausuras**), mientras que las **funciones flecha** (`fn`) lo hacen de forma automática.
+
+### IV. Modularización y Funciones Predefinidas (2.7 - 2.8)
+
+*   **Inclusión de Archivos:** Para reutilizar código se usa `include` (ignora errores de archivo no encontrado) o **`require`** (lanza error fatal). Las variantes `_once` evitan duplicados.
+*   **Cadenas y Matemáticas:** Existen funciones potentes para manipular textos (`strlen`, `substr`, `str_replace`, `explode`) y realizar cálculos (`rand`, `number_format`, `round`).
+*   **Comprobación de Tipos:** Funciones como `is_int` o `is_string` permiten validar los datos en tiempo de ejecución.
+
+### V. Novedades de PHP 8.5 (2.9)
+
+Esta versión (noviembre 2025) introduce mejoras significativas:
+*   **Operador Pipe (`|>`):** Permite encadenar funciones de izquierda a derecha de forma más legible.
+*   **Clone With:** Facilita la clonación de objetos modificando propiedades específicas en el mismo paso.
+*   **Funciones `array_first()` y `array_last()`:** Acceso directo a los extremos de un array.
+
+## 2.11 Referencias
 
 * [Manual de PHP](https://www.php.net/manual/es/index.php)
 * [PHP en 2020](https://www.jesusamieiro.com/wp-content/uploads/2020/10/20201024-hacktoberday-PHP-en-2020.pdf), por Jesús Amieiro
@@ -1959,7 +1998,7 @@ Antes no se podían usar clousures o funciones como valores constantes; ahora s�
 * [Guía de Estilo - PSR](http://coppeldev.github.io/php/standards/coppel.html)
 * [PHP - La manera correcta](http://phpdevenezuela.github.io/php-the-right-way/)
 
-## 2.11 Actividades
+## 2.12 Actividades
 
 ### PHP básico
 

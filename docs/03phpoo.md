@@ -1203,12 +1203,51 @@ También define un conjunto de excepciones que podemos utilizar para que las lan
 
 También podéis consultar la documentación de estas excepciones en <https://www.php.net/manual/es/spl.exceptions.php>.
 
-## 3.17 Referencias
+## 3.17 Resumen
+
+En este tema sobre **PHP Orientado a Objetos**, se busca aplicar los principios de la POO para separar la lógica de negocio de la presentación al programar con PHP.
+
+### I. Clases y Objetos (3.1 - 3.5)
+
+*   **Definiciones:** Una **clase** es la plantilla (propiedades y métodos) y un **objeto** es una instancia de dicha clase. Para instanciar se usa la palabra clave `new` y para acceder a sus miembros el operador `->`.
+*   **Visibilidad:** Controla quién accede a los recursos:
+    *   **`public`**: Acceso total. En PHP, todas las clases son públicas por definición.
+    *   **`protected`**: Solo la propia clase y sus herederas.
+    *   **`private`**: Solo la propia clase.
+*   **Referencia `$this`:** Se usa dentro de la clase para acceder a sus propios métodos o propiedades.
+*   **Constructor:** Se define con el método mágico **`__construct`**. PHP 8 introdujo la **promoción de propiedades**, que permite definir y asignar atributos directamente en los parámetros del constructor.
+*   **Elementos Estáticos:** Se declaran con `static` y pertenecen a la clase, no a la instancia. Se acceden con el operador **`::`** y la referencia **`self`** desde dentro de la clase.
+*   **Introspección:** PHP ofrece funciones como `instanceof` (comprobar tipo), `get_class` (obtener nombre de clase) o `method_exists` para obtener información de objetos en tiempo de ejecución.
+
+### II. Herencia y Reutilización (3.6 - 3.10)
+
+*   **Herencia:** PHP soporta **herencia simple** mediante la palabra clave **`extends`**. Los hijos heredan miembros públicos y protegidos, pueden sobreescribir métodos y llamar al padre con `parent::`.
+*   **Clases Abstractas:** No se pueden instanciar; su fin es ser heredadas y obligar a los hijos a implementar métodos marcados como `abstract`.
+*   **Clases Finales:** Usan la palabra clave `final` para evitar que una clase sea heredada o un método sobreescrito.
+*   **Interfaces:** Definen un "contrato" o firmas de métodos que las clases deben cumplir usando **`implements`**. Una clase puede implementar múltiples interfaces.
+*   **Traits:** Mecanismo para reutilizar código en lenguajes de herencia simple. Permiten inyectar funcionalidades (métodos y propiedades) en diversas clases sin usar herencia.
+
+### III. Características Avanzadas (3.11 - 3.12)
+
+*   **Métodos Encadenados:** Técnica donde los métodos (normalmente *setters*) devuelven **`$this`**, permitiendo realizar múltiples llamadas seguidas en una sola línea.
+*   **Métodos Mágicos:** Funciones especiales que PHP ejecuta ante ciertos eventos. Destacan:
+    *   `__toString()`: Representación del objeto como cadena.
+    *   `__get()` / `__set()`: Acceso a propiedades inexistentes o inaccesibles.
+    *   `__destruct()`: Se ejecuta cuando el objeto pierde su referencia.
+
+### IV. Organización y Seguridad (3.13 - 3.16)
+
+*   **Espacios de Nombres (*Namespaces*):** Permiten organizar el código y evitar conflictos entre clases con el mismo nombre. Se declaran con `namespace` al inicio del archivo y se importan con **`use`**.
+*   **Autoload:** La función **`spl_autoload_register`** permite cargar archivos de clases automáticamente cuando se necesitan, evitando el uso manual de múltiples `include`. Se recomienda seguir el estándar **PSR-4** para la organización de archivos.
+*   **Gestión de Excepciones:** Usa bloques **`try / catch / finally`**. Las anomalías se lanzan con `throw new Exception` y pueden capturarse de forma específica o general (usando `Throwable` para errores y excepciones).
+*   **SPL (*Standard PHP Library*):** Biblioteca que ofrece estructuras de datos (pilas, colas), iteradores y excepciones predefinidas como `InvalidArgumentException`.
+
+## 3.18 Referencias
 
 * [Manual de PHP](https://www.php.net/manual/es/index.php)
 * [Manual de OO en PHP - www.desarrolloweb.com](https://desarrolloweb.com/manuales/manual-php.html#manual68)
 
-## 3.18 Actividades
+## 3.19 Actividades
 
 300. Investiga la diferencia entre un paradigma orientado a objetos basado en clases (*PHP*) respecto a uno basado en prototipos (*JavaScript*).
 
