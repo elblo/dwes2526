@@ -583,12 +583,45 @@ Existen multitud de intérpretes de PHP online para poder probar nuestros script
 * [OnlinePHP](https://onlinephp.io/)
 * [myCompiler](https://www.mycompiler.io/es/new/php)
 
-## 1.10 Referencias
+## 1.10 Resumen
+
+En este tema sobre **Arquitecturas Web**, se introducen los fundamentos de cómo se estructuran y enlazan las páginas web, basándose en el **modelo cliente-servidor**.
+
+### I. Modelo Cliente/Servidor y Renderizado (1.1)
+
+*   **Interacción Básica:** El **cliente** (navegador) realiza una petición (*request*) vía protocolo HTTP (puertos 80/443) y el **servidor** devuelve una respuesta (*response*). 
+*   **Páginas Dinámicas:** A diferencia de las estáticas (solo HTML/CSS), las dinámicas cambian su contenido mediante **lenguajes de servidor** (como PHP) o servicios **REST** invocados desde JavaScript.
+*   **SPA (Single Page Application):** Arquitectura moderna donde el cliente asume más peso, usando programación reactiva y comunicándose con el *backend* mediante servicios REST y formato **JSON**.
+*   **Técnicas de Renderizado:**
+    *   **CSR (Client-Side):** El navegador genera la interfaz mediante JS. Es muy dinámico pero lento en la carga inicial.
+    *   **SSR (Server-Side):** El servidor genera el HTML completo. Es rápido y óptimo para **SEO**.
+    *   **SSG (Static Site Generation):** Las páginas se generan en tiempo de construcción como archivos estáticos. Rendimiento extremo.
+    *   **ISR (Incremental Static Regeneration):** Combina SSG y SSR, actualizando partes estáticas de forma dinámica.
+
+### II. Arquitecturas y Modelos (1.2, 1.3)
+
+*   **Capas Físicas (*Tiers*):** Elementos hardware separados (Servidor Web, Servidor de Aplicaciones, Base de Datos) para mayor protección y escalabilidad.
+*   **Capas Lógicas (*Layers*):** Organización del código por funcionalidad: **Presentación**, **Negocio** y **Datos**.
+*   **Modelo-Vista-Controlador (MVC):** Patrón que separa la aplicación en tres componentes:
+    *   **Modelo:** Gestiona los datos y la lógica de negocio.
+    *   **Vista:** Presenta la información al usuario.
+    *   **Controlador:** Gestiona los eventos y comunica el Modelo con la Vista.
+
+### III. Herramientas y Lenguajes (1.5, 1.6)
+
+*   **Servidores Web:** Destacan **Apache** (multiplataforma y modular) y **Nginx** (moderno y de alto rendimiento).
+*   **Lenguajes de Servidor:** PHP, JavaEE, Python, ASP.NET, Ruby y **Node.js** (JavaScript en el servidor).
+*   **Entornos de Desarrollo:**
+    *   **XAMPP/Laragon:** Paquetes que incluyen Apache, MySQL y PHP de forma sencilla.
+    *   **Docker:** Gestión de **contenedores** para virtualizar entornos de forma ligera y rápida.
+*   **IDEs:** Se recomienda **PhpStorm** (profesional) o **Visual Studio Code** con extensiones específicas como *PHP Intelephense*.
+
+## 1.11 Referencias
 
 * Curso de introducción a Docker, por *Sergi García Barea* : <https://sergarb1.github.io/CursoIntroduccionADocker/>
 * Artículo [Arquitecturas Web y su evolución](https://www.arquitecturajava.com/arquitecturas-web-y-su-evolucion/)
 
-## 1.11 Actividades
+## 1.12 Actividades
 
 101. Busca en internet cuales son los tres frameworks PHP más utilizados e indica:
 

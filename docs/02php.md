@@ -1915,7 +1915,7 @@ Clonar y modificar propiedades directamente. Facilita el patrón “with-er” (
 
 ### Atributo #[\NoDiscard]
 
-Si una función devuelve algo importante, puedes marcarla para que advierte si no usas el valor devuelto.
+Si una función devuelve algo importante, puedes marcarla para que advierta si no usas el valor devuelto.
 
 ``` php hl_lines="2 7"
 <?php

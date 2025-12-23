@@ -849,12 +849,39 @@ if ($_POST['csrf_token'] !== $_SESSION['csrf_token']) {
 session_set_cookie_params(['samesite' => 'Strict']);
 ```
 
-## 4.6 Referencias
+## 4.6 Resumen
+
+En este tema sobre **Programación Web en Entorno Servidor**, nos centramos en cómo PHP gestiona la interacción cliente-servidor y mantiene el **estado** en el protocolo HTTP, que es inherentemente *stateless*.
+
+### I. Datos y Peticiones (4.1, 4.2)
+
+*   **Superglobales:** PHP usa *arrays* globales para acceder a la información de la petición y del servidor. Los principales son: `$_SERVER`, `$_GET`, `$_POST`, `$_COOKIE`, `$_SESSION` y `$_FILES`. Es crucial distinguir entre **URL** (localización) y **URI** (identificador del recurso).
+*   **Formularios:** Se puede utilizar el método **GET** (datos en URL, limitado, cacheable, idempotente) o **POST** (datos ocultos, sin límite de tamaño, no cacheable, no idempotente).
+*   **Validación:** Siempre se debe aplicar *validación doble*: en el cliente (JS) y en el servidor.
+*   **Subida de Archivos:** Requiere `method="POST"` y `enctype="multipart/form-data"`. Se procesa usando `$_FILES`, y es necesario usar `is_uploaded_file()` y `move_uploaded_file()`. La carpeta destino debe tener **permisos de escritura**.
+
+### II. Comunicación y Estado (4.3, 4.4)
+
+*   **Cabeceras de Respuesta:** Son metadatos que el servidor envía al navegador *antes* del contenido. Se configuran con la función **`header()`** y se usan para realizar **redirecciones** (`Location`), controlar la *caché* o definir el tipo de contenido. Deben ser lo primero a devolver.
+*   **Gestión de Estado:**
+    *   **Cookies:** Almacenadas en el *navegador del cliente*. Se crean con **`setcookie()`** (que debe ejecutarse antes de cualquier salida) y se acceden mediante `$_COOKIE`.
+    *   **Sesión:** Almacena la información en el *servidor web*. Requiere **`session_start()`**. La información se guarda en **`$_SESSION`**. Para finalizar se usa `session_unset()` y `session_destroy()`. Para recuperar objetos, es necesario *incluir la definición de su clase* previamente.
+
+### III. Seguridad y Autentificación (4.5)
+
+*   La autentificación se basa en almacenar el usuario autenticado en `$_SESSION` tras validar las credenciales. El cierre de sesión destruye la sesión.
+*   **Contramedidas de Seguridad (Robo de Sesión):**
+    *   Contra **XSS**: **Escapar y sanear entradas** del usuario usando `htmlspecialchars()`.
+    *   Contra **MitM**: Utilizar **HTTPS** y configurar cookies como **`Secure`**.
+    *   Contra **CSRF**: Implementar **tokens CSRF** y configurar el atributo **`SameSite`** de las cookies.
+    *   Para evitar que *scripts* accedan a las cookies de sesión, usar el parámetro **`httponly`**.
+
+## 4.7 Referencias
 
 * [Cookies en PHP](https://www.php.net/manual/es/features.cookies.php)
 * [Manejo de sesiones en PHP](https://www.php.net/manual/es/book.session.php)
 
-## 4.7 Actividades
+## 4.8 Actividades
 
 ### Variables de servidor
 
@@ -975,30 +1002,3 @@ Una vez eliminado, debe volver al listado de clientes.
     <img src="imagenes/04/04p426.png" width="600">
     <figcaption>Esquema navegación Videoclub 3.0</figcaption>
 </figure>
-
-## 4.8 Resumen
-
-En este tema se estudia la **Programación Web en Entorno Servidor**, centrándose en cómo PHP gestiona la interacción cliente-servidor y mantiene el **estado** en el protocolo HTTP, que es inherentemente *stateless*.
-
-### I. Datos y Peticiones (4.1, 4.2)
-
-*   **Superglobales:** PHP usa *arrays* globales para acceder a la información de la petición y del servidor. Los principales son: `$_SERVER`, `$_GET`, `$_POST`, `$_COOKIE`, `$_SESSION` y `$_FILES`. Es crucial distinguir entre **URL** (localización) y **URI** (identificador del recurso).
-*   **Formularios:** Se utiliza el método **GET** (datos en URL, limitado, cacheable, **idempotente**) o **POST** (datos ocultos, sin límite de tamaño, no cacheable, **no idempotente**).
-*   **Validación:** Siempre se debe aplicar **validación doble**: en el cliente (JS) y en el servidor.
-*   **Subida de Archivos:** Requiere `method="POST"` y `enctype="multipart/form-data"`. Se procesa usando `$_FILES`, y es necesario usar `is_uploaded_file()` y `move_uploaded_file()`. La carpeta destino debe tener **permisos de escritura**.
-
-### II. Comunicación y Estado (4.3, 4.4)
-
-*   **Cabeceras de Respuesta:** Son metadatos que el servidor envía al navegador *antes* del contenido. Se configuran con la función **`header()`** y se usan para realizar **redirecciones** (`Location`), controlar el *caché* o definir el tipo de contenido. Deben ser lo primero a devolver.
-*   **Gestión de Estado:**
-    *   **Cookies:** Almacenadas en el **navegador del cliente**. Se crean con **`setcookie()`** (que debe ejecutarse antes de cualquier salida) y se acceden mediante `$_COOKIE`.
-    *   **Sesión:** Almacena la información en el **servidor web**. Requiere **`session_start()`**. La información se guarda en **`$_SESSION`**. Para finalizar se usa `session_unset()` y `session_destroy()`. Para recuperar objetos, es necesario **incluir la definición de su clase** previamente.
-
-### III. Seguridad y Autentificación (4.5)
-
-*   La autentificación se basa en almacenar el usuario autenticado en `$_SESSION` tras validar las credenciales. El cierre de sesión destruye la sesión.
-*   **Contramedidas de Seguridad (Robo de Sesión):**
-    *   Contra **XSS**: **Escapar y sanear entradas** del usuario usando `htmlspecialchars()`.
-    *   Contra **MitM**: Utilizar **HTTPS** y configurar cookies como **`Secure`**.
-    *   Contra **CSRF**: Implementar **tokens CSRF** y configurar el atributo **`SameSite`** de las cookies.
-    *   Para evitar que *scripts* accedan a las cookies de sesión, usar el parámetro **`httponly`**.
