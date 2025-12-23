@@ -1829,7 +1829,129 @@ var_dump(is_int(intval($uno))); // true
 ?>
 ```
 
-## 2.9 Referencias
+## 2.9 Novedades en PHP 8.5
+
+PHP 8.5 es una actualización importante lanzada en noviembre de 2025, con nuevas características como el *operador Pipe*, la *extensión URI* o el soporte para *modificar propiedades al clonar* entre otras.
+
+### Operador Pipe
+
+El operador pipe **|>** permite pasar un valor por varias funciones de forma suave y legible de izquierda a derecha, en lugar de anidar llamadas.
+
+=== "Antes (PHP 8.4)"
+    
+    El código se lee de dentro hacia afuera.
+
+    ``` php
+    <?php
+        $title = ' Hola Mundo ';
+        $slug = strtolower(
+            str_replace(' ', '-', trim($title))
+        );
+        echo $slug; // hola-mundo
+    ```
+
+=== "Ahora (PHP 8.5)"
+
+    El código se lee más natural de arriba a abajo.
+
+    ``` php
+    <?php
+        $title = ' Hola Mundo ';
+        $slug = $title
+            |> trim(...)
+            |> (fn($s) => str_replace(' ', '-', $s))
+            |> strtolower(...);
+
+        echo $slug; // hola-mundo
+    ```
+
+### Extensión URI
+
+Ahora hay una clase moderna para **analizar y manipular URLs**, en lugar de utilizar *parse_url()*, que devuelve un array.
+
+``` php
+<?php
+    use Uri\Rfc3986\Uri;
+
+    $uri = new Uri('https://example.com/path?x=1');
+    echo $uri->getHost(); // example.com
+```
+
+### Clone With
+
+Clonar y modificar propiedades directamente. Facilita el patrón “with-er” (crear variaciones de objetos) sin escribir métodos manuales.
+
+=== "Antes (PHP 8.4)"
+    
+    Había que escribir métodos como *withRed* para crear objetos con variaciones de sus propiedades.
+
+    ``` php hl_lines="4-6 11"
+    <?php
+        class Color {
+            public function __construct(public int $r, public int $g, public int $b) {}
+
+            public function withRed(int $r) {
+                return new self($r, $this->g, $this->b);
+            }
+        }
+
+        $blue = new Color(0, 0, 255);
+        $redder = $blue->withRed(50);
+    ```
+
+=== "Ahora (PHP 8.5)"
+
+    Con **clone** se pueden clonar objetos variando directamente las propiedades que nos interesen. Útil con clases *readonly*.
+
+    ``` php hl_lines="7"
+    <?php
+        class Color {
+            public function __construct(public int $r, public int $g, public int $b) {}
+        }
+
+        $blue = new Color(0, 0, 255);
+        $redder = clone($blue, ['r' => 50]);
+    ```
+
+### Atributo #[\NoDiscard]
+
+Si una función devuelve algo importante, puedes marcarla para que advierte si no usas el valor devuelto.
+
+``` php hl_lines="2 7"
+<?php
+    #[\NoDiscard]
+    function compute(): int {
+        return 42;
+    }
+
+    compute(); // ⚠️ advierte que no usaste el valor devuelto
+```
+
+### Clousures y callables en constantes
+
+Antes no se podían usar clousures o funciones como valores constantes; ahora sí.
+
+``` php hl_lines="2"
+<?php
+    const HANDLER = static fn($x) => $x * 2;
+```
+
+### Funciones útiles nuevas
+
+*array_first()* y *array_last()* para acceder al primer y último elemento de un array.
+
+``` php hl_lines="3-4"
+<?php
+    $fruits = ['manzana', 'pera', 'uva'];
+    echo array_first($fruits); // manzana
+    echo array_last($fruits);  // uva   
+```
+
+??? tip "Más novedades"
+    
+    Si quieres conocer todas las novedades, vísita [la web oficial](https://www.php.net/releases/8.5/es.php)
+
+## 2.10 Referencias
 
 * [Manual de PHP](https://www.php.net/manual/es/index.php)
 * [PHP en 2020](https://www.jesusamieiro.com/wp-content/uploads/2020/10/20201024-hacktoberday-PHP-en-2020.pdf), por Jesús Amieiro
@@ -1837,7 +1959,7 @@ var_dump(is_int(intval($uno))); // true
 * [Guía de Estilo - PSR](http://coppeldev.github.io/php/standards/coppel.html)
 * [PHP - La manera correcta](http://phpdevenezuela.github.io/php-the-right-way/)
 
-## 2.10 Actividades
+## 2.11 Actividades
 
 ### PHP básico
 
