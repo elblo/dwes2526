@@ -10,7 +10,7 @@ nav:
   - "4.- Programación Web": "04web.md"
   - "5.- Herramientas Web": "05herramientas.md"
   - "6.- Acceso a Datos": "06accesoDatos.md"
-  #- "7.- Frameworks PHP - Laravel": "07frameworks.md"
+  - "7.- Frameworks PHP - Laravel": "07frameworks.md"
   #- "8.- Gestión de datos en Laravel": "08laravelDatos.md"
   #- "9.- Laravel Avanzado": "09laravelAvanzado.md"
   #- "10.- Autenticación y autorización": "10laravelAutenticacion.md"
