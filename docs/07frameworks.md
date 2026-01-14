@@ -438,16 +438,16 @@ Route::get('/', function () {
 
 ```php
 <?php
-  $nombre = 'Juan';
-  return view('welcome', ['nombre' => $nombre]);
+$nombre = 'Juan';
+return view('welcome', ['nombre' => $nombre]);
 ```
 
 3. Con la función **compact**, que genera un array asociativo utilizando los nombres de las variables que se le pasan como argumentos:
 
 ```php
 <?php
-  $nombre = 'Juan';
-  return view('welcome', compact('nombre'));
+$nombre = 'Juan';
+return view('welcome', compact('nombre'));
 ```
 
 4. Utilizando la función **Route::view**:
@@ -460,7 +460,7 @@ Route::view('/', 'welcome', ['nombre' => 'Juan']);
 En la vista, podemos utilizar Blade para mostrar estos datos:
 
 ```php
-  <p>Bienvenido/a, {{ $nombre }}</p>
+<p>Bienvenido/a, {{ $nombre }}</p>
 ```
 
 ### Plantillas Blade
