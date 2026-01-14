@@ -460,7 +460,7 @@ Route::view('/', 'welcome', ['nombre' => 'Juan']);
 En la vista, podemos utilizar Blade para mostrar estos datos:
 
 ```php
-  Bienvenido/a, {{ $nombre }}
+  <p>Bienvenido/a, {{ $nombre }}</p>
 ```
 
 ### Plantillas Blade
