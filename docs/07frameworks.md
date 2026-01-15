@@ -627,7 +627,7 @@ Ejemplos:
 
 Los Componentes Blade permiten definir elementos reutilizables. Hay 2 formas de crearlos, si necesitan lógica o si no:
 
-#### Forma automática (no necesitan lógica)
+#### A. Forma automática (no necesitan lógica)
 
 Todo lo que esté en `resources/views/components` se convierte automáticamente en un componente **<x-**nombre-archivo**>** siguiendo la ruta del archivo. 
 
@@ -667,7 +667,7 @@ Uso en otra vista del componente, por ejemplo en `resources/views/welcome.blade.
 </x-layout>
 ```
 
-#### Forma manual (necesitan lógica)
+#### B.Forma manual (necesitan lógica)
 
 Si el componente necesita algún tipo de lógica, además de lo anterior, hay que crear una clase específica ella.
 
