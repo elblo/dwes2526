@@ -885,7 +885,7 @@ import.meta.glob([
 </body>
 ```
 
-Ahora se puede comprobar como al hacer `npm run build`, Vite crea versiones de dichos archivos en `build/assets`.
+Ahora se puede comprobar como al hacer `npm run build`, Vite crea versiones de dichos archivos en `public/build/assets`.
 
 ## 7.8 Controladores
 
