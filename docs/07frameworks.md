@@ -625,7 +625,51 @@ Ejemplos:
 
 #### Componentes Blade
 
-Los Componentes Blade permiten definir elementos reutilizables:
+Los Componentes Blade permiten definir elementos reutilizables. Hay 2 formas de crearlos, si necesitan lógica o si no:
+
+##### Forma automática (no necesitan lógica)
+
+Todo lo que esté en `resources/views/components` se convierte automáticamente en un componente **<x-**nombre-archivo**>** siguiendo la ruta del archivo. 
+
+Por ejemplo, el contenido del archivo `resources/views/compontens/layout.blade.php` se puede utilizar en cualquier vista mediante el componente *<x-layout>*.
+
+De forma automática tenemos disponible la variable **$slot** para representar el contenido del componente y el array **$attributes** para sus atributos, igual que cualquier otro elemento html.
+
+Definición del componente `resources/views/compontens/layout.blade.php`:
+
+=== "Usando $attributes"
+
+    ``` html
+    <div class="{{ $attributes['type'] }}">
+        <h1>{{ $attributes['title'] }}</h1>
+        <main>
+            {{ $slot }}
+        </main>
+    </div>
+    ```
+
+=== "Uso directo de atributos (mejor)"
+
+    ``` html
+    <div class="{{ $type }}">
+        <h1>{{ $title }}</h1>
+        <main>
+            {{ $slot }}
+        </main>
+    </div>
+    ```
+
+Uso en otra vista del componente, por ejemplo en `resources/views/welcome.blade.php`:
+
+``` html
+<x-layout type="main" title="hola">
+    Contenido principal u otros componentes
+</x-layout>
+```
+
+##### Forma manual (necesitan lógica)
+
+Si el componente necesita algún tipo de lógica, además de lo anterior, hay que crear una clase específica ella.
 
 1. **Crear componente** de ejemplo 'Alert': 
 
@@ -661,7 +705,7 @@ class Alert extends Component{
 ```html
 <div class="border rounded-lg shadow-md p-4 bg-white">
     <p><strong>Alerta tipo:</strong> {{ $type }}</p>
-    <p>Mensaje: {{ $slot }}</p> <!-- lo que irá entre la etiqueta de apertura y cierre del componente -->
+    <p>Mensaje: {{ $slot }}</p> 
 </div>
 ```
 
@@ -673,12 +717,14 @@ class Alert extends Component{
 <x-alert type="Advertencia">Esto va dentro del alert.</x-alert>
 ```
 
-Las expresiones y variables PHP se deben pasar al componente mediante atributos que utilicen el carácter *:* como prefijo o se interpolan con *{{ }}*. Ejemplo:
+!!! notice "Pasar variables al componente"
 
-```html
-<x-alert :type="$tipo" />
-<x-alert type="{{ $tipo }}" /> <!-- Mejor así -->
-```
+    Las expresiones y variables PHP se deben pasar al componente mediante atributos que utilicen el carácter *:* como prefijo o se interpolan con *{{ }}*. Ejemplo:
+
+    ```html
+    <x-alert :type="$tipo" />
+    <x-alert type="{{ $tipo }}" /> <!-- Mejor así -->
+    ```
 
 !!! info "Ampliar sobre vistas"
     Para más información acerca de las vistas, incluso la reciente posibilidad de crearlas mediante React o Vue gracias a Inertia, seguir la [documentación oficial de vistas](https://laravel.com/docs/11.x/views). Y para aquí para más info sobre [las plantillas Blade](https://laravel.com/docs/11.x/blade).
