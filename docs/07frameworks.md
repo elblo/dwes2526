@@ -1241,7 +1241,7 @@ npm run dev
       </tr>
       </thead>
       <tbody>
-      @foreach($equips as $equip )
+      @foreach($equipos as $equipo )
           <tr>
               <td class="equipo"><h2>{{ $equipo['nombre']  }}</h2></td>
               <td class="equipo">{{ $equipo['estadio']  }}</td>
