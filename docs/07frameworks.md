@@ -1219,7 +1219,7 @@ npm run dev
        @yield('content')
       </main>
       <footer>
-          <p>&copy; 2025 Guía de fútbol femenino</p>
+          <p>&copy; 2026 Guía de fútbol femenino</p>
       </footer>
 </body>
 </html>
@@ -1417,7 +1417,7 @@ app.blade.php
         @yield('content')
     </main>
     <footer class="bg-blue-800 text-white text-center p-4">
-        <p>&copy; 2025 Guía de fútbol femenino</p>
+        <p>&copy; 2026 Guía de fútbol femenino</p>
     </footer>
 </body>
 </html>
@@ -1569,8 +1569,8 @@ Haz lo mismo con los partidos, crea un controlador, una vista y un componente. E
 ```php
 <?php
 $partidos = [
-    ['local' => 'Barcelona', 'visitante' => 'Atlético de Marid', 'fecha' => '2025-01-30', 'resultado' => null],
-    ['local' => 'Real Madrid', 'visitante' => 'Barcelona', 'fecha' => '2025-01-15', 'resultado' => '3-0'],
+    ['local' => 'Barcelona', 'visitante' => 'Atlético de Marid', 'fecha' => '2026-01-30', 'resultado' => null],
+    ['local' => 'Real Madrid', 'visitante' => 'Barcelona', 'fecha' => '2026-01-15', 'resultado' => '3-0'],
 ];
 ```
 
