@@ -1386,7 +1386,7 @@ class EquipoController extends Controller{
 Route::resource('equipos', EquipoController::class);
 ```
 
-3. Crear el enlace en el índice para ver un equipo:
+3. Crear el enlace en el *index* para ver un equipo:
 
 ```html
 @foreach($equipos as $key => $equipo)
@@ -1400,8 +1400,9 @@ Route::resource('equipos', EquipoController::class);
 
 4. Usa ChatGPT para dar estilo a las vistas mediante [tailwind](https://tailwindcss.com/):
 
+##### app.blade.php
+
 ```html
-app.blade.php
 <!DOCTYPE html>
 <html lang="es">
 <head>
