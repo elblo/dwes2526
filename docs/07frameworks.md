@@ -829,7 +829,7 @@ npm run dev
 ```
 
 <figure style="align: center;">
-    <img src="imagenes/07/npmrundev.png">
+    <img src="imagenes/07/npmrundev.png" width="700">
     <figcaption>Ejecutar Vite para desarrollo</figcaption>
 </figure>
 
@@ -840,7 +840,7 @@ npm run build
 ```
 
 <figure style="align: center;">
-    <img src="imagenes/07/npmrunbuild.png">
+    <img src="imagenes/07/npmrunbuild.png" width="700">
     <figcaption>Ejecutar Vite para producción</figcaption>
 </figure>
 
