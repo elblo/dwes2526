@@ -1262,7 +1262,27 @@ npm run dev
 ./vendor/bin/sail artisan make:component Equipo
 ```
 
-* Añade los estilos al archivo CSS *resources/css/equipos.css*:
+* Modifica el componente *app/View/Components/Equipo.php* para utilizar los datos que se le pasarán al componente:
+
+```php
+<?php
+public function __construct(
+     public string $nombre,
+     public string $estadio,
+     public int $titulos) { }
+``` 
+
+*  Modifica la vista *resources/views/components/equipo.blade.php* del componente:
+
+```html
+<div class="equipo">
+    <h2>{{ $nombre }}</h2>
+    <p><strong>Estadio:</strong> {{ $estadio }}</p>
+    <p><strong>Títulos:</strong> {{ $titulos }}</p>
+</div>
+```
+
+* Añade los estilos que va a usar el componente al archivo CSS *resources/css/equipos.css*:
 
 ```css
   .equipo {
@@ -1279,15 +1299,7 @@ npm run dev
   }
 ```
 
-*  Modifica la vista *resources/views/components/equipo.blade.php* para crear el componente:
-
-```html
-<div class="equipo">
-    <h2>{{ $nombre }}</h2>
-    <p><strong>Estadio:</strong> {{ $estadio }}</p>
-    <p><strong>Títulos:</strong> {{ $titulos }}</p>
-</div>
-```
+6. Crear la **vista detallada de un equipo** utilizando el componente:
 
 * Crea un método en el controlador de equipos para mostrar un equipo:
 
@@ -1312,7 +1324,7 @@ public function show($id){
 @extends('layouts.app')
 @section('title', " Guía de Equipos" )
 @section('content')
-<x-equip
+<x-equipo
    :nombre="$equipo['nombre']"
    :estadio="$equipo['estadio']"
    :titulos="$equipo['titulos']"
@@ -1322,16 +1334,6 @@ public function show($id){
 </p>
 @endsection 
 ```
-
-* Modifica el componente *app/View/Components/Equipo.php* para utilizar los datos pasados:
-
-```php
-<?php
-public function __construct(
-     public string $nombre,
-     public string $estadio,
-     public int $titulos) { }
-``` 
 
 * Crea la ruta:
 
