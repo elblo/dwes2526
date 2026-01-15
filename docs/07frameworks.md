@@ -1323,7 +1323,7 @@ public function show($id){
 @endsection 
 ```
 
-* Modifica el componente *app/Views/components/Equipo.php* para utilizar los datos pasados:
+* Modifica el componente *app/View/Components/Equipo.php* para utilizar los datos pasados:
 
 ```php
 <?php
