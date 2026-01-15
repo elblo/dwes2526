@@ -1383,7 +1383,7 @@ class EquipoController extends Controller{
     
 ```php
 <?php
-Route::resource('equipos', EquipController::class);
+Route::resource('equipos', EquipoController::class);
 ```
 
 3. Crear el enlace en el índice para ver un equipo:
