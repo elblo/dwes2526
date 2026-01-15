@@ -858,34 +858,34 @@ Funciona tanto en desarrollo como en producción.
 <img src="{{ Vite::asset('resources/images/logo.png')  }}" alt="logo" />
 ```
 
-Funciona en desarrollo (npm run dev). Para que funcione en la versión construida para producción (npm run build) hay que hacer lo siguiente:
+Esta 2ª forma funciona en desarrollo (npm run dev). Para que funcione en la versión construida para producción (npm run build) hay que hacer lo siguiente:
 
 !!! notice "Cargar recursos en producción"
 
-Para cargar archivos en producción, imágenes en este caso, aunque podrían ser pdfs, vídeos, audios...
+    Para cargar archivos en producción, imágenes en este caso, aunque podrían ser pdfs, vídeos, audios...
 
-1. En el archivo `resources/js/app.js` añadir
+    1. En el archivo `resources/js/app.js` añadir
 
-```js
-// Incluir las imágenes en la versión de producción al hacer el build
-import.meta.glob([
-    '../images/**'
-]);
-```
+    ```js
+    // Incluir las imágenes en la versión de producción al hacer el build
+    import.meta.glob([
+        '../images/**'
+    ]);
+    ```
 
-2. Añadir como recurso `app.js` en el <head> donde se llame a la imagen:
+    2. Añadir como recurso `app.js` en el <head> donde se llame a la imagen:
 
-```html hl_lines="3"
-<head>
-    <title>Pixel Positions</title>
-    @vite(['resources/js/app.js'])
-</head>
-<body>
-    <img src="{{ Vite::asset('resources/images/logo.png')  }}" alt="logo" />
-</body>
-```
+    ```html hl_lines="3"
+    <head>
+        <title>Pixel Positions</title>
+        @vite(['resources/js/app.js'])
+    </head>
+    <body>
+        <img src="{{ Vite::asset('resources/images/logo.png')  }}" alt="logo" />
+    </body>
+    ```
 
-Ahora se puede comprobar como al hacer `npm run build`, Vite crea versiones de dichos archivos en `public/build/assets`.
+    Ahora se puede comprobar como al hacer `npm run build`, Vite crea versiones de dichos archivos en `public/build/assets`.
 
 ## 7.8 Controladores
 
