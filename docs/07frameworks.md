@@ -804,7 +804,7 @@ Es posible añadir complementos adicionales si utilizas frameworks como Vue o Re
 
 Una vez configurados los puntos de entrada en el archivo *vite.config.js*, puedes cargar los recursos en las vistas utilizando la directiva **@vite** de Blade. Por ejemplo:
 
-``` html
+``` html hl_lines="3"
 <head>
       <meta charset="UTF-8">
       @vite(['resources/css/app.css'])
@@ -815,7 +815,7 @@ Una vez configurados los puntos de entrada en el archivo *vite.config.js*, puede
 
 Esta directiva se encarga automáticamente de: 
 
-- Reemplazo de módulos en vivo (Hot Module Replacement - HMR): Los módulos se actualicen en tiempo de ejecución sin necesidad de una actualización de la página completa.
+- Reemplazo de módulos en vivo (Hot Module Replacement - HMR): Los módulos se actualizan en tiempo de ejecución sin necesidad de una actualización de la página completa.
 - Cargar los archivos versionados en producción.
 
 ### Ejecutar Vite
@@ -828,11 +828,21 @@ Podemos ejecutar Vite según estemos en desarrollo o producción:
 npm run dev
 ```
 
+<figure style="align: center;">
+    <img src="imagenes/07/npmrundev.png">
+    <figcaption>Ejecutar Vite para desarrollo</figcaption>
+</figure>
+
 2. **Producción**: Empaquetar y versionar los recursos en su version final para producción. Los publica en el directorio `public/build`.
 
 ``` bash
 npm run build
 ```
+
+<figure style="align: center;">
+    <img src="imagenes/07/npmrunbuild.png">
+    <figcaption>Ejecutar Vite para producción</figcaption>
+</figure>
 
 ### Imágenes
 
