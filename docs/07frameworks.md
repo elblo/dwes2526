@@ -864,7 +864,7 @@ Esta 2ª forma funciona en desarrollo (npm run dev). Para que funcione en la ver
 
     Para cargar archivos en producción, imágenes en este caso, aunque podrían ser pdfs, vídeos, audios...
 
-    1. En el archivo `resources/js/app.js` añadir
+    1. En el archivo `resources/js/app.js` añadir:
 
     ```js
     // Incluir las imágenes en la versión de producción al hacer el build
@@ -873,11 +873,11 @@ Esta 2ª forma funciona en desarrollo (npm run dev). Para que funcione en la ver
     ]);
     ```
 
-    2. Añadir como recurso `app.js` en el <head> donde se llame a la imagen:
+    2. Añadir con Vite el archivo `resources/js/app.js` en el `<head>` de la vista donde se utilice la imagen:
 
     ```html hl_lines="3"
     <head>
-        <title>Pixel Positions</title>
+        <title>Una web cualquiera</title>
         @vite(['resources/js/app.js'])
     </head>
     <body>
