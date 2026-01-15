@@ -726,6 +726,33 @@ class Alert extends Component{
     <x-alert type="{{ $tipo }}" /> <!-- Mejor así -->
     ```
 
+!!! tip "Recomendación general para maquetación"
+
+    En Laravel moderno es preferible crear los layouts como componentes Blade (**<x-layout>**) en lugar de usar **@extends**, **@yield** y **@section**, porque los componentes permiten crear la interfaz de forma más clara y reutilizable, igual que hacen los frameworks frontend actuales. 
+    
+    Con componentes, el HTML es más legible, se pueden anidar layouts fácilmente, pasar datos y atributos de forma natural y reutilizar partes del diseño sin acoplarlas a una estructura rígida de secciones. 
+
+    Un posible layout definido mediante componentes:
+
+    ```html
+    <x-app-layout>
+        <x-header />
+
+        <x-nav />
+
+        <x-main>
+            <x-container>
+                <x-card>
+                    <h1 class="text-xl font-bold">Página principal</h1>
+                    <p>Contenido de la página</p>
+                </x-card>
+            </x-container>
+        </x-main>
+
+        <x-footer />
+    </x-app-layout>
+    ```
+
 !!! info "Ampliar sobre vistas"
     Para más información acerca de las vistas, incluso la reciente posibilidad de crearlas mediante React o Vue gracias a Inertia, seguir la [documentación oficial de vistas](https://laravel.com/docs/11.x/views). Y para aquí para más info sobre [las plantillas Blade](https://laravel.com/docs/11.x/blade).
 
