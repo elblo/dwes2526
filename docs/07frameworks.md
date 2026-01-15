@@ -1400,7 +1400,7 @@ Route::resource('equipos', EquipoController::class);
 
 4. Usa ChatGPT para dar estilo a las vistas mediante [tailwind](https://tailwindcss.com/):
 
-**app.blade.php**
+En *app.blade.php*:
 
 ```html
 <!DOCTYPE html>
@@ -1426,8 +1426,9 @@ Route::resource('equipos', EquipoController::class);
 </html>
 ``` 
 
+En *index.blade.php*: 
+
 ```html
-index.blade.php
 @extends('layouts.app')
 @section('title', "Guía de equipos")
 @section('content')
@@ -1459,8 +1460,9 @@ index.blade.php
 @endsection
 ``` 
 
+En *equipo.blade.php*:
+
 ```html
-equipo.blade.php
 <div class="equipo border rounded-lg shadow-md p-4 bg-white">
     <h2 class="text-xl font-bold text-blue-800">{{ $nombre }}</h2>
     <p><strong>Estadio:</strong> {{ $estadio }}</p>
@@ -1468,8 +1470,9 @@ equipo.blade.php
 </div>
 ``` 
 
+En *menu.blade.php*:
+
 ```html
-menu.blade.php
 <nav>
     <ul class="flex space-x-4">
         <li><a href="/" class="text-white hover:underline">Inicio</a></li>
