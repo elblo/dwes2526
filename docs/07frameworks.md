@@ -822,17 +822,70 @@ Esta directiva se encarga automáticamente de:
 
 Podemos ejecutar Vite según estemos en desarrollo o producción:
 
-1. **Desarrollo**: Ejecutar el servidor de Vite para reflejar los cambios automáticamente en el navegador.
+1. **Desarrollo**: Ejecutar el servidor de Vite para reflejar los cambios automáticamente en el navegador. Deja la consola corriendo para detectar los cambios.
 
 ``` bash
 npm run dev
 ```
 
-2. **Producción**: Empaquetar y versionar los recursos en su version final para producción.
+2. **Producción**: Empaquetar y versionar los recursos en su version final para producción. Los publica en el directorio `public/build`.
 
 ``` bash
 npm run build
 ```
+
+### Imágenes
+
+Para trabajar con imágenes estáticas, como logos o las típicas que no cambian (sección "Quienes somos" de una web y similares) se puede hacer 2 de formas:
+
+#### Forma 1: Directa
+
+Funciona tanto en desarrollo como en producción.
+
+1. Ubicar la imagen en la carpeta *public*. Ejemplo: `public/logo.png`.
+2. Utilizarla desde cualquier vista blade. Ejemplo:
+
+```html
+<img src="/logo.png" alt="logo" />
+```
+
+#### Forma 2: Mediante Vite
+
+1. Ubicar la imagen en la carpeta *resources*. Ejemplo: `resources/images/logo.png`.
+2. Utilizarla desde cualquier vista blade cargándola von Vite. Ejemplo:
+
+```html
+<img src="{{ Vite::asset('resources/images/logo.png')  }}" alt="logo" />
+```
+
+Funciona en desarrollo (npm run dev). Para que funcione en la versión construida para producción (npm run build) hay que hacer lo siguiente:
+
+!!! notice "Cargar recursos en producción"
+
+Para cargar archivos en producción, imágenes en este caso, aunque podrían ser pdfs, vídeos, audios...
+
+1. En el archivo `resources/js/app.js` añadir
+
+```js
+// Incluir las imágenes en la versión de producción al hacer el build
+import.meta.glob([
+    '../images/**'
+]);
+```
+
+2. Añadir como recurso `app.js` en el <head> donde se llame a la imagen:
+
+```html hl_lines="3"
+<head>
+    <title>Pixel Positions</title>
+    @vite(['resources/js/app.js'])
+</head>
+<body>
+    <img src="{{ Vite::asset('resources/images/logo.png')  }}" alt="logo" />
+</body>
+```
+
+Ahora se puede comprobar como al hacer `npm run build`, Vite crea versiones de dichos archivos en `build/assets`.
 
 ## 7.8 Controladores
 
