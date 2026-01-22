@@ -200,9 +200,7 @@ Si la tabla a la que hace referencia no sigue las convenciones de nombres de Lar
 
 ```php
 <?php
-$table->foreignId('user_id')->constrained(
-    table: 'usuarios', indexName: 'id_usuario'
-);
+$table->foreignId('user_id')->constrained('usuarios', 'id_usuario');
 ```
 
 Y también se puede especificar si queremos que los registros de la tabla actual se actualicen o borren en cascada según lo haga el registro de la tabla principal.
