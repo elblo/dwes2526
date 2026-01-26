@@ -494,7 +494,7 @@ Vamos a ver cómo recuperar esos datos desde una vista y lo primero que vamos a 
 php artisan make:controller NotaController
 ```
 
-Es recomendable seguir la convención de Laravel de nombres de rutas y funciones de controladores que viemos [aquí](https://elblo.github.io/dwes2425/07frameworks.html#controlador-de-recursos).
+Es recomendable seguir la convención de Laravel de nombres de rutas y funciones de controladores que vimos [aquí](https://elblo.github.io/dwes2425/07frameworks.html#controlador-de-recursos).
 
 ##### 1. Rutas 
 
