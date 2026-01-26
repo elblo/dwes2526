@@ -844,6 +844,42 @@ npm run build
     <figcaption>Ejecutar Vite para producción</figcaption>
 </figure>
 
+### Estilos propios
+
+Como se ha visto en el punto anterior, mediante Vite se cargan los estilos de `resources/css/app.css` que puedes añadir en cualquier vista.
+
+En ese archivo puedes añadir tus propios estilos o ampliar el tema de tailwind con tus propias clases. Recuerda que Laravel ya carga por defecto Tailwind.
+
+```html hl_lines="2 15 16 20"
+/* Arriba del todo se importan las fuentes, como esta de Google */
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import 'tailwindcss';
+
+/* 
+...
+*/
+
+@theme {
+    /* Se usan sin el -- inicial. Ej: class="font-roboto, text-2xs ..." */
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+
+    /* Crear clases propias */
+    --font-roboto: "Roboto", sans-serif;
+    --text-2xs: 0.625rem; 
+}
+
+/* Crear reglas propias CSS a mano (fuera de Tailwind) */
+.mi-clase{ color: #ffaa33; }
+```
+
+??? example "Usar estilos creados"
+    
+    Importa las tipografías que vayas a utilizar al principio del todo, como se hace en el ejemplo con la fuente *Roboto* de Google.
+
+    Utiliza las clases creadas dentro del tema con el mismo nombre sin el -- inicial y el resto de reglas fuera del tema, de la forma tradicional. Ejemplo: `<p class="font-roboto text-2xs mi-clase">Texto...</p>
+`
+
 ### Imágenes
 
 Para trabajar con imágenes estáticas, como logos o las típicas que no cambian (sección "Quienes somos" de una web y similares) se puede hacer 2 de formas:
