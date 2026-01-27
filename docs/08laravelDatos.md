@@ -727,6 +727,7 @@ Route::put('notas/{id}', [ NotaController::class, 'update' ])->name('notas.updat
 ##### 2. Controlador
 
 En el controlador creamos los 2 métodos:
+
 - `edit` para abrir el formulario.
 - `update` para actualizar la nota con los datos que le llegan del formulario mediante *Request* y almacenarla medidante *save()* y volvemos a la página del formulario con el método *back()* añadiendo un mensaje con *with()*.
 
