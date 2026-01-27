@@ -719,12 +719,15 @@ class Alert extends Component{
 
 !!! notice "Pasar variables al componente"
 
-    Las expresiones y variables PHP se deben pasar al componente mediante atributos que utilicen el carácter *:* como prefijo o se interpolan con *{{ }}*. Ejemplo:
+    Las expresiones y variables PHP se deben pasar al componente mediante atributos que utilicen el carácter **:** como prefijo o se interpolan con **{{ }}**. Ejemplo:
 
     ```html
-    <x-alert :type="$tipo" />
-    <x-alert type="{{ $tipo }}" /> <!-- Mejor así -->
+    <x-alert type="{{ $tipo }}" /> <!-- Para pasar tipos primitivos -->
+    <x-alert :type="$tipo" /> <!-- Para pasar tipos primitivos y OBJETOS -->
     ```
+
+    - Con **atributo="{{ $variable }}"** se pasan tipos primitivos y se usan dentro del componente mediante el nombre del atributo. Ej: {{ $atributo }}
+    - Con **:atributo="$objeto"** se pueden pasar también objetos y utilizarlos dentro del componente con la notación tradicional. Ej: {{ $atributo->propiedad }}
 
 !!! tip "Recomendación general para maquetación"
 
