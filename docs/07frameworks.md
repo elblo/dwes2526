@@ -881,7 +881,7 @@ En ese archivo puedes añadir tus propios estilos o ampliar el tema de tailwind 
     Importa las tipografías que vayas a utilizar al principio del todo, como se hace en el ejemplo con la fuente *Roboto* de Google.
 
     Utiliza las clases creadas dentro del tema con el mismo nombre sin el -- inicial y el resto de reglas fuera del tema, de la forma tradicional. Ejemplo: `<p class="font-roboto text-2xs mi-clase">Texto...</p>
-`
+    
 
 ### Imágenes
 
