@@ -1135,9 +1135,9 @@ En las vistas de los 2 formularios añade mensajes de error en el caso de que lo
 
 Amplía la funcionalidad del ejemplo de **Notas** que se ha ido utilizando para explicar los conceptos de este tema.
 
-En primer lugar, crea un *buscador de notas* (formulario) en la vista de `notas.index` que lleve a la misma ruta y muestre un listado de notas filtradas según la búsqueda (título, descripción y prioridad).
+En primer lugar, crea un **buscador de notas** (formulario) en la vista de `notas.index` que lleve a la misma ruta y muestre un listado de notas filtradas según la búsqueda (título, descripción y prioridad).
 
-En segundo lugar, utiliza estilos propios para dar la apariencia de un collage de notas al estilo de aplicaciones como Google Keep:
+En segundo lugar, utiliza **estilos propios** para dar un color determinado a la nota según su prioridad y que la app tenga apariencia de un collage de notas al estilo de aplicaciones como Google Keep:
 
 <figure style="align: center;">
     <img src="imagenes/08/google_keep_example.png" width="700">
