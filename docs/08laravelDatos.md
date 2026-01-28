@@ -669,6 +669,13 @@ public function store(Request $request) {
 }
 ```
 
+??? notice "Uso de with en vistas y rutas"
+    
+    No confundir el **with** usado para pasar datos a las vistas como vimos en el tema 7, y el utilizado en rutas con *redirect, route, back...*, para pasar datos mediante la *sesión*. Ten en cuenta, que el dato que se pasa no perdura en la sesión, sólo vive una sola petición y se suele utilizar para enviar mensajes de éxito/error como el del ejemplo anterior.
+
+    - view()->with() → datos para la vista
+    - redirect()->with() → datos en sesión (flash)
+
 ##### 3. Vista
 
 `notas/create.blade.php`: Vista con el formulario para crear una nueva nota. En el *action* se indica la ruta a la que enviar los datos por POST.
