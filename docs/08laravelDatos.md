@@ -996,7 +996,7 @@ Y en la vista `notas/index.blade.php`, para que muestre los enlaces para pasar d
 
 La librería de paginación que utiliza Laravel está situada en la carpeta `vendor/laravel/framework/src/illuminate/Pagination`. Abriendo su archivo `resources/views/tailwind.blade.php` se puede ver la estructura HTML del sistema de paginación. 
 
-Aunqeu no es recomendable tocar la carpeta *vendor*, por practicar podríais modificar ese archivo (guardando antes una copia del mismo).
+Aunque no es recomendable tocar la carpeta *vendor*, por practicar podríais modificar ese archivo (guardando antes una copia del mismo).
 
 ---
 
