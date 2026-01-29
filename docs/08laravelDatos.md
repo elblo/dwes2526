@@ -1134,7 +1134,7 @@ En las vistas de los 2 formularios añade mensajes de error en el caso de que lo
 874. **Ejercicio completo: CRUD con formularios**: Continúa el CRUD del apartado anterior para añadir funciones a la gestión de *clientes*:
 
 - *C*: Crea nuevos clientes.
-- *R*: Obtén todos los clientes y filtra por diferentes cmapos.
+- *R*: Obtén todos los clientes y filtra por diferentes campos.
 - *U*: Actualiza los campos de un cliente específico.
 - *D*: Elimina clientes.
 
