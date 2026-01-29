@@ -658,11 +658,21 @@ public function create() {
 
 // Crea una nota con la info del formulario
 public function store(Request $request) {
+    // Método 1
     $notaNueva = new Nota();
     $notaNueva->titulo = $request->titulo;
     $notaNueva->descripcion = $request->descripcion;
     $notaNueva->prioridad = $request->prioridad;
     $notaNueva -> save();
+
+    // Método 2
+    //$nota = new Nota(['titulo' => $titulo, 'descripcion' => $descripcion, 'prioridad' => $prioridad]);
+    $nota = new Nota($request->all());
+    $nota->save();
+
+    // Método 3
+    //Nota::create(['titulo' => $titulo, 'descripcion' => $descripcion, 'prioridad' => $prioridad]);
+    Nota::create($request->all());
 
     // Volver al formulario para seguir insertando
     return back()->with('mensaje', 'Nota insertada');
