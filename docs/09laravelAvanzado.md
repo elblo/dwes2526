@@ -1,3 +1,23 @@
+<style>
+    img { margin: 20px 0; border-radius: 8px; }
+
+    .alert { color: #BD1550; }
+    .warning { color: #E97F02; }
+    .success { color: #8A9B0F; }
+
+    .center { text-align: center; }
+    .right { text-align: right; }
+
+    .img-small { max-width: 200px; margin: auto; }
+    .img-medium { max-width: 400px; margin: auto; }
+    .img-large { max-width: 800px; margin: auto; }
+
+    .leyenda {
+        font-size: small;
+        margin: 10px 0;
+    }
+</style>
+
 # Uso avanzado de Laravel
 
 > Duración estimada: 10 sesiones
@@ -255,7 +275,7 @@ return response()->json([
 ]); 
  // Redirección
 return redirect('dashboard');
-// Redicrección pasando la variable 'status'
+// Redirección pasando la variable 'status'
 return redirect('login')->with('status', 'Sesión iniciada'); 
 ```
 
@@ -501,7 +521,7 @@ Para realizar este tipo de relaciones necesitaríamos 3 tablas diferentes.
   - roles [id, nombre]
   - rol_usuario [usuario_id, rol_id] (Tabla Pivote)
 
-Lo primero de todo, vamos a crear las tablas con sus modelos <span class="alert">***a excepción de la tabla pivote rol_usuario***</span> que <span class="warning">***sólo crearemos la tabla, sin su modelo***</span>
+Lo primero de todo, vamos a crear las tablas con sus modelos <span class="alert">***a excepción de la tabla pivote "rol_usuario"***</span>, de la que <span class="warning">***sólo crearemos la tabla, sin su modelo***</span>
 
 ```console
 php artisan make:migration create_rol_usuario_table --create=rol_usuario
