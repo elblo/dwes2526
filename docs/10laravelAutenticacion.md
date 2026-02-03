@@ -777,7 +777,7 @@ Los middlewares restringen el acceso a las rutas antes de que lleguen al control
 
 ***
 
-**Resumen de funciones rápidas:**
+**Resumen de funciones:**
 
 *   `Auth::attempt()`: Intenta iniciar sesión y devuelve un booleano.
 *   `Auth::login()`: Inicia sesión con una instancia de usuario.
