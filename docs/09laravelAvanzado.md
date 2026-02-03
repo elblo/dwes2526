@@ -1173,7 +1173,44 @@ class AuthorsSeeder extends Seeder
 }
 ```
 
-## Actividades
+## 9.6 Resumen
+
+En este tema de **Laravel Avanzado**, se profundiza en las capacidades del *framework* para el manejo de archivos, relaciones complejas y automatización de datos. 
+
+### I. Manejo de Ficheros (9.1)
+
+*   **Sistema Flysystem:** Laravel utiliza una API uniforme para interactuar con archivos locales o en la nube (Amazon S3) a través de la configuración en `config/filesystems.php`.
+*   **Almacenamiento:** Se utiliza la fachada **`Storage`** para operaciones como `put`, `get`, `delete` y `download`. 
+*   **Enlace Simbólico:** Para que los archivos en `storage/app/public` sean accesibles desde el navegador, es imprescindible ejecutar **`php artisan storage:link`**, lo que crea un acceso en la carpeta `public`.
+
+### II. Request y Response (9.2)
+
+*   **Request:** La clase `Illuminate\Http\Request` permite interactuar con la solicitud HTTP de forma orientada a objetos, facilitando el acceso a inputs (`all()`, `input()`), parámetros de ruta y archivos enviados (`hasFile()`, `file()`).
+*   **Response:** Permite personalizar la respuesta al cliente, incluyendo códigos de estado, **respuestas JSON** (comunes en APIs), redirecciones con datos de sesión (`with()`) y manipulación de cabeceras HTTP.
+
+### III. Eloquent: Relaciones (9.3)
+
+Eloquent permite gestionar las conexiones entre tablas mediante métodos en los modelos, evitando escribir SQL manual.
+
+*   **Tipos de Relaciones:** 
+    *   **Uno a Uno:** `hasOne()` y su inversa `belongsTo()`.
+    *   **Uno a Muchos:** `hasMany()` y su inversa `belongsTo()`.
+    *   **Muchos a Muchos:** Requiere una **tabla pivote**. Se define con `belongsToMany()` en ambos modelos.
+    *   **Transitivas:** `hasManyThrough()` permite acceder a tablas lejanas a través de una intermedia.
+*   **Gestión de Pivotes:** Para relaciones muchos a muchos, existen métodos para gestionar la tabla intermedia: **`attach()`** (añadir), **`detach()`** (quitar), **`sync()`** (sincronizar una lista exacta) y **`toggle()`** (alternar existencia).
+
+### IV. Mutadores y Accesores (9.4)
+
+*   **Mutadores (set):** Permiten transformar o formatear los datos automáticamente *antes* de guardarlos en la base de datos (ej. encriptar una contraseña o convertir un array a JSON).
+*   **Accesores (get):** Transforman los datos al ser recuperados del modelo (ej. mostrar una fecha en un formato específico o decodificar un JSON). Se implementan mediante la clase `Attribute::make()`.
+
+### V. Seeders y Factorías (9.5)
+
+*   **Seeders:** Clases para "sembrar" la base de datos con registros iniciales o de prueba. Se ejecutan con `php artisan db:seed`.
+*   **Factorías:** Utilizan la librería **Faker** para generar grandes volúmenes de datos aleatorios de forma dinámica.
+*   **Integración:** Lo ideal es llamar a las factorías dentro de los *seeders* para automatizar la creación de modelos relacionados (ej. crear un Autor que automáticamente tenga 3 Libros asociados).
+
+## 9.7 Actividades
 
 A continuación, vas a realizar una serie de ejercicios sobre cada uno de los apartados vistos en el tema. Puedes crear un proyecto nuevo o reutilizar uno existente.
 
