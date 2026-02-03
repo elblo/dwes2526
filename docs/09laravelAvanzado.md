@@ -336,7 +336,7 @@ Eloquent nos permite definir las relaciones entre los modelos, y acceder a los d
    
     Los métodos `hasOne()/hasMany()` irán en el modelo del lado fuerte de la relación (el que propaga su clave primaria).
     
-    Los métodos `belongsTo()/belongsToMany()` irán en el modelo de la parte débil de la relación, la que tiene la **clave foránea**. 
+    El método `belongsTo()` irá en el modelo de la parte débil de la relación, la que tiene la **clave foránea**. 
     
     Ejemplo: En un esquema en el que un usuario tiene muchas notas, en el modelo **Usuario** irá el `hasMany()` y en **Nota** irá el `belongsTo()`. Su tabla correspondiente *notas* tiene la clave foránea ´usuario_id´.
 
