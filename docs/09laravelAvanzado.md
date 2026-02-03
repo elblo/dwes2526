@@ -332,13 +332,19 @@ Eloquent nos permite definir las relaciones entre los modelos, y acceder a los d
 - **Uno a Muchos Polimórfica**: `morphMany()`, `morphTo()`
 - **Muchos a Muchos Polimórfica**: `morphToMany()`, `morphedByMany()`
 
-El método a utilizar `hasOne()` o `belongsTo()` y similares dependerá de la tabla en la que se encuentre la clave foránea. Por ejemplo, si en una aplicación de Notas, la tabla notas tiene una clave foránea user_id, está utilizará belongsTo() y la tabla usuarios, hasOne(), hasMany() o lo que corresponda.
+!!! tip "Dónde situar los métodos"
+   
+    Los métodos `hasOne()/hasMany()` irán en el modelo del lado fuerte de la relación (el que propaga su clave primaria).
+    
+    Los métodos `belongsTo()/belongsToMany()` irán en el modelo de la parte débil de la relación, la que tiene la **clave foránea**. 
+    
+    Ejemplo: En un esquema en el que un usuario tiene muchas notas, en el modelo **Usuario** irá el `hasMany()` y en **Nota** irá el `belongsTo()`. Su tabla correspondiente *notas* tiene la clave foránea ´usuario_id´.
 
 ### Relación Uno a uno (1 a 1)
 
 Para crear este tipo de relaciones en Eloquent y Laravel, debemos tener creadas las tablas que vayamos a relacionar y establecer la relación entre ellas a través del método `hasOne()` y `belongsTo()`.
 
-Supongamos que tenemos una tabla `usuario` que está relacionada con la tabla `telefono`.
+Supongamos que tenemos una tabla `usuario` que está relacionada con la tabla `telefono` (en la migración de teléfono se indica mediante la clave foránea: ```$table->foreignId('usuario_id')->constrained('usuarios');```). 
 
 ```php
 <?php
@@ -364,7 +370,7 @@ Una vez hecho ésto, para poder recuperar el dato relacionado, debemos utilizar 
 $telefono = Usuario::find(1)->telefono;
 ```
 
-En este caso, Eloquent asume que en `Usuario` existe la clave ajena `usuario_id` pero ¿qué pasa si tenemos otro nombre? pues se lo pasamos como parámetro.
+En este caso, Eloquent asume que en `Telefono` existe la clave ajena `usuario_id` pero ¿qué pasa si tenemos otro nombre? pues se lo pasamos como parámetro.
 
 ```php
 <?php
@@ -402,11 +408,17 @@ public function usuario()
 }
 ```
 
+!!! info "Lado fuerte y débil de la relación 1 a 1"
+    
+    En las relaciones 1 a 1 también hay un lado fuerte y otro débil. En el ejemplo anterior, `Usuario` sería el fuerte y `Telefono` el débil, porque un un usuario puede existir sin un télefono, pero un teléfono sólo tiene sentido si pertenece a un usuario.
+
 ### Relación Uno a Muchos (1 a M)
 
 Por ejemplo, las entradas de un blog o un post tienen muchos comentarios.
 
-Para empezar, ya sabemos que debemos crear ambas clases del modelo y en este caso, usaremos el método `hasMany()` para obtener los datos relacionados con ese post o entrada en el blog.
+Pero antes, ya sabemos que debemos crear ambas clases del modelo con sus migraciones indicando en la tabla "débil" la clave foránea, igual que se ha hecho antes.  
+
+Ahora, en el modelo "fuerte" usaremos el método `hasMany()` para obtener los datos relacionados con ese post o entrada en el blog.
 
 ```php
 <?php
@@ -494,10 +506,11 @@ $post = new Post();
 $post->titulo = "Fundamentos de programación en Laravel";
 $post->save();
 
+// Forma 1 de asignar 1 comentario a 1 post (directamente mediante su clave ajena)
 $comentario = new Comentario();
 $comentario->texto = "Me parecen muy interesantes los conceptos tratados en el post.";
 $comentario->autor = "John Doe";
-$comentario->post_id = $post->id; // Forma 1 de asignar 1 comentario a 1 post (directamente mediante su clave ajena)
+$comentario->post_id = $post->id; // Clave ajena 'post_id'
 $comentario->save();
 
 // Forma 2 de asignar 1 comentario a 1 post (si ya EXISTE el comentario)
@@ -511,6 +524,20 @@ $post->comentario()->create([
 
 ```
 
+??? notice "Nota sobre la forma 2"
+
+    La 2ª forma está pensada para objetos ya creados y que por tanto ya tienen la clave ajena rellena (pertenecen a un post). En el ejemplo, al asignar el comenario ya creado a otro post, simplemente cambiará su `post_id`. 
+
+    Pero también es posible crear un nuevo comentario de la 2ª forma sin necesidad de vincular manualmente la clave ajena. Se hace, sin llegar a guardarlo desde comentario, pero sí desde post:
+
+    ```php hl_lines="6 9"
+    <?php
+    $comentario2 = new Comentario();
+    $comentario2->texto = "A mi también me parecen muy interesantes.";
+    $comentario2->autor = "Mary Jane";
+    $post->comentario()->save($comentario2); // Aquí se vincula la clave ajena y se buarda el comentario
+    ```
+    
 ### Relación Muchos a Muchos (MM a MM)
 
 Este tipo de relaciones son las más complicadas. Por ejemplo, en un blog como Wordpress, un usuario puede tener muchos roles (lector, autor, administrador) pero un rol pueden tenerlo varios usuarios, es decir, puede haber muchos usuarios administradores, otros lectores y demás.
@@ -559,12 +586,12 @@ class Usuario extends Model
 {
     public function roles()
     {
-        return $this->belongsToMany(Rol::class, 'rol_usuario');
+        return $this->belongsToMany(Rol::class, 'rol_usuario'); // se indica la tabla pivote
     }
 }
 ```
 
-Como 2º parámetro de `belongsToMany` se puede indicar la tabla intermedia de la relación `rol_usuario`. Útil, si se utiliza un nombre que Laravel no puede deducir a partir de los modelos.
+Como 2º parámetro de `belongsToMany` se puede indicar la tabla intermedia (pivote) de la relación `rol_usuario`. Útil, si se utiliza un nombre que Laravel no puede deducir a partir de los modelos.
 
 Una vez que tengamos las relaciones definidas, accederemos a ellas mediante las propiedades dinámicas de `roles`.
 
@@ -602,7 +629,7 @@ class Rol extends Model
 {
   public function usuarios()
   {
-      return $this->belongsToMany(Usuario::class, 'rol_usuario');
+      return $this->belongsToMany(Usuario::class, 'rol_usuario'); // se indica la tabla pivote
   }
 }
 ```
