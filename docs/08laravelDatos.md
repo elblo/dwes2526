@@ -1265,7 +1265,7 @@ A continuación se detallan los requisitos. Deberás hacer las migraciones corre
 
 - *titulo* (string): Título de la anotación.
 - *contenido* (text): Cuerpo de la anotación.
-- *categoria* (enum: "Personal", "Trabajo", "Ideas", "Otros"): Categoría de la anotación. INVESTIGA sobre cómo utilizar un tipo enumerado
+- *categoria* (enum: "Personal", "Trabajo", "Ideas", "Otros"): Categoría de la anotación. [INVESTIGA](https://www.raullg.com/usar-enums-en-laravel-php/) sobre cómo utilizar un tipo enumerado
 - *fecha* (date): Fecha en la que se creó la anotación.
 - *favorito* (boolean): Indica si es una anotación destacada.
 
