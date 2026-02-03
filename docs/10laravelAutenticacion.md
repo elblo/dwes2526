@@ -738,7 +738,53 @@ Opciones: Hibernar, despliegues automáticos al hacer commit en el repo
 ## 10.4 Kits de inicio
 React mediante Innertia.js -->
 
-## Actividades
+## 10.3 Resumen
+
+En este tema sobre **Seguridad en Laravel**, se aborda la implementación de sistemas de acceso y permisos.
+
+### I. Introducción y Conceptos Clave (10.1)
+
+*   **Fundamentos:** Laravel proporciona herramientas para implementar la autenticación de forma rápida, segura y fácil. En su núcleo, este sistema utiliza **"guards"** (definen cómo se autentican los usuarios en cada solicitud, como las sesiones y cookies) y **"providers"**. Toda la configuración se encuentra en `config/auth.php`.
+*   **Kits de Inicio:** Son herramientas que estructuran automáticamente rutas, controladores y vistas de autenticación. 
+    *   **Laravel Breeze:** Implementación simple y mínima con plantillas Blade y Tailwind CSS.
+    *   **Laravel Jetstream:** Kit robusto que incluye soporte para autenticación de dos factores, gestión de equipos y perfiles, e integración con API mediante Sanctum.
+
+### II. Sistema de Autenticación Manual (10.1)
+
+Crear el sistema manualmente es la mejor forma de aprender cómo funciona paso a paso. Los componentes esenciales son:
+
+1.  **Rutas:** Se deben definir rutas para mostrar y procesar el registro (`/register`), el inicio de sesión (`/login`) y el cierre de sesión (`/logout`).
+2.  **Controladores:** 
+    *   **RegisterController:** Encargado de validar los datos, crear el usuario en la base de datos e iniciar su sesión automáticamente con `Auth::login($user)`.
+    *   **SessionController:** Gestiona el login mediante `Auth::attempt($credentials)` y el cierre de sesión con `Auth::logout()`.
+3.  **Seguridad de Sesión:** Es una buena práctica usar `session()->regenerate()` al iniciar sesión para evitar ataques de fijación de sesión y `session()->invalidate()` al cerrarla.
+4.  **Vistas:** Se utilizan las directivas **`@auth`** (contenido para usuarios logueados) y **`@guest`** (contenido para invitados) para condicionar la interfaz. Los datos del usuario actual se obtienen mediante el helper **`auth()`**.
+
+### III. Autorización: Gates y Policies (10.2)
+
+Mientras que la autenticación identifica al usuario, la **autorización** determina si tiene permiso para realizar una acción.
+
+*   **Gates:** Son funciones de cierre (closures) ideales para acciones que no están ligadas a un modelo específico. Se definen en `AppServiceProvider.php` y se comprueban con `Gate::allows()`, `Gate::denies()` o la directiva de Blade `@can`.
+*   **Policies:** Son clases dedicadas a organizar la lógica de autorización en torno a un modelo de Eloquent (ej. `PostPolicy` para el modelo `Post`). Se crean con `php artisan make:policy` y permiten definir métodos como `update` o `delete` para verificar la propiedad o permisos sobre un recurso.
+
+### IV. Middlewares de Seguridad (10.2)
+
+Los middlewares restringen el acceso a las rutas antes de que lleguen al controlador.
+
+*   **Middleware `auth`:** Asegura que solo usuarios autenticados accedan a una ruta.
+*   **Middleware `can`:** Aplica autorizaciones de Gates o Policies directamente en la definición de la ruta (ej. `middleware('can:update, post')`).
+*   **Middlewares Personalizados:** Permiten definir lógica propia, como verificar roles de usuario (`admin`, `user`), mediante el método `handle` de la clase generada.
+
+***
+
+**Resumen de funciones rápidas:**
+
+*   `Auth::attempt()`: Intenta iniciar sesión y devuelve un booleano.
+*   `Auth::login()`: Inicia sesión con una instancia de usuario.
+*   `Auth::logout()`: Cierra la sesión activa.
+*   `auth()->user()`: Accede al objeto del usuario autenticado.
+
+## 10.4 Actividades
 
 A continuación se presentan 2 prácticas sobre autorización y autenticación. Escoge una de las 2 e impleméntala.
 
