@@ -1077,6 +1077,51 @@ Route::get('admin', [App\Http\Controllers\Photo\AdminController::class, 'method'
 !!! info "Ampliar sobre controladores"
     Para más información acerca de los controladores, seguir la [documentación oficial de controladores](https://laravel.com/docs/11.x/controllers).
 
+## 7.9 Resumen
+
+En este tema sobre el **frameworks de PHP Laravel**, se introducen los conceptos fundamentales de esta útil herramienta.
+
+### I. Introducción y Conceptos Básicos (7.1)
+
+*   **¿Qué es un Framework?**: Es una estructura base que facilita el desarrollo al ofrecer herramientas para la conexión a bases de datos, organización del código y validaciones. 
+*   **Patrón MVC**: Laravel implementa el patrón **Modelo-Vista-Controlador**, que separa la lógica de negocio, la interfaz de usuario y los datos.
+*   **Ventajas de Laravel**: Destaca por su **sintaxis expresiva**, el **ORM Eloquent** para bases de datos, el sistema de **migraciones** (control de versiones de la BD), el motor de plantillas **Blade** y la herramienta de línea de comandos **Artisan CLI**.
+
+### II. Instalación y Entorno (7.2 - 7.3)
+
+Existen tres formas principales de instalar Laravel para el desarrollo local:
+
+1.  **Manual**: Mediante el uso de PHP y Composer en el equipo.
+2.  **Laravel Herd**: Un entorno de desarrollo nativo y rápido para macOS y Windows que incluye PHP y Nginx.
+3.  **Docker (Laravel Sail)**: Una interfaz de línea de comandos para interactuar con contenedores Docker, ideal para incluir servicios como MySQL sin instalarlos localmente.
+
+### III. Estructura de la Aplicación (7.4)
+
+Laravel organiza el código en carpetas con responsabilidades claras:
+
+*   **`app/`**: Contiene el código principal (Modelos en `Models/`, Controladores y Middleware en `Http/`).
+*   **`database/`**: Migraciones, factorías y *seeders* para la base de datos.
+*   **`public/`**: Punto de entrada (`index.php`) y recursos públicos.
+*   **`resources/`**: Vistas Blade y recursos sin compilar (CSS/JS).
+*   **`routes/`**: Definición de rutas (`web.php` para la web y `api.php` para servicios REST).
+*   **`vendor/`**: Dependencias gestionadas por **Composer**.
+
+### IV. Rutas y Controladores (7.5, 7.8)
+
+*   **Rutas**: Se definen principalmente en `routes/web.php`. Pueden ser simples, con **parámetros dinámicos** (`{id}`) u opcionales (`{id?}`) y permiten validaciones mediante el método `where`. También se pueden usar **alias** con `name()` para referenciarlas fácilmente.
+*   **Controladores**: Situados en `app/Http/Controllers`, sirven para separar la lógica de las rutas.
+    *   Se crean con `php artisan make:controller`.
+    *   Los **Controladores de recursos** (`-r`) generan automáticamente métodos para un **CRUD** completo (index, create, store, etc.).
+
+### V. Vistas y Frontend (7.6 - 7.7)
+
+*   **Blade**: Es el potente motor de plantillas de Laravel. Utiliza **directivas** como `@extends`, `@yield` y `@section` para la herencia de plantillas, y estructuras de control como `@foreach`, `@if` y `@switch`.
+*   **Componentes Blade**: Permiten crear elementos HTML reutilizables (ej. `<x-alert />`) que pueden tener o no lógica asociada en una clase específica.
+*   **Vite**: Es la herramienta para gestionar y empaquetar CSS y JS. Se utiliza la directiva **`@vite`** en las vistas para cargar los recursos. Laravel incluye **Tailwind CSS** por defecto para el estilado.
+
+### VI. Seguridad Integrada
+
+Laravel ofrece protección nativa contra ataques comunes, como **CSRF** (Falsificación de Petición en Sitios Cruzados) y **XSS** (Secuencias de Comandos en Sitios Cruzados).
 
 <!--
 ## Referencias
@@ -1086,7 +1131,7 @@ Route::get('admin', [App\Http\Controllers\Photo\AdminController::class, 'method'
 * Apuntes Laravel creados por `igomis`, docente del IES Batoi de Alcoy(valenciano): https://igomis.github.io/apunts/
 -->
 
-## Actividades
+## 7.10 Actividades
 
 701. Crea un sitio web con Laravel que contenga el título "Bienvenidos a Laravel", un texto de bienvenida (puede ser un poco de Lorem Ipsum) y a continuación un menú de navegación con sus correspondientes alias y los siguientes enlaces:
 
