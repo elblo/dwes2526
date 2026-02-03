@@ -1015,9 +1015,54 @@ La librería de paginación que utiliza Laravel está situada en la carpeta `ven
 
 Aunque no es recomendable tocar la carpeta *vendor*, por practicar podríais modificar ese archivo (guardando antes una copia del mismo).
 
----
+## 8.9 Resumen
 
-## 8.9 Actividades
+En este tema sobre **Gestión de datos en Laravel**, se sientan las bases para entender cómo este *framework* interactúa con las bases de datos de forma eficiente y segura.
+
+### I. Configuración y Migraciones (8.2 - 8.3)
+
+*   **Configuración:** La conexión a la base de datos (MySQL, PostgreSQL, etc.) se define en el archivo **`.env`**. Para verificar que la conexión es correcta, se pueden ejecutar las migraciones iniciales con `php artisan migrate`.
+*   **Migraciones:** Funcionan como un **control de versiones para la base de datos**. Permiten definir el esquema de forma programática mediante dos métodos:
+    *   **`up()`**: Define los cambios a aplicar (crear tablas o columnas).
+    *   **`down()`**: Define cómo revertir dichos cambios.
+*   **Comandos Artisan:** Destacan `make:migration` para crear archivos, `migrate` para ejecutarlos y `migrate:rollback` para deshacer la última operación. `migrate:fresh` borra todas las tablas y las recrea desde cero.
+*   **Schema Builder:** Es el motor para definir tablas, tipos de columnas, índices y **claves foráneas** (mediante `foreignId` y `constrained`).
+
+### II. Query Builder (8.4)
+
+*   **Concepto:** Proporciona una interfaz fluida para construir consultas SQL sin escribir código SQL puro.
+*   **Uso:** Es ideal para consultas complejas o donde el rendimiento es crítico. Utiliza métodos encadenados como `table()`, `select()`, `where()`, `orderBy()` y `get()`. También permite realizar operaciones de manipulación como `insert()`, `update()` y `delete()`.
+
+### III. Eloquent: El ORM de Laravel (8.5)
+
+*   **Definición:** **Eloquent** es un ORM (*Object-Relational Mapping*) que permite interactuar con la base de datos usando objetos. En este sistema, cada **tabla** se representa mediante un **Modelo** (clase), cada fila es una instancia y cada campo es una propiedad.
+*   **Modelos:** Se crean con `php artisan make:model Nombre`. La opción **`-m`** crea simultáneamente la migración asociada. El nombre del modelo debe ir en singular y empezar por mayúscula.
+*   **Operaciones CRUD con Eloquent:**
+    *   **Recuperar:** `all()`, `find($id)`, `findOrFail($id)` o `where()->get()`.
+    *   **Insertar:** Se instancia el modelo, se asignan propiedades y se usa `save()`, o bien se usa el método estático `create()` (requiere definir `$fillable` en el modelo).
+    *   **Actualizar/Eliminar:** Se localiza el registro y se aplica `update()`, `save()` o `delete()`.
+*   **Propiedades del Modelo:** Se pueden configurar aspectos como el nombre de la tabla (`$table`), la clave primaria (`$primaryKey`) o los campos protegidos de asignación masiva (`$guarded`).
+
+### IV. Formularios y Validación (8.6 - 8.7)
+
+*   **Flujo CRUD:** Para gestionar datos mediante formularios, se suelen requerir rutas específicas para mostrar el formulario (GET) y para procesar la acción (POST, PUT o DELETE).
+*   **Seguridad:** Es obligatorio incluir la directiva **`@csrf`** en los formularios para evitar ataques de falsificación de petición. Para métodos distintos a POST (como editar o eliminar), se usa **`@method('PUT')`** o **`@method('DELETE')`**.
+*   **Validación:** Se realiza en el controlador mediante el método **`$request->validate()`**. 
+    *   **Reglas comunes:** `required`, `email`, `min`, `max` y `unique`.
+    *   **En la Vista:** Se usa `@error('campo')` para mostrar mensajes de error y la función **`old('campo')`** para mantener los valores introducidos en caso de fallo.
+
+### V. Paginación (8.8)
+
+*   Laravel facilita la división de resultados en páginas usando el método **`paginate($n)`** en el controlador en lugar de `all()` o `get()`.
+*   En la vista Blade, basta con llamar a **`$resultados->links()`** para generar automáticamente los controles de navegación.
+
+***
+
+!!! notice "Recuerda"
+
+    **Query Builder** devuelve *arrays* o colecciones de datos genéricos, mientras que **Eloquent** devuelve instancias del modelo con todas sus funcionalidades y lógica de negocio asociadas.
+
+## 8.10 Actividades
 
 A continuación, vas a realizar una serie de ejercicios sencillos sobre cada uno de los apartados vistos en el tema. Puedes crear un proyecto nuevo o reutilizar uno existente.
 
