@@ -729,7 +729,7 @@ class Alert extends Component{
     - Con **atributo="{{ $variable }}"** se pasan tipos primitivos y se usan dentro del componente mediante el nombre del atributo. Ej: {{ $atributo }}
     - Con **:atributo="$objeto"** se pueden pasar también objetos y utilizarlos dentro del componente con la notación tradicional. Ej: {{ $atributo->propiedad }}
 
-    En el caso de que el atributo se llame igual que el valor, se puede contraer de la siguiente forma:
+    Con el 2º método, si el atribuot se llama igual que el valor, se puede contraer de la siguiente forma:
 
     ```html
     <x-alert :type="$type" /> 
