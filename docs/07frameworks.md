@@ -729,6 +729,13 @@ class Alert extends Component{
     - Con **atributo="{{ $variable }}"** se pasan tipos primitivos y se usan dentro del componente mediante el nombre del atributo. Ej: {{ $atributo }}
     - Con **:atributo="$objeto"** se pueden pasar también objetos y utilizarlos dentro del componente con la notación tradicional. Ej: {{ $atributo->propiedad }}
 
+    En el caso de que el atributo se llame igual que el valor, se puede contraer de la siguiente forma:
+
+    ```html
+    <x-alert :type="$type" /> 
+    <x-alert :$type /> 
+    ```
+
 !!! tip "Recomendación general para maquetación"
 
     En Laravel moderno es preferible crear los layouts como componentes Blade (**<x-layout>**) en lugar de usar **@extends**, **@yield** y **@section**, porque los componentes permiten crear la interfaz de forma más clara y reutilizable, igual que hacen los frameworks frontend actuales. 
