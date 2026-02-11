@@ -514,10 +514,10 @@ $comentario->post_id = $post->id; // Clave ajena 'post_id'
 $comentario->save();
 
 // Forma 2 de asignar 1 comentario a 1 post (si ya EXISTE el comentario)
-$post->comentario()->save($comentario);
+$post->comentarios()->save($comentario);
 
 // Forma 3 de asignar 1 comentario a 1 post (CREANDO del tirón el comentario) --> fillable en Comentario.php
-$post->comentario()->create([
+$post->comentarios()->create([
     'texto' => 'Me parecen muy interesantes los conceptos tratados en el post.',
     'autor' => 'John Doe',
 ]);
@@ -535,7 +535,7 @@ $post->comentario()->create([
     $comentario2 = new Comentario();
     $comentario2->texto = "A mi también me parecen muy interesantes.";
     $comentario2->autor = "Mary Jane";
-    $post->comentario()->save($comentario2); // Aquí se vincula la clave ajena y se buarda el comentario
+    $post->comentarios()->save($comentario2); // Aquí se vincula la clave ajena y se buarda el comentario
     ```
     
 ### Relación Muchos a Muchos (MM a MM)
