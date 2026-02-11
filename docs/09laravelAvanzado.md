@@ -896,7 +896,7 @@ Haz tú ahora el controlador `MateriaController` con su función correspondiente
 
 Vamos a crar la vista que liste las materias de un usuario. Para ello creamos el archivo `alumnos/materias.blade.php`.
 
-    ``` html
+    ```html
     <div class="row justify-content-center">
       <div class="col-auto">
         <h3>Las materias que está cursando el alumno son:</h3>
