@@ -945,7 +945,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class User extends Model
 {
-    // Atributo 'password∫' para usar con mutador (set) y accesor (get)
+    // Atributo 'password' para usar con mutador (set) y accesor (get)
     protected function password(): Attribute
     {
         return Attribute::make(
@@ -1093,7 +1093,7 @@ class AuthorFactory extends Factory
 }
 ```
 
-En modelos relacionados lo más sencillo es llamar a la factoría directamente en el campo de la relación:
+En modelos relacionados (*1a1* o *1aM*) lo más sencillo es llamar a la factoría directamente en el campo de la relación (en los *MaM* se utiliza has*Model* y se ve más abajo):
 
 ```php
 <?php
@@ -1109,7 +1109,7 @@ class BookFactory extends Factory
         return [
             'isbn' => fake()->isbn13(), // Crea un ISBN de 13 dígitos (formato actual)
             'titulo' => fake()->sentence(5), // Genera un título de 5 palabras
-            'author_id' => Author::factory() // Crea un autor y lo relaciona con el libro
+            'author_id' => Author::factory() // Crea un autor y lo relaciona con el libro por el campo author_id que existe en book
         ];
     }
 }
@@ -1149,7 +1149,7 @@ Author::factory()->count(10)->create();
 // También crea 10 autores
 Author::factory(10)->create();
 
-// Crea 10 autores con 3 libros para cada uno
+// Crea 10 autores con 3 libros para cada uno (también para relaciones M a M)
 Author::factory()
     ->count(10) 
     ->hasBooks(3) 
