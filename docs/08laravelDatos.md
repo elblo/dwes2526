@@ -528,6 +528,38 @@ public function show($id) {
 }
 ```
 
+??? tip "Parámetros opcionales para filtrado con when"
+
+    Cuando utilizamos **where** se aplica siempre la condición para realizar el filtrado, pero si depende de un parámetro que puede venir o no de un formulario de búsqueda, un variable que puede ser null o un checkbox que no se envía si no está marcado, es útil utilizar **when** para aplicar el where cuando sí tenga valor dicho parámetro. 
+
+    En el ejemplo siguiente se encadenan 2 filtros opcionales: Si viene en la petición la *prioridad* y la *descripción*, se filtra por ellos. Y si no vienen, no se añade el *where* a la consulta.
+    
+    ```php
+    <?php
+    $notas = Nota::query()
+        ->when($request->prioridad, fn ($q, $prioridad) =>
+            $q->where('prioridad', $prioridad)
+        )
+        ->when($request->descripcion, fn ($q) =>
+            $q->where('descripcion', 'LIKE', "%$descripcion%")
+        )
+        ->get();
+    ```
+
+    El equivalente a *when* sería utilizar if de la forma tradicional:
+
+    ```php
+    <?php
+    // ...
+    if ($request->prioridad) {
+        $query->where('prioridad', $prioridad)
+    }
+    // ...
+    ```
+
+    Cada vez que utilizamos un **where** se añade una condición a la consulta como si fuera un **AND**. Si queremos obtener el efecto de un **OR** basta con sustituirla por **orWhere**.
+
+
 ##### 3. Vistas
 
 `notas/index.blade.php`: Vista con la tabla que pinta los datos mediante las notas pasadadas como parámetro.
