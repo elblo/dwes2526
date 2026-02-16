@@ -28,13 +28,13 @@ Laravel proporciona una API sencilla y potente para trabajar con ficheros median
 
 ### Configuración del almacenamiento
 
-Laravel usa la configuración del sistema de archivos en `config/filesystems.php`. El driver por defecto es `local`, pero se pueden configurar otros como `s3` o `public`.
+Laravel usa la configuración del sistema de archivos en `config/filesystems.php`. El driver por defecto es `local`, pero se pueden configurar otros como `s3` o `public` **mediante FILESYSTEM_DISK en .env**.
 
 ```php
 <?php
 // Configuración del disco local privado, público y o s3
 return [
-    'default' => env('FILESYSTEM_DISK', 'local'), // local | public | s3
+    'default' => env('FILESYSTEM_DISK', 'local'), // local | public | s3 definido en .env y si no lo está, 'local'
 
     'disks' => [
 
