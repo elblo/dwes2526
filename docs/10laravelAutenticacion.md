@@ -364,7 +364,7 @@ Crear la vista con la plantilla base en `/resources/views/layout/app.blade.php`:
             @yield('content')
        </main>
        <footer class="pl-10 text-center bg-blue-800 text-white py-4">
-            Aplicación desarrollada por 🦫 en 2025
+            Aplicación desarrollada por 🦫 en 2026
        </footer>
     </body>
 </html>
@@ -517,7 +517,7 @@ class AppServiceProvider extends ServiceProvider
             return $user->id === $post->user_id;
         });
 
-        // Como en las rutas, los Gates también se pueden definir utilizando un array con la clase y función
+        // Como en las rutas, los Gates también se pueden definir utilizando un array con la clase y método
         Gate::define('update-post', [PostPolicy::class, 'update']);
     }
 }
