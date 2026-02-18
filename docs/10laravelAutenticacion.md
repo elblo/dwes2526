@@ -34,13 +34,35 @@ El archivo de configuración de autenticación de tu aplicación se encuentra en
 
 ### Kits de inicio
 
-Laravel proporciona unos kits de inicio que estructuran automáticamente la aplicación con las rutas, controladores y vistas necesarios para registrar y autenticar a los usuarios de la aplicación. Los más utilizados son **Breeze** y **JetStream**. Ambos, aparecen entre las opciones al crear un nuevo proyecto Laravel.
+Laravel proporciona unos kits de inicio que estructuran automáticamente la aplicación con las rutas, controladores y vistas necesarios para registrar y autenticar a los usuarios de la aplicación. Los más utilizados son **Breeze** y **JetStream**.
 
 **Laravel Breeze** es una implementación simple y mínima de todas las funciones de autenticación de Laravel, que incluye inicio de sesión, registro, restablecimiento de contraseña, verificación de correo electrónico y confirmación de contraseña. La capa de vista de Laravel Breeze está compuesta por plantillas Blade con estilos de Tailwind CSS. 
 
 **Laravel Jetstream** es un sólido kit de inicio de aplicaciones que consume y expone los servicios del backend de autenticación Laravel Fortify con una interfaz de usuario basada en Tailwind CSS, Livewire y/o Inertia. Laravel Jetstream incluye soporte opcional para la autenticación de dos factores, soporte para equipos, gestión de sesiones de navegador, gestión de perfiles e integración incorporada con Laravel Sanctum para ofrecer autenticación de token de API. 
 
 Puedes probar a crear un proyecto y utilizar uno de estos kits, sobre todo Breeze, para navegar por sus archivos y aprender cómo funciona un sistema de autenticación.
+
+??? tip "Instalación de Laravel Breeze"
+    
+    1. Instalar Breeze: Navega a la carpeta del proyecto у ejecuta:
+   
+    ```bash
+    composer require laravel/breeze --dev
+    ```
+
+    2. Instalar el Kit: Ejecuta el comando para publicar los archivos de autenticación:
+   
+    ```bash
+    php artisan breeze:install
+    ```
+
+    3. Migrar y Compilar: Prepara la base de datos y los recursos frontend:
+
+    ```bash
+    php artisan migrate
+    npm install
+    npm run dev
+    ```
 
 ### Sistema autenticación manual
 
