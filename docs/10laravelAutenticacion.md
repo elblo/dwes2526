@@ -686,25 +686,15 @@ En una vista Blade:
 
 ??? tip "Gates vs policies"
     
-  Ambas permiten gestionar la autorización del usuario autenticado en la aplicación, pero **¿cuándo utilizar unas u otras?**
+    Ambas permiten gestionar la autorización del usuario autenticado en la aplicación, pero **¿cuándo utilizar unas u otras?**
 
-  **Policies** → autorización ligada a MODELOS (recursos concretos)
-  **Gates** → autorización ligada a ACCIONES (reglas generales)
+    - **Policies** → autorización ligada a MODELOS (recursos concretos)
 
-  Si la decisión depende de una entidad concreta, **policy**. 
-  Ejemplos:
+    - **Gates** → autorización ligada a ACCIONES (reglas generales)
 
-  - ¿Puede editar este Post?
-  - ¿Puede borrar este Pedido?
-  - ¿Puede ver este Usuario?
+    Si la decisión depende de una entidad concreta, **policy**. Ejemplos: ¿Puede editar este Post? ¿Puede borrar este Pedido? ¿Puede ver este Usuario?
 
-  Si la decisión es global o conceptual, **gate**. 
-  Ejemplos:
-
-  - ¿Es administrador?
-  - ¿Puede acceder al panel?
-  - ¿Puede exportar informes?
-  - ¿Puede ver estadísticas?
+    Si la decisión es global o conceptual, **gate**. Ejemplos: ¿Es administrador? ¿Puede acceder al panel? ¿Puede exportar informes? ¿Puede ver estadísticas?
 
 ### Middlewares
 
