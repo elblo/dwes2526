@@ -99,6 +99,10 @@ $path = $request->file('imagen')->store('archivos', 'public'); // 'public' --> G
 // Opción 2.2: Guardar desde $request con nombre específico
 $path = $request->file('archivo')->storeAs('archivos', 'nuevonombre.jpg', 'public');
 
+// Opción 2.3: Guardar desde $request con nombre específico sin perder la extensión original
+$extension = $request->file('archivo')->getClientOriginalExtension();    
+$path = $request->file('archivo')->storeAs('archivos', 'nuevonombre.'. $extension, 'public');
+
 return back()->with('success', 'Imagen subida con éxito a la ruta:' . $path); // Vuelve atrás pasando la variable 'success' por la sesión  
 ```
 
