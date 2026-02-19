@@ -691,12 +691,16 @@ En una vista Blade:
     **Policies** → autorización ligada a MODELOS (recursos concretos)
     **Gates** → autorización ligada a ACCIONES (reglas generales)
 
-    Si la decisión depende de una entidad concreta, **policy**. Ejemplos:
+    Si la decisión depende de una entidad concreta, **policy**. 
+    Ejemplos:
+
     - ¿Puede editar este Post?
     - ¿Puede borrar este Pedido?
     - ¿Puede ver este Usuario?
 
-    Si la decisión es global o conceptual, **gate**. Ejemplos:
+    Si la decisión es global o conceptual, **gate**. 
+    Ejemplos:
+
     - ¿Es administrador?
     - ¿Puede acceder al panel?
     - ¿Puede exportar informes?
