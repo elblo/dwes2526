@@ -38,10 +38,6 @@ Laravel proporciona unos kits de inicio que estructuran automáticamente la apli
 
 **Laravel Breeze** es una implementación simple y mínima de todas las funciones de autenticación de Laravel, que incluye inicio de sesión, registro, restablecimiento de contraseña, verificación de correo electrónico y confirmación de contraseña. La capa de vista de Laravel Breeze está compuesta por plantillas Blade con estilos de Tailwind CSS. 
 
-**Laravel Jetstream** es un sólido kit de inicio de aplicaciones que consume y expone los servicios del backend de autenticación Laravel Fortify con una interfaz de usuario basada en Tailwind CSS, Livewire y/o Inertia. Laravel Jetstream incluye soporte opcional para la autenticación de dos factores, soporte para equipos, gestión de sesiones de navegador, gestión de perfiles e integración incorporada con Laravel Sanctum para ofrecer autenticación de token de API. 
-
-Puedes probar a crear un proyecto y utilizar uno de estos kits, sobre todo Breeze, para navegar por sus archivos y aprender cómo funciona un sistema de autenticación.
-
 ??? tip "Instalación de Laravel Breeze"
     
     1. Instalar Breeze: Navega a la carpeta del proyecto у ejecuta:
@@ -63,6 +59,10 @@ Puedes probar a crear un proyecto y utilizar uno de estos kits, sobre todo Breez
     npm install
     npm run dev
     ```
+
+**Laravel Jetstream** es un sólido kit de inicio de aplicaciones que consume y expone los servicios del backend de autenticación Laravel Fortify con una interfaz de usuario basada en Tailwind CSS, Livewire y/o Inertia. Laravel Jetstream incluye soporte opcional para la autenticación de dos factores, soporte para equipos, gestión de sesiones de navegador, gestión de perfiles e integración incorporada con Laravel Sanctum para ofrecer autenticación de token de API. 
+
+Puedes probar a crear un proyecto y utilizar uno de estos kits, sobre todo Breeze, para navegar por sus archivos y aprender cómo funciona un sistema de autenticación.
 
 ### Sistema autenticación manual
 
@@ -487,11 +487,11 @@ En el siguiente punto se amplía el uso de middlewares.
 
 ### Introducción
 
-Laravel 11 ofrece un sistema de autorización flexible y potente basado en policies y gates, permitiendo restringir el acceso a diferentes partes de la aplicación según los permisos del usuario.
+Laravel ofrece un sistema de autorización flexible y potente basado en policies y gates, permitiendo restringir el acceso a diferentes partes de la aplicación según los permisos del usuario.
 
 ### Gates
 
-Los Gates son funciones de cierre (closures) que determinan si un usuario está autorizado para realizar una acción específica.
+Los Gates son funciones de cierre (closures) que determinan si un usuario autenticado está autorizado para realizar una acción específica.
 
 #### Definir un Gate
 
@@ -570,7 +570,7 @@ En una vista Blade:
 
 ### Policies
 
-Las Policies son clases específicas para manejar la autorización de modelos.
+Las Policies son clases específicas para manejar la autorización del usuario autenticado sobre modelos.
 
 #### Crear una Policy
 
@@ -683,6 +683,24 @@ En una vista Blade:
     <p>Tienes autorización para ver este contenido.</p>
 @endcan
 ```
+
+??? tip "Gates vs policies"
+    
+    Ambas permiten gestionar la autorización del usuario autenticado en la aplicación, pero **¿cuándo utilizar unas u otras?**
+
+    **Policies** → autorización ligada a MODELOS (recursos concretos)
+    **Gates** → autorización ligada a ACCIONES (reglas generales)
+
+    Si la decisión depende de una entidad concreta, **policy**. Ejemplos:
+    - ¿Puede editar este Post?
+    - ¿Puede borrar este Pedido?
+    - ¿Puede ver este Usuario?
+
+    Si la decisión es global o conceptual, **gate**. Ejemplos:
+    - ¿Es administrador?
+    - ¿Puede acceder al panel?
+    - ¿Puede exportar informes?
+    - ¿Puede ver estadísticas?
 
 ### Middlewares
 
