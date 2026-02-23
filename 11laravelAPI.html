@@ -1,0 +1,1337 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://elblo.github.io/dwes2526/11laravelAPI.html">
+      
+      
+        <link rel="prev" href="10laravelAutenticacion.html">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="imagenes/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
+    
+    
+      
+        <title>11.- Servicios REST - Desarrollo Web en Entorno Servidor</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="Teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#api-rest-con-laravel" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="index.html" title="Desarrollo Web en Entorno Servidor" class="md-header__button md-logo" aria-label="Desarrollo Web en Entorno Servidor" data-md-component="logo">
+      
+  <img src="imagenes/logoies.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Desarrollo Web en Entorno Servidor
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              11.- Servicios REST
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="Teal"  aria-label="Cambiar a modo noche"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo noche" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="pink" data-md-color-accent="Teal"  aria-label="Cambiar a modo día"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo día" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Desarrollo Web en Entorno Servidor" class="md-nav__button md-logo" aria-label="Desarrollo Web en Entorno Servidor" data-md-component="logo">
+      
+  <img src="imagenes/logoies.png" alt="logo">
+
+    </a>
+    Desarrollo Web en Entorno Servidor
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="01arquitecturas.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.- Arquitecturas Web
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="02php.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.- El lenguaje PHP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="03phpoo.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3.- PHP Orientado a Objetos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="04web.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.- Programación Web
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="05herramientas.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5.- Herramientas Web
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="06accesoDatos.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6.- Acceso a Datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="07frameworks.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7.- Frameworks PHP - Laravel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="08laravelDatos.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8.- Gestión de datos en Laravel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="09laravelAvanzado.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9.- Laravel Avanzado
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="10laravelAutenticacion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10.- Autenticación y autorización
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11.- Servicios REST
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="11laravelAPI.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11.- Servicios REST
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#111-introduccion-a-las-apis-rest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.1 Introducción a las APIs REST
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11.1 Introducción a las APIs REST">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introducción
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#que-es-rest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ¿Qué es REST?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#112-rutas-api-en-laravel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.2 Rutas API en Laravel
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11.2 Rutas API en Laravel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resource-controllers-crud-automatico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resource Controllers (CRUD automático)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#113-creacion-de-un-crud-rest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.3 Creación de un CRUD REST
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11.3 Creación de un CRUD REST">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modelo-migracion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modelo + Migración
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controlador-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Controlador API
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#114-codigos-http" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.4 Códigos HTTP
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#115-autenticacion-mediante-tokens-sanctum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.5 Autenticación mediante Tokens (Sanctum)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11.5 Autenticación mediante Tokens (Sanctum)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#instalacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instalación
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generar-token" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generar Token
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proteger-rutas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Proteger rutas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#116-login-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.6 Login API
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#117-autorizacion-en-apis-policies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.7 Autorización en APIs (Policies)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#118-api-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.8 API Resources
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#119-buenas-practicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.9 Buenas prácticas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1110-resumen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.10 Resumen
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1111-actividades" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.11 Actividades
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11.11 Actividades">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#api-rest-de-productos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API Rest de productos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#autenticacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autenticación
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#autorizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autorización
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cliente-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cliente API
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<style>
+    img { margin: 20px 0; border-radius: 8px; }
+
+    .alert { color: #BD1550; }
+    .warning { color: #E97F02; }
+    .success { color: #8A9B0F; }
+
+    .center { text-align: center; }
+    .right { text-align: right; }
+
+    .img-small { max-width: 200px; margin: auto; }
+    .img-medium { max-width: 400px; margin: auto; }
+    .img-large { max-width: 800px; margin: auto; }
+
+    .leyenda {
+        font-size: small;
+        margin: 10px 0;
+    }
+</style>
+
+<h1 id="api-rest-con-laravel">API REST con Laravel<a class="headerlink" href="#api-rest-con-laravel" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>Duración estimada: 2 sesiones</p>
+</blockquote>
+<hr />
+<h2 id="111-introduccion-a-las-apis-rest">11.1 Introducción a las APIs REST<a class="headerlink" href="#111-introduccion-a-las-apis-rest" title="Permanent link">&para;</a></h2>
+<h3 id="introduccion">Introducción<a class="headerlink" href="#introduccion" title="Permanent link">&para;</a></h3>
+<p>Hoy en día, gran parte de las aplicaciones modernas no renderizan HTML
+directamente desde el servidor. En su lugar, el backend expone <strong>APIs
+REST</strong>, y distintos clientes (frontend SPA, apps móviles, otros
+servidores...) consumen esos datos.</p>
+<p>Laravel es especialmente potente para este tipo de arquitecturas, ya que
+facilita:</p>
+<ul>
+<li>Definición de rutas para APIs</li>
+<li>Serialización automática a JSON</li>
+<li>Validación de datos</li>
+<li>Autenticación mediante tokens</li>
+<li>Autorización mediante policies</li>
+</ul>
+<p>Una <strong>API REST</strong> se basa en:</p>
+<ul>
+<li>Recursos (usuarios, productos, pedidos...)</li>
+<li>Verbos HTTP (GET, POST, PUT/PATCH, DELETE)</li>
+<li>Respuestas en JSON\</li>
+<li>Operaciones CRUD</li>
+</ul>
+<hr />
+<h3 id="que-es-rest">¿Qué es REST?<a class="headerlink" href="#que-es-rest" title="Permanent link">&para;</a></h3>
+<p>REST (<em>Representational State Transfer</em>) no es un protocolo, sino un
+conjunto de principios:</p>
+<ul>
+<li>Cada recurso tiene una URL única</li>
+<li>Se utilizan correctamente los verbos HTTP</li>
+<li>Las peticiones son <em>stateless</em> (sin sesión)</li>
+<li>Las respuestas representan el estado del recurso</li>
+</ul>
+<p>Ejemplo conceptual:
+| Operación | Verbo HTTP | Endpoint |
+|---|---|---|
+| Listar recursos | GET | /api/posts |
+| Ver un recurso | GET | /api/posts/1 |
+| Crear recurso | POST | /api/posts |
+| Actualizar recurso | PUT/PATCH | /api/posts/1 |
+| Eliminar recurso | DELETE | /api/posts/1 |</p>
+<h2 id="112-rutas-api-en-laravel">11.2 Rutas API en Laravel<a class="headerlink" href="#112-rutas-api-en-laravel" title="Permanent link">&para;</a></h2>
+<p>Laravel separa claramente las rutas web de las rutas API.</p>
+<p>Archivo:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>routes/api.php
+</code></pre></div>
+<p>Las rutas definidas aquí:</p>
+<ul>
+<li>Devuelven JSON por defecto</li>
+<li>No utilizan sesiones</li>
+<li>Están bajo el prefijo <code>/api</code></li>
+</ul>
+<p>Ejemplo:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nx">Route</span><span class="o">::</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;/posts&#39;</span><span class="p">,</span> <span class="p">[</span><span class="nx">PostController</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="s1">&#39;index&#39;</span><span class="p">]);</span>
+</code></pre></div>
+<p>Endpoint real: <code>/api/posts</code></p>
+<h3 id="resource-controllers-crud-automatico">Resource Controllers (CRUD automático)<a class="headerlink" href="#resource-controllers-crud-automatico" title="Permanent link">&para;</a></h3>
+<p>Laravel permite generar controladores REST completos:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>php<span class="w"> </span>artisan<span class="w"> </span>make:controller<span class="w"> </span>PostController<span class="w"> </span>--api
+</code></pre></div>
+<p>Y registrar el CRUD:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="x">Route::apiResource(&#39;posts&#39;, PostController::class);</span>
+</code></pre></div>
+<ul>
+<li>Código limpio</li>
+<li>Convención REST correcta</li>
+<li>Menos errores</li>
+</ul>
+<h2 id="113-creacion-de-un-crud-rest">11.3 Creación de un CRUD REST<a class="headerlink" href="#113-creacion-de-un-crud-rest" title="Permanent link">&para;</a></h2>
+<p>Supongamos un recurso <strong>Post</strong>.</p>
+<h3 id="modelo-migracion">Modelo + Migración<a class="headerlink" href="#modelo-migracion" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>php<span class="w"> </span>artisan<span class="w"> </span>make:model<span class="w"> </span>Post<span class="w"> </span>-m
+</code></pre></div>
+<p>Migración:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">up</span><span class="p">()</span><span class="o">:</span> <span class="nx">void</span><span class="p">{</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="nx">Schema</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;posts&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nx">Blueprint</span> <span class="nv">$table</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 5 "></span>        <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">();</span>
+<span class="hll"><span class="linenos" data-linenos=" 6 "></span>        <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">string</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">);</span>
+</span><span class="hll"><span class="linenos" data-linenos=" 7 "></span>        <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">text</span><span class="p">(</span><span class="s1">&#39;content&#39;</span><span class="p">);</span>
+</span><span class="linenos" data-linenos=" 8 "></span>        <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">timestamps</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="p">});</span>
+<span class="linenos" data-linenos="10 "></span><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>php<span class="w"> </span>artisan<span class="w"> </span>migrate
+</code></pre></div>
+<h3 id="controlador-api">Controlador API<a class="headerlink" href="#controlador-api" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>php<span class="w"> </span>artisan<span class="w"> </span>make:controller<span class="w"> </span>PostController<span class="w"> </span>--api
+</code></pre></div>
+<p>Métodos CRUD típicos:</p>
+<ul>
+<li>index() &rarr; Listar recursos</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">index</span><span class="p">()</span>
+<span class="linenos" data-linenos="3 "></span><span class="p">{</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="k">return</span> <span class="nx">Post</span><span class="o">::</span><span class="na">all</span><span class="p">();</span> <span class="c1">// Laravel serializa automáticamente a JSON</span>
+<span class="linenos" data-linenos="5 "></span><span class="p">}</span>    
+</code></pre></div>
+<ul>
+<li>store() &rarr; Crear recurso</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">store</span><span class="p">(</span><span class="nx">Request</span> <span class="nv">$request</span><span class="p">){</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="nv">$validated</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">validate</span><span class="p">([</span>
+<span class="linenos" data-linenos=" 5 "></span>        <span class="s1">&#39;title&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;required&#39;</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 6 "></span>        <span class="s1">&#39;content&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;required&#39;</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="p">]);</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="k">return</span> <span class="nx">Post</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="nv">$validated</span><span class="p">);</span>
+<span class="linenos" data-linenos="10 "></span><span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>show() &rarr; Ver recurso</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">show</span><span class="p">(</span><span class="nx">Post</span> <span class="nv">$post</span><span class="p">){</span>
+<span class="linenos" data-linenos="3 "></span>
+<span class="linenos" data-linenos="4 "></span>    <span class="k">return</span> <span class="nv">$post</span><span class="p">;</span> <span class="c1">// Route Model Binding automático</span>
+<span class="linenos" data-linenos="5 "></span><span class="p">}</span> 
+</code></pre></div>
+<ul>
+<li>update() &rarr; Actualizar recurso</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">update</span><span class="p">(</span><span class="nx">Request</span> <span class="nv">$request</span><span class="p">,</span> <span class="nx">Post</span> <span class="nv">$post</span><span class="p">){</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="nv">$validated</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">validate</span><span class="p">([</span>
+<span class="linenos" data-linenos=" 5 "></span>        <span class="s1">&#39;title&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;required&#39;</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 6 "></span>        <span class="s1">&#39;content&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;required&#39;</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="p">]);</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="nv">$post</span><span class="o">-&gt;</span><span class="na">update</span><span class="p">(</span><span class="nv">$validated</span><span class="p">);</span>
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span>    <span class="k">return</span> <span class="nv">$post</span><span class="p">;</span>
+<span class="linenos" data-linenos="12 "></span><span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>destroy() &rarr; Eliminar recurso</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">destroy</span><span class="p">(</span><span class="nx">Post</span> <span class="nv">$post</span><span class="p">){</span>
+<span class="linenos" data-linenos="3 "></span>
+<span class="linenos" data-linenos="4 "></span>    <span class="nv">$post</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">();</span>
+<span class="linenos" data-linenos="5 "></span>
+<span class="linenos" data-linenos="6 "></span>    <span class="k">return</span> <span class="nx">response</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">json</span><span class="p">([</span>
+<span class="linenos" data-linenos="7 "></span>        <span class="s1">&#39;message&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Post eliminado&#39;</span>
+<span class="linenos" data-linenos="8 "></span>    <span class="p">]);</span>
+<span class="linenos" data-linenos="9 "></span><span class="p">}</span>
+</code></pre></div>
+<h2 id="114-codigos-http">11.4 Códigos HTTP<a class="headerlink" href="#114-codigos-http" title="Permanent link">&para;</a></h2>
+<p>Una API REST correcta no solo devuelve JSON, también debe usar correctamente los códigos HTTP.</p>
+<table>
+<thead>
+<tr>
+<th>Código</th>
+<th>Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>OK</td>
+</tr>
+<tr>
+<td>201</td>
+<td>Created</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+</tr>
+<tr>
+<td>422</td>
+<td>Validation Error</td>
+</tr>
+</tbody>
+</table>
+<p>Ejemplo:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">return</span> <span class="nx">response</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">json</span><span class="p">(</span><span class="nv">$post</span><span class="p">,</span> <span class="mi">201</span><span class="p">);</span>
+</code></pre></div>
+<p>Utilizando los códigos HTTP conseguirás una API profesional que se integrará mejor con los clientes que la utilicen.</p>
+<h2 id="115-autenticacion-mediante-tokens-sanctum">11.5 Autenticación mediante Tokens (Sanctum)<a class="headerlink" href="#115-autenticacion-mediante-tokens-sanctum" title="Permanent link">&para;</a></h2>
+<p>Las APIs no usan sesiones.</p>
+<p>Se autentican mediante:</p>
+<ul>
+<li>Tokens</li>
+<li>Cabeceras HTTP</li>
+<li>Stateless authentication</li>
+</ul>
+<p>Laravel utiliza principalmente: <strong>Laravel Sanctum</strong>, que proporciona autenticación ligera para SPAs, aplicaciones móviles y API, lo que permite a los usuarios generar múltiples tokens con capacidades específicas.</p>
+<h3 id="instalacion">Instalación<a class="headerlink" href="#instalacion" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer<span class="w"> </span>require<span class="w"> </span>laravel/sanctum
+<span class="linenos" data-linenos="2 "></span>php<span class="w"> </span>artisan<span class="w"> </span>sanctum:install
+<span class="linenos" data-linenos="3 "></span>php<span class="w"> </span>artisan<span class="w"> </span>migrate
+</code></pre></div>
+<h3 id="generar-token">Generar Token<a class="headerlink" href="#generar-token" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="x">$user-&gt;createToken(&#39;api-token&#39;)-&gt;plainTextToken;</span>
+</code></pre></div>
+<p>Respuesta típica:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span><span class="w">  </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1|asdkjasdkljasdkljasd&quot;</span>
+<span class="linenos" data-linenos="3 "></span><span class="p">}</span>
+</code></pre></div>
+<p>De esta forma el cliente ya tiene disponible el token para poder realizar peticiones incluyéndolo en la cabecera de las mismas: <code>Authorization: Bearer TOKEN</code>.</p>
+<h3 id="proteger-rutas">Proteger rutas<a class="headerlink" href="#proteger-rutas" title="Permanent link">&para;</a></h3>
+<p>Sólo los usuarios autenticados pueden realizar peticiones a la API de posts:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nx">Route</span><span class="o">::</span><span class="na">middleware</span><span class="p">(</span><span class="s1">&#39;auth:sanctum&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">group</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="nx">Route</span><span class="o">::</span><span class="na">apiResource</span><span class="p">(</span><span class="s1">&#39;posts&#39;</span><span class="p">,</span> <span class="nx">PostController</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+<span class="linenos" data-linenos="4 "></span><span class="p">});</span>
+</code></pre></div>
+<h2 id="116-login-api">11.6 Login API<a class="headerlink" href="#116-login-api" title="Permanent link">&para;</a></h2>
+<p>Igual que el login del tema anterior, sólo que aquí se devuelve el token:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">login</span><span class="p">(</span><span class="nx">Request</span> <span class="nv">$request</span><span class="p">){</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="nv">$credentials</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">validate</span><span class="p">([</span>
+<span class="linenos" data-linenos=" 5 "></span>        <span class="s1">&#39;email&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;required|email&#39;</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 6 "></span>        <span class="s1">&#39;password&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;required&#39;</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="p">]);</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="hll"><span class="linenos" data-linenos=" 9 "></span>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">Auth</span><span class="o">::</span><span class="na">attempt</span><span class="p">(</span><span class="nv">$credentials</span><span class="p">))</span> <span class="p">{</span>
+</span><span class="linenos" data-linenos="10 "></span>        <span class="k">return</span> <span class="nx">response</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">json</span><span class="p">([</span>
+<span class="linenos" data-linenos="11 "></span>            <span class="s1">&#39;message&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Credenciales incorrectas&#39;</span>
+<span class="linenos" data-linenos="12 "></span>        <span class="p">],</span> <span class="mi">401</span><span class="p">);</span>
+<span class="linenos" data-linenos="13 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="14 "></span>
+<span class="hll"><span class="linenos" data-linenos="15 "></span>    <span class="nv">$user</span> <span class="o">=</span> <span class="nx">Auth</span><span class="o">::</span><span class="na">user</span><span class="p">();</span>
+</span><span class="linenos" data-linenos="16 "></span>
+<span class="hll"><span class="linenos" data-linenos="17 "></span>    <span class="k">return</span> <span class="nx">response</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">json</span><span class="p">([</span>
+</span><span class="hll"><span class="linenos" data-linenos="18 "></span>        <span class="s1">&#39;token&#39;</span> <span class="o">=&gt;</span> <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">createToken</span><span class="p">(</span><span class="s1">&#39;api-token&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">plainTextToken</span>
+</span><span class="hll"><span class="linenos" data-linenos="19 "></span>    <span class="p">]);</span>
+</span><span class="linenos" data-linenos="20 "></span><span class="p">}</span>
+</code></pre></div>
+<h2 id="117-autorizacion-en-apis-policies">11.7 Autorización en APIs (Policies)<a class="headerlink" href="#117-autorizacion-en-apis-policies" title="Permanent link">&para;</a></h2>
+<p>Autenticado ≠ Autorizado. Un usuario puede estar logueado, pero no tener permiso para realizar una determinada acción.</p>
+<p>Laravel reutiliza:</p>
+<ul>
+<li>Policies</li>
+<li>Gates</li>
+<li>Middleware <code>can</code></li>
+</ul>
+<p>Ejemplo de Policy:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>php<span class="w"> </span>artisan<span class="w"> </span>make:policy<span class="w"> </span>PostPolicy<span class="w"> </span>--model<span class="o">=</span>Post
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="c1">// PostPolicy.php</span>
+<span class="linenos" data-linenos="3 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">update</span><span class="p">(</span><span class="nx">User</span> <span class="nv">$user</span><span class="p">,</span> <span class="nx">Post</span> <span class="nv">$post</span><span class="p">){</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="k">return</span> <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">id</span> <span class="o">===</span> <span class="nv">$post</span><span class="o">-&gt;</span><span class="na">user_id</span><span class="p">;</span>
+<span class="linenos" data-linenos="5 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Uso en API Controller:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">update</span><span class="p">(</span><span class="nx">Request</span> <span class="nv">$request</span><span class="p">,</span> <span class="nx">Post</span> <span class="nv">$post</span><span class="p">){</span>
+<span class="linenos" data-linenos="3 "></span>
+<span class="linenos" data-linenos="4 "></span>    <span class="k">if</span> <span class="p">(</span><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">user</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">cannot</span><span class="p">(</span><span class="s1">&#39;update&#39;</span><span class="p">,</span> <span class="nv">$post</span><span class="p">))</span> <span class="p">{</span>
+<span class="linenos" data-linenos="5 "></span>        <span class="nx">abort</span><span class="p">(</span><span class="mi">403</span><span class="p">);</span>
+<span class="linenos" data-linenos="6 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="7 "></span>
+<span class="linenos" data-linenos="8 "></span>    <span class="c1">// ...</span>
+<span class="linenos" data-linenos="9 "></span><span class="p">}</span>
+</code></pre></div>
+<h2 id="118-api-resources">11.8 API Resources<a class="headerlink" href="#118-api-resources" title="Permanent link">&para;</a></h2>
+<p>No siempre queremos devolver el modelo tal cual. Laravel permite transformar la salida, por ejemplo a JSON.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>php<span class="w"> </span>artisan<span class="w"> </span>make:resource<span class="w"> </span>PostResource
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="c1">// PostResource.php</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">toArray</span><span class="p">(</span><span class="nx">Request</span> <span class="nv">$request</span><span class="p">)</span><span class="o">:</span> <span class="k">array</span><span class="p">{</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="k">return</span> <span class="p">[</span>
+<span class="linenos" data-linenos=" 6 "></span>        <span class="s1">&#39;id&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 7 "></span>        <span class="s1">&#39;title&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">title</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 8 "></span>        <span class="s1">&#39;summary&#39;</span> <span class="o">=&gt;</span> <span class="nb">substr</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">content</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="p">];</span>
+<span class="linenos" data-linenos="10 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Uso:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">return</span> <span class="nx">PostResource</span><span class="o">::</span><span class="na">collection</span><span class="p">(</span><span class="nx">Post</span><span class="o">::</span><span class="na">all</span><span class="p">());</span>
+</code></pre></div>
+<h2 id="119-buenas-practicas">11.9 Buenas prácticas<a class="headerlink" href="#119-buenas-practicas" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Validar siempre</li>
+<li>Usar HTTP codes correctos</li>
+<li>No exponer datos sensibles</li>
+<li>Versionar API (<code>/api/v1/...</code>)</li>
+<li>Manejar errores correctamente</li>
+<li>Transformar respuestas con Resources</li>
+<li>Autenticación stateless</li>
+<li>Autorización mediante policies</li>
+</ul>
+<h2 id="1110-resumen">11.10 Resumen<a class="headerlink" href="#1110-resumen" title="Permanent link">&para;</a></h2>
+<ul>
+<li>CRUD REST</li>
+<li>Tokens Sanctum</li>
+<li>Policies</li>
+<li>Resources</li>
+</ul>
+<h2 id="1111-actividades">11.11 Actividades<a class="headerlink" href="#1111-actividades" title="Permanent link">&para;</a></h2>
+<h3 id="api-rest-de-productos">API Rest de productos<a class="headerlink" href="#api-rest-de-productos" title="Permanent link">&para;</a></h3>
+<p>Construir una API REST para un recurso <strong>Producto</strong>: <em>name</em>, <em>price</em> y <em>stock</em>.</p>
+<p>Ten en cuenta para crear la relación, que un usuario tendrá muchos productos y un producto pertenecerá a un usuario.</p>
+<p>Debe incluir:</p>
+<ul>
+<li>CRUD completo</li>
+<li>Validación</li>
+<li>Respuestas HTTP correctas</li>
+</ul>
+<h3 id="autenticacion">Autenticación<a class="headerlink" href="#autenticacion" title="Permanent link">&para;</a></h3>
+<p>A la API anterior añadele <strong>login</strong> para generar el token y protege las rutas con Sanctum.</p>
+<h3 id="autorizacion">Autorización<a class="headerlink" href="#autorizacion" title="Permanent link">&para;</a></h3>
+<p>Crea una <strong>policy</strong> para restringir la actualización y eliminación para que sólo el usuario propietario del producto pueda eliminarlo.</p>
+<h3 id="cliente-api">Cliente API<a class="headerlink" href="#cliente-api" title="Permanent link">&para;</a></h3>
+<p>Crea en <strong>Postman</strong> una colección con los diferentes endpoints para probar la API. No olvides enviar el token cuando sea necesario y verificar los posiles errores.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      2025-2026 Eladio Blanco. Licencia CC BY-NC-SA
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/eladioblanco" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.2 4.2 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.52 8.52 0 0 1-5.33 1.84q-.51 0-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:<eladio.blanco@fernando3martos.com>" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 12.13c-.15.01-.29.06-.39.17l-1 1 2.05 2 1-1c.22-.21.22-.56 0-.77l-1.24-1.23a.56.56 0 0 0-.38-.17m-2 1.75L13 19.94V22h2.06l6.06-6.07M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h7v-.89l8.24-8.22c.47-.49 1.12-.76 1.8-.76.34 0 .68.06 1 .19V6c0-1.12-.92-2-2.04-2m0 4-8 5-8-5V6l8 5 8-5"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["header.autohide", "toc.integrate", "content.tabs.link"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1540 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://elblo.github.io/dwes2526/08actividadesResueltas.html">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="imagenes/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
+    
+    
+      
+        <title>Gestión de datos en Laravel: Actividades resueltas - Desarrollo Web en Entorno Servidor</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="Teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#gestion-de-datos-en-laravel-actividades-resueltas" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="index.html" title="Desarrollo Web en Entorno Servidor" class="md-header__button md-logo" aria-label="Desarrollo Web en Entorno Servidor" data-md-component="logo">
+      
+  <img src="imagenes/logoies.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Desarrollo Web en Entorno Servidor
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Gestión de datos en Laravel: Actividades resueltas
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="Teal"  aria-label="Cambiar a modo noche"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo noche" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="pink" data-md-color-accent="Teal"  aria-label="Cambiar a modo día"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo día" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Desarrollo Web en Entorno Servidor" class="md-nav__button md-logo" aria-label="Desarrollo Web en Entorno Servidor" data-md-component="logo">
+      
+  <img src="imagenes/logoies.png" alt="logo">
+
+    </a>
+    Desarrollo Web en Entorno Servidor
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="01arquitecturas.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.- Arquitecturas Web
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="02php.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.- El lenguaje PHP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="03phpoo.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3.- PHP Orientado a Objetos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="04web.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.- Programación Web
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="05herramientas.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5.- Herramientas Web
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="06accesoDatos.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6.- Acceso a Datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="07frameworks.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7.- Frameworks PHP - Laravel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="08laravelDatos.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8.- Gestión de datos en Laravel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="09laravelAvanzado.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9.- Laravel Avanzado
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="10laravelAutenticacion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10.- Autenticación y autorización
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="11laravelAPI.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11.- Servicios REST
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="gestion-de-datos-en-laravel-actividades-resueltas">Gestión de datos en Laravel: Actividades resueltas<a class="headerlink" href="#gestion-de-datos-en-laravel-actividades-resueltas" title="Permanent link">&para;</a></h1>
+<p>A continuación, vas a realizar una serie de ejercicios sencillos sobre cada uno de los apartados vistos en el tema. Puedes crear un proyecto nuevo o reutilizar uno existente.</p>
+<h2 id="migraciones">Migraciones<a class="headerlink" href="#migraciones" title="Permanent link">&para;</a></h2>
+<p>En este apartado vas a trabajar creando migraciones. Es importante, que aparte del código en sí, apuntes los comandos que utilizas para crearlas, eliminarlas, ejecutarlas...</p>
+<ol start="801">
+<li><strong>Crear de una tabla básica</strong>: Crea una tabla llamada productos con las siguientes columnas:</li>
+</ol>
+<ul>
+<li><em>id</em> (entero, clave primaria, auto-incremental)</li>
+<li><em>nombre</em> (string, longitud máxima de 255)</li>
+<li><em>precio</em> (decimal, 8 dígitos en total, 2 decimales)</li>
+</ul>
+<details class="info">
+<summary>Solución</summary>
+<p>Ejecuta: <code>php artisan make:migration create_productos_table</code></p>
+<p>Contenido del archivo de la migración:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">up</span><span class="p">(){</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="nx">Schema</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;productos&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nx">Blueprint</span> <span class="nv">$table</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 4 "></span>        <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 5 "></span>        <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">string</span><span class="p">(</span><span class="s1">&#39;nombre&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 6 "></span>        <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">decimal</span><span class="p">(</span><span class="s1">&#39;precio&#39;</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 7 "></span>        <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">timestamps</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="p">});</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">down</span><span class="p">(){</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="nx">Schema</span><span class="o">::</span><span class="na">dropIfExists</span><span class="p">(</span><span class="s1">&#39;productos&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos="13 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Ejecuta: <code>php artisan migrate</code></p>
+</details>
+<ol start="802">
+<li><strong>Añadir columnas a una tabla existente</strong>: Añade una columna <em>descripcion</em> (tipo texto) a la tabla productos.</li>
+</ol>
+<details class="info">
+<summary>Solución</summary>
+<p>Ejecuta: <code>php artisan make:migration add_descripcion_to_productos_table</code></p>
+<p>Contenido del archivo de la migración:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">up</span><span class="p">(){</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="nx">Schema</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;productos&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nx">Blueprint</span> <span class="nv">$table</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 4 "></span>        <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">text</span><span class="p">(</span><span class="s1">&#39;descripcion&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">nullable</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="p">});</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="p">}</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">down</span><span class="p">(){</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="nx">Schema</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;productos&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nx">Blueprint</span> <span class="nv">$table</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="10 "></span>        <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">dropColumn</span><span class="p">(</span><span class="s1">&#39;descripcion&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="p">});</span>
+<span class="linenos" data-linenos="12 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Ejecuta: <code>php artisan migrate</code></p>
+</details>
+<ol start="803">
+<li><strong>Crear una tabla con claves foráneas</strong>: Crea una tabla <em>categorias</em> y una tabla <em>productos</em> donde cada producto pertenece a una categoría.</li>
+</ol>
+<details class="info">
+<summary>Solución</summary>
+<p>Ejecuta: <code>php artisan make:migration create_categorias_table</code></p>
+<p>Contenido del archivo de la migración:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">up</span><span class="p">(){</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="nx">Schema</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;categorias&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nx">Blueprint</span> <span class="nv">$table</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 4 "></span>        <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 5 "></span>        <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">string</span><span class="p">(</span><span class="s1">&#39;nombre&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 6 "></span>        <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">timestamps</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="p">});</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="p">}</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">down</span><span class="p">(){</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="nx">Schema</span><span class="o">::</span><span class="na">dropIfExists</span><span class="p">(</span><span class="s1">&#39;categorias&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos="12 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Como la tabla <em>productos</em> ya la tenemos creada, hacemos una migración que añada el campo necesario con la clave foránea a la tabla <em>categorias</em>.</p>
+<p>Ejecuta: <code>php artisan make:migration add_categoria_id_to_productos_table</code></p>
+<p>Contenido del archivo de la migración:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">up</span><span class="p">(){</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="nx">Schema</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;productos&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nx">Blueprint</span> <span class="nv">$table</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 4 "></span>        <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">foreignId</span><span class="p">(</span><span class="s1">&#39;categoria_id&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">constrained</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">onDelete</span><span class="p">(</span><span class="s1">&#39;cascade&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 5 "></span>        <span class="c1">// $table-&gt;foreignId(&#39;categoria_id&#39;)-&gt;constrained([table: &#39;categorias&#39;, indexName: &#39;id&#39;])-&gt;onDelete(&#39;cascade&#39;);</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="p">});</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="p">}</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">down</span><span class="p">(){</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="nx">Schema</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;productos&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nx">Blueprint</span> <span class="nv">$table</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="11 "></span>        <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">dropColumn</span><span class="p">(</span><span class="s1">&#39;categoria_id&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="p">});</span>
+<span class="linenos" data-linenos="13 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Ejecuta: <code>php artisan migrate</code></p>
+</details>
+<ol start="804">
+<li><strong>Modificar una tabla para añadir índices</strong>: Añade un índice único a la columna <em>nombre</em> de la tabla <em>categorias</em>.</li>
+</ol>
+<details class="info">
+<summary>Solución</summary>
+<p>Ejecuta: <code>php artisan make:migration add_unique_to_nombre_in_categorias_table</code></p>
+<p>Contenido del archivo de la migración:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">up</span><span class="p">(){</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="nx">Schema</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;categorias&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nx">Blueprint</span> <span class="nv">$table</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 4 "></span>        <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">unique</span><span class="p">(</span><span class="s1">&#39;nombre&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="p">});</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="p">}</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">down</span><span class="p">(){</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="nx">Schema</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;categorias&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nx">Blueprint</span> <span class="nv">$table</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="10 "></span>        <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">dropUnique</span><span class="p">(</span><span class="s1">&#39;categorias_nombre_unique&#39;</span><span class="p">);</span> <span class="c1">// table_column_unique</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="p">});</span>
+<span class="linenos" data-linenos="12 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Ejecuta: <code>php artisan migrate</code></p>
+</details>
+<ol start="805">
+<li><strong>Eliminar una columna de una tabla</strong>: Elimina la columna <em>descripcion</em> de la tabla <em>productos</em>*.</li>
+</ol>
+<details class="info">
+<summary>Solución</summary>
+<p>Ejecuta: <code>php artisan make:migration drop_descripcion_from_productos_table</code></p>
+<p>Contenido del archivo de la migración:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">up</span><span class="p">(){</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="nx">Schema</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;productos&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nx">Blueprint</span> <span class="nv">$table</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 4 "></span>        <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">dropColumn</span><span class="p">(</span><span class="s1">&#39;descripcion&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="p">});</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="p">}</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">down</span><span class="p">(){</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="nx">Schema</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;productos&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nx">Blueprint</span> <span class="nv">$table</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="10 "></span>        <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">text</span><span class="p">(</span><span class="s1">&#39;descripcion&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">nullable</span><span class="p">();</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="p">});</span>
+<span class="linenos" data-linenos="12 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Ejecuta: <code>php artisan migrate</code></p>
+</details>
+<ol start="806">
+<li><strong>Renombrar una tabla</strong>: Cambia el nombre de la tabla <em>productos</em> a <em>articulos</em>.</li>
+</ol>
+<details class="info">
+<summary>Solución</summary>
+<p>Ejecuta: <code>php artisan make:migration rename_productos_to_articulos</code></p>
+<p>Contenido del archivo de la migración:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">up</span><span class="p">(){</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="nx">Schema</span><span class="o">::</span><span class="na">rename</span><span class="p">(</span><span class="s1">&#39;productos&#39;</span><span class="p">,</span> <span class="s1">&#39;articulos&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos="4 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="5 "></span>
+<span class="linenos" data-linenos="6 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">down</span><span class="p">(){</span>
+<span class="linenos" data-linenos="7 "></span>    <span class="nx">Schema</span><span class="o">::</span><span class="na">rename</span><span class="p">(</span><span class="s1">&#39;articulos&#39;</span><span class="p">,</span> <span class="s1">&#39;productos&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos="8 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Ejecuta: <code>php artisan migrate</code></p>
+</details>
+<ol start="807">
+<li><strong>Usar valores predeterminados en una columna</strong>: Añade una columna <em>stock</em> con un valor por defecto de 0 a la tabla <em>productos</em>.</li>
+</ol>
+<details class="info">
+<summary>Solución</summary>
+<p>Ejecuta: <code>php artisan make:migration add_stock_to_productos_table</code></p>
+<p>Contenido del archivo de la migración:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">up</span><span class="p">(){</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="nx">Schema</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;productos&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nx">Blueprint</span> <span class="nv">$table</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 4 "></span>        <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">integer</span><span class="p">(</span><span class="s1">&#39;stock&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">default</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="p">});</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="p">}</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">down</span><span class="p">(){</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="nx">Schema</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;productos&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nx">Blueprint</span> <span class="nv">$table</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="10 "></span>        <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">dropColumn</span><span class="p">(</span><span class="s1">&#39;stock&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="p">});</span>
+<span class="linenos" data-linenos="12 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Ejecuta: <code>php artisan migrate</code></p>
+</details>
+<ol start="808">
+<li><strong>Crear tabla con datos iniciales</strong>: Crear tabla <em>usuarios</em> con los siguientes campos:</li>
+</ol>
+<ul>
+<li><em>id</em></li>
+<li><em>nombre</em> (string)</li>
+<li><em>email</em> (string, único)</li>
+<li><em>password</em> (string)</li>
+<li><em>created_at</em> y <em>updated_at</em></li>
+</ul>
+<p>Además, rellénala con datos iniciales mediante el seeder DatabaseSeeder (opcional, se ve en el tema siguiente).</p>
+<details class="info">
+<summary>Solución</summary>
+<p>Ejecuta: <code>php artisan make:migration create_usuarios_table</code></p>
+<p>Contenido del archivo de la migración:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">up</span><span class="p">(){</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="nx">Schema</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;usuarios&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nx">Blueprint</span> <span class="nv">$table</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 4 "></span>        <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 5 "></span>        <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">string</span><span class="p">(</span><span class="s1">&#39;nombre&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 6 "></span>        <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">string</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">unique</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 7 "></span>        <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">string</span><span class="p">(</span><span class="s1">&#39;password&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 8 "></span>        <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">timestamps</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="p">});</span>
+<span class="linenos" data-linenos="10 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="11 "></span>
+<span class="linenos" data-linenos="12 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">down</span><span class="p">(){</span>
+<span class="linenos" data-linenos="13 "></span>    <span class="nx">Schema</span><span class="o">::</span><span class="na">dropIfExists</span><span class="p">(</span><span class="s1">&#39;usuarios&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos="14 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Inserta en la función <code>run</code> de <code>database/seeders/DatabaseSeeder.php</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nx">DB</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;usuarios&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">insert</span><span class="p">([</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="p">[</span><span class="s1">&#39;nombre&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Juan&#39;</span><span class="p">,</span> <span class="s1">&#39;email&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;juan@example.com&#39;</span><span class="p">,</span> <span class="s1">&#39;password&#39;</span> <span class="o">=&gt;</span> <span class="nx">bcrypt</span><span class="p">(</span><span class="s1">&#39;123456&#39;</span><span class="p">)],</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="p">[</span><span class="s1">&#39;nombre&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Ana&#39;</span><span class="p">,</span> <span class="s1">&#39;email&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;ana@example.com&#39;</span><span class="p">,</span> <span class="s1">&#39;password&#39;</span> <span class="o">=&gt;</span> <span class="nx">bcrypt</span><span class="p">(</span><span class="s1">&#39;123456&#39;</span><span class="p">)],</span>
+<span class="linenos" data-linenos="5 "></span><span class="p">]);</span>
+</code></pre></div>
+<p>Ejecuta: <code>php artisan migrate --seed</code></p>
+</details>
+<ol start="809">
+<li><strong>Borrar y recrear la BDD</strong>: Utiliza los comandos de Artisan necesarios para eliminar y volver a crear todas las tablas de la BDD.</li>
+</ol>
+<details class="info">
+<summary>Solución</summary>
+<p>Ejecuta: <code>php artisan migrate:fresh</code></p>
+</details>
+<ol start="810">
+<li><strong>Ejercicio completo: Crear un sistema de reservas</strong>: Crea las siguientes tablas para un sistema de reservas:</li>
+</ol>
+<ul>
+<li><em>usuarios</em> (id, nombre, email, password)</li>
+<li><em>habitaciones</em> (id, nombre, capacidad)</li>
+<li><em>reservas</em> (id, usuario_id, habitacion_id, fecha_reserva)</li>
+</ul>
+<p>Incluye claves foráneas, valores predeterminados y relación de "cascade delete".</p>
+<details class="info">
+<summary>Solución</summary>
+<p>Ejecuta: ``</p>
+<p>Contenido del archivo de la migración:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+</code></pre></div>
+<p>Ejecuta: <code>php artisan migrate</code></p>
+</details>
+<h2 id="query-builder">Query Builder<a class="headerlink" href="#query-builder" title="Permanent link">&para;</a></h2>
+<p>En este apartado vas a trabajar haciendo consultas directamente sobre la BDD mediante <em>Query Builder</em>. </p>
+<p>Para probar que funciona, se recomienda meter el código de cada ejercicio en una función independiente del controlador que se llamará con una ruta que te inventes (por ejemplo: <code>localhost/ejercicio820</code>). Nota: Dicha función del controlador debería llamar a la función correspondiente del modelo y ahí es donde insertarías el código de Query Builder, pero por simplificar, puedes trabajar únicamente sobre el controlador.</p>
+<p>No olvides: <code>use Illuminate\Support\Facades\DB;</code> para que importe la BD.</p>
+<p>Para todos los ejercicios se va a utilizar la tabla <em>productos</em>. Si no la tienes, créala mediante una migración con los campos <em>id</em>, <em>nombre</em>, <em>precio</em>, <em>descripcion</em>. O si la renombraste a <em>articulos</em>, vuelve a crear una migración en la que le cambies el nombre.</p>
+<ol start="820">
+<li><strong>Insertar registros</strong>: Inserta un nuevo producto en la tabla. Puedes crear una ruta a la que se le pasen los parámetros <em>nombre</em>, <em>precio</em> y <em>descripcion</em>.</li>
+</ol>
+<details class="info">
+<summary>Solución</summary>
+<p>Las variables $nombre, $precio y $descripcion se han pasado por la ruta.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nx">DB</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;productos&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">insert</span><span class="p">([</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="s1">&#39;nombre&#39;</span> <span class="o">=&gt;</span> <span class="nv">$nombre</span><span class="p">,</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="s1">&#39;precio&#39;</span> <span class="o">=&gt;</span> <span class="nv">$precio</span><span class="p">,</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="s1">&#39;descripcion&#39;</span> <span class="o">=&gt;</span> <span class="nv">$descripcion</span><span class="p">,</span>
+<span class="linenos" data-linenos="6 "></span>    <span class="s1">&#39;created_at&#39;</span> <span class="o">=&gt;</span> <span class="nx">now</span><span class="p">(),</span>
+<span class="linenos" data-linenos="7 "></span>    <span class="s1">&#39;updated_at&#39;</span> <span class="o">=&gt;</span> <span class="nx">now</span><span class="p">(),</span>
+<span class="linenos" data-linenos="8 "></span><span class="p">]);</span>
+</code></pre></div>
+</details>
+<ol start="821">
+<li><strong>Actualizar registros</strong>: Actualiza el <em>nombre</em> de un producto por su <em>id</em> (ambos de pasan por parámetro a la ruta).</li>
+</ol>
+<details class="info">
+<summary>Solución</summary>
+<p>Las variables $id y $nombre se han pasado por la ruta.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nx">DB</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;productos&#39;</span><span class="p">)</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="o">-&gt;</span><span class="na">where</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="nv">$id</span><span class="p">)</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="o">-&gt;</span><span class="na">update</span><span class="p">([</span><span class="s1">&#39;nombre&#39;</span> <span class="o">=&gt;</span> <span class="nv">$nombre</span><span class="p">]);</span>
+</code></pre></div>
+</details>
+<ol start="822">
+<li><strong>Actualizar registros</strong>: Actualiza el <em>precio</em> de un producto por su <em>id</em> (ambos de pasan por parámetro a la ruta).</li>
+</ol>
+<details class="info">
+<summary>Solución</summary>
+<p>Las variables $id y $precio se han pasado por la ruta.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nx">DB</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;productos&#39;</span><span class="p">)</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="o">-&gt;</span><span class="na">where</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="nv">$id</span><span class="p">)</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="o">-&gt;</span><span class="na">update</span><span class="p">([</span><span class="s1">&#39;precio&#39;</span> <span class="o">=&gt;</span> <span class="nv">$precio</span><span class="p">]);</span>
+</code></pre></div>
+</details>
+<ol start="823">
+<li><strong>Actualizar registros</strong>: Actualiza la <em>descripcion</em> de un producto por su <em>id</em> (ambos de pasan por parámetro a la ruta).</li>
+</ol>
+<details class="info">
+<summary>Solución</summary>
+<p>Las variables $id y $descripcion se han pasado por la ruta.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nx">DB</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;productos&#39;</span><span class="p">)</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="o">-&gt;</span><span class="na">where</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="nv">$id</span><span class="p">)</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="o">-&gt;</span><span class="na">update</span><span class="p">([</span><span class="s1">&#39;descripcion&#39;</span> <span class="o">=&gt;</span> <span class="nv">$descripcion</span><span class="p">]);</span>
+</code></pre></div>
+</details>
+<ol start="824">
+<li><strong>Eliminar registros</strong>: Elimina un producto según el <em>id</em> pasado por la ruta.</li>
+</ol>
+<details class="info">
+<summary>Solución</summary>
+<p>Las variable $id se ha pasado por la ruta.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nx">DB</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;productos&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">where</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="nv">$id</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">();</span>
+</code></pre></div>
+</details>
+<ol start="825">
+<li><strong>Eliminar registros</strong>: Elimina los productos cuyo <em>precio</em> sea inferior a 20.</li>
+</ol>
+<details class="info">
+<summary>Solución</summary>
+<p>Las variables $id y $precio se han pasado por la ruta.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nx">DB</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;productos&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">where</span><span class="p">(</span><span class="s1">&#39;precio&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;&#39;</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">();</span>
+</code></pre></div>
+</details>
+<ol start="826">
+<li><strong>Obtener todos los registros</strong>: Obtén todos los registros de la tabla <em>productos</em>. </li>
+</ol>
+<details class="info">
+<summary>Solución</summary>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$productos</span> <span class="o">=</span> <span class="nx">DB</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;productos&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">();</span>
+</code></pre></div>
+</details>
+<ol start="827">
+<li><strong>Obtener registro por id</strong>: Obtén un registro por su <em>id</em> pasado por la ruta.</li>
+</ol>
+<details class="info">
+<summary>Solución</summary>
+<p>Las variable $id se ha pasado por la ruta.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$producto</span> <span class="o">=</span> <span class="nx">DB</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;productos&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">find</span><span class="p">(</span><span class="nv">$id</span><span class="p">);</span>
+<span class="linenos" data-linenos="3 "></span><span class="c1">//$producto = DB::table(&#39;productos&#39;)-&gt;where(&#39;id&#39;, $id)-&gt;get();</span>
+</code></pre></div>
+</details>
+<ol start="828">
+<li><strong>Seleccionar columnas específicas</strong>: Obtén solo las columnas <em>nombre</em> y <em>precio</em> de todos los registros de <em>productos</em>.</li>
+</ol>
+<details class="info">
+<summary>Solución</summary>
+<p>Contenido del archivo de la migración:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$productos</span> <span class="o">=</span> <span class="nx">DB</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;productos&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">select</span><span class="p">(</span><span class="s1">&#39;nombre&#39;</span><span class="p">,</span> <span class="s1">&#39;precio&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">();</span>
+</code></pre></div>
+</details>
+<ol start="829">
+<li><strong>Filtrar registros con where</strong>: Obtén los productos cuyo precio sea mayor a 50.</li>
+</ol>
+<details class="info">
+<summary>Solución</summary>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$productos</span> <span class="o">=</span> <span class="nx">DB</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;productos&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">where</span><span class="p">(</span><span class="s1">&#39;precio&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;&#39;</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">();</span>
+</code></pre></div>
+</details>
+<ol start="830">
+<li><strong>Filtrar registros con where</strong>: Obtén productos cuyo <em>precio</em> esté entre 50 y 100, y cuya <em>descripción</em> no sea nula.</li>
+</ol>
+<details class="info">
+<summary>Solución</summary>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$productos</span> <span class="o">=</span> <span class="nx">DB</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;productos&#39;</span><span class="p">)</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="o">-&gt;</span><span class="na">whereBetween</span><span class="p">(</span><span class="s1">&#39;precio&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">])</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="o">-&gt;</span><span class="na">whereNotNull</span><span class="p">(</span><span class="s1">&#39;descripcion&#39;</span><span class="p">)</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="o">-&gt;</span><span class="na">get</span><span class="p">();</span>
+</code></pre></div>
+</details>
+<ol start="831">
+<li><strong>Ordenar resultados</strong>: Ordena los productos por precio de forma descendente.</li>
+</ol>
+<details class="info">
+<summary>Solución</summary>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$productos</span> <span class="o">=</span> <span class="nx">DB</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;productos&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">orderBy</span><span class="p">(</span><span class="s1">&#39;precio&#39;</span><span class="p">,</span> <span class="s1">&#39;desc&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">();</span>
+</code></pre></div>
+</details>
+<ol start="832">
+<li><strong>Paginar resultados</strong>: Pagina los productos mostrando 5 por página.</li>
+</ol>
+<details class="info">
+<summary>Solución</summary>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$productos</span> <span class="o">=</span> <span class="nx">DB</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;productos&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">paginate</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+</code></pre></div>
+</details>
+<ol start="833">
+<li><strong>Contar registros</strong>: Cuenta cuántos productos tienen un <strong>precio</strong> mayor a 100.</li>
+</ol>
+<details class="info">
+<summary>Solución</summary>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$productosMayor100</span> <span class="o">=</span> <span class="nx">DB</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;productos&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">where</span><span class="p">(</span><span class="s1">&#39;precio&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">count</span><span class="p">();</span>
+</code></pre></div>
+</details>
+<ol start="834">
+<li><strong>Obtener el registro más caro</strong>: Obtén el producto con el <em>precio</em> más alto.</li>
+</ol>
+<details class="info">
+<summary>Solución</summary>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$productoMasCaro</span> <span class="o">=</span> <span class="nx">DB</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;productos&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">orderBy</span><span class="p">(</span><span class="s1">&#39;precio&#39;</span><span class="p">,</span> <span class="s1">&#39;desc&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">first</span><span class="p">();</span>
+</code></pre></div>
+</details>
+<ol start="835">
+<li><strong>Ejecutar consultas crudas</strong>: Usa una consulta SQL "cruda" para obtener productos cuyo <em>nombre</em> contenga la palabra "Premium".</li>
+</ol>
+<details class="info">
+<summary>Solución</summary>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$productos</span> <span class="o">=</span> <span class="nx">DB</span><span class="o">::</span><span class="na">select</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM productos WHERE nombre LIKE ?&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;%Premium%&#39;</span><span class="p">]);</span>
+</code></pre></div>
+</details>
+<ol start="836">
+<li><strong>Consulta con uniones (join)</strong>: Crea la migración corresponediente para crear la tabla <em>categorias</em> (<em>id</em>, <em>nombre</em>) y hacer que cada producto pertenezca a una categoría. Una vez hecho, mediante Query Builder obtén el <em>nombre del producto</em> junto al <em>nombre de su categoría</em>.</li>
+</ol>
+<details class="info">
+<summary>Solución</summary>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$productos</span> <span class="o">=</span> <span class="nx">DB</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;productos&#39;</span><span class="p">)</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="o">-&gt;</span><span class="na">join</span><span class="p">(</span><span class="s1">&#39;categorias&#39;</span><span class="p">,</span> <span class="s1">&#39;productos.categoria_id&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="s1">&#39;categorias.id&#39;</span><span class="p">)</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="o">-&gt;</span><span class="na">select</span><span class="p">(</span><span class="s1">&#39;productos.nombre as producto&#39;</span><span class="p">,</span> <span class="s1">&#39;categorias.nombre as categoria&#39;</span><span class="p">)</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="o">-&gt;</span><span class="na">get</span><span class="p">();</span>
+</code></pre></div>
+</details>
+<ol start="837">
+<li><strong>Agrupar resultados con groupBy y having</strong>: Agrupa los productos por <em>categoría</em> y calcula el <em>precio promedio</em> por categoría, mostrando solo las categorías con un promedio mayor a 50.</li>
+</ol>
+<details class="info">
+<summary>Solución</summary>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$categoriasPromedioMayor50</span> <span class="o">=</span> <span class="nx">DB</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;productos&#39;</span><span class="p">)</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="o">-&gt;</span><span class="na">select</span><span class="p">(</span><span class="nx">DB</span><span class="o">::</span><span class="na">raw</span><span class="p">(</span><span class="s1">&#39;categoria, AVG(precio) as promedio_precio&#39;</span><span class="p">))</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="o">-&gt;</span><span class="na">groupBy</span><span class="p">(</span><span class="s1">&#39;categoria&#39;</span><span class="p">)</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="o">-&gt;</span><span class="na">having</span><span class="p">(</span><span class="s1">&#39;promedio_precio&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;&#39;</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="linenos" data-linenos="6 "></span>    <span class="o">-&gt;</span><span class="na">get</span><span class="p">();</span>
+</code></pre></div>
+</details>
+<ol start="838">
+<li><strong>Consultas anidadas</strong>: Encuentra el producto más caro dentro de cada categoría.</li>
+</ol>
+<details class="info">
+<summary>Solución</summary>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$productosMasCaros</span> <span class="o">=</span> <span class="nx">DB</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;productos as p1&#39;</span><span class="p">)</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="o">-&gt;</span><span class="na">select</span><span class="p">(</span><span class="s1">&#39;p1.*&#39;</span><span class="p">)</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="o">-&gt;</span><span class="na">whereRaw</span><span class="p">(</span><span class="s1">&#39;precio = (SELECT MAX(precio) FROM productos WHERE categoria_id = p1.categoria_id)&#39;</span><span class="p">)</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="o">-&gt;</span><span class="na">get</span><span class="p">();</span>
+</code></pre></div>
+</details>
+<ol start="839">
+<li><strong>Ejercicio completo: CRUD con Query Builder</strong> Implementa un CRUD completo para la tabla <em>clientes</em> utilizando Query Builder:</li>
+</ol>
+<ul>
+<li><em>C</em>: Inserta nuevos clientes.</li>
+<li><em>R</em>: Obtén todos los clientes y filtra por email.</li>
+<li><em>U</em>: Actualiza el nombre de un cliente específico.</li>
+<li><em>D</em>: Elimina clientes con un email específico.</li>
+</ul>
+<h2 id="eloquent-modelos">Eloquent: Modelos<a class="headerlink" href="#eloquent-modelos" title="Permanent link">&para;</a></h2>
+<p>Antes has trabajado lanzando consultas mediante <em>Query Builder</em> directamente sobre la tabla <em>productos</em>. Ahora harás consultas parecidas, pero SIEMPRE desde el modelo mediante <em>Eloquent</em>.</p>
+<p>Para probar que funciona, se recomienda meter el código de cada ejercicio en una función independiente del controlador que se llamará con una ruta que te inventes (por ejemplo: <code>localhost/ejercicio841</code>).</p>
+<ol start="840">
+<li><strong>Crear modelo y tabla asociada</strong>: Crea el modelo <em>Producto</em> con su tabla asociada <em>productos</em> (ya la tienes del apartado anterior).</li>
+</ol>
+<details class="info">
+<summary>Solución</summary>
+<p>Recuerda que con el flag -m crea la migración asociada.</p>
+<p>Ejecuta: <code>php artisan make:model Producto</code></p>
+</details>
+<ol start="841">
+<li><strong>Inserta productos</strong>: Inserta un producto con los campos <em>nombre</em>, <em>precio</em> y <em>descripcion</em> pasados mediante parámetro por la ruta.</li>
+</ol>
+<details class="info">
+<summary>Solución</summary>
+<p>En una función del controlador:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">use</span> <span class="nx">App\Models\Producto</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="c1">// El siguiente código en una función del controlador a la que se llega mediante la ruta</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="c1">// Al utilizar &#39;create&#39; no olvides definir en el modelo &#39;Producto&#39;:</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="c1">// protected $fillable = [&#39;titulo&#39;, &#39;contenido&#39;, &#39;prioridad&#39;];</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="nx">Producto</span><span class="o">::</span><span class="na">create</span><span class="p">([</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="s1">&#39;nombre&#39;</span> <span class="o">=&gt;</span> <span class="nv">$nombre</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="s1">&#39;precio&#39;</span> <span class="o">=&gt;</span> <span class="nv">$precio</span><span class="p">,</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="s1">&#39;descripcion&#39;</span> <span class="o">=&gt;</span> <span class="nv">$descripcion</span><span class="p">,</span>
+<span class="linenos" data-linenos="11 "></span><span class="p">]);</span>
+</code></pre></div>
+</details>
+<ol start="842">
+<li><strong>Inserta productos</strong>: Inserta un producto con los campos <em>nombre</em>, <em>precio</em> y <em>descripcion</em> pasados mediante parámetro por la ruta, pero validando previamente que su <em>precio</em> sea mayor que 50 para insertarlo realmente.</li>
+</ol>
+<details class="info">
+<summary>Solución</summary>
+<p>En el controlador:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">if</span> <span class="p">(</span><span class="nv">$precio</span> <span class="o">&gt;</span> <span class="mi">50</span><span class="p">)</span> <span class="p">{</span> 
+<span class="linenos" data-linenos=" 3 "></span>    <span class="nv">$producto</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Producto</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="nv">$producto</span><span class="o">-&gt;</span><span class="na">nombre</span> <span class="o">=</span> <span class="nv">$nombre</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="nv">$producto</span><span class="o">-&gt;</span><span class="na">precio</span> <span class="o">=</span> <span class="nv">$precio</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="nv">$producto</span><span class="o">-&gt;</span><span class="na">descripcion</span> <span class="o">=</span> <span class="nv">$descripcion</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="nv">$producto</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="k">echo</span> <span class="s2">&quot;Producto guardado correctamente.&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="k">echo</span> <span class="s2">&quot;El precio del producto es demasiado bajo.&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="11 "></span><span class="p">}</span>
+</code></pre></div>
+</details>
+<ol start="843">
+<li><strong>Actualizar productos</strong>: Actualiza el <em>nombre</em> de un producto por su <em>id</em> (ambos de pasan por parámetro a la ruta).</li>
+</ol>
+<details class="info">
+<summary>Solución</summary>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$producto</span> <span class="o">=</span> <span class="nx">Producto</span><span class="o">::</span><span class="na">find</span><span class="p">(</span><span class="nv">$id</span><span class="p">);</span>
+<span class="linenos" data-linenos="3 "></span><span class="nv">$producto</span><span class="o">-&gt;</span><span class="na">nombre</span> <span class="o">=</span> <span class="nv">$nombre</span><span class="p">;</span>
+<span class="linenos" data-linenos="4 "></span><span class="nv">$producto</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">();</span>
+</code></pre></div>
+</details>
+<ol start="844">
+<li><strong>Actualizar productos</strong>: Actualiza el <em>precio</em> de un producto por su <em>id</em> (ambos de pasan por parámetro a la ruta).</li>
+</ol>
+<details class="info">
+<summary>Solución</summary>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$producto</span> <span class="o">=</span> <span class="nx">Producto</span><span class="o">::</span><span class="na">find</span><span class="p">(</span><span class="nv">$id</span><span class="p">);</span>
+<span class="linenos" data-linenos="3 "></span><span class="nv">$producto</span><span class="o">-&gt;</span><span class="na">precio</span> <span class="o">=</span> <span class="nv">$precio</span><span class="p">;</span>
+<span class="linenos" data-linenos="4 "></span><span class="nv">$producto</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">();</span>
+</code></pre></div>
+</details>
+<ol start="845">
+<li><strong>Actualizar productos</strong>: Actualiza la <em>descripcion</em> de un producto por su <em>id</em> (ambos de pasan por parámetro a la ruta).</li>
+</ol>
+<details class="info">
+<summary>Solución</summary>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$producto</span> <span class="o">=</span> <span class="nx">Producto</span><span class="o">::</span><span class="na">find</span><span class="p">(</span><span class="nv">$id</span><span class="p">);</span>
+<span class="linenos" data-linenos="3 "></span><span class="nv">$producto</span><span class="o">-&gt;</span><span class="na">descripcion</span> <span class="o">=</span> <span class="nv">$descripcion</span><span class="p">;</span>
+<span class="linenos" data-linenos="4 "></span><span class="nv">$producto</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">();</span>
+</code></pre></div>
+</details>
+<ol start="846">
+<li><strong>Actualizar múltiples productos</strong>: Actualiza todos los productos cuyo precio sea menor que 50, cambiando su descripcion a 'producto económico'.</li>
+</ol>
+<details class="info">
+<summary>Solución</summary>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nx">Producto</span><span class="o">::</span><span class="na">where</span><span class="p">(</span><span class="s1">&#39;precio&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;&#39;</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">update</span><span class="p">([</span><span class="s1">&#39;descripcion&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Producto económico&#39;</span><span class="p">]);</span>
+</code></pre></div>
+</details>
+<ol start="847">
+<li><strong>Eliminar productos</strong>: Elimina un producto según el <em>id</em> pasado por la ruta.</li>
+</ol>
+<details class="info">
+<summary>Solución</summary>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nx">Producto</span><span class="o">::</span><span class="na">destroy</span><span class="p">(</span><span class="nv">$id</span><span class="p">);</span>
+<span class="linenos" data-linenos="3 "></span><span class="c1">// $producto = Producto::find($id);</span>
+<span class="linenos" data-linenos="4 "></span><span class="c1">// $producto-&gt;delete();</span>
+</code></pre></div>
+</details>
+<ol start="848">
+<li><strong>Eliminar productos</strong>: Elimina los productos cuyo <em>precio</em> sea inferior a 20.</li>
+</ol>
+<details class="info">
+<summary>Solución</summary>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nx">Producto</span><span class="o">::</span><span class="na">where</span><span class="p">(</span><span class="s1">&#39;precio&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;&#39;</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">();</span>
+</code></pre></div>
+</details>
+<ol start="849">
+<li><strong>Obtener todos los productos</strong>: Obtén todos los productos de la tabla <em>productos</em>.</li>
+</ol>
+<details class="info">
+<summary>Solución</summary>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$productos</span> <span class="o">=</span> <span class="nx">Producto</span><span class="o">::</span><span class="na">all</span><span class="p">();</span>
+</code></pre></div>
+</details>
+<ol start="850">
+<li><strong>Obtener producto por id</strong>: Obtén un producto por su <em>id</em> pasado por la ruta.</li>
+</ol>
+<details class="info">
+<summary>Solución</summary>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$producto</span> <span class="o">=</span> <span class="nx">Producto</span><span class="o">::</span><span class="na">find</span><span class="p">(</span><span class="nv">$id</span><span class="p">);</span>
+</code></pre></div>
+</details>
+<ol start="851">
+<li><strong>Filtrar con where</strong>: Obtén los productos cuyo <em>precio</em> sea mayor a 50.</li>
+</ol>
+<details class="info">
+<summary>Solución</summary>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$productos</span> <span class="o">=</span> <span class="nx">Producto</span><span class="o">::</span><span class="na">where</span><span class="p">(</span><span class="s1">&#39;precio&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;&#39;</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">();</span>
+</code></pre></div>
+</details>
+<ol start="852">
+<li><strong>Contar el número de productos</strong>: Cuenta cuántos productos tienen un <em>precio</em> mayor a 50.</li>
+</ol>
+<details class="info">
+<summary>Solución</summary>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$cantidadProductosMayor50</span> <span class="o">=</span> <span class="nx">Producto</span><span class="o">::</span><span class="na">where</span><span class="p">(</span><span class="s1">&#39;precio&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;&#39;</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">count</span><span class="p">();</span>
+</code></pre></div>
+</details>
+<ol start="853">
+<li><strong>Ordenar resultados</strong>: Ordena los productos por <em>precio</em> de manera descendente.</li>
+</ol>
+<details class="info">
+<summary>Solución</summary>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$productos</span> <span class="o">=</span> <span class="nx">Producto</span><span class="o">::</span><span class="na">orderBy</span><span class="p">(</span><span class="s1">&#39;precio&#39;</span><span class="p">,</span> <span class="s1">&#39;desc&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">();</span>
+</code></pre></div>
+</details>
+<ol start="854">
+<li><strong>Usar el método pluck</strong> para obtener solo los nombres de los productos.</li>
+</ol>
+<details class="info">
+<summary>Solución</summary>
+<p>El método <code>pluck</code> recupera todos los valores para una clave dada de un array o, en este caso, los valores de una columna de una tabla.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$nombres</span> <span class="o">=</span> <span class="nx">Producto</span><span class="o">::</span><span class="na">pluck</span><span class="p">(</span><span class="s1">&#39;nombre&#39;</span><span class="p">);</span>
+</code></pre></div>
+</details>
+<ol start="855">
+<li><strong>Usar el método firstOrCreate</strong> para buscar un producto por su <em>nombre</em>, y si no existe, crea un nuevo producto.</li>
+</ol>
+<details class="info">
+<summary>Solución</summary>
+<p>El método <code>firstOrCreate</code> busca un producto por su nombre, y si no existe, lo crea.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$producto</span> <span class="o">=</span> <span class="nx">Producto</span><span class="o">::</span><span class="na">firstOrCreate</span><span class="p">(</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="p">[</span><span class="s1">&#39;nombre&#39;</span> <span class="o">=&gt;</span> <span class="nv">$nombre</span><span class="p">],</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="p">[</span><span class="s1">&#39;precio&#39;</span> <span class="o">=&gt;</span> <span class="mf">80.00</span><span class="p">,</span> <span class="s1">&#39;descripcion&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Nuevo producto&#39;</span><span class="p">]</span>
+<span class="linenos" data-linenos="5 "></span><span class="p">);</span>
+</code></pre></div>
+</details>
+<ol start="856">
+<li><strong>Usar el método updateOrCreate</strong> para actualizar un producto existente por su <em>nombre</em>, o crear uno nuevo si no existe.</li>
+</ol>
+<details class="info">
+<summary>Solución</summary>
+<p>El método <code>updateOrCreate</code> busca un producto por su nombre, y si no existe, lo crea.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$producto</span> <span class="o">=</span> <span class="nx">Producto</span><span class="o">::</span><span class="na">updateOrCreate</span><span class="p">(</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="p">[</span><span class="s1">&#39;nombre&#39;</span> <span class="o">=&gt;</span> <span class="nv">$nombre</span><span class="p">],</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="p">[</span><span class="s1">&#39;precio&#39;</span> <span class="o">=&gt;</span> <span class="mf">120.00</span><span class="p">,</span> <span class="s1">&#39;descripcion&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Producto Y actualizado&#39;</span><span class="p">]</span>
+<span class="linenos" data-linenos="5 "></span><span class="p">);</span>
+</code></pre></div>
+</details>
+<ol start="857">
+<li><strong>Limitar resultados</strong>: Usa el método <em>take</em> para obtener solo los 5 primeros productos.</li>
+</ol>
+<details class="info">
+<summary>Solución</summary>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$productos</span> <span class="o">=</span> <span class="nx">Producto</span><span class="o">::</span><span class="na">take</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">();</span>
+</code></pre></div>
+</details>
+<ol start="858">
+<li><strong>Paginación de resultados</strong>: Página los productos mostrando 5 por página.</li>
+</ol>
+<details class="info">
+<summary>Solución</summary>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$productos</span> <span class="o">=</span> <span class="nx">Producto</span><span class="o">::</span><span class="na">paginate</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+</code></pre></div>
+</details>
+<ol start="859">
+<li><strong>Consulta con where y orWhere</strong>: Recupera todos los productos cuyo precio sea mayor que 100 o cuyo <em>nombre</em> contenga la palabra "Premium".</li>
+</ol>
+<details class="info">
+<summary>Solución</summary>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$productos</span> <span class="o">=</span> <span class="nx">Producto</span><span class="o">::</span><span class="na">where</span><span class="p">(</span><span class="s1">&#39;precio&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="o">-&gt;</span><span class="na">orWhere</span><span class="p">(</span><span class="s1">&#39;nombre&#39;</span><span class="p">,</span> <span class="s1">&#39;LIKE&#39;</span><span class="p">,</span> <span class="s1">&#39;%Premium%&#39;</span><span class="p">)</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="o">-&gt;</span><span class="na">get</span><span class="p">();</span>
+</code></pre></div>
+</details>
+<ol start="860">
+<li><strong>Ejercicio completo: CRUD con Eloquent</strong> Implementa un CRUD completo mediante Eloquent para el modelo <em>Cliente</em> que crees asociado a la tabla <em>clientes</em>:</li>
+</ol>
+<ul>
+<li><em>C</em>: Crea nuevos clientes.</li>
+<li><em>R</em>: Obtén todos los clientes y filtra por email.</li>
+<li><em>U</em>: Actualiza el nombre de un cliente específico.</li>
+<li><em>D</em>: Elimina clientes con un email específico.</li>
+</ul>
+<h2 id="formularios">Formularios<a class="headerlink" href="#formularios" title="Permanent link">&para;</a></h2>
+<p>En los siguientes ejercicios de formularios vas a realizar un CRUD de productos continuando lo que hiciste en el apartado anterior. Si tienes las clases de <code>Productos</code> (Modelo y Controlador) muy extensas y prefieres empezar de 0, puedes hacer los ejercicios siguientes para gestionar <em>usuarios en vez de productos</em>. Tendrías que crear previamente el modelo <em>Usuario</em> con su migración para crear su tabla asociada <em>usuarios</em> con los campos típicos: <em>nombre</em>, <em>email</em>, <em>password</em> y también el controlador <em>UsuarioController</em>.</p>
+<p>En cualquier caso, recuerda nombrar correctamente las rutas, funciones en controladores y vistas siguiendo las recomendaciones de Laravel.</p>
+<ol start="870">
+<li><strong>Formulario para crear productos</strong>: Crea un formulario en el que se pidan los campos necesarios para crear un producto. Se accederá mediante <code>GET /productos/create</code> y su vista estará en <code>productos/create.blade.php</code>. El formulario se procesará mediante <code>POST /productos/store</code> redirigiendo finalmente a <code>GET /productos</code> donde se muestra el listado de productos.</li>
+</ol>
+<details class="info">
+<summary>Solución</summary>
+<p>Formulario en <code>productos/create.blade.php</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;{{ route(&#39;productos.store&#39;) }}&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;POST&quot;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 2 "></span>    @csrf
+<span class="linenos" data-linenos=" 3 "></span>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 4 "></span>        <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;nombre&quot;</span><span class="p">&gt;</span>Nombre:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 5 "></span>        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;nombre&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;nombre&quot;</span> <span class="na">required</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 8 "></span>        <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;descripcion&quot;</span><span class="p">&gt;</span>Descripcion:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;descripcion&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;descripcion&quot;</span> <span class="na">required</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="12 "></span>        <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;precio&quot;</span><span class="p">&gt;</span>Precio:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="13 "></span>        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;number&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;precio&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;precio&quot;</span> <span class="na">required</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="14 "></span>    <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="15 "></span>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span><span class="p">&gt;</span>Crear Producto<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="16 "></span><span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>Función en <code>ProductoController.php</code> para almacenar el producto en la BDD:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">use</span> <span class="nx">App\Models\Producto</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="k">use</span> <span class="nx">Illuminate\Http\Request</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="k">class</span> <span class="nc">ProductoController</span> <span class="k">extends</span> <span class="nx">Controller</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="p">{</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">store</span><span class="p">(</span><span class="nx">Request</span> <span class="nv">$request</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="nv">$validated</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">validate</span><span class="p">([</span>
+<span class="linenos" data-linenos="10 "></span>            <span class="s1">&#39;nombre&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;required|string|max:255&#39;</span><span class="p">,</span>
+<span class="linenos" data-linenos="11 "></span>            <span class="s1">&#39;descripcion&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;required|string|min:20&#39;</span><span class="p">,</span>
+<span class="linenos" data-linenos="12 "></span>            <span class="s1">&#39;precio&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;required|decimal:2|min:0&#39;</span><span class="p">,</span>
+<span class="linenos" data-linenos="13 "></span>        <span class="p">]);</span>
+<span class="linenos" data-linenos="14 "></span>
+<span class="linenos" data-linenos="15 "></span>        <span class="c1">// Al utilizar &#39;create&#39; no olvides definir en el modelo &#39;Producto&#39;:</span>
+<span class="linenos" data-linenos="16 "></span>        <span class="c1">// protected $fillable = [&#39;titulo&#39;, &#39;contenido&#39;, &#39;prioridad&#39;];</span>
+<span class="linenos" data-linenos="17 "></span>        <span class="nv">$producto</span> <span class="o">=</span> <span class="nx">Producto</span><span class="o">::</span><span class="na">create</span><span class="p">([</span>
+<span class="linenos" data-linenos="18 "></span>            <span class="s1">&#39;nombre&#39;</span> <span class="o">=&gt;</span> <span class="nv">$validated</span><span class="p">[</span><span class="s1">&#39;nombre&#39;</span><span class="p">],</span>
+<span class="linenos" data-linenos="19 "></span>            <span class="s1">&#39;descripcion&#39;</span> <span class="o">=&gt;</span> <span class="nv">$validated</span><span class="p">[</span><span class="s1">&#39;descripcion&#39;</span><span class="p">],</span>
+<span class="linenos" data-linenos="20 "></span>            <span class="s1">&#39;precio&#39;</span> <span class="o">=&gt;</span> <span class="nv">$validated</span><span class="p">[</span><span class="s1">&#39;precio&#39;</span><span class="p">],</span>
+<span class="linenos" data-linenos="21 "></span>        <span class="p">]);</span>
+<span class="linenos" data-linenos="22 "></span>
+<span class="linenos" data-linenos="23 "></span>        <span class="c1">// Producto::create($validated);</span>
+<span class="linenos" data-linenos="24 "></span>
+<span class="linenos" data-linenos="25 "></span>        <span class="k">return</span> <span class="nx">redirect</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">route</span><span class="p">(</span><span class="s1">&#39;productos.index&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos="26 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="27 "></span><span class="p">}</span>
+</code></pre></div>
+</details>
+<ol start="871">
+<li><strong>Formulario para editar productos</strong>: Crea el formulario de edición de un producto. Se accederá mediante <code>GET /productos/{id}/edit</code> y su vista estará en <code>productos/edit.blade.php</code>. El formulario se procesará mediante <code>PUT /productos/update</code> redirigiendo finalmente a <code>GET /productos</code> donde se muestra el listado de productos.</li>
+</ol>
+<details class="info">
+<summary>Solución</summary>
+<p>Formulario en <code>productos/edit.blade.php</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;{{ route(&#39;productos.update&#39;, $producto-&gt;id) }}&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;POST&quot;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 2 "></span>    @method(&#39;PUT&#39;) 
+<span class="linenos" data-linenos=" 3 "></span>    @csrf
+<span class="linenos" data-linenos=" 4 "></span>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 5 "></span>        <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;nombre&quot;</span><span class="p">&gt;</span>Nombre:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 6 "></span>        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;nombre&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;nombre&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;{{ $producto-&gt;nombre }}&quot;</span> <span class="na">required</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;descripcion&quot;</span><span class="p">&gt;</span>Descripcion:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="10 "></span>        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;descripcion&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;descripcion&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;{{ $producto-&gt;descripcion }}&quot;</span> <span class="na">required</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="13 "></span>        <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;precio&quot;</span><span class="p">&gt;</span>Precio:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="14 "></span>        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;number&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;precio&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;precio&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;{{ $producto-&gt;precio }}&quot;</span> <span class="na">required</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="15 "></span>    <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="16 "></span>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span><span class="p">&gt;</span>Actualizar Producto<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="17 "></span><span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>Función en <code>ProductoController.php</code> para actualizar el producto en la BDD:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">use</span> <span class="nx">App\Models\Producto</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="k">use</span> <span class="nx">Illuminate\Http\Request</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="k">class</span> <span class="nc">ProductoController</span> <span class="k">extends</span> <span class="nx">Controller</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="p">{</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">update</span><span class="p">(</span><span class="nx">Request</span> <span class="nv">$request</span><span class="p">,</span> <span class="nv">$id</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="nv">$producto</span> <span class="o">=</span> <span class="nx">Producto</span><span class="o">::</span><span class="na">findOrFail</span><span class="p">(</span><span class="nv">$id</span><span class="p">);</span>
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span>        <span class="nv">$validated</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">validate</span><span class="p">([</span>
+<span class="linenos" data-linenos="12 "></span>            <span class="s1">&#39;nombre&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;required|string|max:255&#39;</span><span class="p">,</span>
+<span class="linenos" data-linenos="13 "></span>            <span class="s1">&#39;descripcion&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;required|string|min:20&#39;</span><span class="p">,</span>
+<span class="linenos" data-linenos="14 "></span>            <span class="s1">&#39;precio&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;required|decimal:2|min:0&#39;</span><span class="p">,</span>
+<span class="linenos" data-linenos="15 "></span>        <span class="p">]);</span>
+<span class="linenos" data-linenos="16 "></span>
+<span class="linenos" data-linenos="17 "></span>        <span class="nv">$producto</span><span class="o">-&gt;</span><span class="na">nombre</span> <span class="o">=</span> <span class="nv">$validated</span><span class="p">[</span><span class="s1">&#39;nombre&#39;</span><span class="p">];</span>
+<span class="linenos" data-linenos="18 "></span>        <span class="nv">$producto</span><span class="o">-&gt;</span><span class="na">descripcion</span> <span class="o">=</span> <span class="nv">$validated</span><span class="p">[</span><span class="s1">&#39;descripcion&#39;</span><span class="p">];</span>
+<span class="linenos" data-linenos="19 "></span>        <span class="nv">$producto</span><span class="o">-&gt;</span><span class="na">precio</span> <span class="o">=</span> <span class="nv">$validated</span><span class="p">[</span><span class="s1">&#39;precio&#39;</span><span class="p">];</span>
+<span class="linenos" data-linenos="20 "></span>
+<span class="linenos" data-linenos="21 "></span>        <span class="nv">$producto</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">();</span>            
+<span class="linenos" data-linenos="22 "></span>
+<span class="linenos" data-linenos="23 "></span>        <span class="k">return</span> <span class="nx">redirect</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">route</span><span class="p">(</span><span class="s1">&#39;productos.index&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos="24 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="25 "></span><span class="p">}</span>
+</code></pre></div>
+</details>
+<ol start="872">
+<li><strong>Validación de datos</strong>: En las funciones correspondientes del controlador donde se reciben los datos de los formularios anteriores, añade validación a cada uno de los campos:</li>
+</ol>
+<ul>
+<li><em>nombre</em>: Requerido, tipo cadena y valor máximo 255.</li>
+<li><em>descripcion</em>: Tipo cadena y valor máximo 1000.</li>
+<li><em>precio</em>: Requerido, tipo numérico con 2 decimales y valor mínimo 0.</li>
+</ul>
+<p>En las vistas de los 2 formularios añade mensajes de error en el caso de que los campos no pasen la validación y asigna mediante <em>old</em> el valor antiguo del campo para que el usuario no tenga que volver a escribirlo.</p>
+<details class="info">
+<summary>Solución</summary>
+<p>Validación en el controlador ya añadida en las soluciones anteriores.</p>
+<p>En las vistas:</p>
+<p>Formulario en <code>productos/create.blade.php</code> con mensajes de error y valores antiguos de los campos:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;{{ route(&#39;productos.store&#39;) }}&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;POST&quot;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 2 "></span>    @csrf
+<span class="linenos" data-linenos=" 3 "></span>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 4 "></span>        <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;nombre&quot;</span><span class="p">&gt;</span>Nombre:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 5 "></span>        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;nombre&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;nombre&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;{{ old(&#39;nombre&#39;) }}&quot;</span> <span class="na">required</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 7 "></span>    @error(&#39;nombre&#39;) <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;error&quot;</span><span class="p">&gt;</span>{{ $message }}<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>@enderror
+<span class="linenos" data-linenos=" 8 "></span>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;descripcion&quot;</span><span class="p">&gt;</span>Descripcion:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="10 "></span>        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;descripcion&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;descripcion&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;{{ old(&#39;descripcion&#39;) }}&quot;</span> <span class="na">required</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="12 "></span>    @error(&#39;descripcion&#39;) <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;error&quot;</span><span class="p">&gt;</span>{{ $message }}<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>@enderror
+<span class="linenos" data-linenos="13 "></span>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="14 "></span>        <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;precio&quot;</span><span class="p">&gt;</span>Precio:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="15 "></span>        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;number&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;precio&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;precio&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;{{ old(&#39;precio&#39;) }}&quot;</span> <span class="na">required</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="16 "></span>    <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="17 "></span>    @error(&#39;precio&#39;) <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;error&quot;</span><span class="p">&gt;</span>{{ $message }}<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>@enderror
+<span class="linenos" data-linenos="18 "></span>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span><span class="p">&gt;</span>Crear Producto<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="19 "></span><span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>Formulario en <code>productos/edit.blade.php</code> con mensajes de error y valores antiguos de los campos:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;{{ route(&#39;productos.update&#39;, $producto-&gt;id) }}&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;POST&quot;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 2 "></span>    @method(&#39;PUT&#39;)
+<span class="linenos" data-linenos=" 3 "></span>    @csrf
+<span class="linenos" data-linenos=" 4 "></span>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 5 "></span>        <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;nombre&quot;</span><span class="p">&gt;</span>Nombre:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 6 "></span>        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;nombre&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;nombre&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;{{ old(&#39;nombre&#39;, $producto-&gt;nombre) }}&quot;</span> <span class="na">required</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 8 "></span>    @error(&#39;nombre&#39;) <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;error&quot;</span><span class="p">&gt;</span>{{ $message }}<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>@enderror
+<span class="linenos" data-linenos=" 9 "></span>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="10 "></span>        <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;descripcion&quot;</span><span class="p">&gt;</span>Descripcion:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="11 "></span>        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;descripcion&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;descripcion&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;{{ old(&#39;descripcion&#39;, $producto-&gt;descripcion) }}&quot;</span> <span class="na">required</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="13 "></span>    @error(&#39;descripcion&#39;) <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;error&quot;</span><span class="p">&gt;</span>{{ $message }}<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>@enderror
+<span class="linenos" data-linenos="14 "></span>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="15 "></span>        <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;precio&quot;</span><span class="p">&gt;</span>Precio:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="16 "></span>        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;number&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;precio&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;precio&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;{{ old(&#39;precio&#39;, $producto-&gt;precio) }}&quot;</span> <span class="na">required</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="17 "></span>    <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="18 "></span>    @error(&#39;precio&#39;) <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;error&quot;</span><span class="p">&gt;</span>{{ $message }}<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>@enderror
+<span class="linenos" data-linenos="19 "></span>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span><span class="p">&gt;</span>Actualizar Producto<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="20 "></span><span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</code></pre></div>
+</details>
+<ol start="873">
+<li><strong>Formulario de confirmación para eliminar productos</strong>: Crear un formulario de confirmación para eliminar un recurso. Sólo contendrá un mensaje de "¿Estás seguro que quieres eliminar este producto?" y un botón para proceder a eliminarlo. Se accederá mediante <code>GET /productos/{id}/destroy</code> y su vista estará en <code>productos/destroy.blade.php</code>. El formulario se procesará mediante <code>DELETE /productos/{id}</code> redirigiendo finalmente a <code>GET /productos</code> donde se muestra el listado de productos.</li>
+</ol>
+<details class="info">
+<summary>Solución</summary>
+<p>Formulario en <code>productos/destroy.blade.php</code> para confirmar eliminación:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;{{ route(&#39;productos.destroy&#39;, $producto-&gt;id) }}&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;POST&quot;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="2 "></span>    @method(&#39;DELETE&#39;)
+<span class="linenos" data-linenos="3 "></span>    @csrf
+<span class="linenos" data-linenos="4 "></span>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>¿Estás seguro de que deseas eliminar este producto?<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span><span class="p">&gt;</span>Eliminar Producto<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="6 "></span><span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>Función en <code>ProductoController.php</code> para eliminar el producto en la BDD:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">destroy</span><span class="p">(</span><span class="nv">$id</span><span class="p">)</span>
+<span class="linenos" data-linenos="3 "></span><span class="p">{</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="nv">$producto</span> <span class="o">=</span> <span class="nx">Producto</span><span class="o">::</span><span class="na">findOrFail</span><span class="p">(</span><span class="nv">$id</span><span class="p">);</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="nv">$producto</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">();</span>
+<span class="linenos" data-linenos="6 "></span>
+<span class="linenos" data-linenos="7 "></span>    <span class="k">return</span> <span class="nx">redirect</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">route</span><span class="p">(</span><span class="s1">&#39;productos.index&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos="8 "></span><span class="p">}</span>
+</code></pre></div>
+</details>
+<ol start="874">
+<li><strong>Ejercicio completo: CRUD con formularios</strong>: Continúa el CRUD del apartado anterior para añadir funciones a la gestión de <em>clientes</em>:</li>
+</ol>
+<ul>
+<li><em>C</em>: Crea nuevos clientes.</li>
+<li><em>R</em>: Obtén todos los clientes y filtra por diferentes cmapos.</li>
+<li><em>U</em>: Actualiza los campos de un cliente específico.</li>
+<li><em>D</em>: Elimina clientes.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      2025-2026 Eladio Blanco. Licencia CC BY-NC-SA
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/eladioblanco" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.2 4.2 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.52 8.52 0 0 1-5.33 1.84q-.51 0-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:<eladio.blanco@fernando3martos.com>" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 12.13c-.15.01-.29.06-.39.17l-1 1 2.05 2 1-1c.22-.21.22-.56 0-.77l-1.24-1.23a.56.56 0 0 0-.38-.17m-2 1.75L13 19.94V22h2.06l6.06-6.07M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h7v-.89l8.24-8.22c.47-.49 1.12-.76 1.8-.76.34 0 .68.06 1 .19V6c0-1.12-.92-2-2.04-2m0 4-8 5-8-5V6l8 5 8-5"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["header.autohide", "toc.integrate", "content.tabs.link"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

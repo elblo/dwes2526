@@ -1,0 +1,2297 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://elblo.github.io/dwes2526/08laravelDatos.html">
+      
+      
+        <link rel="prev" href="07frameworks.html">
+      
+      
+        <link rel="next" href="09laravelAvanzado.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="imagenes/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
+    
+    
+      
+        <title>8.- Gestión de datos en Laravel - Desarrollo Web en Entorno Servidor</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="Teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#gestion-de-datos-en-laravel" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="index.html" title="Desarrollo Web en Entorno Servidor" class="md-header__button md-logo" aria-label="Desarrollo Web en Entorno Servidor" data-md-component="logo">
+      
+  <img src="imagenes/logoies.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Desarrollo Web en Entorno Servidor
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              8.- Gestión de datos en Laravel
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="Teal"  aria-label="Cambiar a modo noche"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo noche" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="pink" data-md-color-accent="Teal"  aria-label="Cambiar a modo día"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo día" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Desarrollo Web en Entorno Servidor" class="md-nav__button md-logo" aria-label="Desarrollo Web en Entorno Servidor" data-md-component="logo">
+      
+  <img src="imagenes/logoies.png" alt="logo">
+
+    </a>
+    Desarrollo Web en Entorno Servidor
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="01arquitecturas.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.- Arquitecturas Web
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="02php.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.- El lenguaje PHP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="03phpoo.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3.- PHP Orientado a Objetos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="04web.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.- Programación Web
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="05herramientas.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5.- Herramientas Web
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="06accesoDatos.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6.- Acceso a Datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="07frameworks.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7.- Frameworks PHP - Laravel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8.- Gestión de datos en Laravel
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="08laravelDatos.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8.- Gestión de datos en Laravel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#81-introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 Introducción
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#82-configuracion-inicial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 Configuración inicial
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#83-migraciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 Migraciones
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.3 Migraciones">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introducción
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#estructura-de-las-migraciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Estructura de las migraciones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#crear-una-migracion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Crear una migración
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejecutar-migraciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejecutar migraciones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schema-builder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Schema Builder
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#84-query-builder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4 Query Builder
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#85-eloquent-modelos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.5 Eloquent: Modelos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.5 Eloquent: Modelos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#introduccion_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introducción
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modelos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modelos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-recuperar-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejemplo recuperar datos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modificar-tablas-sin-perder-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modificar tablas sin perder datos
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#86-formularios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.6 Formularios
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.6 Formularios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#insertar-datos_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Insertar datos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actualizar-datos_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Actualizar datos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eliminar-datos_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Eliminar datos
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#87-validacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.7 Validación
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.7 Validación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#validacion-basica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validación básica
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reglas-comunes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reglas comunes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mensajes-personalizados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mensajes personalizados
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mostrar-mensajes-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mostrar mensajes error
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mantener-valor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mantener valor
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#88-paginacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.8 Paginación
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#89-resumen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.9 Resumen
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.9 Resumen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#i-configuracion-y-migraciones-82-83" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        I. Configuración y Migraciones (8.2 - 8.3)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ii-query-builder-84" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        II. Query Builder (8.4)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iii-eloquent-el-orm-de-laravel-85" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        III. Eloquent: El ORM de Laravel (8.5)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iv-formularios-y-validacion-86-87" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IV. Formularios y Validación (8.6 - 8.7)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v-paginacion-88" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        V. Paginación (8.8)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#810-actividades" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.10 Actividades
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.10 Actividades">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#migraciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Migraciones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#query-builder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Query Builder
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eloquent-modelos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Eloquent: Modelos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formularios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Formularios
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#practica-notas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Práctica: Notas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#practica-gestion-libros" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Práctica: Gestión libros
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#practica-diario-personal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Práctica: Diario personal
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="09laravelAvanzado.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9.- Laravel Avanzado
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="10laravelAutenticacion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10.- Autenticación y autorización
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="11laravelAPI.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11.- Servicios REST
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<style>
+    img { margin: 20px 0; border-radius: 8px; }
+
+    .alert { color: #BD1550; }
+    .warning { color: #E97F02; }
+    .success { color: #8A9B0F; }
+
+    .center { text-align: center; }
+    .right { text-align: right; }
+
+    .img-small { max-width: 200px; margin: auto; }
+    .img-medium { max-width: 400px; margin: auto; }
+    .img-large { max-width: 800px; margin: auto; }
+
+    .leyenda {
+        font-size: small;
+        margin: 10px 0;
+    }
+</style>
+
+<h1 id="gestion-de-datos-en-laravel">Gestión de datos en Laravel<a class="headerlink" href="#gestion-de-datos-en-laravel" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>Duración estimada: 20 sesiones</p>
+</blockquote>
+<h2 id="81-introduccion">8.1 Introducción<a class="headerlink" href="#81-introduccion" title="Permanent link">&para;</a></h2>
+<p>Laravel es un framework PHP moderno que simplifica el desarrollo de aplicaciones web, incluyendo la gestión de bases de datos. La integración con Eloquent, su ORM (Object Relational Mapping), permite trabajar con bases de datos de forma intuitiva y eficiente.</p>
+<h2 id="82-configuracion-inicial">8.2 Configuración inicial<a class="headerlink" href="#82-configuracion-inicial" title="Permanent link">&para;</a></h2>
+<p>Laravel soporta varios motores de bases de datos como MySQL, PostgreSQL, SQLite y SQL Server. La configuración principal se realiza en el archivo <code>.env</code>. </p>
+<p><strong>Ejemplo de configuración en .env:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="go">DB_CONNECTION=mysql</span>
+<span class="linenos" data-linenos="2 "></span><span class="go">DB_HOST=127.0.0.1</span>
+<span class="linenos" data-linenos="3 "></span><span class="go">DB_PORT=3306</span>
+<span class="linenos" data-linenos="4 "></span><span class="go">DB_DATABASE=nombre_base_datos</span>
+<span class="linenos" data-linenos="5 "></span><span class="go">DB_USERNAME=usuario</span>
+<span class="linenos" data-linenos="6 "></span><span class="go">DB_PASSWORD=password</span>
+</code></pre></div>
+<p>Nota: El servidor MySQL debe estar funcionando con la base de datos <span class="alert"><strong><em>ya creada</em></strong></span>.</p>
+<p><strong>Probar conexión:</strong></p>
+<p>Probamos la conexión ejecutando las migraciones:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="go">php artisan migrate</span>
+</code></pre></div>
+<p>Si todo ha salido bien obtendremos el siguiente resultado donde podremos observar que todas las migraciones se han insertado correctamente en la base de datos.</p>
+<div class="center img-large">
+    <img src="imagenes/07/migraciones.png">
+</div>
+
+<p>Si nos vamos al cliente que utilicemos para manejar la base de datos (phpMyAdmin por ejemplo) veremos que en nuestra base de datos se han creado todas las tablas de la migración que hemos ejecutado y <strong>además</strong> una tabla que se llama <span class="success"><strong><em>migrations</em></strong></span>.</p>
+<p>La tabla <code>migrations</code> es simplemente un registro de todas las migraciones llevadas a cabo.</p>
+<p><strong>Posibles problemas:</strong></p>
+<ul>
+<li>La extensión del driver de la base de datos (como <em>pdo_mysql</em> o <em>pdo_pgsql</em>) debe estar habilitada en el <code>php.ini</code>.</li>
+<li>Utilizar <code>php artisan config:clear</code> para borrar la caché de configuraciones si los cambios del <code>.env</code> no se reflejan.</li>
+</ul>
+<h2 id="83-migraciones">8.3 Migraciones<a class="headerlink" href="#83-migraciones" title="Permanent link">&para;</a></h2>
+<h3 id="introduccion">Introducción<a class="headerlink" href="#introduccion" title="Permanent link">&para;</a></h3>
+<p>Las migraciones son un sistema de control de versiones para bases de datos que permite trabajar de forma colaborativa, manteniendo un histórico de los cambios realizados en el esquema. Con las migraciones se puede: </p>
+<ul>
+<li>Crear, modificar y borrar tablas. </li>
+<li>Gestionar el esquema de forma programática utilizando <strong>Artisan</strong> y el <strong>Schema Builder</strong>. </li>
+<li>Revertir cambios mediante <strong>rollback</strong> o volver a aplicar todos los cambios con <strong>refresh</strong>.</li>
+</ul>
+<h3 id="estructura-de-las-migraciones">Estructura de las migraciones<a class="headerlink" href="#estructura-de-las-migraciones" title="Permanent link">&para;</a></h3>
+<p>Las migraciones de un proyecto Laravel se guardan en el directorio <em>database/migrations</em> en archivos <code>.php</code> y siguen una estructura predefinida con dos métodos principales: </p>
+<ul>
+<li><strong>up</strong>: Define las operaciones que deben aplicarse en la base de datos (crear tablas, añadir columnas, etc.). </li>
+<li><strong>down</strong>: Define las operaciones inversas para revertir (rollback) los cambios aplicados por up.</li>
+</ul>
+<p>Ejemplo:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">up</span><span class="p">()</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="p">{</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="nx">Schema</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;usuarios&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nx">Blueprint</span> <span class="nv">$tabla</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 5 "></span>        <span class="nv">$tabla</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 6 "></span>        <span class="nv">$tabla</span><span class="o">-&gt;</span><span class="na">string</span><span class="p">(</span><span class="s1">&#39;nombre&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 7 "></span>        <span class="nv">$tabla</span><span class="o">-&gt;</span><span class="na">string</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">unique</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 8 "></span>        <span class="nv">$tabla</span><span class="o">-&gt;</span><span class="na">timestamps</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="p">});</span>
+<span class="linenos" data-linenos="10 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="11 "></span>
+<span class="linenos" data-linenos="12 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">down</span><span class="p">()</span>
+<span class="linenos" data-linenos="13 "></span><span class="p">{</span>
+<span class="linenos" data-linenos="14 "></span>    <span class="nx">Schema</span><span class="o">::</span><span class="na">dropIfExists</span><span class="p">(</span><span class="s1">&#39;usuarios&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos="15 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Por defecto, Laravel añade un campo autonumérico <em>id</em> y si se llama al método <code>timestamps()</code>, dos columnas <em>created_at</em> y <em>updated_at</em> que se actualizan automáticamente para saber cuándo se creó y actualizó un registro.</p>
+<h3 id="crear-una-migracion">Crear una migración<a class="headerlink" href="#crear-una-migracion" title="Permanent link">&para;</a></h3>
+<p>Mediante el comando <code>make:migration</code> de Artisan generamos una migración, un archivo con las instrucciones (Schema Builder) para construir o cambiar las tablas de la base de datos. En el nombre de dicho archivo se incluye un timestamp para asegurar el orden cronológico.</p>
+<p><strong>Ejemplos:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="c1"># Migración en blanco</span>
+<span class="linenos" data-linenos="2 "></span>php<span class="w"> </span>artisan<span class="w"> </span>make:migration<span class="w"> </span>nombre_migración<span class="w"> </span>
+<span class="linenos" data-linenos="3 "></span>
+<span class="linenos" data-linenos="4 "></span><span class="c1"># Migración para crear una tabla</span>
+<span class="linenos" data-linenos="5 "></span>php<span class="w"> </span>artisan<span class="w"> </span>make:migration<span class="w"> </span>create_table_usuarios<span class="w"> </span>--create<span class="o">=</span>usuarios<span class="w">  </span>
+<span class="linenos" data-linenos="6 "></span>
+<span class="linenos" data-linenos="7 "></span><span class="c1"># Migración para modificar una tabla</span>
+<span class="linenos" data-linenos="8 "></span>php<span class="w"> </span>artisan<span class="w"> </span>make:migration<span class="w"> </span>add_fields_to_usuarios<span class="w"> </span>--table<span class="o">=</span>usuarios<span class="w"> </span>
+</code></pre></div>
+<p>Laravel puede inferir acciones del nombre de la migración gracias a la clase <strong>TableGuesser</strong>. Por ejemplo, si el nombre contiene <em>create</em> o <em>to</em>, Artisan deducirá si es para crear o modificar tablas.</p>
+<h3 id="ejecutar-migraciones">Ejecutar migraciones<a class="headerlink" href="#ejecutar-migraciones" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>php artisan migrate</code>: Ejecuta las migraciones pendientes.</li>
+<li><code>php artisan migrate:status</code>: Muestra el estado de las migraciones.</li>
+<li><code>php artisan migrate:fresh</code>: Borra todas las tablas de la BDD (sin ejecutar rollback) y ejecuta todas las migraciones.</li>
+<li><code>php artisan migrate:refresh</code>: Hace un rollback de todas las migraciones y las vuelve a ejecutar. Para rellenar la BDD con datos de prueba, usar el flag --seed.</li>
+<li><code>php artisan migrate:reset</code>: Hace un rollback de todas las migraciones.</li>
+<li><code>php artisan migrate:rollback</code>: Revierte la la última migración.</li>
+</ul>
+<h3 id="schema-builder">Schema Builder<a class="headerlink" href="#schema-builder" title="Permanent link">&para;</a></h3>
+<p>La clase <strong>Schema</strong> es el kernel para definir y modificar el esquema de las bases de datos. Incluye constructores para crear, modificar y eliminar tablas y columnas. Y es lo que utilizaremos dentro de los archivos de migraciones.</p>
+<h4 id="crear-y-eliminar-tablas">Crear y eliminar tablas<a class="headerlink" href="#crear-y-eliminar-tablas" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nx">Schema</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;usuarios&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nx">Blueprint</span> <span class="nv">$table</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">();</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">string</span><span class="p">(</span><span class="s1">&#39;nombre&#39;</span><span class="p">,</span> <span class="mi">32</span><span class="p">);</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">timestamps</span><span class="p">();</span>
+<span class="linenos" data-linenos="6 "></span><span class="p">});</span>
+<span class="linenos" data-linenos="7 "></span>
+<span class="linenos" data-linenos="8 "></span><span class="nx">Schema</span><span class="o">::</span><span class="na">dropIfExists</span><span class="p">(</span><span class="s1">&#39;usuarios&#39;</span><span class="p">);</span>
+</code></pre></div>
+<h4 id="anadir-y-eliminar-columnas">Añadir y eliminar columnas<a class="headerlink" href="#anadir-y-eliminar-columnas" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nx">Schema</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;usuarios&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nx">Blueprint</span> <span class="nv">$table</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">string</span><span class="p">(</span><span class="s1">&#39;telefono&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">after</span><span class="p">(</span><span class="s1">&#39;nombre&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">nullable</span><span class="p">();</span>
+<span class="linenos" data-linenos="4 "></span><span class="p">});</span>
+<span class="linenos" data-linenos="5 "></span>
+<span class="linenos" data-linenos="6 "></span><span class="nx">Schema</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;usuarios&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nx">Blueprint</span> <span class="nv">$table</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="7 "></span>    <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">dropColumn</span><span class="p">(</span><span class="s1">&#39;telefono&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos="8 "></span><span class="p">});</span>
+</code></pre></div>
+<h4 id="tipos-de-columnas">Tipos de columnas<a class="headerlink" href="#tipos-de-columnas" title="Permanent link">&para;</a></h4>
+<p>Laravel ofrece una amplia variedad de tipos de columnas que puedes consultar en la <a href="https://laravel.com/docs/11.x/migrations#available-column-types">documentación oficial</a>.</p>
+<h4 id="indices">Índices<a class="headerlink" href="#indices" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$table</span><span class="o">-&gt;</span><span class="na">primary</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">);</span> <span class="c1">// Campo id como clave primaria</span>
+<span class="linenos" data-linenos="3 "></span><span class="nv">$table</span><span class="o">-&gt;</span><span class="na">primary</span><span class="p">([</span><span class="s1">&#39;nombre&#39;</span><span class="p">,</span> <span class="s1">&#39;apellidos&#39;</span><span class="p">]);</span> <span class="c1">// Clave primaria compuesta</span>
+<span class="linenos" data-linenos="4 "></span><span class="nv">$table</span><span class="o">-&gt;</span><span class="na">unique</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">);</span> <span class="c1">// Campo email único</span>
+<span class="linenos" data-linenos="5 "></span><span class="nv">$table</span><span class="o">-&gt;</span><span class="na">index</span><span class="p">(</span><span class="s1">&#39;localidad&#39;</span><span class="p">);</span> <span class="c1">// Campo localidad como índice</span>
+</code></pre></div>
+<h4 id="claves-foraneas">Claves foráneas<a class="headerlink" href="#claves-foraneas" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nx">Schema</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;posts&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nx">Blueprint</span> <span class="nv">$table</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">unsignedBigInteger</span><span class="p">(</span><span class="s1">&#39;user_id&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">foreign</span><span class="p">(</span><span class="s1">&#39;user_id&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">references</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">on</span><span class="p">(</span><span class="s1">&#39;usuarios&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos="5 "></span><span class="p">});</span>
+</code></pre></div>
+<p>Laravel proporciona mediante el método <code>foreignId</code> una forma más concisa de hacer lo anterior, creando automáticamente el <em>unsignedBigInteger</em> y determinando la tabla a la que hace referencia (user) por el nombre del campo.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nx">Schema</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;posts&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nx">Blueprint</span> <span class="nv">$table</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">foreignId</span><span class="p">(</span><span class="s1">&#39;user_id&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">constrained</span><span class="p">();</span>
+<span class="linenos" data-linenos="4 "></span><span class="p">});</span>
+</code></pre></div>
+<p>Si la tabla a la que hace referencia no sigue las convenciones de nombres de Laravel, se puede indicar a mano la referencia.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$table</span><span class="o">-&gt;</span><span class="na">foreignId</span><span class="p">(</span><span class="s1">&#39;user_id&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">constrained</span><span class="p">(</span><span class="s1">&#39;usuarios&#39;</span><span class="p">,</span> <span class="s1">&#39;id_usuario&#39;</span><span class="p">);</span>
+</code></pre></div>
+<p>Y también se puede especificar si queremos que los registros de la tabla actual se actualicen o borren en cascada según lo haga el registro de la tabla principal.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$table</span><span class="o">-&gt;</span><span class="na">foreignId</span><span class="p">(</span><span class="s1">&#39;user_id&#39;</span><span class="p">)</span>
+<span class="linenos" data-linenos="3 "></span>      <span class="o">-&gt;</span><span class="na">constrained</span><span class="p">()</span>
+<span class="linenos" data-linenos="4 "></span>      <span class="o">-&gt;</span><span class="na">onUpdate</span><span class="p">(</span><span class="s1">&#39;cascade&#39;</span><span class="p">)</span>
+<span class="linenos" data-linenos="5 "></span>      <span class="o">-&gt;</span><span class="na">onDelete</span><span class="p">(</span><span class="s1">&#39;cascade&#39;</span><span class="p">);</span>
+</code></pre></div>
+<h2 id="84-query-builder">8.4 Query Builder<a class="headerlink" href="#84-query-builder" title="Permanent link">&para;</a></h2>
+<p>El <strong>Query Builder</strong> de Laravel proporciona una interfaz fluida para construir y ejecutar consultas de bases de datos. Permite trabajar con varias bases de datos de forma sencilla sin escribir código SQL.</p>
+<p>Es ideal para crear <em>consultas personalizadas</em> en las que el rendimiento es una prioridad y <em>consultas complejas</em> que no se pueden expresar fácilmente con Eloquent.</p>
+<h5 id="ejemplos-de-consultas">Ejemplos de consultas<a class="headerlink" href="#ejemplos-de-consultas" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="c1">// Los siguientes ejemplos irían en la función correspondiente del MODELO</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="c1">// Para pruebas, de momento también puedes ubicarlas en el CONTROLADOR</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="k">use</span> <span class="nx">Illuminate\Support\Facades\DB</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span><span class="c1">// Obtener todos los registros de users</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="nv">$users</span> <span class="o">=</span> <span class="nx">DB</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">();</span> 
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span><span class="c1">// Filtrar registros</span>
+<span class="linenos" data-linenos="10 "></span><span class="nv">$users</span> <span class="o">=</span> <span class="nx">DB</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">where</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="s1">&#39;customer&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">();</span>
+<span class="linenos" data-linenos="11 "></span>
+<span class="linenos" data-linenos="12 "></span><span class="c1">// Seleccionar columnas</span>
+<span class="linenos" data-linenos="13 "></span><span class="nv">$users</span> <span class="o">=</span> <span class="nx">DB</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">select</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;email&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">();</span>
+<span class="linenos" data-linenos="14 "></span>
+<span class="linenos" data-linenos="15 "></span><span class="c1">// Ordenar resultados</span>
+<span class="linenos" data-linenos="16 "></span><span class="nv">$users</span> <span class="o">=</span> <span class="nx">DB</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">orderBy</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;asc&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">();</span>
+<span class="linenos" data-linenos="17 "></span>
+<span class="linenos" data-linenos="18 "></span><span class="c1">// Contar registros</span>
+<span class="linenos" data-linenos="19 "></span><span class="nv">$count</span> <span class="o">=</span> <span class="nx">DB</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">count</span><span class="p">();</span>
+<span class="linenos" data-linenos="20 "></span>
+<span class="linenos" data-linenos="21 "></span><span class="c1">// Agregados</span>
+<span class="linenos" data-linenos="22 "></span><span class="nv">$maxSalary</span> <span class="o">=</span> <span class="nx">DB</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;employees&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">max</span><span class="p">(</span><span class="s1">&#39;salary&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos="23 "></span>
+<span class="linenos" data-linenos="24 "></span><span class="c1">// Subconsultas</span>
+<span class="linenos" data-linenos="25 "></span><span class="nv">$users</span> <span class="o">=</span> <span class="nx">DB</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">)</span>
+<span class="linenos" data-linenos="26 "></span>    <span class="o">-&gt;</span><span class="na">whereExists</span><span class="p">(</span><span class="k">function</span><span class="p">(</span><span class="nv">$query</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="27 "></span>        <span class="nv">$query</span><span class="o">-&gt;</span><span class="na">select</span><span class="p">(</span><span class="nx">DB</span><span class="o">::</span><span class="na">raw</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="linenos" data-linenos="28 "></span>              <span class="o">-&gt;</span><span class="na">from</span><span class="p">(</span><span class="s1">&#39;orders&#39;</span><span class="p">)</span>
+<span class="linenos" data-linenos="29 "></span>              <span class="o">-&gt;</span><span class="na">whereColumn</span><span class="p">(</span><span class="s1">&#39;orders.user_id&#39;</span><span class="p">,</span> <span class="s1">&#39;users.id&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos="30 "></span>    <span class="p">})</span>
+<span class="linenos" data-linenos="31 "></span>    <span class="o">-&gt;</span><span class="na">get</span><span class="p">();</span>
+</code></pre></div>
+<h5 id="ejemplos-de-manipulacion-de-datos">Ejemplos de manipulación de datos<a class="headerlink" href="#ejemplos-de-manipulacion-de-datos" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">use</span> <span class="nx">Illuminate\Support\Facades\DB</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="c1">// Insertar registro</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="nx">DB</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">insert</span><span class="p">([</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;John Doe&#39;</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="s1">&#39;email&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;john@example.com&#39;</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="p">]);</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span><span class="c1">// Actualizar registro</span>
+<span class="linenos" data-linenos="11 "></span><span class="nx">DB</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">)</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="o">-&gt;</span><span class="na">where</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="linenos" data-linenos="13 "></span>    <span class="o">-&gt;</span><span class="na">update</span><span class="p">([</span><span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Updated Name&#39;</span><span class="p">]);</span>
+<span class="linenos" data-linenos="14 "></span>
+<span class="linenos" data-linenos="15 "></span><span class="c1">// Eliminar registro</span>
+<span class="linenos" data-linenos="16 "></span><span class="nx">DB</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">)</span>
+<span class="linenos" data-linenos="17 "></span>    <span class="o">-&gt;</span><span class="na">where</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="linenos" data-linenos="18 "></span>    <span class="o">-&gt;</span><span class="na">delete</span><span class="p">();</span>
+<span class="linenos" data-linenos="19 "></span>
+<span class="linenos" data-linenos="20 "></span><span class="c1">// Borrar todos los registros</span>
+<span class="linenos" data-linenos="21 "></span><span class="nx">DB</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">truncate</span><span class="p">();</span>
+</code></pre></div>
+<h2 id="85-eloquent-modelos">8.5 Eloquent: Modelos<a class="headerlink" href="#85-eloquent-modelos" title="Permanent link">&para;</a></h2>
+<h3 id="introduccion_1">Introducción<a class="headerlink" href="#introduccion_1" title="Permanent link">&para;</a></h3>
+<p>Un <strong>ORM (Object-Relational Mapping)</strong> es una técnica de programación que permite eliminar la disparidad entre el modelo de datos de una base de datos relacional y el modelo de objetos de una aplicación. Mientras que en una BDD pensamos en tablas y campos, en el mundo de desarrollo pensamos en objetos y propiedades.</p>
+<p>Ventajas de un ORM:</p>
+<ul>
+<li><strong>Abstracción de la base de datos</strong>: No es necesario escribir SQL, ya que el ORM se encarga de traducir las operaciones de la base de datos a objetos.</li>
+<li><strong>Nombres de campos y tablas</strong>: No es necesario recordar los nombres de las tablas y campos, ya que el ORM se encarga de ello. Si cambiamos el nombre de un campo, solo tenemos que cambiarlo en un lugar, en el modelo.</li>
+<li><strong>Relaciones</strong>: Las relaciones entre tablas se pueden definir en los modelos, y el ORM se encarga de gestionarlas. Atravesar relaciones es tan sencillo como acceder a una propiedad de un objeto.</li>
+</ul>
+<p><strong>Eloquent</strong> es el ORM de Laravel, y nos permite interactuar con la base de datos de una forma sencilla y elegante. Eloquent es una capa de abstracción de la base de datos, que nos permite interactuar con ella utilizando objetos. </p>
+<p>Cada tabla de la base de datos tiene un modelo asociado, que es una clase que representa a la tabla. Por tanto:</p>
+<ul>
+<li>las tablas son modelos</li>
+<li>los registros de la tabla son instancias de ese modelo</li>
+<li>los campos de una tabla son propiedades del modelo</li>
+</ul>
+<figure style="align: center;">
+    <img src="imagenes/08/eloquent-orm.png" width="700">
+    <figcaption>Relación entre tabla y modelo</figcaption>
+</figure>
+
+<h3 id="modelos">Modelos<a class="headerlink" href="#modelos" title="Permanent link">&para;</a></h3>
+<p>Los modelos son uno de los componentes más importantes de Laravel, son los responsables de interactuar con nuestra base de datos de una manera orientada a objetos. Representan las tablas de la base de datos como clases en la aplicación, permiten realizar operaciones para seleccionar, crear, actualizar y eliminar datos de una manera más sencilla y estructurada.</p>
+<h4 id="crear-un-modelo">Crear un modelo<a class="headerlink" href="#crear-un-modelo" title="Permanent link">&para;</a></h4>
+<p>Los modelos se definen dentro de la carpeta <em>app/Models</em> y se pueden crear mediante Artisan:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="go">php artisan make:model Nota -m</span>
+</code></pre></div>
+<div class="admonition danger">
+<p class="admonition-title">Nombrar correctamente</p>
+<p>El nombre del modelo empieza por Mayúscula y siempre se escribe en <strong>SINGULAR</strong>. </p>
+<p>Si le pasamos el parámetro <strong>-m</strong> además creará la migración con el código para crear la tabla correspondiente en la BDD, cuyo nombre irá en minúscula y plural.</p>
+</div>
+<details class="info">
+<summary>Opciones al crear el modelo</summary>
+<p>Podemos añadir las siguientes opciones al comando para crear otros elementos relacionados con el modelo:</p>
+<ul>
+<li><strong>-c</strong>, --controller: Crea un controlador.</li>
+<li><strong>-m</strong>, --migration: Crea una migración.</li>
+<li><strong>-r</strong>, --resource: Crea un controlador de recursos.</li>
+<li><strong>-f</strong>, --factory: Crea un factory.</li>
+<li><strong>-s</strong>, --seed: Crea un seeder.</li>
+<li><strong>-a</strong>, --all: Crea todo: un controlador de recursos, una migración, factoría...</li>
+</ul>
+<p>Por ejemplo, si queremos crear un modelo, una migración y un controlador, ejecutamos:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="go">php artisan make:model Nota -cm </span>
+</code></pre></div>
+</details>
+<p>Si todo ha salido bien, veremos en nuestro directorio de migraciones <code>database/migrations</code> un nuevo archivo con un nombre similar a <code>2025_01_21_111237_create_notas_table.php</code> en el que se encuentra la tabla relacionada y que podemos abrir para seguir añadiendo campos mediante el <strong>Schema Builder</strong> como se ha visto anteriormente. Por ejemplo:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="nx">Schema</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;notas&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nx">Blueprint</span> <span class="nv">$table</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 4 "></span>  <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 5 "></span>  <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">timestamps</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 6 "></span>  <span class="c1">// Campos añadidos</span>
+<span class="linenos" data-linenos=" 7 "></span>  <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">string</span><span class="p">(</span><span class="s1">&#39;titulo&#39;</span><span class="p">);</span> 
+<span class="linenos" data-linenos=" 8 "></span>  <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">text</span><span class="p">(</span><span class="s1">&#39;descripcion&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 9 "></span>  <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">integer</span><span class="p">(</span><span class="s1">&#39;prioridad&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos="10 "></span><span class="p">});</span>
+</code></pre></div>
+<p>Una vez tengamos listo nuestro esquema debemos lanzar <code>php artisan migrate</code> para que ejecute las migraciones pendientes introduciendo la nueva información en la base de datos.</p>
+<h4 id="uso-basico-de-un-modelo">Uso básico de un modelo<a class="headerlink" href="#uso-basico-de-un-modelo" title="Permanent link">&para;</a></h4>
+<h5 id="recuperar-datos">Recuperar datos<a class="headerlink" href="#recuperar-datos" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="c1">// Todos los registros</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="nv">$notas</span> <span class="o">=</span> <span class="nx">Nota</span><span class="o">::</span><span class="na">all</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="c1">// Registros filtrados</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="nv">$notas</span> <span class="o">=</span> <span class="nx">Nota</span><span class="o">::</span><span class="na">where</span><span class="p">(</span><span class="s1">&#39;prioridad&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span><span class="c1">// Registro único</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="nv">$nota</span> <span class="o">=</span> <span class="nx">Nota</span><span class="o">::</span><span class="na">find</span><span class="p">(</span><span class="nv">$id</span><span class="p">);</span> <span class="c1">// devuelve el objeto o null</span>
+<span class="linenos" data-linenos="10 "></span><span class="nv">$nota</span> <span class="o">=</span> <span class="nx">Nota</span><span class="o">::</span><span class="na">findOrFail</span><span class="p">(</span><span class="nv">$id</span><span class="p">);</span> <span class="c1">// devuelve el objeto o una excepción, que por ejemplo redirige a una página 404 no encontrado en el caso de acceder a alguno de sus métodos como &#39;delete&#39;</span>
+</code></pre></div>
+<h5 id="insertar-datos">Insertar datos<a class="headerlink" href="#insertar-datos" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="c1">// Método 1</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="nv">$nota</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Nota</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="nv">$nota</span><span class="o">-&gt;</span><span class="na">titulo</span> <span class="o">=</span> <span class="s2">&quot;Proyecto Laravel&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="nv">$nota</span><span class="o">-&gt;</span><span class="na">descripcion</span> <span class="o">=</span> <span class="s2">&quot;Programar la parte de los modelos de la práctica de Fútbol Femenino.&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="nv">$nota</span><span class="o">-&gt;</span><span class="na">prioridad</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="nv">$nota</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span><span class="c1">// IMPORTANTE, para los siguientes métodos hay que definir en el modelo &#39;Nota&#39;:</span>
+<span class="linenos" data-linenos="10 "></span><span class="c1">// protected $fillable = [&#39;titulo&#39;, &#39;descripcion&#39;, &#39;prioridad&#39;];</span>
+<span class="linenos" data-linenos="11 "></span>
+<span class="linenos" data-linenos="12 "></span><span class="c1">// Método 2</span>
+<span class="linenos" data-linenos="13 "></span><span class="nv">$nota</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Nota</span><span class="p">([</span><span class="s1">&#39;titulo&#39;</span> <span class="o">=&gt;</span> <span class="nv">$titulo</span><span class="p">,</span> <span class="s1">&#39;descripcion&#39;</span> <span class="o">=&gt;</span> <span class="nv">$descripcion</span><span class="p">,</span> <span class="s1">&#39;prioridad&#39;</span> <span class="o">=&gt;</span> <span class="nv">$prioridad</span><span class="p">]);</span>
+<span class="linenos" data-linenos="14 "></span><span class="nv">$nota</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">();</span>
+<span class="linenos" data-linenos="15 "></span>
+<span class="linenos" data-linenos="16 "></span><span class="c1">// Método 3: Guardado automático en BDD</span>
+<span class="linenos" data-linenos="17 "></span><span class="nx">Nota</span><span class="o">::</span><span class="na">create</span><span class="p">([</span><span class="s1">&#39;titulo&#39;</span> <span class="o">=&gt;</span> <span class="nv">$titulo</span><span class="p">,</span> <span class="s1">&#39;descripcion&#39;</span> <span class="o">=&gt;</span> <span class="nv">$descripcion</span><span class="p">,</span> <span class="s1">&#39;prioridad&#39;</span> <span class="o">=&gt;</span> <span class="nv">$prioridad</span><span class="p">]);</span>
+</code></pre></div>
+<h5 id="actualizar-datos">Actualizar datos<a class="headerlink" href="#actualizar-datos" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="c1">// Método 1</span>
+<span class="linenos" data-linenos="3 "></span><span class="nv">$nota</span> <span class="o">=</span> <span class="nx">Nota</span><span class="o">::</span><span class="na">find</span><span class="p">(</span><span class="nv">$id</span><span class="p">);</span>
+<span class="linenos" data-linenos="4 "></span><span class="nv">$nota</span><span class="o">-&gt;</span><span class="na">titulo</span> <span class="o">=</span> <span class="s2">&quot;Nuevo título&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="5 "></span><span class="nv">$nota</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">();</span>
+<span class="linenos" data-linenos="6 "></span>
+<span class="linenos" data-linenos="7 "></span><span class="c1">// Método 2: Guardado automático en BDD</span>
+<span class="linenos" data-linenos="8 "></span><span class="nx">Nota</span><span class="o">::</span><span class="na">find</span><span class="p">(</span><span class="nv">$id</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">update</span><span class="p">([</span><span class="s1">&#39;titulo&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Nuevo título&#39;</span><span class="p">]);</span>
+</code></pre></div>
+<h5 id="eliminar-datos">Eliminar datos<a class="headerlink" href="#eliminar-datos" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="c1">// Método 1: </span>
+<span class="linenos" data-linenos="3 "></span><span class="nv">$nota</span> <span class="o">=</span> <span class="nx">Nota</span><span class="o">::</span><span class="na">find</span><span class="p">(</span><span class="nv">$id</span><span class="p">);</span>
+<span class="linenos" data-linenos="4 "></span><span class="nv">$nota</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">();</span> <span class="c1">// Devuelve true/false</span>
+<span class="linenos" data-linenos="5 "></span>
+<span class="linenos" data-linenos="6 "></span><span class="c1">// Método 2: Devuelve el número de registros eliminados</span>
+<span class="linenos" data-linenos="7 "></span><span class="nx">Nota</span><span class="o">::</span><span class="na">destroy</span><span class="p">(</span><span class="nv">$id</span><span class="p">);</span> <span class="c1">// admite un array de ids a eliminar: Nota::destroy([1, 2, 3]);</span>
+</code></pre></div>
+<details class="info">
+<summary>Otros métodos: updateOrCreate, firstOrCreate, firstOrNew...</summary>
+<p>Anímate a buscar en la documentación oficial, hay muchos más métodos para trabajar con los modelos de Eloquent, como:</p>
+<ul>
+<li><code>updateOrCreate()</code>: Busca un registro, si lo encuentra lo actualiza, si no lo crea.</li>
+<li><code>firstOrCreate()</code>: Busca un registro, si lo encuentra lo devuelve, si no lo crea.</li>
+<li><code>firstOrNew()</code>: Busca un registro, si lo encuentra lo devuelve, si no devuelve una instancia nueva sin guardar en la BD.</li>
+</ul>
+<p>Por ejemplo: Si ya existe un usuario con ese email, actualizará name y password. Si no, creará un nuevo usuario con esos datos.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>&lt;?php
+<span class="linenos" data-linenos="2 "></span>User::updateOrCreate(
+<span class="linenos" data-linenos="3 "></span>    [&#39;email&#39; =&gt; &#39;ejemplo@email.com&#39;], // Buscar usuario con este email
+<span class="linenos" data-linenos="4 "></span>    [&#39;name&#39; =&gt; &#39;Nuevo Nombre&#39;, &#39;password&#39; =&gt; bcrypt(&#39;secreto&#39;)]
+<span class="linenos" data-linenos="5 "></span>);
+</code></pre></div>
+</details>
+<h4 id="propiedades-comunes-de-los-modelos-eloquent">Propiedades comunes de los modelos Eloquent<a class="headerlink" href="#propiedades-comunes-de-los-modelos-eloquent" title="Permanent link">&para;</a></h4>
+<p>En los modelos podemos definir varias propiedades para configurar el comportamiento de la interacción con la base de datos. A continuación se detallan las más importantes:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">namespace</span> <span class="nx">App\Models</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="k">use</span> <span class="nx">Illuminate\Database\Eloquent\Model</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span><span class="k">class</span> <span class="nc">Example</span> <span class="k">extends</span> <span class="nx">Model</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="p">{</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="c1">// Especifica el nombre de la tabla si no sigue la convención de nombres de Laravel</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="k">protected</span> <span class="nv">$table</span> <span class="o">=</span> <span class="s1">&#39;custom_table_name&#39;</span><span class="p">;</span>
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span>    <span class="c1">// Define la clave primaria de la tabla</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="k">protected</span> <span class="nv">$primaryKey</span> <span class="o">=</span> <span class="s1">&#39;custom_id&#39;</span><span class="p">;</span>
+<span class="linenos" data-linenos="13 "></span>    <span class="c1">// Indica si la clave primaria es autoincremental</span>
+<span class="linenos" data-linenos="14 "></span>    <span class="k">public</span> <span class="nv">$incrementing</span> <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+<span class="linenos" data-linenos="15 "></span>    <span class="c1">// Especifica el tipo de la clave primaria (si no es integer)</span>
+<span class="linenos" data-linenos="16 "></span>    <span class="k">protected</span> <span class="nv">$keyType</span> <span class="o">=</span> <span class="s1">&#39;string&#39;</span><span class="p">;</span>
+<span class="linenos" data-linenos="17 "></span>
+<span class="linenos" data-linenos="18 "></span>    <span class="c1">// Define qué atributos pueden ser asignados masivamente (a través de métodos como create o update)</span>
+<span class="linenos" data-linenos="19 "></span>    <span class="k">protected</span> <span class="nv">$fillable</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="s1">&#39;password&#39;</span><span class="p">];</span>
+<span class="linenos" data-linenos="20 "></span>    <span class="c1">// Contrario a $fillable. Define qué atributos no pueden ser asignados masivamente</span>
+<span class="linenos" data-linenos="21 "></span>    <span class="k">protected</span> <span class="nv">$guarded</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;is_admin&#39;</span><span class="p">];</span>
+<span class="linenos" data-linenos="22 "></span>
+<span class="linenos" data-linenos="23 "></span>    <span class="c1">// Define los atributos a ocultar al serializar el modelo (a JSON o array)</span>
+<span class="linenos" data-linenos="24 "></span>    <span class="k">protected</span> <span class="nv">$hidden</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;password&#39;</span><span class="p">,</span> <span class="s1">&#39;remember_token&#39;</span><span class="p">];</span>
+<span class="linenos" data-linenos="25 "></span>    <span class="c1">// Contrario a $hidden, define los atributos que serán visibles al serializar</span>
+<span class="linenos" data-linenos="26 "></span>    <span class="k">protected</span> <span class="nv">$visible</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;email&#39;</span><span class="p">];</span>
+<span class="linenos" data-linenos="27 "></span>
+<span class="linenos" data-linenos="28 "></span>    <span class="c1">// Transformación automática de los atributos a un tipo específico</span>
+<span class="linenos" data-linenos="29 "></span>    <span class="k">protected</span> <span class="nv">$casts</span> <span class="o">=</span> <span class="p">[</span>
+<span class="linenos" data-linenos="30 "></span>        <span class="s1">&#39;is_admin&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;boolean&#39;</span><span class="p">,</span>
+<span class="linenos" data-linenos="31 "></span>        <span class="s1">&#39;settings&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;array&#39;</span><span class="p">,</span>
+<span class="linenos" data-linenos="32 "></span>    <span class="p">];</span>
+<span class="linenos" data-linenos="33 "></span>
+<span class="linenos" data-linenos="34 "></span>    <span class="c1">// Indica si la tabla tiene los campos `created_at` y `updated_at`</span>
+<span class="linenos" data-linenos="35 "></span>    <span class="k">public</span> <span class="nv">$timestamps</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="linenos" data-linenos="36 "></span>
+<span class="linenos" data-linenos="37 "></span>    <span class="c1">// Define la conexión a la BDD</span>
+<span class="linenos" data-linenos="38 "></span>    <span class="k">protected</span> <span class="nv">$connection</span> <span class="o">=</span> <span class="s1">&#39;mysql&#39;</span><span class="p">;</span>
+<span class="linenos" data-linenos="39 "></span><span class="p">}</span>
+</code></pre></div>
+<h3 id="ejemplo-recuperar-datos">Ejemplo recuperar datos<a class="headerlink" href="#ejemplo-recuperar-datos" title="Permanent link">&para;</a></h3>
+<p>Ya tenemos nuestra base de datos creada con las tablas migradas, ahora sólo falta rellenarlas con algunos datos de prueba a través del cliente de MySQL que más nos guste:</p>
+<ul>
+<li>PHPMyAdmin</li>
+<li><a href="https://www.mysql.com/products/workbench/">MySQL Workbench</a></li>
+<li><a href="https://www.heidisql.com/download.php">HeidiSQL</a></li>
+</ul>
+<p>Vamos a ver cómo recuperar esos datos desde una vista y lo primero que vamos a necesitar va a ser un controlador para gestionar esas notas:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>php<span class="w"> </span>artisan<span class="w"> </span>make:controller<span class="w"> </span>NotaController
+</code></pre></div>
+<p>Es recomendable seguir la convención de Laravel de nombres de rutas y funciones de controladores que vimos <a href="https://elblo.github.io/dwes2425/07frameworks.html#controlador-de-recursos">aquí</a>.</p>
+<h5 id="1-rutas">1. Rutas<a class="headerlink" href="#1-rutas" title="Permanent link">&para;</a></h5>
+<p>Creamos la ruta en <code>web.php</code> que redirige a la función correspondiente del controlador para mostrar todas las notas o una en particular.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="c1">// estamos en ▓▓▓ web.php </span>
+<span class="linenos" data-linenos="3 "></span><span class="nx">Route</span><span class="o">::</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;notas&#39;</span><span class="p">,</span> <span class="p">[</span> <span class="nx">PagesController</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="s1">&#39;index&#39;</span> <span class="p">])</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">(</span><span class="s1">&#39;notas.index&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos="4 "></span><span class="nx">Route</span><span class="o">::</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;notas/{id?}&#39;</span><span class="p">,</span> <span class="p">[</span> <span class="nx">PagesController</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="s1">&#39;show&#39;</span> <span class="p">])</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">(</span><span class="s1">&#39;notas.show&#39;</span><span class="p">);</span>
+</code></pre></div>
+<h5 id="2-controlador">2. Controlador<a class="headerlink" href="#2-controlador" title="Permanent link">&para;</a></h5>
+<p>Desde la función del controlador se llama al modelo para recuperar las notas y devuelve la vista pasándoselas.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="c1">// estamos en ▓▓▓ NotaController.php </span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="c1">// Muestra listado de notas</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">index</span><span class="p">()</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 6 "></span>  <span class="nv">$notas</span> <span class="o">=</span> <span class="nx">Nota</span><span class="o">::</span><span class="na">all</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 7 "></span>  <span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;notas.index&#39;</span><span class="p">,</span> <span class="nb">compact</span><span class="p">(</span><span class="s1">&#39;notas&#39;</span><span class="p">));</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="p">}</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span><span class="c1">// Muestra una nota en específico</span>
+<span class="linenos" data-linenos="11 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">show</span><span class="p">(</span><span class="nv">$id</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="12 "></span>  <span class="nv">$nota</span> <span class="o">=</span> <span class="nx">Nota</span><span class="o">::</span><span class="na">findOrFail</span><span class="p">(</span><span class="nv">$id</span><span class="p">);</span>
+<span class="linenos" data-linenos="13 "></span>  <span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;notas.show&#39;</span><span class="p">,</span> <span class="nb">compact</span><span class="p">(</span><span class="s1">&#39;nota&#39;</span><span class="p">));</span>
+<span class="linenos" data-linenos="14 "></span><span class="p">}</span>
+</code></pre></div>
+<details class="tip">
+<summary>Parámetros opcionales para filtrado con when</summary>
+<p>Cuando utilizamos <strong>where</strong> se aplica siempre la condición para realizar el filtrado, pero si depende de un parámetro que puede venir o no de un formulario de búsqueda, una variable que puede ser null o un checkbox que no se envía si no está marcado, es útil utilizar <strong>when</strong> para aplicar el where cuando sí tenga valor dicho parámetro. </p>
+<p>En el ejemplo siguiente se encadenan 2 filtros opcionales: Si viene en la petición la <em>prioridad</em> o la <em>descripción</em>, se filtra por ellos. Y si no viene alguno, no se añade su <em>where</em> a la consulta.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$notas</span> <span class="o">=</span> <span class="nx">Nota</span><span class="o">::</span><span class="na">query</span><span class="p">()</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="o">-&gt;</span><span class="na">when</span><span class="p">(</span><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">prioridad</span><span class="p">,</span> <span class="nx">fn</span> <span class="p">(</span><span class="nv">$q</span><span class="p">,</span> <span class="nv">$prioridad</span><span class="p">)</span> <span class="o">=&gt;</span>
+<span class="linenos" data-linenos="4 "></span>        <span class="nv">$q</span><span class="o">-&gt;</span><span class="na">where</span><span class="p">(</span><span class="s1">&#39;prioridad&#39;</span><span class="p">,</span> <span class="nv">$prioridad</span><span class="p">)</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="p">)</span>
+<span class="linenos" data-linenos="6 "></span>    <span class="o">-&gt;</span><span class="na">when</span><span class="p">(</span><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">descripcion</span><span class="p">,</span> <span class="nx">fn</span> <span class="p">(</span><span class="nv">$q</span><span class="p">)</span> <span class="o">=&gt;</span>
+<span class="linenos" data-linenos="7 "></span>        <span class="nv">$q</span><span class="o">-&gt;</span><span class="na">where</span><span class="p">(</span><span class="s1">&#39;descripcion&#39;</span><span class="p">,</span> <span class="s1">&#39;LIKE&#39;</span><span class="p">,</span> <span class="s2">&quot;%</span><span class="si">$descripcion</span><span class="s2">%&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="8 "></span>    <span class="p">)</span>
+<span class="linenos" data-linenos="9 "></span>    <span class="o">-&gt;</span><span class="na">get</span><span class="p">();</span>
+</code></pre></div>
+<p>El equivalente a <em>when</em> sería utilizar if de la forma tradicional:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="c1">// ...</span>
+<span class="linenos" data-linenos="3 "></span><span class="k">if</span> <span class="p">(</span><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">prioridad</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="nv">$query</span><span class="o">-&gt;</span><span class="na">where</span><span class="p">(</span><span class="s1">&#39;prioridad&#39;</span><span class="p">,</span> <span class="nv">$prioridad</span><span class="p">)</span>
+<span class="linenos" data-linenos="5 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="6 "></span><span class="c1">// ...</span>
+</code></pre></div>
+<p>Cada vez que utilizamos un <strong>where</strong> se añade una condición a la consulta como si fuera un <strong>AND</strong>. Si queremos obtener el efecto de un <strong>OR</strong> basta con sustituirlo por <strong>orWhere</strong>.</p>
+</details>
+<h5 id="3-vistas">3. Vistas<a class="headerlink" href="#3-vistas" title="Permanent link">&para;</a></h5>
+<p><code>notas/index.blade.php</code>: Vista con la tabla que pinta los datos mediante las notas pasadadas como parámetro.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Notas desde base de datos<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span>@if(session(&#39;mensaje&#39;))
+<span class="linenos" data-linenos=" 4 "></span>    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>{{ session(&#39;mensaje&#39;) }}<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 5 "></span>@endif
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="p">&lt;</span><span class="nt">table</span> <span class="na">border</span><span class="o">=</span><span class="s">&quot;1&quot;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="p">&lt;</span><span class="nt">thead</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="10 "></span>            <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Nombre<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="11 "></span>            <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Descripción<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="12 "></span>            <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Prioridad<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="13 "></span>            <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Editar<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="14 "></span>            <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Eliminar<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="15 "></span>        <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="16 "></span>    <span class="p">&lt;/</span><span class="nt">thead</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="17 "></span>
+<span class="linenos" data-linenos="18 "></span>    @foreach ($notas as $nota)
+<span class="linenos" data-linenos="19 "></span>        <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="20 "></span>            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>{{$nota-&gt;titulo}}<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="21 "></span>            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>{{$nota-&gt;descripcion}}<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="22 "></span>            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>{{$nota-&gt;prioridad}}<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="23 "></span>            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>📝<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="24 "></span>            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>❌<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="25 "></span>        <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="26 "></span>    @endforeach
+<span class="linenos" data-linenos="27 "></span><span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="28 "></span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;</span>Nueva nota<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</code></pre></div>
+<p><code>notas/show.blade.php</code>: Vista con el detalle de una nota en particular. Hace uso de la plantilla que teníamos y está dentro de la subcarpeta <em>notas</em>.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="c1">// estamos en ▓▓▓ notas/show.blade.php</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="o">@</span><span class="k">extends</span><span class="p">(</span><span class="s1">&#39;plantilla&#39;</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="o">@</span><span class="nx">section</span><span class="p">(</span><span class="s1">&#39;apartado&#39;</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 6 "></span>  <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Detalle</span> <span class="nx">de</span> <span class="nx">la</span> <span class="nx">nota</span><span class="o">&lt;/</span><span class="nx">h1</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span>  <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">ID</span><span class="o">:</span> <span class="p">{{</span> <span class="nv">$nota</span><span class="o">-&gt;</span><span class="na">id</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="nx">p</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos=" 9 "></span>  <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">Nombre</span><span class="o">:</span> <span class="p">{{</span> <span class="nv">$nota</span><span class="o">-&gt;</span><span class="na">titulo</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="nx">p</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos="10 "></span>  <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">Descripción</span><span class="o">:</span> <span class="p">{{</span> <span class="nv">$nota</span><span class="o">-&gt;</span><span class="na">descripcion</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="nx">p</span><span class="o">&gt;</span>    
+<span class="linenos" data-linenos="11 "></span>  <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">Prioridad</span><span class="o">:</span> <span class="p">{{</span> <span class="nv">$nota</span><span class="o">-&gt;</span><span class="na">prioridad</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="nx">p</span><span class="o">&gt;</span>     
+<span class="linenos" data-linenos="12 "></span><span class="o">@</span><span class="nx">endsection</span>
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Ojo con los nombres</p>
+<p>Hay que fijarse bien en los nombres de las columnas que tienen nuestras tablas, porque serán los nombres de los atributos de los objetos del modelo que utilizaremos.</p>
+</div>
+<h3 id="modificar-tablas-sin-perder-datos">Modificar tablas sin perder datos<a class="headerlink" href="#modificar-tablas-sin-perder-datos" title="Permanent link">&para;</a></h3>
+<p>A veces cometemos errores de diseño y queremos introducir una nueva columna dentro de nuestra tabla o modificar una de esas columnas <span class="alert"><strong><em>SIN PERDER LOS DATOS DE LA BASE DE DATOS</em></strong></span>.</p>
+<p>Imaginemos que en nuestra tabla <code>notas</code> queremos agregar una columna con el nombre <code>autor</code>.</p>
+<p>Lo primero de todo es crear una nueva migración para realizar este cambio mediante <em>Artisan</em> con el nombre <code>add_fields_to_</code> seguido del nombre de la tabla a modificar.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="go">php artisan migrate add_fields_to_nota</span>
+</code></pre></div>
+<p>Seguidamente, abrimos el archivo de la migración que acabamos de crear y en la función <code>up()</code> ponemos el cambio que queremos realizar y en <code>down()</code> lo eliminamos para que en caso de hacer una migración rollback, se vuelva a quedar todo como estaba.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">up</span><span class="p">()</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="p">{</span>
+<span class="linenos" data-linenos=" 5 "></span>  <span class="nx">Schema</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;notas&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nx">Blueprint</span> <span class="nv">$table</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 6 "></span>      <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">string</span><span class="p">(</span><span class="s1">&#39;autor&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 7 "></span>  <span class="p">});</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="p">}</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">down</span><span class="p">()</span>
+<span class="linenos" data-linenos="11 "></span><span class="p">{</span>
+<span class="linenos" data-linenos="12 "></span>  <span class="nx">Schema</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;notas&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nx">Blueprint</span> <span class="nv">$table</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="13 "></span>      <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">dropColumn</span><span class="p">(</span><span class="s1">&#39;autor&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos="14 "></span>  <span class="p">});</span>
+<span class="linenos" data-linenos="15 "></span><span class="p">}</span>
+</code></pre></div>
+<h2 id="86-formularios">8.6 Formularios<a class="headerlink" href="#86-formularios" title="Permanent link">&para;</a></h2>
+<p>Ya sabemos cómo recuperar datos de una base de datos. Ahora toca ver cómo insertarlos, actualizaros y eliminarlos con Laravel y sin escribir ni una sola línea de SQL.</p>
+<p>Es recomendable seguir la convención de Laravel de nombres de rutas y funciones de controladores que viemos <a href="https://elblo.github.io/dwes2425/07frameworks.html#controlador-de-recursos">aquí</a>.</p>
+<h3 id="insertar-datos_1">Insertar datos<a class="headerlink" href="#insertar-datos_1" title="Permanent link">&para;</a></h3>
+<p>Para insertar datos vamos a necesitar 2 rutas, 2 funciones en el controlador y 1 vista con el formulario:</p>
+<ul>
+<li>Con la primera ruta <code>notas/create</code> llamaremos a la función <em>create</em> del controlador que abrirá el formulario para crear una nueva nota.</li>
+<li>El formulario enviará los datos a la segunda ruta <code>notas</code> mediante <strong>POST</strong>, la cual llamará a la función <em>store</em> del controlador para crear la nota mediante el método <em>save()</em>.</li>
+</ul>
+<h5 id="1-rutas_1">1. Rutas<a class="headerlink" href="#1-rutas_1" title="Permanent link">&para;</a></h5>
+<p>Creamos las rutas GET y POST con sus alias correspondientes en nuestro archivo de rutas <code>web.php</code>. Situar la ruta <code>notas/create</code> antes de la ruta <code>notas/{id?}</code> porque si no entraría siempre en esta última.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="c1">// estamos en ▓▓▓ web.php</span>
+<span class="linenos" data-linenos="3 "></span><span class="nx">Route</span><span class="o">::</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;notas/create&#39;</span><span class="p">,</span> <span class="p">[</span> <span class="nx">NotaController</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="s1">&#39;create&#39;</span> <span class="p">])</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">(</span><span class="s1">&#39;notas.create&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos="4 "></span><span class="nx">Route</span><span class="o">::</span><span class="na">post</span><span class="p">(</span><span class="s1">&#39;notas&#39;</span><span class="p">,</span> <span class="p">[</span> <span class="nx">NotaController</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="s1">&#39;store&#39;</span> <span class="p">])</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">(</span><span class="s1">&#39;notas.store&#39;</span><span class="p">);</span>
+</code></pre></div>
+<h5 id="2-controlador_1">2. Controlador<a class="headerlink" href="#2-controlador_1" title="Permanent link">&para;</a></h5>
+<p>En el controlador creamos los 2 métodos:</p>
+<ul>
+<li><code>create</code> para abrir el formulario.</li>
+<li><code>store</code> para crear la nueva nota con los datos que le llegan del formulario mediante <em>Request</em> y almacenarla medidante <em>save()</em> y volvemos a la página del formulario con el método <em>back()</em> añadiendo un mensaje con <em>with()</em>.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="c1">// estamos en ▓▓▓ NotaController.php</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="c1">// Muestra el formulario para crear una nueva nota</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">create</span><span class="p">()</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;notas.create&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="p">}</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span><span class="c1">// Crea una nota con la info del formulario</span>
+<span class="linenos" data-linenos="10 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">store</span><span class="p">(</span><span class="nx">Request</span> <span class="nv">$request</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="c1">// Método 1</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="nv">$notaNueva</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Nota</span><span class="p">();</span>
+<span class="linenos" data-linenos="13 "></span>    <span class="nv">$notaNueva</span><span class="o">-&gt;</span><span class="na">titulo</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">titulo</span><span class="p">;</span>
+<span class="linenos" data-linenos="14 "></span>    <span class="nv">$notaNueva</span><span class="o">-&gt;</span><span class="na">descripcion</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">descripcion</span><span class="p">;</span>
+<span class="linenos" data-linenos="15 "></span>    <span class="nv">$notaNueva</span><span class="o">-&gt;</span><span class="na">prioridad</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">prioridad</span><span class="p">;</span>
+<span class="linenos" data-linenos="16 "></span>    <span class="nv">$notaNueva</span> <span class="o">-&gt;</span> <span class="na">save</span><span class="p">();</span>
+<span class="linenos" data-linenos="17 "></span>
+<span class="linenos" data-linenos="18 "></span>    <span class="c1">// Método 2</span>
+<span class="linenos" data-linenos="19 "></span>    <span class="c1">//$nota = new Nota([&#39;titulo&#39; =&gt; $titulo, &#39;descripcion&#39; =&gt; $descripcion, &#39;prioridad&#39; =&gt; $prioridad]);</span>
+<span class="linenos" data-linenos="20 "></span>    <span class="nv">$nota</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Nota</span><span class="p">(</span><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">all</span><span class="p">());</span>
+<span class="linenos" data-linenos="21 "></span>    <span class="nv">$nota</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">();</span>
+<span class="linenos" data-linenos="22 "></span>
+<span class="linenos" data-linenos="23 "></span>    <span class="c1">// Método 3</span>
+<span class="linenos" data-linenos="24 "></span>    <span class="c1">//Nota::create([&#39;titulo&#39; =&gt; $titulo, &#39;descripcion&#39; =&gt; $descripcion, &#39;prioridad&#39; =&gt; $prioridad]);</span>
+<span class="linenos" data-linenos="25 "></span>    <span class="nx">Nota</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">all</span><span class="p">());</span>
+<span class="linenos" data-linenos="26 "></span>
+<span class="linenos" data-linenos="27 "></span>    <span class="c1">// Volver al formulario para seguir insertando</span>
+<span class="linenos" data-linenos="28 "></span>    <span class="k">return</span> <span class="nx">back</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">with</span><span class="p">(</span><span class="s1">&#39;mensaje&#39;</span><span class="p">,</span> <span class="s1">&#39;Nota insertada&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos="29 "></span><span class="p">}</span>
+</code></pre></div>
+<details class="notice">
+<summary>Uso de with en vistas y rutas</summary>
+<p>No confundir el <strong>with</strong> usado para pasar datos a las vistas como vimos en la <a href="07frameworks.html#pasar-datos-a-una-vista">sección 7.6</a>, y el utilizado en rutas con <em>redirect, route, back...</em>, para pasar datos mediante la <em>sesión</em>. Ten en cuenta, que el dato que se pasa no perdura en la sesión, sólo vive una sola petición y se suele utilizar para enviar mensajes de éxito/error como el del ejemplo anterior.</p>
+<ul>
+<li>view()-&gt;with() → datos para la vista</li>
+<li>redirect()-&gt;with() → datos en sesión (flash)</li>
+</ul>
+</details>
+<h5 id="3-vista">3. Vista<a class="headerlink" href="#3-vista" title="Permanent link">&para;</a></h5>
+<p><code>notas/create.blade.php</code>: Vista con el formulario para crear una nueva nota. En el <em>action</em> se indica la ruta a la que enviar los datos por POST.</p>
+<ul>
+<li>En el <em>action</em> se indica la ruta a la que enviar los datos por POST.</li>
+<li>El atributo <em>name</em> de los inputs tiene que ser igual al del campo correspondiente de la tabla.</li>
+<li>Se usa la cláusula de seguridad <code>@csrf</code> para evitar ataques desde otros sitios. <a href="https://www.ionos.es/digitalguide/servidores/seguridad/cross-site-request-forgery/">Más info</a> sobre este ataque.</li>
+<li>Con <em>session('mensaje')</em> mostramos el mensaje que viene del controlador.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Crear nueva nota<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 2 "></span>@if (session(&#39;mensaje&#39;))
+<span class="linenos" data-linenos=" 3 "></span>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;mensaje-nota-creada&quot;</span><span class="p">&gt;</span>{{ session(&#39;mensaje&#39;) }}<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 4 "></span>@endif
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;{{ route(&#39;notas.store&#39;) }}&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;POST&quot;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 7 "></span>    @csrf {{-- Cláusula para obtener un token de formulario al enviarlo --}}
+<span class="linenos" data-linenos=" 8 "></span>    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;titulo&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Título de la nota&quot;</span> <span class="na">autofocus</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos="10 "></span>        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;descripcion&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Descripción de la nota&quot;</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos="11 "></span>        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;number&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;prioridad&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;5&quot;</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos="12 "></span>
+<span class="linenos" data-linenos="13 "></span>        <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span><span class="p">&gt;</span>Crear nueva nota<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="14 "></span>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="15 "></span><span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="16 "></span>
+<span class="linenos" data-linenos="17 "></span><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{{ route(&#39;notas.index&#39;) }}&quot;</span><span class="p">&gt;</span>Volver<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div>
+<h5 id="4-incluir-enlace-para-insertar">4. Incluir enlace para insertar<a class="headerlink" href="#4-incluir-enlace-para-insertar" title="Permanent link">&para;</a></h5>
+<p>En la vista <code>notas/index.blade.php</code> añadimos un enlace o botón que abra el formulario para crear una nueva nota.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{{ route(&#39;notas.create&#39;) }}&quot;</span><span class="p">&gt;</span>Nueva nota<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</code></pre></div>
+<h3 id="actualizar-datos_1">Actualizar datos<a class="headerlink" href="#actualizar-datos_1" title="Permanent link">&para;</a></h3>
+<p>Para actualizar, al igual que para insertar datos, vamos a necesitar 2 rutas, 2 funciones en el controlador y 1 vista con el formulario:</p>
+<ul>
+<li>Con la primera ruta <code>notas/{id}/edit</code> llamaremos a la función <em>edit</em> del controlador que abrirá el formulario para modificar la nota.</li>
+<li>El formulario enviará los datos a la segunda ruta <code>notas/{id}</code> mediante <strong>PUT</strong>, la cual llamará a la función <em>update</em> del controlador para actualizar la nota mediante el método <em>save()</em>.</li>
+</ul>
+<h5 id="1-rutas_2">1. Rutas<a class="headerlink" href="#1-rutas_2" title="Permanent link">&para;</a></h5>
+<p>Creamos las rutas GET y PUT con sus alias correspondientes en nuestro archivo de rutas <code>web.php</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="c1">// estamos en ▓▓▓ web.php</span>
+<span class="linenos" data-linenos="3 "></span><span class="nx">Route</span><span class="o">::</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;notas/{id}/edit&#39;</span><span class="p">,</span> <span class="p">[</span> <span class="nx">NotaController</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="s1">&#39;edit&#39;</span> <span class="p">])</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">(</span><span class="s1">&#39;notas.edit&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos="4 "></span><span class="nx">Route</span><span class="o">::</span><span class="na">put</span><span class="p">(</span><span class="s1">&#39;notas/{id}&#39;</span><span class="p">,</span> <span class="p">[</span> <span class="nx">NotaController</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="s1">&#39;update&#39;</span> <span class="p">])</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">(</span><span class="s1">&#39;notas.update&#39;</span><span class="p">);</span>
+</code></pre></div>
+<h5 id="2-controlador_2">2. Controlador<a class="headerlink" href="#2-controlador_2" title="Permanent link">&para;</a></h5>
+<p>En el controlador creamos los 2 métodos:</p>
+<ul>
+<li><code>edit</code> para abrir el formulario.</li>
+<li><code>update</code> para actualizar la nota con los datos que le llegan del formulario mediante <em>Request</em> y almacenarla medidante <em>save()</em> y volvemos a la página del formulario con el método <em>back()</em> añadiendo un mensaje con <em>with()</em>.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="c1">// estamos en ▓▓▓ NotaController.php</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="c1">// Muestra el formulario para editar una nota</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">edit</span><span class="p">(</span><span class="nv">$id</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="nv">$nota</span> <span class="o">=</span> <span class="nx">Nota</span><span class="o">::</span><span class="na">findOrFail</span><span class="p">(</span><span class="nv">$id</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;notas.edit&#39;</span><span class="p">,</span> <span class="nb">compact</span><span class="p">(</span><span class="s1">&#39;nota&#39;</span><span class="p">));</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="p">}</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span><span class="c1">// Almacena la info recibida del formulario de edición</span>
+<span class="linenos" data-linenos="11 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">update</span><span class="p">(</span><span class="nx">Request</span> <span class="nv">$request</span><span class="p">,</span> <span class="nv">$id</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="nv">$notaUpdate</span> <span class="o">=</span> <span class="nx">Nota</span><span class="o">::</span><span class="na">findOrFail</span><span class="p">(</span><span class="nv">$id</span><span class="p">);</span>
+<span class="linenos" data-linenos="13 "></span>    <span class="nv">$notaUpdate</span><span class="o">-&gt;</span><span class="na">titulo</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">titulo</span><span class="p">;</span>
+<span class="linenos" data-linenos="14 "></span>    <span class="nv">$notaUpdate</span><span class="o">-&gt;</span><span class="na">descripcion</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">descripcion</span><span class="p">;</span>
+<span class="linenos" data-linenos="15 "></span>    <span class="nv">$notaUpdate</span><span class="o">-&gt;</span><span class="na">prioridad</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">prioridad</span><span class="p">;</span>
+<span class="linenos" data-linenos="16 "></span>    <span class="nv">$notaUpdate</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">();</span>
+<span class="linenos" data-linenos="17 "></span>
+<span class="linenos" data-linenos="18 "></span>    <span class="c1">// Volver al listado de notas</span>
+<span class="linenos" data-linenos="19 "></span>    <span class="c1">//return redirect(&#39;/notas&#39;)-&gt;with(&#39;mensaje&#39;,&#39;Nota actualizada&#39;);</span>
+<span class="linenos" data-linenos="20 "></span>    <span class="k">return</span> <span class="nx">redirect</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">route</span><span class="p">(</span><span class="s1">&#39;notas.index&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">with</span><span class="p">(</span><span class="s1">&#39;mensaje&#39;</span><span class="p">,</span><span class="s1">&#39;Nota actualizada&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos="21 "></span><span class="p">}</span>
+</code></pre></div>
+<h5 id="3-vista_1">3. Vista<a class="headerlink" href="#3-vista_1" title="Permanent link">&para;</a></h5>
+<p><code>notas/edit.blade.php</code>: Vista con el formulario para actualizar la nota. En el <em>action</em> se indica la ruta a la que enviar los datos por POST.</p>
+<ul>
+<li>En el <em>action</em> se indica la ruta a la que enviar los datos junto al <em>id</em> de la nota.</li>
+<li>Mediante <code>@method('PUT')</code> indicamos que se haga la petición a la url del formulario mediante el método <strong>PUT</strong>, que es como la recogemos en las rutas.</li>
+<li>Se usa la cláusula de seguridad <code>@csrf</code> para evitar ataques desde otros sitios. <a href="https://www.ionos.es/digitalguide/servidores/seguridad/cross-site-request-forgery/">Más info</a> sobre este ataque.</li>
+<li>El atributo <em>name</em> de los inputs tiene que ser igual al del campo correspondiente de la tabla.</li>
+<li>Con <em>session('mensaje')</em> mostramos el mensaje que viene del controlador.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Editando la nota {{ $nota -&gt; id }}<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;{{ route(&#39;notas.update&#39;, $nota-&gt;id) }}&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;POST&quot;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 4 "></span>    @method(&#39;PUT&#39;) {{-- Necesitamos cambiar al método PUT para editar --}}
+<span class="linenos" data-linenos=" 5 "></span>    @csrf {{-- Cláusula para obtener un token de formulario al enviarlo --}}
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span>    @error(&#39;nombre&#39;)
+<span class="linenos" data-linenos=" 8 "></span>        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-red-500 text-lg mt-2&quot;</span><span class="p">&gt;</span>El nombre es obligatorio<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 9 "></span>    @enderror
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span>    @error(&#39;descripcion&#39;)
+<span class="linenos" data-linenos="12 "></span>        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-red-500 text-lg mt-2&quot;</span><span class="p">&gt;</span>La descripción es obligatoria<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="13 "></span>    @enderror
+<span class="linenos" data-linenos="14 "></span>
+<span class="linenos" data-linenos="15 "></span>    @error(&#39;prioridad&#39;)
+<span class="linenos" data-linenos="16 "></span>        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-red-500 text-lg mt-2&quot;</span><span class="p">&gt;</span>La descripción es obligatoria<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="17 "></span>    @enderror
+<span class="linenos" data-linenos="18 "></span>
+<span class="linenos" data-linenos="19 "></span>  <span class="p">&lt;</span><span class="nt">input</span>
+<span class="linenos" data-linenos="20 "></span>      <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span>
+<span class="linenos" data-linenos="21 "></span>      <span class="na">name</span><span class="o">=</span><span class="s">&quot;titulo&quot;</span>
+<span class="linenos" data-linenos="22 "></span>      <span class="na">value</span><span class="o">=</span><span class="s">&quot;{{ $nota-&gt;titulo }}&quot;</span>
+<span class="linenos" data-linenos="23 "></span>      <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Título de la nota&quot;</span>
+<span class="linenos" data-linenos="24 "></span>      <span class="na">autofocus</span>
+<span class="linenos" data-linenos="25 "></span>  <span class="p">/&gt;</span>
+<span class="linenos" data-linenos="26 "></span>  <span class="p">&lt;</span><span class="nt">input</span>
+<span class="linenos" data-linenos="27 "></span>      <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span>
+<span class="linenos" data-linenos="28 "></span>      <span class="na">name</span><span class="o">=</span><span class="s">&quot;descripcion&quot;</span>
+<span class="linenos" data-linenos="29 "></span>      <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Descripción de la nota&quot;</span>
+<span class="linenos" data-linenos="30 "></span>      <span class="na">value</span><span class="o">=</span><span class="s">&quot;{{ $nota-&gt;descripcion }}&quot;</span>
+<span class="linenos" data-linenos="31 "></span>  <span class="p">/&gt;</span>
+<span class="linenos" data-linenos="32 "></span>  <span class="p">&lt;</span><span class="nt">input</span>
+<span class="linenos" data-linenos="33 "></span>      <span class="na">type</span><span class="o">=</span><span class="s">&quot;number&quot;</span>
+<span class="linenos" data-linenos="34 "></span>      <span class="na">name</span><span class="o">=</span><span class="s">&quot;prioridad&quot;</span>
+<span class="linenos" data-linenos="35 "></span>      <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;5&quot;</span>
+<span class="linenos" data-linenos="36 "></span>      <span class="na">value</span><span class="o">=</span><span class="s">&quot;{{ $nota-&gt;prioridad }}&quot;</span>
+<span class="linenos" data-linenos="37 "></span>  <span class="p">/&gt;</span>
+<span class="linenos" data-linenos="38 "></span>
+<span class="linenos" data-linenos="39 "></span>  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span><span class="p">&gt;</span>Guardar cambios<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="40 "></span><span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="41 "></span>
+<span class="linenos" data-linenos="42 "></span><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{{ route(&#39;notas.index&#39;) }}&quot;</span><span class="p">&gt;</span>Volver<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div>
+<h5 id="4-incluir-enlace-para-editar">4. Incluir enlace para editar<a class="headerlink" href="#4-incluir-enlace-para-editar" title="Permanent link">&para;</a></h5>
+<p>En la vista <code>notas/index.blade.php</code> añadimos a cada nota que se muestra en la tabla un enlace para poder editarla.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{{ route(&#39;notas.edit&#39;, $nota-&gt;id) }}&quot;</span><span class="p">&gt;</span>📝<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+</code></pre></div>
+<h3 id="eliminar-datos_1">Eliminar datos<a class="headerlink" href="#eliminar-datos_1" title="Permanent link">&para;</a></h3>
+<p>Para insertar datos vamos a necesitar 1 ruta y 1 función en el controlador:</p>
+<ul>
+<li>Con la ruta <code>notas/{id}</code> que llega mediante <strong>DELETE</strong> llamaremos a la función <em>destroy</em> del controlador.</li>
+</ul>
+<h5 id="1-ruta">1. Ruta<a class="headerlink" href="#1-ruta" title="Permanent link">&para;</a></h5>
+<p>Creamos las rutas DELETE con su alia correspondiente en nuestro archivo de rutas <code>web.php</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="c1">// estamos en ▓▓▓ web.php</span>
+<span class="linenos" data-linenos="3 "></span><span class="nx">Route</span><span class="o">::</span><span class="na">delete</span><span class="p">(</span><span class="s1">&#39;notas/{id}&#39;</span><span class="p">,</span> <span class="p">[</span> <span class="nx">NotaController</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="s1">&#39;destroy&#39;</span> <span class="p">])</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">(</span><span class="s1">&#39;notas.destroy&#39;</span><span class="p">);</span>
+</code></pre></div>
+<h5 id="2-controlador_3">2. Controlador<a class="headerlink" href="#2-controlador_3" title="Permanent link">&para;</a></h5>
+<p>En el controlador creamos el método:
+- <code>destroy</code> que mediante el método <em>delete()</em> elimina la nota y redirige al listado de notas añadiendo un mensaje con <em>with()</em>.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="c1">// estamos en ▓▓▓ NotaController.php</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">destroy</span><span class="p">(</span><span class="nv">$id</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="nv">$notaEliminar</span> <span class="o">=</span> <span class="nx">Nota</span><span class="o">::</span><span class="na">findOrFail</span><span class="p">(</span><span class="nv">$id</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="nv">$notaEliminar</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="c1">// Volver al listado de notas</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="k">return</span> <span class="nx">back</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">with</span><span class="p">(</span><span class="s1">&#39;mensaje&#39;</span><span class="p">,</span><span class="s1">&#39;Nota eliminada&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos="10 "></span><span class="p">}</span>
+</code></pre></div>
+<h5 id="3-vista_2">3. Vista<a class="headerlink" href="#3-vista_2" title="Permanent link">&para;</a></h5>
+<p>No es necesaria ninguna vista específica 🥳</p>
+<h5 id="4-incluir-enlace-para-eliminar">4. Incluir enlace para eliminar<a class="headerlink" href="#4-incluir-enlace-para-eliminar" title="Permanent link">&para;</a></h5>
+<p>En la vista <code>notas/index.blade.php</code> añadimos un botón para cada nota que lance la ruta con el id de la nota a eliminar.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;{{ route(&#39;notas.destroy&#39;, $nota-&gt;id) }}&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;POST&quot;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="3 "></span>        @method(&#39;DELETE&#39;)
+<span class="linenos" data-linenos="4 "></span>        @csrf
+<span class="linenos" data-linenos="5 "></span>        <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span><span class="p">&gt;</span>❌<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="6 "></span>    <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="7 "></span><span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Enhorabuena!</p>
+<p>Si todo ha salido bien, habrás creado un sitio en Laravel y Eloquent capaz de hacer un <strong><em>CRUD</em></strong> con datos reales en una base de datos.</p>
+</div>
+<h2 id="87-validacion">8.7 Validación<a class="headerlink" href="#87-validacion" title="Permanent link">&para;</a></h2>
+<p>Laravel nos proporciona herramientas para poder validar en el lado del servidor los datos que el usuario introduce en los campos del formulario.</p>
+<h3 id="validacion-basica">Validación básica<a class="headerlink" href="#validacion-basica" title="Permanent link">&para;</a></h3>
+<p>La validación se hace de los campos recibidos del formulario, por lo que tenemos que utilizar los nombres (atributos <em>name</em>) que utilizamos en los campos del formulario.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="c1">// estamos en ▓▓▓ NotaController.php</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="c1">// Crea una nota con la info del formuluario</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">store</span><span class="p">(</span><span class="nx">Request</span> <span class="nv">$request</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="c1">// Validar datos recibidos del formulario mediante Request</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="nv">$request</span> <span class="o">-&gt;</span> <span class="na">validate</span><span class="p">([</span>
+<span class="linenos" data-linenos=" 8 "></span>      <span class="s1">&#39;titulo&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;required|string|min:5&#39;</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 9 "></span>      <span class="s1">&#39;descripcion&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;required|max:255&#39;</span><span class="p">,</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="p">]);</span>
+<span class="linenos" data-linenos="11 "></span>
+<span class="linenos" data-linenos="12 "></span>    <span class="c1">// ... creación de la nota</span>
+<span class="linenos" data-linenos="13 "></span>
+<span class="linenos" data-linenos="14 "></span>    <span class="c1">// Volver al formulario para seguir insertando</span>
+<span class="linenos" data-linenos="15 "></span>    <span class="k">return</span> <span class="nx">back</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">with</span><span class="p">(</span><span class="s1">&#39;mensaje&#39;</span><span class="p">,</span> <span class="s1">&#39;Nota insertada&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos="16 "></span><span class="p">}</span>
+</code></pre></div>
+<h3 id="reglas-comunes">Reglas comunes<a class="headerlink" href="#reglas-comunes" title="Permanent link">&para;</a></h3>
+<p>El listado completo de reglas se puede consultar en la <a href="https://laravel.com/docs/11.x/validation#available-validation-rules">documentación oficial</a>, aunque aquí se muestran las más comunes: </p>
+<ul>
+<li><strong>required</strong>: Campo obligatorio.</li>
+<li><strong>email</strong>: Validación de un correo electrónico.</li>
+<li><strong>min:value</strong>: Mínimo de caracteres o valor numérico.</li>
+<li><strong>max:value</strong>: Máximo de caracteres o valor numérico.</li>
+<li><strong>unique:table,column</strong>: Debe ser único en una tabla/columna. </li>
+</ul>
+<h3 id="mensajes-personalizados">Mensajes personalizados<a class="headerlink" href="#mensajes-personalizados" title="Permanent link">&para;</a></h3>
+<p>La función <em>validate()</em> admite 2 arrays:</p>
+<ol>
+<li>Listado de elementos con sus reglas de validación.</li>
+<li>Listado de mensaje personalizados según el elemento y regla.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$request</span> <span class="o">-&gt;</span> <span class="na">validate</span><span class="p">([</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="s1">&#39;titulo&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;required|string|min:5&#39;</span><span class="p">,</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="s1">&#39;descripcion&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;required|max:255&#39;</span><span class="p">,</span>
+<span class="linenos" data-linenos="5 "></span>  <span class="p">],[</span>
+<span class="linenos" data-linenos="6 "></span>    <span class="s1">&#39;titulo.required&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;El campo título es requerido&#39;</span><span class="p">,</span>
+<span class="linenos" data-linenos="7 "></span>    <span class="s1">&#39;titulo.min&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;El campo título debe tener al menos 5 caracteres&#39;</span><span class="p">,</span>
+<span class="linenos" data-linenos="8 "></span>    <span class="s1">&#39;titulo.string&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;El campo título debe ser de tipo texto&#39;</span><span class="p">,</span>
+<span class="linenos" data-linenos="9 "></span>  <span class="p">]);</span>
+</code></pre></div>
+<h3 id="mostrar-mensajes-error">Mostrar mensajes error<a class="headerlink" href="#mostrar-mensajes-error" title="Permanent link">&para;</a></h3>
+<p>Mediante la directiva <em>@error</em> en la vista del formulario, mostramos los mensajes de error (por defecto o personalizados) asociados a cada campo. Se le pasa el nombre del campo que queremos validar, y si hay un error, se mostrará el mensaje de error utilizando la variable <em>$message</em>. Útil para mostrar el mensaje de error junto a su campo correspondiente.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cm">&lt;!-- estamos en ▓▓▓ notas/create.blade.php (donde está el formulario) --&gt;</span>
+<span class="linenos" data-linenos="2 "></span>@error(&#39;titulo&#39;)
+<span class="linenos" data-linenos="3 "></span>    <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-red-500 text-xs mt-2&quot;</span><span class="p">&gt;</span> {{ $message }}<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="4 "></span>@enderror
+<span class="linenos" data-linenos="5 "></span>
+<span class="linenos" data-linenos="6 "></span><span class="cm">&lt;!-- También es posible escribir directamente el mensaje --&gt;</span>
+<span class="linenos" data-linenos="7 "></span>@error(&#39;descripcion&#39;)
+<span class="linenos" data-linenos="8 "></span>    <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-red-500 text-xs mt-2&quot;</span><span class="p">&gt;</span>No olvides rellenar la descripción.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="9 "></span>@enderror
+</code></pre></div>
+<h3 id="mantener-valor">Mantener valor<a class="headerlink" href="#mantener-valor" title="Permanent link">&para;</a></h3>
+<p>En caso de que haya un error podemos mantener el valor que tuviera el campo del formulario mediante el método <em>old()</em> de Laravel. Recibe el nombre del campo, y si hay un error, mostrará el valor que había introducido el usuario. Admite como segundo parámetro, el valor inicial del campo.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cm">&lt;!-- estamos en ▓▓▓ notas.blade.php --&gt;</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="p">&lt;</span><span class="nt">input</span>
+<span class="linenos" data-linenos=" 3 "></span>  <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span>
+<span class="linenos" data-linenos=" 4 "></span>  <span class="na">name</span><span class="o">=</span><span class="s">&quot;titulo&quot;</span>
+<span class="linenos" data-linenos=" 5 "></span>  <span class="na">value</span><span class="o">=</span><span class="s">&quot;{{ old(&#39;titulo&#39;) }}&quot;</span>
+<span class="linenos" data-linenos=" 6 "></span>  <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Título de la nota&quot;</span>
+<span class="linenos" data-linenos=" 7 "></span>  <span class="na">autofocus</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="p">/&gt;</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span><span class="cm">&lt;!-- En formularios de actualización es interesante indicar el valor inicial del campo --&gt;</span>
+<span class="linenos" data-linenos="11 "></span><span class="p">&lt;</span><span class="nt">input</span>
+<span class="linenos" data-linenos="12 "></span>  <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span>
+<span class="linenos" data-linenos="13 "></span>  <span class="na">name</span><span class="o">=</span><span class="s">&quot;titulo&quot;</span>
+<span class="linenos" data-linenos="14 "></span>  <span class="na">value</span><span class="o">=</span><span class="s">&quot;{{ old(&#39;titulo&#39;, $nota-&gt;titulo) }}&quot;</span>
+<span class="linenos" data-linenos="15 "></span>  <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Título de la nota&quot;</span>
+<span class="linenos" data-linenos="16 "></span>  <span class="na">autofocus</span>
+<span class="linenos" data-linenos="17 "></span><span class="p">/&gt;</span>
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Validación en front y back</p>
+<p>Debemos siempre <strong>validar los datos tanto en el backend</strong> (como acabamos de ver) <strong>como en el frontend</strong> con las opciones que nos da html5 mediante <em>required</em>, <em>pattern</em> o estableciedno el tipo de input apropiado: number, email, date...</p>
+</div>
+<h2 id="88-paginacion">8.8 Paginación<a class="headerlink" href="#88-paginacion" title="Permanent link">&para;</a></h2>
+<p>Para añadir paginación a nuestros resultados, Eloquent tiene el método <code>paginate()</code> donde le pasamos un número entero como parámetro para indicarle el número de resultados que queremos por página.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="c1">// estamos en ▓▓▓ NotaController.php</span>
+<span class="linenos" data-linenos="3 "></span>
+<span class="linenos" data-linenos="4 "></span><span class="c1">// Muestra listado de notas</span>
+<span class="linenos" data-linenos="5 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">index</span><span class="p">()</span> <span class="p">{</span>
+<span class="linenos" data-linenos="6 "></span>    <span class="nv">$notas</span> <span class="o">=</span> <span class="nx">Nota</span><span class="o">::</span><span class="na">paginate</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span> <span class="c1">// 3 notas por página</span>
+<span class="linenos" data-linenos="7 "></span>    <span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;notas.index&#39;</span><span class="p">,</span> <span class="nb">compact</span><span class="p">(</span><span class="s1">&#39;notas&#39;</span><span class="p">));</span>
+<span class="linenos" data-linenos="8 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Y en la vista <code>notas/index.blade.php</code>, para que muestre los enlaces para pasar de página incluimos:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>{{ $notas-&gt;links() }}<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>La librería de paginación que utiliza Laravel está situada en la carpeta <code>vendor/laravel/framework/src/illuminate/Pagination</code>. Abriendo su archivo <code>resources/views/tailwind.blade.php</code> se puede ver la estructura HTML del sistema de paginación. </p>
+<p>Aunque no es recomendable tocar la carpeta <em>vendor</em>, por practicar podríais modificar ese archivo (guardando antes una copia del mismo).</p>
+<h2 id="89-resumen">8.9 Resumen<a class="headerlink" href="#89-resumen" title="Permanent link">&para;</a></h2>
+<p>En este tema sobre <strong>Gestión de datos en Laravel</strong>, se sientan las bases para entender cómo este <em>framework</em> interactúa con las bases de datos de forma eficiente y segura.</p>
+<h3 id="i-configuracion-y-migraciones-82-83">I. Configuración y Migraciones (8.2 - 8.3)<a class="headerlink" href="#i-configuracion-y-migraciones-82-83" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Configuración:</strong> La conexión a la base de datos (MySQL, PostgreSQL, etc.) se define en el archivo <strong><code>.env</code></strong>. Para verificar que la conexión es correcta, se pueden ejecutar las migraciones iniciales con <code>php artisan migrate</code>.</li>
+<li><strong>Migraciones:</strong> Funcionan como un <strong>control de versiones para la base de datos</strong>. Permiten definir el esquema de forma programática mediante dos métodos:<ul>
+<li><strong><code>up()</code></strong>: Define los cambios a aplicar (crear tablas o columnas).</li>
+<li><strong><code>down()</code></strong>: Define cómo revertir dichos cambios.</li>
+</ul>
+</li>
+<li><strong>Comandos Artisan:</strong> Destacan <code>make:migration</code> para crear archivos, <code>migrate</code> para ejecutarlos y <code>migrate:rollback</code> para deshacer la última operación. <code>migrate:fresh</code> borra todas las tablas y las recrea desde cero.</li>
+<li><strong>Schema Builder:</strong> Es el motor para definir tablas, tipos de columnas, índices y <strong>claves foráneas</strong> (mediante <code>foreignId</code> y <code>constrained</code>).</li>
+</ul>
+<h3 id="ii-query-builder-84">II. Query Builder (8.4)<a class="headerlink" href="#ii-query-builder-84" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Concepto:</strong> Proporciona una interfaz fluida para construir consultas SQL sin escribir código SQL puro.</li>
+<li><strong>Uso:</strong> Es ideal para consultas complejas o donde el rendimiento es crítico. Utiliza métodos encadenados como <code>table()</code>, <code>select()</code>, <code>where()</code>, <code>orderBy()</code> y <code>get()</code>. También permite realizar operaciones de manipulación como <code>insert()</code>, <code>update()</code> y <code>delete()</code>.</li>
+</ul>
+<h3 id="iii-eloquent-el-orm-de-laravel-85">III. Eloquent: El ORM de Laravel (8.5)<a class="headerlink" href="#iii-eloquent-el-orm-de-laravel-85" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definición:</strong> <strong>Eloquent</strong> es un ORM (<em>Object-Relational Mapping</em>) que permite interactuar con la base de datos usando objetos. En este sistema, cada <strong>tabla</strong> se representa mediante un <strong>Modelo</strong> (clase), cada fila es una instancia y cada campo es una propiedad.</li>
+<li><strong>Modelos:</strong> Se crean con <code>php artisan make:model Nombre</code>. La opción <strong><code>-m</code></strong> crea simultáneamente la migración asociada. El nombre del modelo debe ir en singular y empezar por mayúscula.</li>
+<li><strong>Operaciones CRUD con Eloquent:</strong><ul>
+<li><strong>Recuperar:</strong> <code>all()</code>, <code>find($id)</code>, <code>findOrFail($id)</code> o <code>where()-&gt;get()</code>.</li>
+<li><strong>Insertar:</strong> Se instancia el modelo, se asignan propiedades y se usa <code>save()</code>, o bien se usa el método estático <code>create()</code> (requiere definir <code>$fillable</code> en el modelo).</li>
+<li><strong>Actualizar/Eliminar:</strong> Se localiza el registro y se aplica <code>update()</code>, <code>save()</code> o <code>delete()</code>.</li>
+</ul>
+</li>
+<li><strong>Propiedades del Modelo:</strong> Se pueden configurar aspectos como el nombre de la tabla (<code>$table</code>), la clave primaria (<code>$primaryKey</code>) o los campos protegidos de asignación masiva (<code>$guarded</code>).</li>
+</ul>
+<h3 id="iv-formularios-y-validacion-86-87">IV. Formularios y Validación (8.6 - 8.7)<a class="headerlink" href="#iv-formularios-y-validacion-86-87" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Flujo CRUD:</strong> Para gestionar datos mediante formularios, se suelen requerir rutas específicas para mostrar el formulario (GET) y para procesar la acción (POST, PUT o DELETE).</li>
+<li><strong>Seguridad:</strong> Es obligatorio incluir la directiva <strong><code>@csrf</code></strong> en los formularios para evitar ataques de falsificación de petición. Para métodos distintos a POST (como editar o eliminar), se usa <strong><code>@method('PUT')</code></strong> o <strong><code>@method('DELETE')</code></strong>.</li>
+<li><strong>Validación:</strong> Se realiza en el controlador mediante el método <strong><code>$request-&gt;validate()</code></strong>. <ul>
+<li><strong>Reglas comunes:</strong> <code>required</code>, <code>email</code>, <code>min</code>, <code>max</code> y <code>unique</code>.</li>
+<li><strong>En la Vista:</strong> Se usa <code>@error('campo')</code> para mostrar mensajes de error y la función <strong><code>old('campo')</code></strong> para mantener los valores introducidos en caso de fallo.</li>
+</ul>
+</li>
+</ul>
+<h3 id="v-paginacion-88">V. Paginación (8.8)<a class="headerlink" href="#v-paginacion-88" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Laravel facilita la división de resultados en páginas usando el método <strong><code>paginate($n)</code></strong> en el controlador en lugar de <code>all()</code> o <code>get()</code>.</li>
+<li>En la vista Blade, basta con llamar a <strong><code>$resultados-&gt;links()</code></strong> para generar automáticamente los controles de navegación.</li>
+</ul>
+<hr />
+<div class="admonition notice">
+<p class="admonition-title">Recuerda</p>
+<p><strong>Query Builder</strong> devuelve <em>arrays</em> o colecciones de datos genéricos, mientras que <strong>Eloquent</strong> devuelve instancias del modelo con todas sus funcionalidades y lógica de negocio asociadas.</p>
+</div>
+<h2 id="810-actividades">8.10 Actividades<a class="headerlink" href="#810-actividades" title="Permanent link">&para;</a></h2>
+<p>A continuación, vas a realizar una serie de ejercicios sencillos sobre cada uno de los apartados vistos en el tema. Puedes crear un proyecto nuevo o reutilizar uno existente.</p>
+<h3 id="migraciones">Migraciones<a class="headerlink" href="#migraciones" title="Permanent link">&para;</a></h3>
+<p>En este apartado vas a trabajar creando migraciones. Es importante, que aparte del código en sí, apuntes los comandos que utilizas para crearlas, eliminarlas, ejecutarlas...</p>
+<ol start="801">
+<li><strong>Crear de una tabla básica</strong>: Crea una tabla llamada productos con las siguientes columnas:</li>
+</ol>
+<ul>
+<li><em>id</em> (entero, clave primaria, auto-incremental)</li>
+<li><em>nombre</em> (string, longitud máxima de 255)</li>
+<li><em>precio</em> (decimal, 8 dígitos en total, 2 decimales)</li>
+</ul>
+<ol start="802">
+<li><strong>Añadir columnas a una tabla existente</strong>: Añade una columna <em>descripcion</em> (tipo texto) a la tabla productos.</li>
+<li><strong>Crear una tabla con claves foráneas</strong>: Crea una tabla <em>categorias</em> y una tabla <em>productos</em> donde cada producto pertenece a una categoría.</li>
+<li><strong>Modificar una tabla para añadir índices</strong>: Añade un índice único a la columna <em>nombre</em> de la tabla <em>categorias</em>.</li>
+<li><strong>Eliminar una columna de una tabla</strong>: Elimina la columna <em>descripcion</em> de la tabla <em>productos</em>.</li>
+<li><strong>Renombrar una tabla</strong>: Cambia el nombre de la tabla <em>productos</em> a <em>articulos</em>.</li>
+<li><strong>Usar valores predeterminados en una columna</strong>: Añade una columna <em>stock</em> con un valor por defecto de 0 a la tabla <em>productos</em>.</li>
+<li><strong>Crear tabla con datos iniciales</strong>: Crear tabla <em>usuarios</em> con los siguientes campos:</li>
+</ol>
+<ul>
+<li><em>id</em></li>
+<li><em>nombre</em> (string)</li>
+<li><em>email</em> (string, único)</li>
+<li><em>password</em> (string)</li>
+<li><em>created_at</em> y <em>updated_at</em></li>
+</ul>
+<p>Además, rellénala con datos iniciales mediante el seeder DatabaseSeeder (opcional, se ve en el tema siguiente).</p>
+<ol start="809">
+<li>
+<p><strong>Borrar y recrear la BDD</strong>: Utiliza los comandos de Artisan necesarios para eliminar y volver a crear todas las tablas de la BDD.</p>
+</li>
+<li>
+<p><strong>Ejercicio completo: Crear un sistema de reservas</strong>: Crea las siguientes tablas para un sistema de reservas:</p>
+</li>
+</ol>
+<ul>
+<li><em>usuarios</em> (id, nombre, email, password)</li>
+<li><em>habitaciones</em> (id, nombre, capacidad)</li>
+<li><em>reservas</em> (id, usuario_id, habitacion_id, fecha_reserva)</li>
+</ul>
+<p>Incluye claves foráneas, valores predeterminados y relación de "cascade delete".</p>
+<h3 id="query-builder">Query Builder<a class="headerlink" href="#query-builder" title="Permanent link">&para;</a></h3>
+<p>En este apartado vas a trabajar haciendo consultas directamente sobre la BDD mediante <em>Query Builder</em>. </p>
+<p>Para probar que funciona, se recomienda meter el código de cada ejercicio en una función independiente del controlador que se llamará con una ruta que te inventes (por ejemplo: <code>localhost/ejercicio820</code>).</p>
+<p>Para todos los ejercicios se va a utilizar la tabla <em>productos</em>. Si no la tienes, créala mediante una migración con los campos <em>id</em>, <em>nombre</em>, <em>precio</em>, <em>descripcion</em>.</p>
+<ol start="820">
+<li><strong>Insertar registros</strong>: Inserta un nuevo producto en la tabla. Puedes crear una ruta a la que se le pasen los parámetros <em>nombre</em>, <em>precio</em> y <em>descripcion</em>.</li>
+<li><strong>Actualizar registros</strong>: Actualiza el <em>nombre</em> de un producto por su <em>id</em> (ambos de pasan por parámetro a la ruta).</li>
+<li><strong>Actualizar registros</strong>: Actualiza el <em>precio</em> de un producto por su <em>id</em> (ambos de pasan por parámetro a la ruta).</li>
+<li><strong>Actualizar registros</strong>: Actualiza la <em>descripcion</em> de un producto por su <em>id</em> (ambos de pasan por parámetro a la ruta).</li>
+<li><strong>Eliminar registros</strong>: Elimina un producto según el <em>id</em> pasado por la ruta.</li>
+<li><strong>Eliminar registros</strong>: Elimina los productos cuyo <em>precio</em> sea inferior a 20.</li>
+<li><strong>Obtener todos los registros</strong>: Obtén todos los registros de la tabla <em>productos</em>. </li>
+<li><strong>Obtener registro por id</strong>: Obtén un registro por su <em>id</em> pasado por la ruta.</li>
+<li><strong>Seleccionar columnas específicas</strong>: Obtén solo las columnas <em>nombre</em> y <em>precio</em> de todos los registros de <em>productos</em>.</li>
+<li><strong>Filtrar registros con where</strong>: Obtén los productos cuyo precio sea mayor a 50.</li>
+<li><strong>Ordenar resultados</strong>: Ordena los productos por precio de forma descendente.</li>
+<li><strong>Paginar resultados</strong>: Pagina los productos mostrando 5 por página.</li>
+<li><strong>Consultas con varios where</strong>: Obtén productos cuyo <em>precio</em> esté entre 50 y 100, y cuya <em>descripción</em> no sea nula.</li>
+<li><strong>Contar registros</strong>: Cuenta cuántos productos tienen un <strong>precio</strong> mayor a 100.</li>
+<li><strong>Obtener el registro más caro</strong>: Obtén el producto con el <em>precio</em> más alto.</li>
+<li><strong>Ejecutar consultas crudas</strong>: Usa una consulta SQL cruda para obtener productos cuyo <em>nombre</em> contenga la palabra "Premium".</li>
+<li><strong>Consulta con uniones (join)</strong>: Crea la migración corresponediente para crear la tabla <em>categorias</em> (<em>id</em>, <em>nombre</em>) y hacer que cada producto pertenezca a una categoría. Una vez hecho, mediante Query Builder obtén el <em>nombre del producto</em> junto al <em>nombre de su categoría</em>.</li>
+<li><strong>Agrupar resultados con groupBy y having</strong>: Agrupa los productos por <em>categoría</em> y calcula el <em>precio promedio</em> por categoría, mostrando solo las categorías con un promedio mayor a 50.</li>
+<li><strong>Consultas anidadas</strong>: Encuentra el producto más caro dentro de cada categoría.</li>
+<li><strong>Ejercicio completo: CRUD con Query Builder</strong> Implementa un CRUD completo para la tabla <em>clientes</em> utilizando Query Builder:</li>
+</ol>
+<ul>
+<li><em>C</em>: Inserta nuevos clientes.</li>
+<li><em>R</em>: Obtén todos los clientes y filtra por email.</li>
+<li><em>U</em>: Actualiza el nombre de un cliente específico.</li>
+<li><em>D</em>: Elimina clientes con un email específico.</li>
+</ul>
+<h3 id="eloquent-modelos">Eloquent: Modelos<a class="headerlink" href="#eloquent-modelos" title="Permanent link">&para;</a></h3>
+<p>Antes has trabajado lanzando consultas mediante <em>Query Builder</em> directamente sobre la tabla <em>productos</em>. Ahora harás consultas parecidas, pero SIEMPRE desde el modelo mediante <em>Eloquent</em>.</p>
+<p>Para probar que funciona, se recomienda meter el código de cada ejercicio en una función independiente del controlador que se llamará con una ruta que te inventes (por ejemplo: <code>localhost/ejercicio841</code>).</p>
+<ol start="840">
+<li><strong>Crear modelo y tabla asociada</strong>: Crea el modelo <em>Producto</em> con su tabla asociada <em>productos</em> (ya la tienes del apartado anterior).</li>
+<li><strong>Inserta productos</strong>: Inserta un producto con los campos <em>nombre</em>, <em>precio</em> y <em>descripcion</em> pasados mediante parámetro por la ruta.</li>
+<li><strong>Inserta productos</strong>: Inserta un producto con los campos <em>nombre</em>, <em>precio</em> y <em>descripcion</em> pasados mediante parámetro por la ruta, pero validando previamente que su <em>precio</em> sea mayor que 50 para insertarlo realmente.</li>
+<li><strong>Actualizar productos</strong>: Actualiza el <em>nombre</em> de un producto por su <em>id</em> (ambos de pasan por parámetro a la ruta).</li>
+<li><strong>Actualizar productos</strong>: Actualiza el <em>precio</em> de un producto por su <em>id</em> (ambos de pasan por parámetro a la ruta).</li>
+<li><strong>Actualizar productos</strong>: Actualiza la <em>descripcion</em> de un producto por su <em>id</em> (ambos de pasan por parámetro a la ruta).</li>
+<li><strong>Actualizar múltiples productos</strong>: Actualiza todos los productos cuyo precio sea menor que 50, cambiando su descripcion a 'producto económico'.</li>
+<li><strong>Eliminar productos</strong>: Elimina un producto según el <em>id</em> pasado por la ruta.</li>
+<li><strong>Eliminar productos</strong>: Elimina los productos cuyo <em>precio</em> sea inferior a 20.</li>
+<li><strong>Obtener todos los productos</strong>: Obtén todos los productos de la tabla <em>productos</em>.</li>
+<li><strong>Obtener producto por id</strong>: Obtén un producto por su <em>id</em> pasado por la ruta.</li>
+<li><strong>Filtrar con where</strong>: Obtén los productos cuyo <em>precio</em> sea mayor a 50.</li>
+<li><strong>Contar el número de productos</strong>: Cuenta cuántos productos tienen un <em>precio</em> mayor a 50.</li>
+<li><strong>Ordenar resultados</strong>: Ordena los productos por <em>precio</em> de manera descendente.</li>
+<li><strong>Usar el método pluck</strong> para obtener solo los nombres de los productos.</li>
+<li><strong>Usar el método firstOrCreate</strong> para buscar un producto por su <em>nombre</em>, y si no existe, crea un nuevo producto</li>
+<li><strong>Usar el método updateOrCreate</strong> para actualizar un producto existente por su <em>nombre</em>, o crear uno nuevo si no existe.</li>
+<li><strong>Limitar resultados</strong>: Usa el método <em>take</em> para obtener solo los 5 primeros productos.</li>
+<li><strong>Paginación de resultados</strong>: Página los productos mostrando 5 por página.</li>
+<li><strong>Consulta con where y orWhere</strong>: Recupera todos los productos cuyo precio sea mayor que 100 o cuyo <em>nombre</em> contenga la palabra "Premium".</li>
+<li><strong>Ejercicio completo: CRUD con Eloquent</strong> Implementa un CRUD completo mediante Eloquent para el modelo <em>Cliente</em> que crees asociado a la tabla <em>clientes</em>:</li>
+</ol>
+<ul>
+<li><em>C</em>: Crea nuevos clientes.</li>
+<li><em>R</em>: Obtén todos los clientes y filtra por email.</li>
+<li><em>U</em>: Actualiza el nombre de un cliente específico.</li>
+<li><em>D</em>: Elimina clientes con un email específico.</li>
+</ul>
+<h3 id="formularios">Formularios<a class="headerlink" href="#formularios" title="Permanent link">&para;</a></h3>
+<p>En los siguientes ejercicios de formularios vas a realizar un CRUD de productos continuando lo que hiciste en el apartado anterior. Si tienes las clases de Productos (Modelo y Controlador) muy extensas y prefieres empezar de 0, puedes hacer los ejercicios siguientes para gestionar <em>usuarios en vez de productos</em>. Tendrías que crear previamente el modelo <em>Usuario</em> y tabla asociada <em>usuarios</em> con los campos típicos: <em>nombre</em>, <em>email</em>, <em>password</em>.</p>
+<p>En cualquier caso, recuerda nombrar correctamente las rutas, funciones en controladores y vistas siguiendo las recomendaciones de Laravel.</p>
+<ol start="870">
+<li><strong>Formulario para crear productos</strong>: Crea un formulario en el que se pidan los campos necesarios para crear un producto. Se accederá mediante <code>GET /productos/create</code> y su vista estará en <code>productos/create.blade.php</code>. El formulario se procesará mediante <code>POST /productos/store</code> redirigiendo finalmente a <code>GET /productos</code> donde se muestra el listado de productos.</li>
+<li><strong>Formulario para editar productos</strong>: Crea el formulario de edición de un producto. Se accederá mediante <code>GET /productos/{id}/edit</code> y su vista estará en <code>productos/edit.blade.php</code>. El formulario se procesará mediante <code>PUT /productos/update</code> redirigiendo finalmente a <code>GET /productos</code> donde se muestra el listado de productos.</li>
+<li><strong>Validación de datos</strong>: En las funciones correspondientes del controlador donde se reciben los datos de los formularios anteriores, añade validación a cada uno de los campos:</li>
+</ol>
+<ul>
+<li><em>nombre</em>: Requerido, tipo cadena y valor máximo 255.</li>
+<li><em>precio</em>: Requerido, tipo numérico y valor mínimo 0.</li>
+<li><em>descripcion</em>: Tipo cadena y valor máximo 1000.</li>
+</ul>
+<p>En las vistas de los 2 formularios añade mensajes de error en el caso de que los campos no pasen la validación y asigna mediante <em>old</em> el valor antiguo del campo para que el usuario no tenga que volver a escribirlo.</p>
+<ol start="873">
+<li><strong>Formulario de confirmación para eliminar productos</strong>: Crear un formulario de confirmación para eliminar un recurso. Sólo contendrá un mensaje de "¿Estás seguro que quieres eliminar el producto ID?" y un botón para proceder a eliminarlo. Se accederá mediante <code>GET /productos/{id}/destroy</code> y su vista estará en <code>productos/destroy.blade.php</code>. El formulario se procesará mediante <code>DELETE /productos/{id}</code> redirigiendo finalmente a <code>GET /productos</code> donde se muestra el listado de productos.</li>
+<li><strong>Ejercicio completo: CRUD con formularios</strong>: Continúa el CRUD del apartado anterior para añadir funciones a la gestión de <em>clientes</em>:</li>
+</ol>
+<ul>
+<li><em>C</em>: Crea nuevos clientes.</li>
+<li><em>R</em>: Obtén todos los clientes y filtra por diferentes campos.</li>
+<li><em>U</em>: Actualiza los campos de un cliente específico.</li>
+<li><em>D</em>: Elimina clientes.</li>
+</ul>
+<h3 id="practica-notas">Práctica: Notas<a class="headerlink" href="#practica-notas" title="Permanent link">&para;</a></h3>
+<p>Amplía la funcionalidad del ejemplo de <strong>Notas</strong> que se ha ido utilizando para explicar los conceptos de este tema.</p>
+<p>En primer lugar, crea un <strong>buscador de notas</strong> (formulario) en la vista de <code>notas.index</code> que lleve a la misma ruta y muestre un listado de notas filtradas según la búsqueda (título, descripción y prioridad).</p>
+<p>En segundo lugar, utiliza <strong>estilos propios</strong> para dar un color determinado a la nota según su prioridad y que la app tenga apariencia de un collage de notas al estilo de aplicaciones como Google Keep:</p>
+<figure style="align: center;">
+    <img src="imagenes/08/google_keep_example.png" width="700">
+    <figcaption>App Google Keep</figcaption>
+</figure>
+
+<p>En el tema 7, <a href="07frameworks.html#estilos-propios">apartado 7.7 CSS y JS en el cliente - Estilos propios</a> tienes las instrucciones para añadir tus propios estilos, importar tipografías y ampliar el tema de clases de tailwind.</p>
+<h3 id="practica-gestion-libros">Práctica: Gestión libros<a class="headerlink" href="#practica-gestion-libros" title="Permanent link">&para;</a></h3>
+<p>Desarrolla una app para gestionar la biblioteca personal de libros del usuario. La aplicación permitirá registrar los libros que ha leído o tiene pendientes, junto con información relevante como su opinión, el formato en el que lo posee, si lo han prestado a alguien...</p>
+<p>A continuación se detallan los requisitos. Deberás hacer las migraciones correspondientes, rutas, controlador, vistas... que necesites para su implementación.</p>
+<h4 id="requisitos">Requisitos<a class="headerlink" href="#requisitos" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Modelo Libro con los siguientes campos:</li>
+</ol>
+<ul>
+<li><em>titulo</em> (string): Nombre del libro.</li>
+<li><em>autor</em> (string): Nombre del autor.</li>
+<li><em>portada</em> (string): URL con la imagen del libro.</li>
+<li><em>genero</em> (string): Género: novela, ciencia ficción, ensayo...</li>
+<li><em>año_publicacion</em> (integer): Año en que se publicó el libro.</li>
+<li><em>formato</em> (string): Formato del libro: físico, ebook, pdf...</li>
+<li><em>estado_lectura</em> (string): Estado actual del libro: pendiente, leyendo, leído, abandonado...</li>
+<li><em>puntuacion</em> (integer, 1-10): Puntuación personal sobre el libro.</li>
+<li><em>favorito</em> (boolean): Indica si está en la lista de favoritos del usuario.</li>
+<li><em>opinion</em> (string, nullable): Opinión personal del libro.</li>
+<li><em>prestado_a</em> (string, nullable): Nombre de la persona a la que ha prestado el libro (si aplica).</li>
+<li><em>fecha_prestamo</em> (date, nullable): Fecha en la que lo prestó (si aplica).</li>
+</ul>
+<ol start="2">
+<li>Funciones CRUD:</li>
+</ol>
+<ul>
+<li>Agregar nuevos libros a la biblioteca.</li>
+<li>Editar la información de un libro.</li>
+<li>Eliminar libros.</li>
+<li>Listar todos los libros con opciones de filtrado.</li>
+</ul>
+<ol start="3">
+<li>Vistas con Blade:</li>
+</ol>
+<ul>
+<li>Listado de libros con opciones de borrado, búsqueda y filtros (por estado de lectura, género, formato, puntuación, favoritos, prestados...).</li>
+<li>Formulario para añadir y editar libros.</li>
+<li>Página de detalle de cada libro con su información completa.</li>
+<li>Utiliza estilos propios como hiciste en la práctica anterior.</li>
+</ul>
+<ol start="4">
+<li>Extras opcionales:</li>
+</ol>
+<ul>
+<li>Mostrar una alerta si un libro lleva prestado más de 30 días.</li>
+<li>Opción de paginar el listado de libros.</li>
+<li>Exportar datos a fichero CSV descargable.</li>
+<li>Gráfico simple con estadísticas de libros leídos vs pendientes.</li>
+<li>Gráfico de barras de libros leídos por año.</li>
+</ul>
+<h3 id="practica-diario-personal">Práctica: Diario personal<a class="headerlink" href="#practica-diario-personal" title="Permanent link">&para;</a></h3>
+<p>Desarrolla una app para llevar un diario personal digital. En esta aplicación, el usuario podrá realizar anotaciones en cualquier momento, organizarlas por categorías y visualizar un listado con opciones de filtrado. Una anotación puede ser cualquier cosa que se le pase por la cabeza, una idea, reflexión...</p>
+<p>A continuación se detallan los requisitos. Deberás hacer las migraciones correspondientes, rutas, controlador, vistas... que necesites para su implementación.</p>
+<h4 id="requisitos_1">Requisitos<a class="headerlink" href="#requisitos_1" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Modelo Anotacion con los siguientes campos:</li>
+</ol>
+<ul>
+<li><em>titulo</em> (string): Título de la anotación.</li>
+<li><em>contenido</em> (text): Cuerpo de la anotación.</li>
+<li><em>categoria</em> (enum: "Personal", "Trabajo", "Ideas", "Otros"): Categoría de la anotación. <a href="https://www.raullg.com/usar-enums-en-laravel-php/">INVESTIGA</a> sobre cómo utilizar un tipo enumerado</li>
+<li><em>fecha</em> (date): Fecha en la que se creó la anotación.</li>
+<li><em>favorito</em> (boolean): Indica si es una anotación destacada.</li>
+</ul>
+<ol start="2">
+<li>Funciones CRUD:</li>
+</ol>
+<ul>
+<li>Crear nuevas anotaciones.</li>
+<li>Editar y actualizar anotaciones existentes.</li>
+<li>Eliminar anotaciones.</li>
+<li>Listar todas las anotaciones con opciones de filtrado.</li>
+</ul>
+<ol start="3">
+<li>Vistas con Blade:</li>
+</ol>
+<ul>
+<li>Listado de anotaciones, con búsqueda y filtros por categoría, fecha o si está marcada como favorita.</li>
+<li>Formulario para añadir anotaciones con fecha por defecto, la de hoy.</li>
+<li>Formulario para editar anotaciones.</li>
+<li>Vista de detalle de una anotación.</li>
+<li>Utiliza estilos propios como hiciste en la práctica anterior.</li>
+</ul>
+<ol start="4">
+<li>Extras opcionales:</li>
+</ol>
+<ul>
+<li>Posibilidad de marcar una anotación como "favorita" y que se muestre destacada.</li>
+<li>Ordenar las anotaciones por fecha (más recientes primero).</li>
+<li>Implementar un calendario donde el usuario pueda ver qué días tiene anotaciones.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      2025-2026 Eladio Blanco. Licencia CC BY-NC-SA
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/eladioblanco" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.2 4.2 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.52 8.52 0 0 1-5.33 1.84q-.51 0-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:<eladio.blanco@fernando3martos.com>" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 12.13c-.15.01-.29.06-.39.17l-1 1 2.05 2 1-1c.22-.21.22-.56 0-.77l-1.24-1.23a.56.56 0 0 0-.38-.17m-2 1.75L13 19.94V22h2.06l6.06-6.07M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h7v-.89l8.24-8.22c.47-.49 1.12-.76 1.8-.76.34 0 .68.06 1 .19V6c0-1.12-.92-2-2.04-2m0 4-8 5-8-5V6l8 5 8-5"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["header.autohide", "toc.integrate", "content.tabs.link"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

