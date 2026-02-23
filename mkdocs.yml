@@ -14,7 +14,7 @@ nav:
   - "8.- Gestión de datos en Laravel": "08laravelDatos.md"
   - "9.- Laravel Avanzado": "09laravelAvanzado.md"
   - "10.- Autenticación y autorización": "10laravelAutenticacion.md"
-  # - "11.- Servicios REST": "11laravelRest.md"
+  - "11.- Servicios REST": "11laravelAPI.md"
   #- "Actividades resueltas": # Importante al ser categoría, NO enlazar a ningún md
   #  - "Tema 8": "08actividadesResueltas.md"
   #  - "Tema 9": "09actividadesResueltas.md"
