@@ -20,7 +20,7 @@
 
 # API REST con Laravel
 
-> Duración estimada: 5 sesiones
+> Duración estimada: 2 sesiones
 
 ------------------------------------------------------------------------
 
@@ -126,7 +126,7 @@ php artisan make:model Post -m
 
 Migración:
 
-``` php hl_lines="5-6" 
+``` php hl_lines="6-7" 
 <?php
 public function up(): void{
 
@@ -202,6 +202,7 @@ public function update(Request $request, Post $post){
     return $post;
 }
 ```
+
 - destroy() --> Eliminar recurso
 
 ```php
@@ -248,7 +249,7 @@ Se autentican mediante:
 - Cabeceras HTTP
 - Stateless authentication
 
-Laravel utiliza principalmente: **Laravel Sanctum*, que proporciona autenticación ligera para SPAs, aplicaciones móviles y API, lo que permite a los usuarios generar múltiples tokens con capacidades específicas.
+Laravel utiliza principalmente: **Laravel Sanctum**, que proporciona autenticación ligera para SPAs, aplicaciones móviles y API, lo que permite a los usuarios generar múltiples tokens con capacidades específicas.
 
 ### Instalación
 
@@ -314,9 +315,7 @@ public function login(Request $request){
 
 ## 11.7 Autorización en APIs (Policies)
 
-- Autenticado ≠ Autorizado
-
-Un usuario puede estar logueado, pero no tener permiso.
+Autenticado ≠ Autorizado. Un usuario puede estar logueado, pero no tener permiso para realizar una determinada acción.
 
 Laravel reutiliza:
 
@@ -393,9 +392,9 @@ return PostResource::collection(Post::all());
 
 ## 11.10 Resumen
 
-- CRUD REST\
-- Tokens Sanctum\
-- Policies\
+- CRUD REST
+- Tokens Sanctum
+- Policies
 - Resources
 
 ## 11.11 Actividades
