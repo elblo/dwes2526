@@ -390,14 +390,55 @@ return PostResource::collection(Post::all());
 - Autenticación stateless
 - Autorización mediante policies
 
-## 11.10 Resumen
+## 11.10 Postman
+
+Es aconsejable **crear una colección en Postman** con todos los endpoints de nuestra API para probarla, por ejemplo:
+
+1. Respuesta con token a petición de login:
+
+<figure style="align: center;">
+    <img src="imagenes/11/01-peticion-login.jpeg">
+    <figcaption>Respuesta en Postman a petición de login</figcaption>
+</figure>
+
+2. Respuesta con token a petición de registro:
+
+<figure style="align: center;">
+    <img src="imagenes/11/02-peticion-registro.jpeg">
+    <figcaption>Respuesta en Postman a petición de registro</figcaption>
+</figure>
+
+3. Respuesta a petición de crear producto sin enviar token:
+
+<figure style="align: center;">
+    <img src="imagenes/11/03-peticion-sin-token.jpeg">
+    <figcaption>Respuesta en Postman a petición sin adjuntar token</figcaption>
+</figure>
+
+4. Respuesta a petición de crear producto enviando token:
+   
+A. Pestaña *Authorization* con token: 
+
+<figure style="align: center;">
+    <img src="imagenes/11/04-peticion-con-token-Authorization.jpeg">
+    <figcaption>Respuesta en Postman a petición adjuntando token. Pestaña Authorization</figcaption>
+</figure>
+
+B. Pestaña *Body* con el objeto a crear:
+
+<figure style="align: center;">
+    <img src="imagenes/11/04-peticion-con-token-Body.jpeg">
+    <figcaption>Respuesta en Postman a petición adjuntando token. Pestaña Body</figcaption>
+</figure>
+
+## 11.11 Resumen
 
 - CRUD REST
 - Tokens Sanctum
 - Policies
 - Resources
 
-## 11.11 Actividades
+## 11.12 Actividades
 
 ### API Rest de productos
 
