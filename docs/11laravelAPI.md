@@ -417,14 +417,14 @@ Es aconsejable **crear una colección en Postman** con todos los endpoints de nu
 
 4. Respuesta a petición de crear producto enviando token:
    
-A. Pestaña *Authorization* con token: 
+    A. Pestaña *Authorization* con token: 
 
 <figure style="align: center;">
     <img src="imagenes/11/04-peticion-con-token-Authorization.jpeg">
     <figcaption>Respuesta en Postman a petición adjuntando token. Pestaña Authorization</figcaption>
 </figure>
 
-B. Pestaña *Body* con el objeto a crear:
+    B. Pestaña *Body* con el objeto a crear:
 
 <figure style="align: center;">
     <img src="imagenes/11/04-peticion-con-token-Body.jpeg">
@@ -433,10 +433,32 @@ B. Pestaña *Body* con el objeto a crear:
 
 ## 11.11 Resumen
 
-- CRUD REST
-- Tokens Sanctum
-- Policies
-- Resources
+Este tema aborda cómo transformar Laravel en un backend que expone datos a través de una **API REST**, permitiendo la comunicación con clientes como aplicaciones móviles o SPAs.
+
+### I. Introducción y Conceptos REST (11.1)
+
+*   **Fundamentos:** Una API REST se basa en **recursos** (como productos o usuarios) identificados por URLs únicas y manipulados mediante **verbos HTTP** (GET, POST, PUT, DELETE).
+*   **Principios:** Las comunicaciones deben ser **stateless** (sin estado/sesión), donde cada petición es independiente, y las respuestas se entregan generalmente en formato **JSON**.
+*   **Laravel como API:** El framework facilita la serialización automática a JSON, la validación de datos y la gestión de rutas específicas para estos servicios.
+
+### II. Rutas y Controladores API (11.2 - 11.3)
+
+*   **routes/api.php:** A diferencia de las rutas web, estas no utilizan sesiones, devuelven JSON por defecto y tienen el prefijo automático **/api**.
+*   **Resource Controllers:** Se pueden generar controladores optimizados para APIs con el comando `php artisan make:controller PostController --api`, eliminando los métodos que devuelven vistas (`create` y `edit`).
+*   **Estructura CRUD:** Los métodos estandarizados son **index()** (listar), **store()** (crear), **show()** (ver detalle), **update()** (actualizar) y **destroy()** (eliminar).
+
+### III. Seguridad: Sanctum y Autorización (11.5 - 11.7)
+
+*   **Laravel Sanctum:** Es el sistema estándar para **autenticación basada en tokens**, ideal para entornos stateless donde no existen las cookies de sesión.
+*   **Tokens:** Tras un login exitoso, el servidor emite un token que el cliente debe incluir en la cabecera `Authorization: Bearer TOKEN` para cada petición protegida.
+*   **Protección de rutas:** Se utiliza el middleware **`auth:sanctum`** para restringir el acceso a los endpoints.
+*   **Autorización:** Se reutilizan las **Policies** y **Gates** para asegurar que, aunque un usuario esté autenticado, solo pueda operar sobre sus propios recursos.
+
+### IV. Transformación y Buenas Prácticas (11.4, 11.8 - 11.10)
+
+*   **API Resources:** Actúan como una capa de transformación entre el modelo Eloquent y la respuesta JSON, permitiendo filtrar datos sensibles o formatear la salida.
+*   **Códigos de Estado HTTP:** Es vital devolver el código correcto para una integración profesional: **201** (creado), **401** (no autenticado), **403** (prohibido) o **422** (error de validación).
+*   **Postman:** Se recomienda crear colecciones para probar y documentar todos los endpoints, incluyendo las cabeceras de autorización.
 
 ## 11.12 Actividades
 
