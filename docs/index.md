@@ -1,7 +1,7 @@
 # Desarrollo Web en Entorno Servidor
 
 ??? info "Apuntes en construcción"
-    Estos apuntes están en constante actualización por [*Eladio Blanco*](https://x.com/eladioblanco) durante el curso 25/26.
+    Estos apuntes están en constante actualización por [*Eladio Blanco*](https://x.com/eladioblanco) durante el curso 26/27.
 
 Aquí puedes encontrar los apuntes del módulo de ***Desarrollo web en entorno servidor***, que se imparte en el segundo curso del ciclo formativo de grado superior de *Desarrollo de Aplicaciones Web*.
 
