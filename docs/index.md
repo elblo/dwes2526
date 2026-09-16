@@ -127,8 +127,9 @@ A cada criterio se le asigna un porcentaje del total de la nota final y va asoci
         * Administración de bases de datos
             * [DBeaver](https://dbeaver.io/)
         * Entorno de desarrollo
-            * [Laragon](https://laragon.org/)
+            * [Laragon](https://laragon.org/) - Windows
             * [XAMPP](https://www.apachefriends.org/es/index.html)
+            * [MAMP](https://www.mamp.info/en/mac/) - Mac
 
         * Entorno de desarrollo en contenedores
             * [Docker: Devilbox](https://devilbox.io/)
