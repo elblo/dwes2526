@@ -250,7 +250,7 @@ En la actualidad, *Apache* está perdiendo mercado respecto a Nginx (<https://ww
     * Balanceo de carga
     * Tolerancia a fallos
 * *Tomcat* (<http://tomcat.apache.org/>) es el servidor de aplicaciones *open source* y multiplataforma de referencia para una arquitectura Java.
-    * Contiende un contenedor Web Java que interpreta *Servlets* y JSP.
+    * Contiene un contenedor Web Java que interpreta *Servlets* y JSP.
 
 !!! info
     Tanto los servidores web como los servidores de aplicaciones se estudian en profundidad en el módulo de *"Despliegue de Aplicaciones Web"*.
