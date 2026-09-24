@@ -504,12 +504,16 @@ El IDE de JetBrains [PhpStorm](https://www.jetbrains.com/es-es/phpstorm/) es el 
   <figcaption>IDE PhpStorm</figcaption>
 </figure>
 
+#### Activar licencia educativa durante 1 año
+
 PhpStorm es un software de pago, aunque puedes activar la licencia gratuita durante 1 año con tu cuenta del instituto.  Desde su menú *Help > Register*.
 
 <figure>
   <img src="imagenes/01/phpstorm_licencia.png" width="500"/>
   <figcaption>Licencia educativa de PhpStorm</figcaption>
 </figure>
+
+#### Configurar servidor web local en PhpStorm
 
 Para poder ejecutar directamente nuestro proyecto y que se abra en el navegador, tenemos varias opciones en PhpStorm:
 
@@ -533,7 +537,13 @@ Para poder ejecutar directamente nuestro proyecto y que se abra en el navegador,
       <source src="videos/01/configurar-servidor-local-en-PhpStorm.m4v" type="video/mp4">
       Tu navegador no soporta vídeo.
     </video>
- 
+
+#### Activar el asistente de IA
+
+El asistente de IA te permitirá trabajar directamente en PhpStorm con agentes integrados, conectar agentes externos, ampliarlos con herramientas adicionales y elegir los modelos y servicios que mejor se adapten a tu flujo de trabajo.
+
+Más info e instrucciones para activarlo y usarlo, [aquí](https://www.jetbrains.com/help/phpstorm/ai-assistant-in-jetbrains-ides.html) y en [vídeo](https://www.youtube.com/watch?v=lTr06V9uyts).
+
 ### Eclipse
 
 Otra alternativa es utilizar [Eclipse](https://www.eclipse.org/pdt/), aunque es un entorno bastante pesado y menos usado cada vez.
