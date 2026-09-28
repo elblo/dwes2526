@@ -46,7 +46,7 @@
 * El cliente recibe el resultado generado tras interpretar el código en el servidor.
 * El código se almacena en archivo con extensión `.php`.
 
-La última versión estable es la 8.4.12, de agosto de 2025 (y ya está disponible la beta de php 8.5). Se recomienda utilizar como mínimo la versión 8.0 de php porque tiene mejor rendimiento y compatibilidad que versiones anteriores.
+La última versión estable es la 8.5, lanzada en noviembre de 2025. Se recomienda utilizar como mínimo la versión 8.0 de php porque tiene mejor rendimiento y compatibilidad que versiones anteriores.
 
 Su documentación es extensa y está traducida: <https://www.php.net/manual/es/>.
 
