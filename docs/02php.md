@@ -211,7 +211,7 @@ En ocasiones, necesitamos rodear el nombre de la variable entre llaves para pode
 ``` php
 <?php
 $color = "rojo";
-echo "El plural de $color el ${color}s";
+echo "El plural de $color es {$color}s"; // El plura de rojo es rojos
 ?>
 ```
 
