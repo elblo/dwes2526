@@ -39,7 +39,7 @@
 
 ![PHP](imagenes/02/phplogo.png){align=right & width=300}
 
-* Acrónimo de *PHP: Hypertext Preprocessor*.
+* Acrónimo de PHP: *PHP Hypertext Preprocessor*.
 * Lenguaje de propósito general, aunque su fuerte es el desarollo web.
 * Sintaxis similar a C / Java.
 * El código se ejecuta en el servidor (en *Apache* mediante *mod_php*).
