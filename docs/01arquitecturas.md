@@ -310,7 +310,7 @@ Durante las siguientes unidades vamos a estudiar PHP en profundidad.
 
 ## 1.6 Puesta en marcha
 
-Para poder trabajar con un entorno de desarrollo local, hemos de preparar nuestro entorno de desarrollo con las herramientas comentadas. A continuación se exploran diferentes soluciones que incorporan un servidor web, PHP, el SGBD... como *XAMPP*, *Laragon* o *contenedores Docker*. Pruébalas y elige aquella con la que te sientas más cómodo, pero que tenga como mínimo la versión 8.2 de PHP.
+Para poder trabajar con un entorno de desarrollo local, hemos de preparar nuestro entorno de desarrollo con las herramientas comentadas. A continuación se exploran diferentes soluciones que incorporan un servidor web, PHP, el SGBD... como *XAMPP*, *Laragon* o *contenedores Docker*, además de la *instalación local de PHP*. Pruébalas y elige aquella con la que te sientas más cómodo, pero que tenga como mínimo la versión 8.2 de PHP.
 
 ??? info "Rutas y archivos"
     Independientemente de la solución utilizada, hay que entender un par de conceptos importantes. Al final estamos utilizando un servidor web (Apache o Nginx) que sirve al navegador los archivos alojados en un determinado directorio de nuestro sistema, como por ejemplo:
@@ -325,9 +325,17 @@ Para poder trabajar con un entorno de desarrollo local, hemos de preparar nuestr
 ??? notice "Configuración del php.ini"
     Si nuestra versión de PHP es la 8.5 o posterior, podemos consultar la configuración que hemos cambiado en el `php.ini` con respecto a la original, lanzando en consola: `php -i diff`
 
+### PHP local
+
+La primera opción es instalar *PHP directamente en el sistema*. Entra en la web [php.new](https://php.new/) donde encontrarás el comando para ejecutar el script en tu sistema para instalar PHP, su servidor web integrado, Composer e incluso Laravel. Además, el propio script añade al PATH los comandos necesarios para poder utilizarlos desde cualquier ubicación.
+
+Para probar tu proyecto en el servidor web integrado, basta con que lances:
+
+```php -S localhost:8000```
+
 ### XAMPP
 
-XAMPP (https://www.apachefriends.org/es/index.html) es una distribución compuesta con el software necesario para desarrollar en entorno servidor. Se compone de las siguientes herramientas en base a sus siglas:
+[XAMPP](https://www.apachefriends.org/es/index.html) es una distribución compuesta con el software necesario para desarrollar en entorno servidor. Se compone de las siguientes herramientas en base a sus siglas:
 
 * X para el sistema operativo (de ahí que se conozca tamnbién como LAMP o WAMP).
 * A para Apache.
@@ -342,7 +350,7 @@ Desde la propia página se puede descargar el archivo ejecutable para el sistema
 
 ### Laragon
 
-Laragon (https://laragon.org/) es una herramienta similar a XAMPP (solo para Windows) pero más moderna, con más opciones y un mantenimiento más activo que el de XAMPP.
+[Laragon](https://laragon.org/) es una herramienta similar a XAMPP (solo para Windows) pero más moderna, con más opciones y un mantenimiento más activo que el de XAMPP.
 
 Si te animas a probarla, sigue estos pasos:
 
@@ -351,7 +359,7 @@ Si te animas a probarla, sigue estos pasos:
 
 ### Docker
 
-Docker (<https://www.docker.com>) es un gestor de contenedores, considerando un contenedor como un método de virtualización del sistema operativo.
+[Docker](<https://www.docker.com>) es un gestor de contenedores, considerando un contenedor como un método de virtualización del sistema operativo.
 
 El uso de contenedores requiere menos recursos que una máquina virtual, por lo tanto, su lanzamiento y detención son más rápidos que las máquinas virtuales.
 
