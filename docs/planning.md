@@ -11,10 +11,10 @@
 - [X] 2.- (4) Condiciones. Ejercicios 208-216
 - [X] 3.- (5) Bucles. Ejercicios 220-223
 - [X] 4.- (6) Ejercicios 224-228
-- [ ] 5.- (7) Arrays, asociativos. Ejercicios 230-235
-- [ ] 6.- (8) Array bidimensionales. Ejercicios 236-238
-- [ ] 7.- (9) Funciones, parámetros por defecto y con nombre. Ejercicios 240-242
-- [ ] 8.- (10) Alcance y Funciones variable. Biblioteca de funciones. Ejercicios 243-245
+- [X] 5.- (7) Arrays, asociativos. Ejercicios 230-235
+- [X] 6.- (8) Array bidimensionales. Ejercicios 236-238
+- [X] 7.- (9) Funciones, parámetros por defecto y con nombre. Ejercicios 240-242
+- [X] 8.- (10) Alcance y Funciones variable. Biblioteca de funciones. Ejercicios 243-245
 - [ ] 9.- (11) Plantillas. Ejercicios 246-247.
 - [ ] 10.- (12) Cadenas. Ejercicios 250-253
 - [ ] 11.- (13) Subcadenas. Ejercicios 254-257
