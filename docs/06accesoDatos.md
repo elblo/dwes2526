@@ -1124,19 +1124,19 @@ Desarrolla una app al estilo de ***[Chollometro](https://www.chollometro.com)***
 623. Crea la vista donde se muestren todos los chollos creados. Esta vista puede verla cualquier usuario, registrado o no en el sistema. Ten en cuenta que esta vista será la vista general de la web así que puedes llamarla `index.php` donde después aplicaremos filtros por $_GET.
 
 
-### Videoclub 6.0 
+### Alquiler de Movilidad Urbana 6.0 
 
-Por fin vamos a darle persistencia al videoclub mediante bases de datos.
+Por fin vamos a darle persistencia al sistema de alquiler de movilidad urbana mediante bases de datos.
 
-630. Crea desde phpMyAdmin una base de datos con nombre `videoclub` y un usuario con nombre `videoclub_user` con permisos únicamente sobre esta base de datos, ya sabes, por temas de seguridad. Como mínimo, necesitarás las tablas `cliente` y `soportes`. Revisa el diagrama UML del final del tema 3 para tener claro el esquema. Es posible que necesites añadir algún campo a alguna de las clases...
+630. Crea desde phpMyAdmin una base de datos con nombre `movilidad_urbana` y un usuario con nombre `movilidad_user` con permisos únicamente sobre esta base de datos, ya sabes, por temas de seguridad. Como mínimo, necesitarás las tablas `cliente` y `vehiculos`. Revisa el diagrama UML del final del tema 3 para tener claro el esquema. Es posible que necesites añadir algún campo a alguna de las clases...
 
-631. Implementa las clase `ClienteDataAccess` encapsulando en ella todo lo relativo a la comunicación con la BDD (conexión y CRUD con bindParam).
+631. Implementa la clase `ClienteDataAccess` encapsulando en ella todo lo relativo a la comunicación con la BDD (conexión y CRUD con bindParam).
 
 632. En la parte que ya tienes desarrollada relativa a la gestión de clientes, utiliza la clase anterior para dar persistencia con la BDD. Ya no necesitarás los datos de prueba que utilizabas en el index.php al principio. 
 
-633. Implementa las clase `SoporteDataAccess` encapsulando en ella todo lo relativo a la comunicación con la BDD (conexión y CRUD con bindParam).
+633. Implementa la clase `VehiculoDataAccess` encapsulando en ella todo lo relativo a la comunicación con la BDD (conexión y CRUD con bindParam).
 
-634. Ahora toca desarrollar todo lo nuevo relativo a la gestión de alquileres. Utiliza la clase anterior para dar persistencia con la BDD. Piensa muy bien cómo hacerlo antes de empezar a programar: cómo se almacenarán los soportes que son de diferente tipo, cómo marcarás los soportes que estén alquilados a un determinado cliente (en la propia tabla o en otra)...
+634. Ahora toca desarrollar todo lo nuevo relativo a la gestión de alquileres. Utiliza las clases anteriores para dar persistencia con la BDD. Piensa muy bien cómo hacerlo antes de empezar a programar: cómo se almacenarán los vehículos que son de diferente tipo, cómo marcarás los vehículos que estén alquilados a un determinado cliente (en la propia tabla o en otra)...
 
 
 <!--

@@ -1355,13 +1355,13 @@ Transforma `Persona` a una clase abstracta donde su método estático `toHtml(Pe
     * Modifica todas las clases que no son abstractas para que implementen el interfaz creado.
 
 
-### Proyecto Videoclub 1.0 (teoría hasta interfaces)
+### Proyecto Alquiler de Movilidad Urbana 1.0 (teoría hasta interfaces)
 
-En los siguientes ejercicios vamos a simular un pequeño proyecto de un Videoclub, el cual vamos a realizar mediante un desarrollo incremental y siguiendo la práctica de programación en parejas (*pair programming*).
+En los siguientes ejercicios vamos a simular un pequeño proyecto de *Alquiler de Movilidad Urbana*, el cual vamos a realizar mediante un desarrollo incremental y siguiendo la práctica de programación en parejas (*pair programming*).
 
-Antes de nada, crea un repositorio privado en GitHub y sube el proyecto actual de *Videoclub*. Una vez creado, invita a tu compañero al repositorio como colaborador.
+Antes de nada, crea un repositorio privado en GitHub y sube el proyecto actual. Una vez creado, invita a tu compañero al repositorio como colaborador.
 
-* Inicializa en local tu repostorio de git, mediante `git init`
+* Inicializa en local tu repositorio de git, mediante `git init`
 * Añade y sube los cambios a tu repositorio, mediante `git add .` y luego `git commit -m 'Inicializando proyecto'.`
 * Conecta tu repositorio con GitHub y sube los cambios (mira la instrucciones de GitHub: comandos `git remote` y `git push`).
 * Tu compañero deberá descargar el proyecto con sus credenciales.
@@ -1373,44 +1373,44 @@ Cada clase debe ir en un archivo php separado. Para facilitar su implementación
 
 <figure style="float: right;">
     <img src="imagenes/03/03p320.png" width="150">
-    <figcaption>Creamos el Soporte</figcaption>
+    <figcaption>Creamos el Vehículo</figcaption>
 </figure>
 
-320.   Crea una clase para almacenar soportes (`Soporte.php`). Esta clase será la clase padre de los diferentes soportes con los que trabaje nuestro videoclub (cintas de vídeo, videojuegos, etc...):
+320.   Crea una clase para almacenar vehículos (`Vehiculo.php`). Esta clase será la clase padre de los diferentes vehículos con los que trabaje nuestro sistema de alquiler de movilidad urbana (patinetes, bicicletas eléctricas, coches eléctricos, etc...):
 
     * Crea el constructor que inicialice sus propiedades. Fíjate que la clase no tiene métodos *setters*.
-    * Definir una constante mediante un propiedad privada denominada `IVA` con un valor del 21%. Nota: Ojo, **las constantes admiten tipos de datos a partir de PHP 8.3**.
+    * Definir una constante mediante una propiedad privada denominada `IVA` con un valor del 21%. Nota: Ojo, **las constantes admiten tipos de datos a partir de PHP 8.3**.
     * Crear un archivo (`inicio.php`) para usar las clases y copia el siguiente fragmento:
 
 === "Código de prueba"
 
     ``` php
     <?php
-    include "Soporte.php";
+    include "Vehiculo.php";
 
-    $soporte1 = new Soporte("Tenet", 22, 3); 
-    echo "<strong>" . $soporte1->titulo . "</strong>"; 
-    echo "<br>Precio: " . $soporte1->getPrecio() . " euros"; 
-    echo "<br>Precio IVA incluido: " . $soporte1->getPrecioConIVA() . " euros";
-    $soporte1->muestraResumen();
+    $vehiculo1 = new Vehiculo("Patinete Xiaomi Pro 2", 22, 3); 
+    echo "<strong>" . $vehiculo1->titulo . "</strong>"; 
+    echo "<br>Precio: " . $vehiculo1->getPrecio() . " euros"; 
+    echo "<br>Precio IVA incluido: " . $vehiculo1->getPrecioConIVA() . " euros";
+    $vehiculo1->muestraResumen();
     ```
 
 === "Navegador"
 
     <pre>
-    **Tenet**
+    **Patinete Xiaomi Pro 2**
     Precio: 3 euros
     Precio IVA incluido: 3.63 euros
-    *Tenet*
+    *Patinete Xiaomi Pro 2*
     3 € (IVA no incluido)
     </pre>
 
 <figure style="float: right;">
     <img src="imagenes/03/03p321.png" width="150">
-    <figcaption>Añadimos Cinta de Video</figcaption>
+    <figcaption>Añadimos Patinete</figcaption>
 </figure>
 
-1.     Crea la clase `CintaVideo` la cual hereda de `Soporte`. Añade el atributo `duracion` y sobreescribe tanto el contructor como el método `muestraResumen` (desde `CintaVideo` deberás llamar al método `muestraResumen` del padre).
+321. Crea la clase `Patinete` la cual hereda de `Vehiculo`. Añade el atributo `autonomiaKm` (y opcionalmente `velocidadMaxKmH`) y sobreescribe tanto el constructor como el método `muestraResumen` (desde `Patinete` deberás llamar al método `muestraResumen` del padre).
 
     Añade a `inicio.php` el código para probar la clase:
 
@@ -1418,33 +1418,33 @@ Cada clase debe ir en un archivo php separado. Para facilitar su implementación
 
     ``` php
     <?php
-    include "CintaVideo.php";
+    include "Patinete.php";
 
-    $miCinta = new CintaVideo("Los cazafantasmas", 23, 3.5, 107); 
-    echo "<strong>" . $miCinta->titulo . "</strong>"; 
-    echo "<br>Precio: " . $miCinta->getPrecio() . " euros"; 
-    echo "<br>Precio IVA incluido: " . $miCinta->getPrecioConIva() . " euros";
-    $miCinta->muestraResumen();
+    $miPatinete = new Patinete("Patinete Xiaomi Mi Electric Pro 2", 23, 3.5, 45); 
+    echo "<strong>" . $miPatinete->titulo . "</strong>"; 
+    echo "<br>Precio: " . $miPatinete->getPrecio() . " euros"; 
+    echo "<br>Precio IVA incluido: " . $miPatinete->getPrecioConIva() . " euros";
+    $miPatinete->muestraResumen();
     ```
 
 === "Navegador"
 
     <pre>
-    **Los cazafantasmas**
+    **Patinete Xiaomi Mi Electric Pro 2**
     Precio: 3.5 euros
     Precio IVA incluido: 4.06 euros
-    Película en VHS:
-    *Los cazafantasmas*
+    Patinete eléctrico:
+    *Patinete Xiaomi Mi Electric Pro 2*
     3.5 € (IVA no incluido)
-    Duración: 107 minutos
+    Autonomía: 45 km
     </pre>
 
 <figure style="float: right;">
     <img src="imagenes/03/03p322.png" width="250">
-    <figcaption>Añadimos Dvd</figcaption>
+    <figcaption>Añadimos Bicicleta Eléctrica</figcaption>
 </figure>
 
-322. Crea la clase `Dvd` la cual hereda de `Soporte`. Añade los atributos `idiomas` y `formatoPantalla`. A continuación sobreescribe tanto el contructor como el método `muestraResumen`.
+322. Crea la clase `BicicletaElectrica` la cual hereda de `Vehiculo`. Añade los atributos `marchas` y `tipo` (por ejemplo, "Urbana", "Mixta", etc.). A continuación sobreescribe tanto el constructor como el método `muestraResumen`.
 
     Añade a `inicio.php` el código para probar la clase:
 
@@ -1452,34 +1452,34 @@ Cada clase debe ir en un archivo php separado. Para facilitar su implementación
 
     ``` php
     <?php
-    include "Dvd.php";
+    include "BicicletaElectrica.php";
 
-    $miDvd = new Dvd("Origen", 24, 15, "es,en,fr", "16:9"); 
-    echo "<strong>" . $miDvd->titulo . "</strong>"; 
-    echo "<br>Precio: " . $miDvd->getPrecio() . " euros"; 
-    echo "<br>Precio IVA incluido: " . $miDvd->getPrecioConIva() . " euros";
-    $miDvd->muestraResumen();
+    $miBici = new BicicletaElectrica("Bici Eléctrica Orbea Vibe", 24, 15, 3, "Urbana"); 
+    echo "<strong>" . $miBici->titulo . "</strong>"; 
+    echo "<br>Precio: " . $miBici->getPrecio() . " euros"; 
+    echo "<br>Precio IVA incluido: " . $miBici->getPrecioConIva() . " euros";
+    $miBici->muestraResumen();
     ```
 
 === "Navegador"
 
     <pre>
-    **Origen**
+    **Bici Eléctrica Orbea Vibe**
     Precio: 15 euros
     Precio IVA incluido: 17.4 euros
-    Película en DVD:
-    *Origen*
+    Bicicleta eléctrica:
+    *Bici Eléctrica Orbea Vibe*
     15 € (IVA no incluido)
-    Idiomas:es,en,fr
-    Formato Pantalla:16:9
+    Marchas: 3
+    Tipo: Urbana
     </pre>
 
 <figure style="float: right;">
     <img src="imagenes/03/03p323.png" width="350">
-    <figcaption>Añadimos Juego</figcaption>
+    <figcaption>Añadimos Coche Eléctrico</figcaption>
 </figure>
 
-323. Crea la clase `Juego` la cual hereda de `Soporte`. Añade los atributos `consola`, `minNumJugadores` y `maxNumJugadores`. A continuación añade el método `muestraJugadoresPosibles`, el cual debe mostrar *Para un jugador*, *Para X jugadores* o *De X a Y jugadores* dependiendo de los valores de las atributos creados. Finalmente, sobreescribe tanto el contructor como el método `muestraResumen`.
+323. Crea la clase `CocheElectrico` la cual hereda de `Vehiculo`. Añade los atributos `marcaModelo`, `plazasMin` y `plazasMax`. A continuación añade el método `muestraInfoPlazas` (anteriormente asociado a los jugadores), el cual debe mostrar *Para un pasajero*, *Para X pasajeros* o *De X a Y pasajeros* dependiendo de los valores de los atributos creados. Finalmente, sobreescribe tanto el constructor como el método `muestraResumen`.
 
     Añade a `inicio.php` el código para probar la clase:
 
@@ -1487,32 +1487,32 @@ Cada clase debe ir en un archivo php separado. Para facilitar su implementación
 
     ``` php
     <?php
-    include "Juego.php";
+    include "CocheElectrico.php";
 
-    $miJuego = new Juego("The Last of Us Part II", 26, 49.99, "PS4", 1, 1); 
-    echo "<strong>" . $miJuego->titulo . "</strong>"; 
-    echo "<br>Precio: " . $miJuego->getPrecio() . " euros"; 
-    echo "<br>Precio IVA incluido: " . $miJuego->getPrecioConIva() . " euros";
-    $miJuego->muestraResumen();
+    $miCoche = new CocheElectrico("Tesla Model 3", 26, 49.99, "Tesla Model 3 Standard Range", 5, 5); 
+    echo "<strong>" . $miCoche->titulo . "</strong>"; 
+    echo "<br>Precio: " . $miCoche->getPrecio() . " euros"; 
+    echo "<br>Precio IVA incluido: " . $miCoche->getPrecioConIva() . " euros";
+    $miCoche->muestraResumen();
     ```
 
 === "Navegador"
 
     <pre>
-    **The Last of Us Part II**
+    **Tesla Model 3**
     Precio: 49.99 euros
     Precio IVA incluido: 57.9884 euros
-    Juego para: PS4
-    *The Last of Us Part II*
+    Coche eléctrico: Tesla Model 3 Standard Range
+    *Tesla Model 3*
     49.99 € (IVA no incluido)
-    Para un jugador
+    Para 5 pasajeros
     </pre>
 
 Llegados a este punto, nuestro modelo es similar al siguiente diagrama:
 
 <figure>
     <img src="imagenes/03/03videoclub1.png" width="600">
-    <figcaption>Modelo inicial de Videoclub</figcaption>
+    <figcaption>Modelo inicial de Alquiler de Movilidad Urbana</figcaption>
 </figure>
 
 <figure style="float: right;">
@@ -1520,14 +1520,14 @@ Llegados a este punto, nuestro modelo es similar al siguiente diagrama:
     <figcaption>Añadimos Cliente</figcaption>
 </figure>
 
-324. Crear la clase `Cliente`. El constructor recibirá el `nombre`, `numero` y `maxAlquilerConcurrente`, este último pudiendo ser opcional y tomando como valor por defecto 3. Tras ello, añade *getter/setter* únicamente a `numero`, y un *getter* a `numSoportesAlquilados` (este campo va a almacenar un contador del total de alquileres que ha realizado). El array de soportes alquilados contedrá instancias de clases que hereden de `Soporte`. Finalmente, añade el método `muestraResumen` que muestre el nombre y la cantidad de alquileres (tamaño del array `soportesAlquilados`).
+324. Crear la clase `Cliente`. El constructor recibirá el `nombre`, `numero` y `maxAlquilerConcurrente`, este último pudiendo ser opcional y tomando como valor por defecto 3. Tras ello, añade *getter/setter* únicamente a `numero`, y un *getter* a `numVehiculosAlquilados` (este campo va a almacenar un contador del total de alquileres que ha realizado). El array de vehículos alquilados contendrá instancias de clases que hereden de `Vehiculo`. Finalmente, añade el método `muestraResumen` que muestre el nombre y la cantidad de alquileres (tamaño del array `vehiculosAlquilados`).
 
-325. Dentro de `Cliente`, añade las siguiente operaciones:
-    * `tieneAlquilado(Soporte $s): bool` → Recorre el array de soportes y comprueba si está el soporte
-    * `alquilar(Soporte $s): bool` → Debe comprobar si ya tiene el soporte alquilado y si no ha superado el cupo de alquileres. Al alquilar, incrementará el `numSoportesAlquilados` y almacenará el soporte en el array. Para cada caso debe mostrar un mensaje informando de lo ocurrido.
+325. Dentro de `Cliente`, añade las siguientes operaciones:
+    * `tieneAlquilado(Vehiculo $v): bool` → Recorre el array de vehículos y comprueba si está el vehículo
+    * `alquilar(Vehiculo $v): bool` → Debe comprobar si ya tiene el vehículo alquilado y si no ha superado el cupo de alquileres. Al alquilar, incrementará el `numVehiculosAlquilados` y almacenará el vehículo en el array. Para cada caso debe mostrar un mensaje informando de lo ocurrido.
 
 326. Seguimos con `Cliente` para añadir las operaciones:
-    * `devolver(int $numSoporte): bool` → Debe comprobar que el soporte estaba alquilado  y actualizar la cantidad de soportes alquilados. Para cada caso debe mostrar un mensaje informando de lo ocurrido
+    * `devolver(int $numVehiculo): bool` → Debe comprobar que el vehículo estaba alquilado y actualizar la cantidad de vehículos alquilados. Para cada caso debe mostrar un mensaje informando de lo ocurrido
     * `listaAlquileres(): void` → Informa de cuantos alquileres tiene el cliente y los muestra.
 
 Crea el archivo `inicio2.php` con el siguiente código fuente para probar la clase:
@@ -1536,10 +1536,10 @@ Crea el archivo `inicio2.php` con el siguiente código fuente para probar la cla
 
     ``` php
     <?php
-    include_once "CintaVideo.php";
-    include_once "Dvd.php";
-    include_once "Juego.php";
-    include_once "Cliente.php";
+    include_once "Patinete.php";
+    include_once "BicicletaElectrica.php";
+    include_once "CocheElectrico.php";
+    include_once "Cliente.php";
 
     //instanciamos un par de objetos cliente
     $cliente1 = new Cliente("Bruce Wayne", 23);
@@ -1549,28 +1549,28 @@ Crea el archivo `inicio2.php` con el siguiente código fuente para probar la cla
     echo "<br>El identificador del cliente 1 es: " . $cliente1->getNumero();
     echo "<br>El identificador del cliente 2 es: " . $cliente2->getNumero();
 
-    //instancio algunos soportes 
-    $soporte1 = new CintaVideo("Los cazafantasmas", 23, 3.5, 107);
-    $soporte2 = new Juego("The Last of Us Part II", 26, 49.99, "PS4", 1, 1);  
-    $soporte3 = new Dvd("Origen", 24, 15, "es,en,fr", "16:9");
-    $soporte4 = new Dvd("El Imperio Contraataca", 4, 3, "es,en","16:9");
+    //instancio algunos vehículos 
+    $v1 = new Patinete("Patinete Xiaomi Pro 2", 23, 3.5, 45);
+    $v2 = new CocheElectrico("Tesla Model 3", 26, 49.99, "Tesla Model 3 SR", 5, 5);  
+    $v3 = new BicicletaElectrica("Orbea Vibe", 24, 15, 3, "Urbana");
+    $v4 = new Patinete("Ninebot Max", 4, 3, 65);
 
-    //alquilo algunos soportes
-    $cliente1->alquilar($soporte1);
-    $cliente1->alquilar($soporte2);
-    $cliente1->alquilar($soporte3);
+    //alquilo algunos vehículos
+    $cliente1->alquilar($v1);
+    $cliente1->alquilar($v2);
+    $cliente1->alquilar($v3);
 
-    //voy a intentar alquilar de nuevo un soporte que ya tiene alquilado
-    $cliente1->alquilar($soporte1);
-    //el cliente tiene 3 soportes en alquiler como máximo
-    //este soporte no lo va a poder alquilar
-    $cliente1->alquilar($soporte4);
-    //este soporte no lo tiene alquilado
+    //voy a intentar alquilar de nuevo un vehículo que ya tiene alquilado
+    $cliente1->alquilar($v1);
+    //el cliente tiene 3 vehículos en alquiler como máximo
+    //este vehículo no lo va a poder alquilar
+    $cliente1->alquilar($v4);
+    //este vehículo no lo tiene alquilado
     $cliente1->devolver(4);
-    //devuelvo un soporte que sí que tiene alquilado
+    //devuelvo un vehículo que sí que tiene alquilado
     $cliente1->devolver(2);
-    //alquilo otro soporte
-    $cliente1->alquilar($soporte4);
+    //alquilo otro vehículo
+    $cliente1->alquilar($v4);
     //listo los elementos alquilados
     $cliente1->listaAlquileres();
     //este cliente no tiene alquileres
@@ -1582,69 +1582,69 @@ Crea el archivo `inicio2.php` con el siguiente código fuente para probar la cla
     <pre>
     El identificador del cliente 1 es: 23
     El identificador del cliente 2 es: 33
-    **Alquilado soporte a**: Bruce Wayne
+    **Alquilado vehículo a**: Bruce Wayne
 
-    Película en VHS:
-    *Los cazafantasmas*
+    Patinete eléctrico:
+    *Patinete Xiaomi Pro 2*
     3.5 € (IVA no incluido)
-    Duración: 107 minutos
+    Autonomía: 45 km
 
-    **Alquilado soporte a**: Bruce Wayne
+    **Alquilado vehículo a**: Bruce Wayne
 
-    Juego para: PS4
-    *The Last of Us Part II*
+    Coche eléctrico: Tesla Model 3 SR
+    *Tesla Model 3*
     49.99 € (IVA no incluido)
-    Para un jugador
+    Para 5 pasajeros
 
-    **Alquilado soporte a**: Bruce Wayne
+    **Alquilado vehículo a**: Bruce Wayne
 
-    Película en DVD:
-    *Origen*
+    Bicicleta eléctrica:
+    *Orbea Vibe*
     15 € (IVA no incluido)
-    Idiomas:es,en,fr
-    Formato Pantalla:16:9
+    Marchas: 3
+    Tipo: Urbana
 
-    El cliente ya tiene alquilado el soporte **Los cazafantasmas**
+    El cliente ya tiene alquilado el vehículo **Patinete Xiaomi Pro 2**
 
-    Este cliente tiene 3 elementos alquilados. No puede alquilar más en este videoclub hasta que no devuelva algo
+    Este cliente tiene 3 elementos alquilados. No puede alquilar más en este sistema de movilidad hasta que no devuelva algo
 
-    No se ha podido encontrar el soporte en los alquileres de este cliente
+    No se ha podido encontrar el vehículo en los alquileres de este cliente
 
-    No se ha podido encontrar el soporte en los alquileres de este cliente
+    No se ha podido encontrar el vehículo en los alquileres de este cliente
 
-    Este cliente tiene 3 elementos alquilados. No puede alquilar más en este videoclub hasta que no devuelva algo
+    Este cliente tiene 3 elementos alquilados. No puede alquilar más en este sistema de movilidad hasta que no devuelva algo
 
-    **El cliente tiene 3 soportes alquilados**
+    **El cliente tiene 3 vehículos alquilados**
 
-    Película en VHS:
-    *Los cazafantasmas*
+    Patinete eléctrico:
+    *Patinete Xiaomi Pro 2*
     3.5 € (IVA no incluido)
-    Duración: 107 minutos
+    Autonomía: 45 km
 
-    Juego para: PS4
-    *The Last of Us Part II*
+    Coche eléctrico: Tesla Model 3 SR
+    *Tesla Model 3*
     49.99 € (IVA no incluido)
-    Para un jugador
+    Para 5 pasajeros
 
-    Película en DVD:
-    *Origen*
+    Bicicleta eléctrica:
+    *Orbea Vibe*
     15 € (IVA no incluido)
-    Idiomas:es,en,fr
-    Formato Pantalla:16:9
+    Marchas: 3
+    Tipo: Urbana
 
     Este cliente no tiene alquilado ningún elemento
     </pre>
 
-327. Llegado a este punto, vamos a relacionar los clientes y los soportes mediante la clase `Videoclub`. Así pues crea la clase que representa el gráfico, teniendo en cuenta que:
-    * `productos` es un array de `Soporte`
-    * `socios` es una array de `Cliente`
-    * Los métodos públicos de incluir algún soporte, crearán la instancia de la clase correspondiente y llamarán al método privado de `incluirProducto`, el cual es el encargado de introducirlo dentro del array.
+327. Llegado a este punto, vamos a relacionar los clientes y los vehículos mediante la clase `AlquilerMovilidad`. Así pues crea la clase que representa el gráfico, teniendo en cuenta que:
+    * `vehiculos` es un array de `Vehiculo` (también podemos mantener `productos` si así lo prefieres, pero lo ideal es usar `vehiculos`)
+    * `socios` es un array de `Cliente`
+    * Los métodos públicos de incluir algún vehículo, crearán la instancia de la clase correspondiente y llamarán al método privado de `incluirVehiculo`, el cual es el encargado de introducirlo dentro del array.
 
 El modelo completo quedará de la siguiente manera:
 
 <figure>
     <img src="imagenes/03/03videoclub2.png" width="800">
-    <figcaption>Modelo completo de Videoclub</figcaption>
+    <figcaption>Modelo completo de Alquiler de Movilidad Urbana</figcaption>
 </figure>
 
 Y para probar el proyecto, dentro `inicio3.php` colocaremos:
@@ -1653,105 +1653,98 @@ Y para probar el proyecto, dentro `inicio3.php` colocaremos:
 
     ``` php
     <?php
-    include_once "Videoclub.php"; // No incluimos nada más
+    include_once "AlquilerMovilidad.php"; // No incluimos nada más
 
-    $vc = new Videoclub("Severo 8A"); 
+    $am = new AlquilerMovilidad("Severo 8A"); 
 
-    //voy a incluir unos cuantos soportes de prueba 
-    $vc->incluirJuego("God of War", 19.99, "PS4", 1, 1); 
-    $vc->incluirJuego("The Last of Us Part II", 49.99, "PS4", 1, 1);
-    $vc->incluirDvd("Torrente", 4.5, "es","16:9"); 
-    $vc->incluirDvd("Origen", 4.5, "es,en,fr", "16:9"); 
-    $vc->incluirDvd("El Imperio Contraataca", 3, "es,en","16:9"); 
-    $vc->incluirCintaVideo("Los cazafantasmas", 3.5, 107); 
-    $vc->incluirCintaVideo("El nombre de la Rosa", 1.5, 140); 
+    //voy a incluir unos cuantos vehículos de prueba 
+    $am->incluirCocheElectrico("Tesla Model 3", 19.99, "Tesla Model 3", 5, 5); 
+    $am->incluirCocheElectrico("Nissan Leaf", 49.99, "Nissan Leaf", 5, 5);
+    $am->incluirBicicletaElectrica("Orbea Vibe", 4.5, 3, "Urbana"); 
+    $am->incluirBicicletaElectrica("Specialized Turbo", 4.5, 7, "Mixta"); 
+    $am->incluirPatinete("Ninebot Max", 3, 65); 
+    $am->incluirPatinete("Xiaomi Pro 2", 3.5, 45); 
 
-    //listo los productos 
-    $vc->listarProductos(); 
+    //listo los vehículos 
+    $am->listarVehiculos(); 
 
     //voy a crear algunos socios 
-    $vc->incluirSocio("Amancio Ortega"); 
-    $vc->incluirSocio("Pablo Picasso", 2); 
+    $am->incluirSocio("Amancio Ortega"); 
+    $am->incluirSocio("Pablo Picasso", 2); 
 
-    $vc->alquilarSocioProducto(1,2); 
-    $vc->alquilarSocioProducto(1,3); 
-    //alquilo otra vez el soporte 2 al socio 1. 
+    $am->alquilarClienteVehiculo(1,2); 
+    $am->alquilarClienteVehiculo(1,3); 
+    //alquilo otra vez el vehículo 2 al socio 1. 
     // no debe dejarme porque ya lo tiene alquilado 
-    $vc->alquilarSocioProducto(1,2); 
-    //alquilo el soporte 6 al socio 1. 
+    $am->alquilarClienteVehiculo(1,2); 
+    //alquilo el vehículo 6 al socio 1. 
     //no se puede porque el socio 1 tiene 2 alquileres como máximo 
-    $vc->alquilarSocioProducto(1,6); 
+    $am->alquilarClienteVehiculo(1,6); 
 
     //listo los socios 
-    $vc->listarSocios();
+    $am->listarSocios();
     ```
 
 === "Navegador"
 
     <pre>
-    Incluido soporte 0
-    Incluido soporte 1
-    Incluido soporte 2
-    Incluido soporte 3
-    Incluido soporte 4
-    Incluido soporte 5
-    Incluido soporte 6
+    Incluido vehículo 0
+    Incluido vehículo 1
+    Incluido vehículo 2
+    Incluido vehículo 3
+    Incluido vehículo 4
+    Incluido vehículo 5
 
-    Listado de los 7 productos disponibles:
-    1.- Juego para: PS4
-    *God of War*
+    Listado de los 6 vehículos disponibles:
+    1.- Coche eléctrico: Tesla Model 3
+    *Tesla Model 3*
     19.99 € (IVA no incluido)
-    Para un jugador
-    2.- Juego para: PS4
-    *The Last of Us Part II*
+    Para 5 pasajeros
+    2.- Coche eléctrico: Nissan Leaf
+    *Nissan Leaf*
     49.99 € (IVA no incluido)
-    Para un jugador
-    3.- Película en DVD:
-    *Torrente*
+    Para 5 pasajeros
+    3.- Bicicleta eléctrica:
+    *Orbea Vibe*
     4.5 € (IVA no incluido)
-    Idiomas:es
-    Formato Pantalla:16:9
-    4.- Película en DVD:
-    *Origen*
+    Marchas: 3
+    Tipo: Urbana
+    4.- Bicicleta eléctrica:
+    *Specialized Turbo*
     4.5 € (IVA no incluido)
-    Idiomas:es,en,fr
-    Formato Pantalla:16:9
-    5.- Película en DVD:
-    *El Imperio Contraataca*
+    Marchas: 7
+    Tipo: Mixta
+    5.- Patinete eléctrico:
+    *Ninebot Max*
     3 € (IVA no incluido)
-    Idiomas:es,en
-    Formato Pantalla:16:9
-    6.- Película en VHS:
-    *Los cazafantasmas*
+    Autonomía: 65 km
+    6.- Patinete eléctrico:
+    *Xiaomi Pro 2*
     3.5 € (IVA no incluido)
-    Duración: 107 minutos
-    7.- Película en VHS:
-    *El nombre de la Rosa*
-    1.5 € (IVA no incluido)
-    Duración: 140 minutos
+    Autonomía: 45 km
 
     Incluido socio 0
     Incluido socio 1
 
-    **Alquilado soporte a**: Pablo Picasso
+    **Alquilado vehículo a**: Pablo Picasso
 
-    Película en DVD:
-    *Torrente*
+    Bicicleta eléctrica:
+    *Orbea Vibe*
     4.5 € (IVA no incluido)
-    Idiomas:es
-    Formato Pantalla:16:9
+    Marchas: 3
+    Tipo: Urbana
 
-    ** Alquilado soporte a**: Pablo Picasso
+    **Alquilado vehículo a**: Pablo Picasso
 
-    Película en DVD:
-    *Origen*
+    Bicicleta eléctrica:
+    *Specialized Turbo*
     4.5 € (IVA no incluido)
-    Idiomas:es,en,fr
-    Formato Pantalla:16:9
+    Marchas: 7
+    Tipo: Mixta
 
-    El cliente ya tiene alquilado el soporte Torrente
+    El cliente ya tiene alquilado el vehículo Orbea Vibe
 
-    Este cliente tiene 2 elementos alquilados. No puede alquilar más en este videoclub hasta que no devuelva algo
+    Este cliente tiene 2 elementos alquilados. No puede alquilar más en este sistema de movilidad hasta que no devuelva algo
 
     Listado de 2 socios del videoclub:
     1.- **Cliente 0**: Amancio Ortega
@@ -1760,50 +1753,50 @@ Y para probar el proyecto, dentro `inicio3.php` colocaremos:
     Alquileres actuales: 2
     </pre>
 
-328. Transforma `Soporte` a una clase abstracta y comprueba que todo sigue funcionando. ¿Qué conseguimos al hacerla abstracta?
+328. Transforma `Vehiculo` a una clase abstracta y comprueba que todo sigue funcionando. ¿Qué conseguimos al hacerla abstracta?
 
-329. Crea un interfaz `Resumible`, de manera que las clases que lo implementen deben ofrecer el método `muestraResumen()`. Modifica la clase `Soporte` y haz que implemente el interfaz. ¿Hace falta que también lo implementen los hijos?
+329. Crea un interfaz `Resumible`, de manera que las clases que lo implementen deben ofrecer el método `muestraResumen()`. Modifica la clase `Vehiculo` y haz que implemente el interfaz. ¿Hace falta que también lo implementen los hijos?
 
-### Proyecto Videoclub 2.0 (teoría hasta el final)
+### Proyecto Alquiler de Movilidad Urbana 2.0 (teoría hasta el final)
 
-Antes de comenzar con la segunda parte del videoclub, crea una etiqueta mediante `git tag` con el nombre `v0.329` y sube los cambios a GitHub.
+Antes de comenzar con la segunda parte del proyecto, crea una etiqueta mediante `git tag` con el nombre `v0.329` y sube los cambios a GitHub.
 
-330. Modifica la operación de alquilar en `Videoclub`, para dar soporte al encadenamiento de métodos. 
+330. Modifica la operación de alquilar en `AlquilerMovilidad`, para dar soporte al encadenamiento de métodos. 
 Posteriormente, modifica el código de prueba para utilizar esta técnica, de tal forma que quede así:
 
 ``` php
-    $vc->alquilarSocioProducto(1,2)->alquilarSocioProducto(1,3)->alquilarSocioProducto(1,2)->alquilarSocioProducto(1,6);
+    $am->alquilarClienteVehiculo(1,2)->alquilarClienteVehiculo(1,3)->alquilarClienteVehiculo(1,2)->alquilarClienteVehiculo(1,6);
 ```
 
 331. Haciendo uso de *namespaces*:
-    * Coloca todas las clases/interfaces en `Dwes\ProyectoVideoclub`
+    * Coloca todas las clases/interfaces en `Dwes\AlquilerMovilidad`
     * Cada clase debe hacer `include_once` de los recursos que emplea
     * Coloca el/los archivos de prueba en el raíz (sin espacio de nombres)
     * Desde el archivo de pruebas, utiliza `use` para poder realizar accesos sin cualificar
     * Etiqueta los cambios como `v0.331`.
-332. Reorganiza las carpeta tal como hemos visto en los apuntes: `app`, `test` y `vendor`.
+332. Reorganiza las carpetas tal como hemos visto en los apuntes: `app`, `test` y `vendor`.
     * Crea un fichero `autoload.php` para registrar la ruta donde encontrar las clases
     * Modifica todo el código necesario, incluyendo `autoload.php` donde sea necesario y borrando los *includes* previos.
-333. A continuación vamos a crear un conjunto de excepciones de aplicación. Estas excepciones son simples, no necesitan sobreescribir ningún método. Así pues, crea la excepción de aplicación `VideoclubException` en el *namespace* `Dwes\ProyectoVideoclub\Util`.
-Posteriormente crea los siguientes hijos (deben heredar de `VideoclubException`), cada uno en su propio archivo:
-    * `SoporteYaAlquiladoException`
+333. A continuación vamos a crear un conjunto de excepciones de aplicación. Estas excepciones son simples, no necesitan sobreescribir ningún método. Así pues, crea la excepción de aplicación `AlquilerMovilidadException` (o `MovilidadException`) en el *namespace* `Dwes\AlquilerMovilidad\Util`.
+Posteriormente crea los siguientes hijos (deben heredar de `AlquilerMovilidadException`), cada uno en su propio archivo:
+    * `VehiculoYaAlquiladoException`
     * `CupoSuperadoException`
-    * `SoporteNoEncontradoException`
+    * `VehiculoNoEncontradoException`
     * `ClienteNoEncontradoException`
-334. En `Cliente`, modifica los métodos `alquilar` y `devolver`, para que hagan uso de las nuevas excepciones (lanzándolas cuando sea necesario) y funcionen como métodos encadenados. Destacar que estos métodos, no se capturar estás excepciones, sólo se lanzan.
-En `Videoclub`, modifica `alquilarSocioProducto` para capturar todas las excepciones que ahora lanza `Cliente` e informar al usuario en consecuencia.
-335. Vamos a modificar el proyecto para que el videoclub sepa qué productos están o no alquilados:
-    * En `Soporte`, crea una propiedad pública cuyo nombre sea `alquilado` que inicialmente estará a `false`. Cuando se alquile, se pondrá a `true`. Al devolver, la volveremos a poner a `false`.
-    * En `Videoclub`, crea dos nuevas propiedades y sus getters:
-        * `numProductosAlquilados`
+334. En `Cliente`, modifica los métodos `alquilar` y `devolver`, para que hagan uso de las nuevas excepciones (lanzándolas cuando sea necesario) y funcionen como métodos encadenados. Destacar que estos métodos no deben capturar estas excepciones, sólo las lanzan.
+En `AlquilerMovilidad`, modifica `alquilarClienteVehiculo` (o `alquilarSocioProducto` si mantienes ese nombre, pero lo ideal es adaptarlo) para capturar todas las excepciones que ahora lanza `Cliente` e informar al usuario en consecuencia.
+335. Vamos a modificar el proyecto para que el sistema sepa qué vehículos están o no alquilados:
+    * En `Vehiculo`, crea una propiedad pública cuyo nombre sea `alquilado` que inicialmente estará a `false`. Cuando se alquile, se pondrá a `true`. Al devolver, la volveremos a poner a `false`.
+    * En `AlquilerMovilidad`, crea dos nuevas propiedades y sus getters:
+        * `numVehiculosAlquilados`
         * `numTotalAlquileres`
-336. Crea un nuevo método en `Videoclub` llamado `alquilarSocioProductos(int numCliente, array numerosSoportes)`, el cual debe recibir un array con los números de productos a alquilar.  
-Antes de alquilarlos, debe comprobar que todos los soportes estén disponibles, de manera que si uno no lo está, no se le alquile ninguno.
-337. Crea dos nuevos métodos en `Videoclub`, y mediante la definición, deduce qué deben realizar:
-    * `devolverSocioProducto(int numCliente, int numeroSoporte)`
-    * `devolverSocioProductos(int numCliente, array numerosSoportes)`
+336. Crea un nuevo método en `AlquilerMovilidad` llamado `alquilarClienteVehiculos(int numCliente, array numerosVehiculos)`, el cual debe recibir un array con los números de vehículos a alquilar.  
+Antes de alquilarlos, debe comprobar que todos los vehículos estén disponibles, de manera que si uno no lo está, no se le alquile ninguno.
+337. Crea dos nuevos métodos en `AlquilerMovilidad`, y mediante la definición, deduce qué deben realizar:
+    * `devolverClienteVehiculo(int numCliente, int numeroVehiculo)`
+    * `devolverClienteVehiculos(int numCliente, array numerosVehiculos)`
 
     Deben soportar el encadenamiento de métodos.
-    Recuerda actualizar la propiedad `alquilado` de Soporte.
+    Recuerda actualizar la propiedad `alquilado` de `Vehiculo`.
 
 Cuando hayas realizado todos los ejercicios, crea una etiqueta mediante `git tag` con el nombre `v0.337` y sube los cambios a GitHub.

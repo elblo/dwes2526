@@ -963,16 +963,16 @@ Comprueba que si se accede directamente a cualquiera de las vistas sin tener un 
      * En las vistas, los datos se recuperan de la sesión y se *pintan* en la lista desordenada recorriendo el array correspondiente.
 436. Selecciona uno de los mecanismos de autenticación vistos en el punto 4.5 y realiza un sistema de login utilizándolo. 
 
-### Proyecto Videoclub 3.0
+### Proyecto Alquiler de Movilidad Urbana 3.0
 
-440. Para el Videoclub, vamos a crear una página `index.php` con un formulario que contenga un formulario de login/password. Se comprobarán los datos en `login.php`. Los posibles usuarios son admin/admin o usuario/usuario.
+440. Para el Alquiler de Movilidad Urbana, vamos a crear una página `index.php` con un formulario de login/password. Se comprobarán los datos en `login.php`. Los posibles usuarios son admin/admin o usuario/usuario.
     * Si el usuario es correcto, en `main.php` mostrar un mensaje de bienvenida con el nombre del usuario, junto a un enlace para cerrar la sesión, que lo llevaría de nuevo al login.
     * Si el usuario es incorrecto, debe volver a cargar el formulario dando información al usuario de acceso incorrecto.
 
-441. Si el usuario es administrador, se cargarán en la sesión los datos de soportes y clientes del videoclub que teníamos en nuestras pruebas (no mediante `include` sino copiando los datos e insertándolos en un array asociativo, el cual colocaremos posteriormente en la sesión). En unidades posteriores los obtendremos de la base de datos. En `mainAdmin.php`, además de la bienvenida, debe mostrar:
+441. Si el usuario es administrador, se cargarán en la sesión los datos de vehículos y clientes del sistema de movilidad que teníamos en nuestras pruebas (no mediante `include` sino copiando los datos e insertándolos en un array asociativo, el cual colocaremos posteriormente en la sesión). En unidades posteriores los obtendremos de la base de datos. En `mainAdmin.php`, además de la bienvenida, debe mostrar:
    
    * Listado de clientes
-   * Listado de soportes
+   * Listado de vehículos
 
 <figure style="float: right;">
     <img src="imagenes/04/04p423.png" width="400">
@@ -1000,5 +1000,5 @@ Una vez eliminado, debe volver al listado de clientes.
 
 <figure style="align: center;">
     <img src="imagenes/04/04p426.png" width="600">
-    <figcaption>Esquema navegación Videoclub 3.0</figcaption>
+    <figcaption>Esquema navegación Alquiler de Movilidad Urbana 3.0</figcaption>
 </figure>

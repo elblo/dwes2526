@@ -575,11 +575,11 @@ Veámoslo con un ejemplo. Supongamos que tenemos una clase que representa un cli
 /**
 * Clase que representa un cliente
 * 
-* El cliente se encarga de almacenar los soportes que tiene alquilado,
-* de manera que podemos alquilar y devolver productos mediante las operaciones
+* El cliente se encarga de almacenar los vehículos que tiene alquilados,
+* de manera que podemos alquilar y devolver vehículos mediante las operaciones
 * homónimas.
 * 
-* @package Dwes\Videoclub\Model
+* @package Dwes\AlquilerMovilidad\Model
 * @author Aitor Medrano <a.medrano@edu.gva.es>
 */
 class Cliente {
@@ -588,17 +588,17 @@ class Cliente {
     private string $numero;
 
     /**
-    * Colección de soportes alquilados
-    * @var array<Soporte> 
+    * Colección de vehículos alquilados
+    * @var array<Vehiculo> 
     */
-    private $soportesAlquilados[];
+    private $vehiculosAlquilados[];
 
     /**
-    * Comprueba si el soporte recibido ya lo tiene alquilado el cliente
-    * @param Soporte $soporte Soporte a comprobar
+    * Comprueba si el vehículo recibido ya lo tiene alquilado el cliente
+    * @param Vehiculo $vehiculo Vehículo a comprobar
     * @return bool true si lo tiene alquilado
     */
-    public function tieneAlquilado(Soporte $soporte) : bool { 
+    public function tieneAlquilado(Vehiculo $vehiculo) : bool { 
         // ...
     }
 ```
@@ -834,24 +834,24 @@ Las expectativas difieren de las aserciones que informan del resultado que se es
 
 ``` php
 <?php
-namespace Dwes\Videoclub\Model;
+namespace Dwes\AlquilerMovilidad\Model;
 
 use PHPUnit\Framework\TestCase;
-use Dwes\Videoclub\Model\CintaVideo;
+use Dwes\AlquilerMovilidad\Model\Patinete;
 
-class CintaVideoTest extends TestCase {
+class PatineteTest extends TestCase {
     public function testConstructor()
     {
-        $cinta = new CintaVideo("Los cazafantasmas", 23, 3.5, 107); 
-        $this->assertSame( $cinta->getNumero(), 23);
+        $patinete = new Patinete("Patinete Xiaomi Pro 2", 23, 3.5, 45); 
+        $this->assertSame( $patinete->getNumero(), 23);
     }
 
     public function testMuestraResumen()
     {
-        $cinta = new CintaVideo("Los cazafantasmas", 23, 3.5, 107);
-        $resultado = "<br>Película en VHS:";
-        $resultado .= "<br>Los cazafantasmas<br>3.5 (IVA no incluido)";
-        $resultado .= "<br>Duración: 107 minutos";
+        $patinete = new Patinete("Patinete Xiaomi Pro 2", 23, 3.5, 45);
+        $resultado = "<br>Patinete eléctrico:";
+        $resultado .= "<br>Patinete Xiaomi Pro 2<br>3.5 € (IVA no incluido)";
+        $resultado .= "<br>Autonomía: 45 km";
         // definimos la expectativa
         $this->expectOutputString($resultado);
         // invocamos al método que hará echo
@@ -873,19 +873,19 @@ El siguiente ejemplo comprueba con diferentes datos el funcionamiento de `muestr
 ``` php
 <?php
 /**
- * @dataProvider cintasProvider
+ * @dataProvider patinetesProvider
  */
 public function testMuestraResumenConProvider($titulo, $id, $precio, $duracion, $esperado)
 {
-    $cinta = new CintaVideo($titulo, $id, $precio, $duracion);
+    $patinete = new Patinete($titulo, $id, $precio, $duracion);
     $this->expectOutputString($esperado);
-    $cinta->muestraResumen();
+    $patinete->muestraResumen();
 }
 
-public function cintasProvider() {
+public function patinetesProvider() {
     return [
-        "cazafantasmas" => ["Los cazafantasmas", 23, 3.5, 107, "<br>Película en VHS:<br>Los cazafantasmas<br>3.5 €(IVA no incluido)<br>Duración: 107 minutos"],
-        "superman" => ["Superman", 24, 3, 188, "<br>Película en VHS:<br>Superman<br>3 € (IVA no incluido)<br>Duración: 188 minutos"],
+        "pro2" => ["Patinete Xiaomi Pro 2", 23, 3.5, 45, "<br>Patinete eléctrico:<br>Patinete Xiaomi Pro 2<br>3.5 € (IVA no incluido)<br>Autonomía: 45 km"],
+        "max" => ["Ninebot Max", 24, 3, 65, "<br>Patinete eléctrico:<br>Ninebot Max<br>3 € (IVA no incluido)<br>Autonomía: 65 km"],
     ];
 }
 ```
@@ -905,8 +905,8 @@ Del mismo modo que antes, primero se pone la expectativa, y luego se provoca que
 ``` php
 <?php
 public function testAlquilarCupoLleno() {
-    $soporte1 = new CintaVideo("Los cazafantasmas", 23, 3.5, 107); 
-    $soporte2 = new Juego("The Last of Us Part II", 26, 49.99, "PS4", 1, 1);
+    $v1 = new Patinete("Patinete Xiaomi Pro 2", 23, 3.5, 45); 
+    $v2 = new CocheElectrico("Tesla Model 3", 26, 49.99, "Tesla Model 3", 5, 5);
     $soporte3 = new Dvd("Origen", 24, 15, "es,en,fr", "16:9"); 
     $soporte4 = new Dvd("El Imperio Contraataca", 4, 3, "es,en","16:9"); 
 
@@ -941,11 +941,11 @@ Y posteriormente ejecutamos
 composer coverage
 ```
 
-Por ejemplo, si accedemos a la clase `CintaVideo` con la prueba que habíamos realizado anteriormente, podemos observar la cobertura que tiene al 100% y que su CRAP es 2.
+Por ejemplo, si accedemos a la clase `Patinete` con la prueba que habíamos realizado anteriormente, podemos observar la cobertura que tiene al 100% y que su CRAP es 2.
 
 <figure style="align: center;">
     <img src="imagenes/05/coverage.png">
-    <figcaption>Informe de cobertura de la clase CintaVideo</figcaption>
+    <figcaption>Informe de cobertura de la clase Patinete</figcaption>
 </figure>
 
 !!! warning "Temas pendientes"
@@ -1037,10 +1037,10 @@ En este tema sobre **Herramientas Web**, nos enfocamos en las utilidades que fac
     * Añade una propiedad denominada `hora`, la cual se inicializa únicamente como parámetro del constructor. Si la `hora` es inferior a 0 o mayor de 24, debe escribir un log de *warning* con un mensaje apropiado.
     * Modifica los métodos `saludar` y `despedir` para hacerlo acorde a la propiedad `hora` (buenos días, buenas tardes, hasta mañana, etc...)
 
-### Proyecto Videoclub 4.0
+### Proyecto Alquiler de Movilidad Urbana 4.0
 
 511. Como ya tenemos *Composer* instalado:
-    * Inicialízalo dentro de tu proyecto *Videoclub*
+    * Inicialízalo dentro de tu proyecto *Alquiler de Movilidad Urbana*
     * Incluye *Resend*, *Monolog* y *PhpUnit*, cada una en su lugar adecuado.
     * Añade el *autoload* al archivo `composer.json`, y haz los cambios necesarios en las clases para utilizar el *autoload* de *Composer*.
     * Sube los cambios a *GitHub* y crea la etiqueta `v0.511`.
@@ -1048,16 +1048,16 @@ En este tema sobre **Herramientas Web**, nos enfocamos en las utilidades que fac
 512. Modifica `createCliente.php` para que una vez reciba los datos del formulario de registro y los valide, envíe un correo de confirmación antes de crear realmente el usuario y almacenarlo en la sesión. El correo contendrá un enlace con la información del usuario y un campo específico del tipo: `.../createCliente.php?validado=1&nombre=...`. Así se podrá comprobar que llega desde el correo para para proceder a crear el cliente y volver a cargar `mainAdmin.php` donde se podrá ver el cliente insertado.
 
 513. Modifica la clase `Cliente` para introducir un `Logger` de *Monolog*.
-    * Añade el log como una propiedad de la clase e inicialízalo en el constructor, con el nombre del canal `VideoclubLogger`.
-    * Se debe almacenar en `logs/videoclub.log` mostrando todos los mensajes desde *debug*.
+    * Añade el log como una propiedad de la clase e inicialízalo en el constructor, con el nombre del canal `MovilidadLogger`.
+    * Se debe almacenar en `logs/movilidad.log` mostrando todos los mensajes desde *debug*.
     * Antes de lanzar cualquier excepción, debe escribir un log de tipo *warning*.
     * Sustituir los `echo` que haya en el código, que ahora pasarán por el log con el nivel info, a excepción del método `muestraResumen` que seguirá haciendo `echo`.
 
-514. Vuelve a hacer lo mismo que en el ejercicio anterior, pero ahora con la clase `Videoclub`. Además:
+514. Vuelve a hacer lo mismo que en el ejercicio anterior, pero ahora con la clase `AlquilerMovilidad`. Además:
     * Siempre que se llame a un método del log, se le pasará como segundo parámetro la información que dispongamos.
     * Ejecuta el archivo de prueba y comprueba que el log se rellena correctamente.
 
-515. Vamos a refactorizar el código común de inicialización de *Monolog* que tenemos repetidos en los constructores a una factoría de *Monolog*, la cual colocaremos en `\Dwes\Videoclub\Util\LogFactory`. Comprueba que sigue funcionando correctamente.
+515. Vamos a refactorizar el código común de inicialización de *Monolog* que tenemos repetidos en los constructores a una factoría de *Monolog*, la cual colocaremos en `\Dwes\AlquilerMovilidad\Util\LogFactory`. Comprueba que sigue funcionando correctamente.
 
 516. Modifica la factoría para que devuelva `LogInterface` y comprueba que sigue funcionando. Sube los cambios a GitHub con la etiqueta `v0.516`.
 
@@ -1066,15 +1066,15 @@ En este tema sobre **Herramientas Web**, nos enfocamos en las utilidades que fac
 521. Comprueba que en el contenedor de Docker funciona *phpDocumentor*.
 Ejecuta phpdoc sobre tu proyecto *Monolog* y comprueba el api que se crea.
 Comenta tanto la clase como los métodos, y posteriormente, vuelve a ejecutar phpdoc.
-522. Documenta el proyecto *Videoclub*, y genera la documentación. Empieza por las clases de `Soporte` y sus hijos. Comprueba el resultado. Luego sigue con `Cliente` y finalmente `Videoclub`.
+522. Documenta el proyecto *Alquiler de Movilidad Urbana*, y genera la documentación. Empieza por las clases de `Vehiculo` y sus hijos. Comprueba el resultado. Luego sigue con `Cliente` y finalmente `AlquilerMovilidad`.
 
 ### Web Scraping
 
 531. A partir de los datos de <http://www.seleccionbaloncesto.es>, calcula la altura y edad media del equipo de baloncesto masculino. Observa que tienes los datos dentro de una tabla debajo de las noticias.
 
-532. Volviendo al Videoclub, en `Soporte` añade una propiedad llamada `metacritic` para almacenar la URL de cada soporte. A continuación, modifica los métodos `incluirXXX` de `Videoclub` para que admitan como primer parámetro dicha URL. Tras ello, modifica el fichero `inicio3.php` para pasarle la URL  de cada soporte (para ello deberás consultarlos en Metacritic haciendo búsquedas manuales). Por ejemplo, en el caso de la película Cazafantasmas, su URL es <https://www.metacritic.com/movie/ghostbusters>.
+532. Volviendo al proyecto, en `Vehiculo` añade una propiedad llamada `urlFicha` para almacenar la URL de información del vehículo. A continuación, modifica los métodos `incluirXXX` de `AlquilerMovilidad` para que admitan como primer parámetro dicha URL. Tras ello, modifica el fichero `inicio3.php` para pasarle la URL de cada vehículo.
 
-533. Finalmente, añade un método abstracto en `Soporte` llamado `getPuntuacion`, que haciendo uso de *Web Scraping* se conecte a *Metacritic* y obtenga su puntuación. Modifica `inicio3.php` para obtener todos los alquileres de un cliente mediante `getAlquileres() : array`, y para cada uno de ellos, además del título, muestra su puntuación.
+533. Finalmente, añade un método abstracto en `Vehiculo` llamado `getPuntuacion`, que haciendo uso de *Web Scraping* se conecte a la URL indicada y obtenga su puntuación/valoración. Modifica `inicio3.php` para obtener todos los alquileres de un cliente mediante `getAlquileres() : array`, y para cada uno de ellos, además del título, muestra su puntuación.
 
 ### phpUnit
 
@@ -1097,19 +1097,19 @@ Ahora debe lanzar una excepción de tipo `InvalidArgumentException` (como la exc
 
 545. Comenta la última prueba realizada (la comprobación de las excepciones) y realiza un informe de cobertura de pruebas. Analiza los resultados obtenidos. Elimina los últimos comentarios sobre la última prueba y vuelve a generar y analizar el informe de cobertura.
 
-### Proyecto Videoclub 5.0
+### Proyecto Alquiler de Movilidad Urbana 5.0
 
 El objetivo de los siguientes ejercicios es conseguir de manera incremental una cobertura de pruebas superior al 95%.
 
-551. Crea pruebas dentro de la carpeta `tests` para las clases `Soporte`, `CintaVideo`, `Dvd` y `Juego`.
+551. Crea pruebas dentro de la carpeta `tests` para las clases `Vehiculo`, `Patinete`, `BicicletaElectrica` y `CocheElectrico`.
 Recuerda respetar el espacio de nombres.
 Los métodos `muestraResumen`, tras hacer echo de los mensajes, deben devolver una cadena con el propio mensaje.
 
 552. Crea pruebas para la clase `Cliente`, aprovechando todo el código que teníamos para comprobar la funcionalidad.
 Utiliza proveedores de datos para añadir conjuntos de datos mayores que los empleados.
-Comprueba que funciona con diferentes cupos, que al intentar alquilar un soporte marcado como ya alquilado debe lanzar una excepción, que no coincidan los ids de los soportes, etc...
+Comprueba que funciona con diferentes cupos, que al intentar alquilar un vehículo marcado como ya alquilado debe lanzar una excepción, que no coincidan los ids de los vehículos, etc...
 
-553. Crea las pruebas para la clase `Videoclub`. Ten en cuenta los últimos métodos añadidos que permitían alquilar y devolver soportes, tanto de manera individual como mediante un array.
+553. Crea las pruebas para la clase `AlquilerMovilidad`. Ten en cuenta los últimos métodos añadidos que permitían alquilar y devolver vehículos, tanto de manera individual como mediante un array.
 
 554. Crea el informe de cobertura. Una vez creado, analiza los datos de cobertura (>= 90%) y comprueba el valor de CRAP, de manera que siempre sea <= 5.
 En caso de no cumplirse, crea nuevos casos de prueba y/o refactoriza el código de tu aplicación.
@@ -1118,17 +1118,15 @@ Sube los cambios a GitHub con la etiqueta `v0.554`.
 
 ### Ampliación
 
-561. Queremos que en `Videoclub`, cuando un cliente no existe (tanto al alquilar como al devolver) se lance una nueva excepción: `ClienteNoExisteException`.
-Además, dado el número creciente de excepciones, queremos mover las excepciones al namespace `Dwes\Videoclub\Exception`.  
+561. Queremos que en `AlquilerMovilidad`, cuando un cliente no existe (tanto al alquilar como al devolver) se lance una nueva excepción: `ClienteNoExisteException`.
+Además, dado el número creciente de excepciones, queremos mover las excepciones al namespace `Dwes\AlquilerMovilidad\Exception`.  
 Siguiendo TDD, primero crea las pruebas, y luego modifica el código de aplicación.  
 Vuelve a generar el informe de cobertura y comprueba la calidad de nuestras pruebas.
 
-562. ¿Nadie se ha dado cuenta que en los Dvd no estamos almacenando su duración?
-Haz todos los cambios necesarios, primero en las pruebas y luego en el código.
+562. Añade atributos relevantes a las clases hijas si lo consideras necesario (por ejemplo, autonomía o información específica) y haz todos los cambios necesarios, primero en las pruebas y luego en el código.
 
-563. Tras años luchando contra la tecnología, decidimos introducir los Blu-ray en nuestra empresa.
-Hemos decido que `Bluray` herede de `Soporte`.
-Además del `título` y la `duracion`, nos interesa almacenar si `es4k`.
+563. Amplía el sistema con una nueva clase de vehículo: `MotoElectrica` que herede de `Vehiculo`.
+Añade los atributos que consideres oportunos (por ejemplo, `autonomiaKm`, `esDeportiva`).
 Haz todos los cambios necesarios, primero en las pruebas y luego en el código.
 
 Sube los cambios a GitHub con la etiqueta `v0.563`.
