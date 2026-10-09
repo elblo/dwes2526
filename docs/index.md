@@ -62,7 +62,6 @@ Duración estimada: 76 horas
     * *SQL*
     * *PDO*
     * Ficheros CSV y PDF.
-    * Proyecto Alquiler de Movilidad Urbana 6.0
 
 ### Segunda evaluación
 
